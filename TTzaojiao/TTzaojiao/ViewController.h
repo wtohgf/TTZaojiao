@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SKSplashView.h"
 
-@interface ViewController : UIViewController <SKSplashDelegate>
+@interface ViewController : UIViewController
 
 
 @end

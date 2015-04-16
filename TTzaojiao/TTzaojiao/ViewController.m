@@ -8,11 +8,8 @@
 
 #import "ViewController.h"
 #import "AlipayHeader.h"
-#import "SKSplashIcon.h"
 
 @interface ViewController ()
-
-@property (strong, nonatomic) SKSplashView *splashView;
 
 @end
 
