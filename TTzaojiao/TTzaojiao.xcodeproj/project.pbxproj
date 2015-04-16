@@ -27,6 +27,7 @@
 		02BFC56A1ADF7A3700D0DF30 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC55C1ADF7A3700D0DF30 /* libcrypto.a */; };
 		02BFC56B1ADF7A3700D0DF30 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC55D1ADF7A3700D0DF30 /* libssl.a */; };
 		02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */; };
+		02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */; };
 		1D60E5E71ADDB392003A632B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E61ADDB392003A632B /* main.m */; };
 		1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E91ADDB392003A632B /* AppDelegate.m */; };
 		1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */; };
@@ -162,6 +163,8 @@
 		02BFC55C1ADF7A3700D0DF30 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		02BFC55D1ADF7A3700D0DF30 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		02BFC5751ADF903500D0DF30 /* CoreDataStorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStorageController.h; sourceTree = "<group>"; };
+		02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStorageController.m; sourceTree = "<group>"; };
 		1D60E5E11ADDB392003A632B /* TTzaojiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTzaojiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D60E5E51ADDB392003A632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D60E5E61ADDB392003A632B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 		02BFC4E01ADF662500D0DF30 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				02BFC56E1ADF903500D0DF30 /* CoreDataStorage */,
 				02BFC4F01ADF689900D0DF30 /* FileHelper */,
 				02BFC4EE1ADF683F00D0DF30 /* Constants */,
 				02BFC4E11ADF662500D0DF30 /* Networking */,
@@ -384,6 +388,15 @@
 				02BFC55D1ADF7A3700D0DF30 /* libssl.a */,
 			);
 			path = AlipaySDK;
+			sourceTree = "<group>";
+		};
+		02BFC56E1ADF903500D0DF30 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				02BFC5751ADF903500D0DF30 /* CoreDataStorageController.h */,
+				02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */,
+			);
+			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
 		1D60E5D81ADDB392003A632B = {
@@ -613,6 +626,7 @@
 				02BFC5651ADF7A3700D0DF30 /* openssl_wrapper.m in Sources */,
 				02BFC5661ADF7A3700D0DF30 /* RSADataSigner.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
+				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
 				02BFC55E1ADF7A3700D0DF30 /* AlipayRequestConfig.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
