@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-RDVTabBarController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SKSplashView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C93512AEACB9D21265ECD5B</key>
+		<key>30444A41668B6BFDDE155CE1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C2C5C26E386B97104B6242D</key>
+		<key>9030F3117B91562B3774E0B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7CC14B2E8A1F2EC6E8D0213</key>
+		<key>A41004BE956A792409CF3F87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B0D7A64EC6AE2C890FEC5860</key>
 		<dict>
 			<key>primary</key>
 			<true/>

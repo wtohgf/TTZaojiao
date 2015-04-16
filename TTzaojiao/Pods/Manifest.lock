@@ -20,14 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - RDVTabBarController (1.1.9)
   - SKSplashView (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - RDVTabBarController
   - SKSplashView
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168
 
 COCOAPODS: 0.36.3
