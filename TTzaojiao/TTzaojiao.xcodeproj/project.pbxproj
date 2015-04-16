@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
+		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
+		02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E91ADF668100D0DF30 /* JSONHelper.m */; };
+		02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4EB1ADF668100D0DF30 /* NetworkHelper.m */; };
+		02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4F21ADF689900D0DF30 /* FileManagerHelper.m */; };
 		1D60E5E71ADDB392003A632B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E61ADDB392003A632B /* main.m */; };
 		1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E91ADDB392003A632B /* AppDelegate.m */; };
 		1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */; };
@@ -29,6 +34,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
+		02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
+		02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
+		02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
+		02BFC4E81ADF668100D0DF30 /* JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
+		02BFC4E91ADF668100D0DF30 /* JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
+		02BFC4EA1ADF668100D0DF30 /* NetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
+		02BFC4EB1ADF668100D0DF30 /* NetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkHelper.m; sourceTree = "<group>"; };
+		02BFC4EF1ADF684C00D0DF30 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		02BFC4F11ADF689900D0DF30 /* FileManagerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerHelper.h; sourceTree = "<group>"; };
+		02BFC4F21ADF689900D0DF30 /* FileManagerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManagerHelper.m; sourceTree = "<group>"; };
 		1D60E5E11ADDB392003A632B /* TTzaojiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTzaojiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D60E5E51ADDB392003A632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D60E5E61ADDB392003A632B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,6 +83,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02BFC4E01ADF662500D0DF30 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				02BFC4F01ADF689900D0DF30 /* FileHelper */,
+				02BFC4EE1ADF683F00D0DF30 /* Constants */,
+				02BFC4E11ADF662500D0DF30 /* Networking */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		02BFC4E11ADF662500D0DF30 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				02BFC4E81ADF668100D0DF30 /* JSONHelper.h */,
+				02BFC4E91ADF668100D0DF30 /* JSONHelper.m */,
+				02BFC4EA1ADF668100D0DF30 /* NetworkHelper.h */,
+				02BFC4EB1ADF668100D0DF30 /* NetworkHelper.m */,
+				02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */,
+				02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */,
+				02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */,
+				02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		02BFC4EE1ADF683F00D0DF30 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				02BFC4EF1ADF684C00D0DF30 /* Constants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		02BFC4F01ADF689900D0DF30 /* FileHelper */ = {
+			isa = PBXGroup;
+			children = (
+				02BFC4F11ADF689900D0DF30 /* FileManagerHelper.h */,
+				02BFC4F21ADF689900D0DF30 /* FileManagerHelper.m */,
+			);
+			path = FileHelper;
+			sourceTree = "<group>";
+		};
 		1D60E5D81ADDB392003A632B = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +148,7 @@
 		1D60E5E31ADDB392003A632B /* TTzaojiao */ = {
 			isa = PBXGroup;
 			children = (
+				02BFC4E01ADF662500D0DF30 /* Utilities */,
 				1D60E5E81ADDB392003A632B /* AppDelegate.h */,
 				1D60E5E91ADDB392003A632B /* AppDelegate.m */,
 				1D60E5EE1ADDB392003A632B /* ViewController.h */,
@@ -284,6 +343,11 @@
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
 				1D60E5F01ADDB392003A632B /* ViewController.m in Sources */,
+				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
+				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
+				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
+				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
+				02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */,
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
