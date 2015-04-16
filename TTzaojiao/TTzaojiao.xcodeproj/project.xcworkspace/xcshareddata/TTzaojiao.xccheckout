@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>213ED770-9B7D-4D5B-BEE7-217136CEB3B3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TTzaojiao</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>16FE1B4C506BD5107C07C5C6D67AEAD82047A139</key>
+		<string>ssh://github.com/wtohgf/TTZaojiao.git</string>
+		<key>6167b740-521b-4fb5-a404-9b8266b2bc2c++1876</key>
+		<string>svn://192.168.1.200/project/svnserver/Implementation</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TTzaojiao/TTzaojiao.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>16FE1B4C506BD5107C07C5C6D67AEAD82047A139</key>
+		<string>../../..</string>
+		<key>6167b740-521b-4fb5-a404-9b8266b2bc2c++1876</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>6167b740-521b-4fb5-a404-9b8266b2bc2c++1876</key>
+		<string>svn://192.168.1.200/project/svnserver</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/wtohgf/TTZaojiao.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>16FE1B4C506BD5107C07C5C6D67AEAD82047A139</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6167b740-521b-4fb5-a404-9b8266b2bc2c++1876</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>16FE1B4C506BD5107C07C5C6D67AEAD82047A139</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TTZaojiao</string>
+		</dict>
+	</array>
+</dict>
+</plist>
