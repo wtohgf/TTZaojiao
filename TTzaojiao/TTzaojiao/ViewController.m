@@ -26,12 +26,10 @@
 }
 
 - (IBAction)pay:(id)sender {
-    static int product_id = 0;
-    product_id++;
     [AlipayRequestConfig alipayWithPartner:kPartnerID
                                     seller:kSellerAccount
                                    tradeNO:[AlipayToolKit genTradeNoWithTime]
-                               productName:[NSString stringWithFormat:@"邮票%d",product_id]
+                               productName:@"邮票"
                         productDescription:@"全真邮票"
                                     amount:@"0.8"
                                  notifyURL:kNotifyURL
