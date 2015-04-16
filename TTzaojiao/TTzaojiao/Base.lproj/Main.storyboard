@@ -365,6 +365,9 @@
                                     <color key="titleColor" red="0.82033387899999999" green="0.34493151950000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="16" y="741" width="568" height="59"/>
+                                </variation>
                                 <connections>
                                     <action selector="logReg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ORs-Ge-llW"/>
                                 </connections>
@@ -375,12 +378,12 @@
                             <constraint firstAttribute="height" secondItem="hzD-En-eR2" secondAttribute="height" multiplier="3:1" id="6UP-fc-7Xa"/>
                             <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="44:600" id="DL9-0v-Tmg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KvZ-Bz-BZ4" secondAttribute="bottom" id="DRE-vn-raa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KvZ-Bz-BZ4" secondAttribute="trailing" constant="-16" id="KBX-s9-ong"/>
-                            <constraint firstItem="hzD-En-eR2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Ts1-uj-uY8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KvZ-Bz-BZ4" secondAttribute="trailing" constant="-32" id="KBX-s9-ong"/>
+                            <constraint firstItem="hzD-En-eR2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-32" id="Ts1-uj-uY8"/>
                             <constraint firstAttribute="width" secondItem="hzD-En-eR2" secondAttribute="width" multiplier="2:3" id="aLd-DV-lCV"/>
                             <constraint firstAttribute="centerY" secondItem="hzD-En-eR2" secondAttribute="centerY" id="jA6-fM-kGk"/>
-                            <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ltf-F7-wD0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hzD-En-eR2" secondAttribute="trailing" constant="-16" id="qKI-Pj-cVt"/>
+                            <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-32" id="ltf-F7-wD0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hzD-En-eR2" secondAttribute="trailing" constant="-32" id="qKI-Pj-cVt"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
