@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SKSplashView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D0A391374ADD3D15FCFF5303</key>
+		<key>2C93512AEACB9D21265ECD5B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E47B9F182FB30A240E7CE4F5</key>
+		<key>9C2C5C26E386B97104B6242D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E7CC14B2E8A1F2EC6E8D0213</key>
 		<dict>
 			<key>primary</key>
 			<true/>

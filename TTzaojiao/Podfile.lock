@@ -20,11 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - SKSplashView (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - SKSplashView
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168
 
 COCOAPODS: 0.36.3
