@@ -1,5 +1,6 @@
+
 //
-//  ViewController.h
+//  TTMainPageViewController.h
 //  TTzaojiao
 //
 //  Created by hegf on 15-4-15.
@@ -8,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TTMainPageViewController : UIViewController
 
 
 @end

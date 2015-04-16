@@ -31,7 +31,7 @@
 		1D60E5E71ADDB392003A632B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E61ADDB392003A632B /* main.m */; };
 		1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E91ADDB392003A632B /* AppDelegate.m */; };
 		1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */; };
-		1D60E5F01ADDB392003A632B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EF1ADDB392003A632B /* ViewController.m */; };
+		1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EF1ADDB392003A632B /* TTMainPageViewController.m */; };
 		1D60E5F31ADDB392003A632B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F11ADDB392003A632B /* Main.storyboard */; };
 		1D60E5F51ADDB392003A632B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F41ADDB392003A632B /* Images.xcassets */; };
 		1D60E5F81ADDB392003A632B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F61ADDB392003A632B /* LaunchScreen.xib */; };
@@ -171,8 +171,8 @@
 		1D60E5E81ADDB392003A632B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D60E5E91ADDB392003A632B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D60E5EC1ADDB392003A632B /* TTzaojiao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TTzaojiao.xcdatamodel; sourceTree = "<group>"; };
-		1D60E5EE1ADDB392003A632B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1D60E5EF1ADDB392003A632B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1D60E5EE1ADDB392003A632B /* TTMainPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMainPageViewController.h; sourceTree = "<group>"; };
+		1D60E5EF1ADDB392003A632B /* TTMainPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMainPageViewController.m; sourceTree = "<group>"; };
 		1D60E5F21ADDB392003A632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D60E5F41ADDB392003A632B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1D60E5F71ADDB392003A632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -399,6 +399,47 @@
 			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
+		1D1F2BEC1ADF98F9004F851D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1D1F2BED1ADF9977004F851D /* MainPage */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		1D1F2BED1ADF9977004F851D /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				1D1F2BF01ADF9997004F851D /* View */,
+				1D1F2BEF1ADF998F004F851D /* Model */,
+				1D1F2BEE1ADF9986004F851D /* Controller */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		1D1F2BEE1ADF9986004F851D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1D60E5EE1ADDB392003A632B /* TTMainPageViewController.h */,
+				1D60E5EF1ADDB392003A632B /* TTMainPageViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1D1F2BEF1ADF998F004F851D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1D1F2BF01ADF9997004F851D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		1D60E5D81ADDB392003A632B = {
 			isa = PBXGroup;
 			children = (
@@ -422,12 +463,11 @@
 		1D60E5E31ADDB392003A632B /* TTzaojiao */ = {
 			isa = PBXGroup;
 			children = (
+				1D1F2BEC1ADF98F9004F851D /* UI */,
 				02BFC4F41ADF7A3700D0DF30 /* IntegratedAlipay */,
 				02BFC4E01ADF662500D0DF30 /* Utilities */,
 				1D60E5E81ADDB392003A632B /* AppDelegate.h */,
 				1D60E5E91ADDB392003A632B /* AppDelegate.m */,
-				1D60E5EE1ADDB392003A632B /* ViewController.h */,
-				1D60E5EF1ADDB392003A632B /* ViewController.m */,
 				1D60E5F11ADDB392003A632B /* Main.storyboard */,
 				1D60E5F41ADDB392003A632B /* Images.xcassets */,
 				1D60E5F61ADDB392003A632B /* LaunchScreen.xib */,
@@ -621,7 +661,7 @@
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
-				1D60E5F01ADDB392003A632B /* ViewController.m in Sources */,
+				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
 				02BFC5651ADF7A3700D0DF30 /* openssl_wrapper.m in Sources */,
 				02BFC5661ADF7A3700D0DF30 /* RSADataSigner.m in Sources */,
