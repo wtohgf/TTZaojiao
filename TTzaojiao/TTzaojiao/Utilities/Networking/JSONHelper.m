@@ -25,7 +25,7 @@
 
         default:
         {
-            return nil;
+            return modelObj;
         }
             break;
     }
