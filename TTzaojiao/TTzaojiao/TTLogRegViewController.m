@@ -1,27 +1,14 @@
 //
-//  TTMainPageViewController.m
+//  TTLogRegViewController.m
 //  TTzaojiao
 //
-//  Created by hegf on 15-4-15.
+//  Created by hegf on 15-4-17.
 //  Copyright (c) 2015年 hegf. All rights reserved.
 //
 
-#import "TTMainPageViewController.h"
-#import "AlipayHeader.h"
+#import "TTLogRegViewController.h"
 
-@interface TTMainPageViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *logregButton;
-@property (weak, nonatomic) IBOutlet UIView *year;
-@property (weak, nonatomic) IBOutlet UILabel *mouth;
-@property (weak, nonatomic) IBOutlet UILabel *day;
-
-- (IBAction)startTryTeach:(UIButton *)sender;
-- (IBAction)dateChoice:(UIButton *)sender;
-- (IBAction)logReg:(UIButton *)sender;
-
-@end
-
-@implementation TTMainPageViewController
+@implementation TTLogRegViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,20 +18,19 @@
     
 }
 
-#pragma mark 开始体验
-- (IBAction)startTryTeach:(UIButton *)sender {
-    NSLog(@"startTryTeach");
+#pragma mark 返回主页
+- (IBAction)backtoMain:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark 生日选择
-- (IBAction)dateChoice:(UIButton *)sender {
-    NSLog(@"dateChoice");
+#pragma mark 注册
+- (IBAction)Regsist:(UIButton *)sender {
+    
 }
 
-#pragma mark 登录注册
-- (IBAction)logReg:(UIButton *)sender {
-    //切换到登录注册页面
-    [self performSegueWithIdentifier:@"mainToLogReg" sender:nil];
+#pragma mark 登录
+- (IBAction)Login:(UIButton *)sender {
+    
 }
 
 #pragma mark 设置背景图片
@@ -71,7 +57,7 @@
         }
         baby.frame = CGRectMake(x, y, babyPicWidth, babyPicHegiht);
         
-        [self.view insertSubview:baby belowSubview:_logregButton];
+        [self.view insertSubview:baby belowSubview:self.view.subviews[0]];
     }
 }
 
