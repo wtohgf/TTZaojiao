@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-HSDatePickerViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RDVTabBarController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>30444A41668B6BFDDE155CE1</key>
+		<key>2C5734079D88FDC830FA6926</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9030F3117B91562B3774E0B3</key>
+		<key>5456B6A3E5EABF05320644D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A41004BE956A792409CF3F87</key>
+		<key>738190806B35DE36BE5FF116</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0D7A64EC6AE2C890FEC5860</key>
+		<key>A68D784744012055654EB03B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B540B63437E3821FD058FDF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE02365A59CF0E9F47BB1D86</key>
 		<dict>
 			<key>primary</key>
 			<true/>

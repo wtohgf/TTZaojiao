@@ -48,6 +48,18 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 2
 
+// HSDatePickerViewController
+#define COCOAPODS_POD_AVAILABLE_HSDatePickerViewController
+#define COCOAPODS_VERSION_MAJOR_HSDatePickerViewController 1
+#define COCOAPODS_VERSION_MINOR_HSDatePickerViewController 0
+#define COCOAPODS_VERSION_PATCH_HSDatePickerViewController 0
+
+// MBProgressHUD
+#define COCOAPODS_POD_AVAILABLE_MBProgressHUD
+#define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
+#define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
+#define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
+
 // RDVTabBarController
 #define COCOAPODS_POD_AVAILABLE_RDVTabBarController
 #define COCOAPODS_VERSION_MAJOR_RDVTabBarController 1
