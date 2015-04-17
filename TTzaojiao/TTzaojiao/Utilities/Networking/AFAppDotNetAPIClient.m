@@ -46,8 +46,8 @@
     
     if ([_protalurl isEqualToString:@""])
     {
-        [NetworkHelper isNetWorkReachable:^(AFNetworkReachabilityStatus result_ntwk_status) {
-            if (AFNetworkReachabilityStatusNotReachable == result_ntwk_status)
+
+            if (![NetworkHelper isNetWorkReachable])
             {
                 result(nil,ApiStatusNetworkNotReachable);
             } else {
@@ -71,7 +71,6 @@
                     result(error,ApiStatusError);
                 }];
             }
-        }];
     }
     else
     {
@@ -81,8 +80,7 @@
 
 -(void)uploadFile:(NSDictionary *)parameters Files:(NSArray *)files Result:(void (^)(id result_data, ApiStatus result_status))result Progress:(void (^)(CGFloat progress))progress {
     
-    [NetworkHelper isNetWorkReachable:^(AFNetworkReachabilityStatus result_ntwk_status) {
-        if (AFNetworkReachabilityStatusNotReachable == result_ntwk_status)
+        if (![NetworkHelper isNetWorkReachable])
         {
             NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please check your network connection is correct", @"请检查您的网络连接是否正确") forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
@@ -147,13 +145,11 @@
                 progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
             }];
         }
-    }];
 }
 
 -(void)downloadFile:(NSDictionary *)parameters FileName:(NSString *)filename Result:(void (^)(id result_data, ApiStatus result_status))result Progress:(void (^)(CGFloat progress))progress {
 
-    [NetworkHelper isNetWorkReachable:^(AFNetworkReachabilityStatus result_ntwk_status) {
-        if (AFNetworkReachabilityStatusNotReachable == result_ntwk_status)
+        if (![NetworkHelper isNetWorkReachable])
         {
             NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please check your network connection is correct", @"请检查您的网络连接是否正确") forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
@@ -213,13 +209,11 @@
                 progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
             }];
         }
-    }];
 }
 
 -(void)apiPost:(NSString *)function Parameters:(NSDictionary *)parameters Result:(void (^)(id result_data, ApiStatus result_status, NSString *api))result {
     
-    [NetworkHelper isNetWorkReachable:^(AFNetworkReachabilityStatus result_ntwk_status) {
-        if (AFNetworkReachabilityStatusNotReachable == result_ntwk_status)
+        if (![NetworkHelper isNetWorkReachable])
         {
             NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please check your network connection is correct", @"请检查您的网络连接是否正确") forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
@@ -304,13 +298,12 @@
                 
             }];
         }
-    }];
 }
 
 -(void)apiGet:(NSString *)function Parameters:(NSDictionary *)parameters Result:(void (^)(id result_data, ApiStatus result_status, NSString *api))result {
     
-    [NetworkHelper isNetWorkReachable:^(AFNetworkReachabilityStatus result_ntwk_status) {
-        if (AFNetworkReachabilityStatusNotReachable == result_ntwk_status)
+
+        if (![NetworkHelper isNetWorkReachable])
         {
             NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please check your network connection is correct", @"请检查您的网络连接是否正确") forKey:NSLocalizedDescriptionKey];
             NSError *error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
@@ -394,8 +387,8 @@
                 result(error,ApiStatusError,function);
                 
             }];
+            
         }
-    }];
 }
 
 @end

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AFAppDotNetAPIClient.h"
 #import "TTWebServerAPI.h"
+#import "UIAlertView+MoreAttribute.h"
+#import <MBProgressHUD.h>
 
 @interface TTBaseViewController : UIViewController
 

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AlipayHeader.h"
+#import "NetworkHelper.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [NetworkHelper startMonitorNetworkConnection];
     return YES;
 }
 
@@ -42,6 +44,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+    [NetworkHelper stopMonitorNetworkConnection];
     [self saveContext];
 }
 

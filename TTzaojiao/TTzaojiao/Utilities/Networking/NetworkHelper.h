@@ -16,7 +16,8 @@
 
 + (id)makeModelValueWithKey:(NSString *)key Model:(NSDictionary *)modelDic Null:(id)Null;
 + (NSString *)makeDateStringWithString:(NSString *)dateStr;
-+ (void)isNetWorkReachable:(void (^)(AFNetworkReachabilityStatus result_ntwk_status))result;
++ (BOOL)isNetWorkReachable;
 + (NSString *)makeMessageOfApiException:(NSInteger)code API:(NSString *)api;
-
++ (void)startMonitorNetworkConnection;
++ (void)stopMonitorNetworkConnection;
 @end

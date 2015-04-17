@@ -7,6 +7,7 @@
 //
 
 #import "NetworkHelper.h"
+#import "UIAlertView+MoreAttribute.h"
 
 @implementation NetworkHelper
 
@@ -28,30 +29,14 @@
     return result;
 }
 
-+ (void)isNetWorkReachable:(void (^)(AFNetworkReachabilityStatus result_ntwk_status))result{
++ (BOOL)isNetWorkReachable{
     
     AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
-    [afNetworkReachabilityManager startMonitoring];
-    
-    [afNetworkReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
-        switch (status) {
-            case AFNetworkReachabilityStatusNotReachable:{
-                result(AFNetworkReachabilityStatusNotReachable);
-                break;
-            }
-            case AFNetworkReachabilityStatusReachableViaWiFi:{
-                result(AFNetworkReachabilityStatusReachableViaWiFi);
-                break;
-            }
-            case AFNetworkReachabilityStatusReachableViaWWAN:{
-                result(AFNetworkReachabilityStatusReachableViaWWAN);
-                break;
-            }
-            default:
-                break;
-        }
-    }];
+    if (afNetworkReachabilityManager.isReachable == NO) {
+        [[[UIAlertView alloc]init] showAlert:@"网络信号不好" byTime:3.0];
+    }
+    return afNetworkReachabilityManager.isReachable;
+ 
 }
 
 + (NSString *)makeMessageOfApiException:(NSInteger)code API:(NSString *)api{
@@ -66,4 +51,34 @@
     }
 }
 
++ (void)startMonitorNetworkConnection{
+    AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [afNetworkReachabilityManager startMonitoring];
+    
+    [afNetworkReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:{
+                [[[UIAlertView alloc]init] showAlert:@"网络信号不好" byTime:3.0];
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWiFi:{
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWWAN:{
+                break;
+            }
+            default:
+            {
+                [[[UIAlertView alloc]init] showAlert:@"网络信号不好" byTime:3.0];
+            }
+                break;
+        }
+    }];
+}
+
++(void)stopMonitorNetworkConnection{
+    AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [afNetworkReachabilityManager stopMonitoring];
+}
 @end

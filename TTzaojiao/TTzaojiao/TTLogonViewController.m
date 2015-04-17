@@ -89,16 +89,22 @@
     NSString* account = _account.text;
     NSString* password = _password.text;
     if (account.length == 0 || password.length == 0) {
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"友情提示" message:@"账号或密码不能为空" delegate:nil cancelButtonTitle:@"重新输入" otherButtonTitles:nil, nil];
-        [alert show];
+        [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"账号或密码不能为空" cancelButtonTitle:@"重新输入"];
     }else{
         NSDictionary* parameters = @{
                                      @"name": account,
                                      @"password": password
                                      };
-        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [[AFAppDotNetAPIClient sharedClient]apiGet:LOGIN Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-            NSLog(@"%@", result_data);
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (result_status == ApiStatusSuccess) {
+                NSLog(@"%@", result_data);
+            }else{
+                if (result_status != ApiStatusNetworkNotReachable) {
+                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器有点慢" cancelButtonTitle:@"重试一下"];
+                }
+            };
         }];
     }
     

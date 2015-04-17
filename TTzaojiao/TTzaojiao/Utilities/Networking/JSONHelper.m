@@ -8,27 +8,26 @@
 
 #import "JSONHelper.h"
 #import "NetworkHelper.h"
+#import "UserModel.h"
 
 @implementation JSONHelper
 
 +(id)jsonToModel:(id)modelObj Api:(ApiEnum)apienum Idx:(NSInteger)idx ImageURL:(NSString *)url {
     
     switch (apienum) {
-//        case ApiEnumNone:
-//        {
-//            NSDictionary *dic = (NSDictionary *)modelObj;
-//            xxxxModel *model = [[xxxxModel alloc] init];
-//            model.address = [NetworkHelper makeModelValueWithKey:@"xxxx" Model:dic Null:@""];
-//            return model;
-//        }
-//            break;
+        case ApiEnumNone:
+        {
+            modelObj = [UserModel userModelWithDict:(NSDictionary *)modelObj];
+        }
+            break;
 
         default:
         {
-            return modelObj;
+            
         }
             break;
     }
+    return modelObj;
 }
 
 @end
