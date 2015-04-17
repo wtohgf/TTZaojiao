@@ -7,8 +7,6 @@
 //
 
 #import "TTLogonViewController.h"
-#import "AFAppDotNetAPIClient.h"
-#import "TTWebServerAPI.h"
 
 @interface TTLogonViewController ()
 {

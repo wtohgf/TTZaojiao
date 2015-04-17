@@ -8,8 +8,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTBaseViewController.h"
 
-@interface TTMainPageViewController : UIViewController
+@interface TTMainPageViewController : TTBaseViewController
 
 
 @end

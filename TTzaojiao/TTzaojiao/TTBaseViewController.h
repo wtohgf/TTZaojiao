@@ -1,5 +1,5 @@
 //
-//  TTLogRegViewController.h
+//  TTBaseViewController.h
 //  TTzaojiao
 //
 //  Created by hegf on 15-4-17.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TTBaseViewController.h"
+#import "AFAppDotNetAPIClient.h"
+#import "TTWebServerAPI.h"
 
-@interface TTLogRegViewController : TTBaseViewController
+@interface TTBaseViewController : UIViewController
 
 @end
