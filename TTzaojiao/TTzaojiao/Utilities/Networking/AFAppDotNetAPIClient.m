@@ -89,75 +89,62 @@
             result(error,ApiStatusNetworkNotReachable);
         } else {
             
-            [[AFAppDotNetAPIClient sharedClient] portal:^(id result_data, ApiStatus result_status) {
-                NSString *portal = (NSString *)result_data;
-                if (nil == portal)
+            AFHTTPRequestOperation *operation = [self POST:APIName parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                
+                [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    NSDictionary *fileDic = (NSDictionary *)obj;
+                    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"nodata" ofType:@"png"];
+                    NSString *name = [NetworkHelper makeModelValueWithKey:@"filename" Model:fileDic Null:@"nodata"];
+                    NSString *path = [NetworkHelper makeModelValueWithKey:@"filepath" Model:fileDic Null:defaultPath];
+                    NSURL *filePathUrl = [NSURL fileURLWithPath:path];
+                    [formData appendPartWithFileURL:filePathUrl name:name error:nil];
+                }];
+                
+            } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                NSError *error = nil;
+                id json = @[];
+                if ([responseObject isKindOfClass:[NSArray class]] ||
+                    [responseObject isKindOfClass:[NSDictionary class]] ||
+                    [responseObject isKindOfClass:[NSString class]]) {
+                    json = responseObject;
+                }
+                else {
+                    json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+                }
+                
+                if (json==nil)
                 {
-                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please check your network connection is correct", @"请检查您的网络连接是否正确") forKey:NSLocalizedDescriptionKey];
-                    NSError *error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                    result(error,ApiStatusNetworkNotReachable);
+                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                    result(error,ApiStatusError);
+                }
+                else if ([json isEqual:[NSNull null]])
+                {
+                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                    result(error,ApiStatusError);
+                }
+                else if (![json isKindOfClass:[NSDictionary class]])
+                {
+                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                    result(error,ApiStatusError);
                 }
                 else
                 {
-                    AFHTTPRequestOperation *operation = [self POST:APIName parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                        
-                        [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                            NSDictionary *fileDic = (NSDictionary *)obj;
-                            NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"nodata" ofType:@"png"];
-                            NSString *name = [NetworkHelper makeModelValueWithKey:@"filename" Model:fileDic Null:@"nodata"];
-                            NSString *path = [NetworkHelper makeModelValueWithKey:@"filepath" Model:fileDic Null:defaultPath];
-                            NSURL *filePathUrl = [NSURL fileURLWithPath:path];
-                            [formData appendPartWithFileURL:filePathUrl name:name error:nil];
-                        }];
-                        
-                    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        
-                        NSError *error = nil;
-                        id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-                        NSInteger status = [[NetworkHelper makeModelValueWithKey:ParametersKeyRet Model:json Null:@"0"] integerValue];
-                        if (error!=nil)
-                        {
-                            result(error,ApiStatusError);
-                        }
-                        else if (json==nil)
-                        {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusError);
-                        }
-                        else if ([json isEqual:[NSNull null]])
-                        {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusError);
-                        }
-                        else if (![json isKindOfClass:[NSDictionary class]])
-                        {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusError);
-                        }
-                        else
-                        {
-                            if (1 == status) {
-                                result(nil,ApiStatusSuccess);
-                            } else {
-                                NSString *apiExceptionMessage = [NetworkHelper makeModelValueWithKey:ParametersKeyMsg Model:json Null:@""];
-                                result(apiExceptionMessage,ApiStatusFail);
-                            }
-                        }
-                        result(responseObject,ApiStatusSuccess);
-                        
-                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                        
-                        result(error,ApiStatusError);
-                        
-                    }];
-                    
-                    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-                        progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
-                    }];
+                    result(nil,ApiStatusSuccess);
                 }
+                result(responseObject,ApiStatusSuccess);
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+                result(error,ApiStatusError);
+                
+            }];
+            
+            [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+                progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
             }];
         }
     }];
@@ -173,70 +160,57 @@
             result(error,ApiStatusNetworkNotReachable);
         } else {
             
-            [[AFAppDotNetAPIClient sharedClient] portal:^(id result_data, ApiStatus result_status) {
-                NSString *portal = (NSString *)result_data;
-                if (nil == portal)
+            AFHTTPRequestOperation *operation = [self GET:APIName parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                NSError *error = nil;
+                id json = @[];
+                if ([responseObject isKindOfClass:[NSArray class]] ||
+                    [responseObject isKindOfClass:[NSDictionary class]] ||
+                    [responseObject isKindOfClass:[NSString class]]) {
+                    json = responseObject;
+                }
+                else {
+                    json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+                }
+
+                if (json==nil)
                 {
-                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please check your network connection is correct", @"请检查您的网络连接是否正确") forKey:NSLocalizedDescriptionKey];
-                    NSError *error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                    result(error,ApiStatusNetworkNotReachable);
+                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                    result(error,ApiStatusError);
+                }
+                else if ([json isEqual:[NSNull null]])
+                {
+                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                    result(error,ApiStatusError);
+                }
+                else if (![json isKindOfClass:[NSArray class]])
+                {
+                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                    result(error,ApiStatusError);
                 }
                 else
                 {
-                    AFHTTPRequestOperation *operation = [self GET:APIName parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        
-                        NSError *error = nil;
-                        id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-                        NSInteger status = [[NetworkHelper makeModelValueWithKey:ParametersKeyRet Model:json Null:@"0"] integerValue];
-                        if (error!=nil)
-                        {
-                            result(error,ApiStatusError);
-                        }
-                        else if (json==nil)
-                        {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusError);
-                        }
-                        else if ([json isEqual:[NSNull null]])
-                        {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusError);
-                        }
-                        else if (![json isKindOfClass:[NSArray class]])
-                        {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusError);
-                        }
-                        else
-                        {
-                            if (1 == status) {
-                                result(nil,ApiStatusSuccess);
-                            } else {
-                                NSString *apiExceptionMessage = [NetworkHelper makeModelValueWithKey:ParametersKeyMsg Model:json Null:@""];
-                                result(apiExceptionMessage,ApiStatusFail);
-                            }
-                        }
-                        result(responseObject,ApiStatusSuccess);
-                        
-                        
-                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                        
-                        result(error,ApiStatusError);
-                        
-                    }];
-                    
-                    // 指定文件保存路径，将文件保存在沙盒中
-                    [FileManagerHelper CreatFilePath:DownloadPath];
-                    NSString *path = [NSString stringWithFormat:@"%@/%@/%@",pathDocuments,DownloadPath,filename];
-                    operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
-                    
-                    [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-                        progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
-                    }];
+                    result(nil,ApiStatusSuccess);
                 }
+                result(responseObject,ApiStatusSuccess);
+                
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+                result(error,ApiStatusError);
+                
+            }];
+            
+            // 指定文件保存路径，将文件保存在沙盒中
+            [FileManagerHelper CreatFilePath:DownloadPath];
+            NSString *path = [NSString stringWithFormat:@"%@/%@/%@",pathDocuments,DownloadPath,filename];
+            operation.outputStream = [NSOutputStream outputStreamToFileAtPath:path append:NO];
+            
+            [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+                progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
             }];
         }
     }];
