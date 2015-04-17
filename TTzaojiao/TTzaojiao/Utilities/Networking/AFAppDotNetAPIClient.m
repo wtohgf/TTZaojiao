@@ -32,6 +32,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedClient = [[AFAppDotNetAPIClient alloc] initWithBaseURL:[NSURL URLWithString:@""]];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];//使用这个将得到的是JSON
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/x-javascript", nil];
         _sharedClient.protalurl = @"";
     });
     
@@ -253,13 +255,17 @@
             [self POST:function parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 NSError *error = nil;
-                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-                NSInteger status = [[NetworkHelper makeModelValueWithKey:ParametersKeyRet Model:json Null:@"0"] integerValue];
-                if (error!=nil)
-                {
-                    result(error,ApiStatusError,function);
+                id json = @[];
+                if ([responseObject isKindOfClass:[NSArray class]] ||
+                    [responseObject isKindOfClass:[NSDictionary class]] ||
+                    [responseObject isKindOfClass:[NSString class]]) {
+                    json = responseObject;
                 }
-                else if (json==nil)
+                else {
+                    json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+                }
+                
+                if (json==nil)
                 {
                     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
                     error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
@@ -271,60 +277,50 @@
                     error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
                     result(error,ApiStatusError,function);
                 }
-                else if (![json isKindOfClass:[NSDictionary class]])
-                {
-                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                    result(error,ApiStatusError,function);
-                }
                 else
                 {
-                    if (1 == status) {
-                        NSMutableArray *modelArr = [NSMutableArray arrayWithCapacity:0];
-                        @try {
-                            NSArray *Data = [NetworkHelper makeModelValueWithKey:ParametersKeyDat Model:json Null:@[]];
-                            
-                            ApiEnum api = ApiEnumNone;
-                            //用function(NSString)参数if判断以确定ApiName枚举
-                            if ([function isEqualToString:@"ApiNamexxxx"]) {
-                                api = ApiEnumNone;
-                            }
-                            
-                            [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                                NSDictionary *modelDic = (NSDictionary *)obj;
-                                id modelObject = [JSONHelper jsonToModel:modelDic Api:api Idx:idx ImageURL:APIImageName];
-                                if (modelObject==nil) {
-                                    *stop = YES;
-                                }
-                                else {
-                                    if ([modelObject isKindOfClass:[NSArray class]]) {
-                                        [modelArr addObjectsFromArray:modelObject];
-                                    } else {
-                                        [modelArr addObject:modelObject];
-                                    }
-                                }
-                            }];
+                    NSMutableArray *modelArr = [NSMutableArray arrayWithCapacity:0];
+                    @try {
+                        NSArray *Data = json;
+                        
+                        ApiEnum api = ApiEnumNone;
+                        //用function(NSString)参数if判断以确定ApiName枚举
+                        if ([function isEqualToString:@"ApiNamexxxx"]) {
+                            api = ApiEnumNone;
                         }
-                        @catch (NSException *exception) {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:exception.description forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusException,function);
-                        }
-                        @finally {
+                        
+                        [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                            NSDictionary *modelDic = (NSDictionary *)obj;
+                            
+                            id modelObject = [JSONHelper jsonToModel:modelDic Api:ApiEnumNone Idx:idx ImageURL:APIImageName];
                             if (modelArr!=nil) {
-                                result(modelArr,ApiStatusSuccess,function);
+                                [modelArr addObject:modelObject];
+                                *stop = YES;
                             }
                             else {
-                                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                                error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                                result(error,ApiStatusError,function);
+                                if ([modelObject isKindOfClass:[NSArray class]]) {
+                                    [modelArr addObjectsFromArray:modelObject];
+                                } else {
+                                    [modelArr addObject:modelObject];
+                                }
                             }
-                        }
-                    } else {
-                        NSString *apiExceptionMessage = [NetworkHelper makeModelValueWithKey:ParametersKeyMsg Model:json Null:@""];
-                        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:apiExceptionMessage forKey:NSLocalizedDescriptionKey];
+                        }];
+                    }
+                    @catch (NSException *exception) {
+                        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:exception.description forKey:NSLocalizedDescriptionKey];
                         error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                        result(error,ApiStatusFail,function);
+                        result(error,ApiStatusException,function);
+                    }
+                    @finally {
+                        if (modelArr!=nil &&
+                            modelArr.count>0) {
+                            result(modelArr,ApiStatusSuccess,function);
+                        }
+                        else {
+                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                            result(error,ApiStatusError,function);
+                        }
                     }
                 }
                 
@@ -350,13 +346,17 @@
             [self GET:function parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 NSError *error = nil;
-                id json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-                NSInteger status = [[NetworkHelper makeModelValueWithKey:ParametersKeyRet Model:json Null:@"0"] integerValue];
-                if (error!=nil)
-                {
-                    result(error,ApiStatusError,function);
+                id json = @[];
+                if ([responseObject isKindOfClass:[NSArray class]] ||
+                    [responseObject isKindOfClass:[NSDictionary class]] ||
+                    [responseObject isKindOfClass:[NSString class]]) {
+                    json = responseObject;
                 }
-                else if (json==nil)
+                else {
+                    json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+                }
+                
+                if (json==nil)
                 {
                     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
                     error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
@@ -368,62 +368,50 @@
                     error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
                     result(error,ApiStatusError,function);
                 }
-                else if (![json isKindOfClass:[NSDictionary class]])
-                {
-                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                    result(error,ApiStatusError,function);
-                }
                 else
                 {
-                    if (1 == status) {
-                        NSMutableArray *modelArr = [NSMutableArray arrayWithCapacity:0];
-                        @try {
-                            NSArray *Data = [NetworkHelper makeModelValueWithKey:ParametersKeyDat Model:json Null:@[]];
-                            
-                            ApiEnum api = ApiEnumNone;
-                            //用function(NSString)参数if判断以确定ApiName枚举
-                            if ([function isEqualToString:@"ApiNamexxxx"]) {
-                                api = ApiEnumNone;
-                            }
-                            
-                            [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                                NSDictionary *modelDic = (NSDictionary *)obj;
-                                
-                                id modelObject = [JSONHelper jsonToModel:modelDic Api:ApiEnumNone Idx:idx ImageURL:APIImageName];
-                                if (modelArr!=nil) {
-                                    *stop = YES;
-                                }
-                                else {
-                                    if ([modelObject isKindOfClass:[NSArray class]]) {
-                                        [modelArr addObjectsFromArray:modelObject];
-                                    } else {
-                                        [modelArr addObject:modelObject];
-                                    }
-                                }
-                            }];
+                    NSMutableArray *modelArr = [NSMutableArray arrayWithCapacity:0];
+                    @try {
+                        NSArray *Data = json;
+                        
+                        ApiEnum api = ApiEnumNone;
+                        //用function(NSString)参数if判断以确定ApiName枚举
+                        if ([function isEqualToString:@"ApiNamexxxx"]) {
+                            api = ApiEnumNone;
                         }
-                        @catch (NSException *exception) {
-                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:exception.description forKey:NSLocalizedDescriptionKey];
-                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                            result(error,ApiStatusException,function);
-                        }
-                        @finally {
-                            if (modelArr==nil &&
-                                modelArr.count>0) {
-                                result(modelArr,ApiStatusSuccess,function);
+                        
+                        [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                            NSDictionary *modelDic = (NSDictionary *)obj;
+                            
+                            id modelObject = [JSONHelper jsonToModel:modelDic Api:ApiEnumNone Idx:idx ImageURL:APIImageName];
+                            if (modelArr!=nil) {
+                                [modelArr addObject:modelObject];
+                                *stop = YES;
                             }
                             else {
-                                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                                error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                                result(error,ApiStatusError,function);
+                                if ([modelObject isKindOfClass:[NSArray class]]) {
+                                    [modelArr addObjectsFromArray:modelObject];
+                                } else {
+                                    [modelArr addObject:modelObject];
+                                }
                             }
-                        }
-                    } else {
-                        NSString *apiExceptionMessage = [NetworkHelper makeModelValueWithKey:ParametersKeyMsg Model:json Null:@""];
-                        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:apiExceptionMessage forKey:NSLocalizedDescriptionKey];
+                        }];
+                    }
+                    @catch (NSException *exception) {
+                        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:exception.description forKey:NSLocalizedDescriptionKey];
                         error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                        result(error,ApiStatusFail,function);
+                        result(error,ApiStatusException,function);
+                    }
+                    @finally {
+                        if (modelArr!=nil &&
+                            modelArr.count>0) {
+                            result(modelArr,ApiStatusSuccess,function);
+                        }
+                        else {
+                            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                            error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                            result(error,ApiStatusError,function);
+                        }
                     }
                 }
                 
