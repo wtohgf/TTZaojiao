@@ -48,3 +48,15 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 2
 
+// RDVTabBarController
+#define COCOAPODS_POD_AVAILABLE_RDVTabBarController
+#define COCOAPODS_VERSION_MAJOR_RDVTabBarController 1
+#define COCOAPODS_VERSION_MINOR_RDVTabBarController 1
+#define COCOAPODS_VERSION_PATCH_RDVTabBarController 9
+
+// SKSplashView
+#define COCOAPODS_POD_AVAILABLE_SKSplashView
+#define COCOAPODS_VERSION_MAJOR_SKSplashView 0
+#define COCOAPODS_VERSION_MINOR_SKSplashView 1
+#define COCOAPODS_VERSION_PATCH_SKSplashView 0
+
