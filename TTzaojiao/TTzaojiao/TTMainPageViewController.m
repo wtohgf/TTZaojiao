@@ -7,7 +7,7 @@
 //
 
 #import "TTMainPageViewController.h"
-#import "AlipayHeader.h"
+#import "HSDatePickerViewController.h"
 
 @interface TTMainPageViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logregButton;
@@ -38,7 +38,10 @@
 
 #pragma mark 生日选择
 - (IBAction)dateChoice:(UIButton *)sender {
-    NSLog(@"dateChoice");
+    HSDatePickerViewController* dateVC = [[HSDatePickerViewController alloc]init];
+    [self presentViewController:dateVC animated:YES completion:^{
+        ;
+    }];
 }
 
 #pragma mark 登录注册

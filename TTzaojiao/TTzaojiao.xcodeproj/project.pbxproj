@@ -29,6 +29,7 @@
 		02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */; };
 		02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */; };
 		1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F2C011AE09A66004F851D /* TTLogRegViewController.m */; };
+		1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F2C051AE0AECA004F851D /* TTLogonViewController.m */; };
 		1D60E5E71ADDB392003A632B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E61ADDB392003A632B /* main.m */; };
 		1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E91ADDB392003A632B /* AppDelegate.m */; };
 		1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */; };
@@ -168,6 +169,9 @@
 		02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStorageController.m; sourceTree = "<group>"; };
 		1D1F2C001AE09A66004F851D /* TTLogRegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLogRegViewController.h; sourceTree = "<group>"; };
 		1D1F2C011AE09A66004F851D /* TTLogRegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLogRegViewController.m; sourceTree = "<group>"; };
+		1D1F2C041AE0AECA004F851D /* TTLogonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLogonViewController.h; sourceTree = "<group>"; };
+		1D1F2C051AE0AECA004F851D /* TTLogonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLogonViewController.m; sourceTree = "<group>"; };
+		1D1F2C091AE10BAF004F851D /* TTWebServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTWebServerAPI.h; sourceTree = "<group>"; };
 		1D60E5E11ADDB392003A632B /* TTzaojiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTzaojiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D60E5E51ADDB392003A632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D60E5E61ADDB392003A632B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -405,6 +409,7 @@
 		1D1F2BEC1ADF98F9004F851D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1D1F2C031AE0ABB9004F851D /* LogonPage */,
 				1D1F2BFF1AE099B9004F851D /* LogRegPage */,
 				1D1F2BED1ADF9977004F851D /* MainPage */,
 			);
@@ -453,6 +458,31 @@
 			name = LogRegPage;
 			sourceTree = "<group>";
 		};
+		1D1F2C031AE0ABB9004F851D /* LogonPage */ = {
+			isa = PBXGroup;
+			children = (
+				1D1F2C041AE0AECA004F851D /* TTLogonViewController.h */,
+				1D1F2C051AE0AECA004F851D /* TTLogonViewController.m */,
+			);
+			name = LogonPage;
+			sourceTree = "<group>";
+		};
+		1D1F2C071AE10B7A004F851D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1D1F2C081AE10B91004F851D /* Constants */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		1D1F2C081AE10B91004F851D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1D1F2C091AE10BAF004F851D /* TTWebServerAPI.h */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 		1D60E5D81ADDB392003A632B = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +506,7 @@
 		1D60E5E31ADDB392003A632B /* TTzaojiao */ = {
 			isa = PBXGroup;
 			children = (
+				1D1F2C071AE10B7A004F851D /* Common */,
 				1D1F2BEC1ADF98F9004F851D /* UI */,
 				02BFC4F41ADF7A3700D0DF30 /* IntegratedAlipay */,
 				02BFC4E01ADF662500D0DF30 /* Utilities */,
@@ -690,6 +721,7 @@
 				02BFC5641ADF7A3700D0DF30 /* NSDataEx.m in Sources */,
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
 				1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */,
+				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				02BFC5621ADF7A3700D0DF30 /* DataVerifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
