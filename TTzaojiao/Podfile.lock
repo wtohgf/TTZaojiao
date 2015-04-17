@@ -20,18 +20,21 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - HSDatePickerViewController (1.0.0)
   - MBProgressHUD (0.9.1)
   - RDVTabBarController (1.1.9)
   - SKSplashView (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - HSDatePickerViewController (~> 1.0)
   - MBProgressHUD (~> 0.9.1)
   - RDVTabBarController
   - SKSplashView
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  HSDatePickerViewController: 3854fa84da85c6c5704ba727a8b579e22ed1f6e5
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168
