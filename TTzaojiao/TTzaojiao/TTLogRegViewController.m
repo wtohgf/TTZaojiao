@@ -16,21 +16,13 @@
     //设置背景图片
     [self setBackGroundImages];
     
+    self.title = @"登录注册";
+    
 }
 
 #pragma mark 返回主页
 - (IBAction)backtoMain:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark 注册
-- (IBAction)Regsist:(UIButton *)sender {
-    
-}
-
-#pragma mark 登录
-- (IBAction)Login:(UIButton *)sender {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark 设置背景图片

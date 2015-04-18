@@ -17,7 +17,6 @@
 
 - (IBAction)startTryTeach:(UIButton *)sender;
 - (IBAction)dateChoice:(UIButton *)sender;
-- (IBAction)logReg:(UIButton *)sender;
 
 @end
 
@@ -42,12 +41,6 @@
     [self presentViewController:dateVC animated:YES completion:^{
         ;
     }];
-}
-
-#pragma mark 登录注册
-- (IBAction)logReg:(UIButton *)sender {
-    //切换到登录注册页面
-    [self performSegueWithIdentifier:@"mainToLogReg" sender:nil];
 }
 
 #pragma mark 设置背景图片

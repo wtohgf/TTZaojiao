@@ -20,7 +20,6 @@ static TTUserModelTool* tool;
     return tool;
 }
 
-
 +(instancetype)allocWithZone:(struct _NSZone *)zone{
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{

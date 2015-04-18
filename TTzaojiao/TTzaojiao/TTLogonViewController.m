@@ -52,6 +52,7 @@
     _bottomBar.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;
     [self.view addSubview:_bottomBar];
+    
 }
 #pragma mark 注册键盘通知
 -(void)addKeyNotification{
@@ -101,7 +102,8 @@
 
 #pragma mark 返回登录注册页面
 - (IBAction)backLogRegPage:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 #pragma mark 登录
