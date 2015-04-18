@@ -13,6 +13,17 @@
     CGFloat _backBottonBarY;
 }
 @property (strong, nonatomic) IBOutlet UIView *bottomBar;
+@property (weak, nonatomic) IBOutlet UITextField *babyName;
+@property (weak, nonatomic) IBOutlet UILabel *location;
+@property (weak, nonatomic) IBOutlet UILabel *gental;
+@property (weak, nonatomic) IBOutlet UILabel *birthDay;
+
+
+- (IBAction)changGental:(UIButton *)sender;
+- (IBAction)changLocation:(UIButton *)sender;
+- (IBAction)changIcon:(UIButton *)sender;
+- (IBAction)changBirthDay:(UIButton *)sender;
+- (IBAction)regist:(UIButton *)sender;
 
 @end
 
@@ -22,26 +33,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"注册信息";
-
     //添加低栏
     [self addBottomBar];
-    //注册键盘通知
-    [self addKeyNotification];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+//返回上一页
+- (IBAction)backPage:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     self.navigationController.navigationBar.hidden = NO;
+    //首次进入不隐藏 Bug？
+    //self.navigationController.navigationBarHidden = NO;
+    //注册键盘通知
+    [self addKeyNotification];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
 }
 
 #pragma mark 添加低栏
@@ -71,6 +91,8 @@
 
 //键盘出现时候调用的事件
 -(void) keyboadWillShow:(NSNotification *)note{
+    [self.view bringSubviewToFront:_bottomBar];
+    
     NSDictionary *info = [note userInfo];
     CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//键盘的frame
     CGFloat offY = (self.view.frame.size.height-keyboardSize.height)-_bottomBar.frame.size.height;//屏幕总高度-键盘高度-bottomBar高度
@@ -91,25 +113,34 @@
     }];
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
+//点击背景键盘消失
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_babyName resignFirstResponder];
+
 }
 
-//返回上一页
-- (IBAction)backPage:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+//键盘点击return自动消失
+- (IBAction)endEdit:(UITextField *)sender {
+    [_babyName resignFirstResponder];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark 更改性别
+- (IBAction)changGental:(UIButton *)sender {
 }
-*/
 
+#pragma mark 更改位置
+- (IBAction)changLocation:(UIButton *)sender {
+}
+
+#pragma mark 更改头像
+- (IBAction)changIcon:(UIButton *)sender {
+}
+
+#pragma mark 更改生日
+- (IBAction)changBirthDay:(UIButton *)sender {
+}
+
+#pragma mark 注册
+- (IBAction)regist:(UIButton *)sender {
+}
 @end

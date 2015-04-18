@@ -13,6 +13,9 @@
     CGFloat _backBottonBarY;
 }
 @property (strong, nonatomic) IBOutlet UIView *bottomBar;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *firstPassword;
+@property (weak, nonatomic) IBOutlet UITextField *sencondPassword;
 
 @end
 
@@ -24,8 +27,7 @@
     self.navigationItem.title = @"注册";
     //添加低栏
     [self addBottomBar];
-    //注册键盘通知
-    [self addKeyNotification];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -33,11 +35,14 @@
     self.navigationController.navigationBar.hidden = NO;
     //首次进入不隐藏 Bug？
     //self.navigationController.navigationBarHidden = NO;
+    //注册键盘通知
+    [self addKeyNotification];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
 }
 
 #pragma mark 添加低栏
@@ -67,6 +72,9 @@
 
 //键盘出现时候调用的事件
 -(void) keyboadWillShow:(NSNotification *)note{
+    
+    [self.view bringSubviewToFront:_bottomBar];
+    
     NSDictionary *info = [note userInfo];
     CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//键盘的frame
     CGFloat offY = (self.view.frame.size.height-keyboardSize.height)-_bottomBar.frame.size.height;//屏幕总高度-键盘高度-bottomBar高度
@@ -87,9 +95,11 @@
     }];
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
+//点击背景键盘消失
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_phoneNumber resignFirstResponder];
+    [_firstPassword resignFirstResponder];
+    [_sencondPassword resignFirstResponder];
 }
 
 //返回上一页
@@ -97,11 +107,34 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark 下一步
+- (IBAction)nextStep:(UIButton *)sender {
+    [self performSegueWithIdentifier:@"nextStep" sender:nil];
 }
 
+#pragma mark 输入信息完毕时内容合理性判断，隐藏键盘
+- (IBAction)editEnd:(UITextField *)sender {
+    switch (sender.tag) {
+        case 0:
+        {
+            //对手机号合理性判断
+        }
+            break;
+        case 1:
+        {
+            //对密码长度进行判断
+        }
+            break;
+        case 2:
+        {
+            //对确认密码和首次密码一致性判断
+        }
+            break;
+        default:
+            break;
+    }
+    [sender resignFirstResponder];
+}
 
 
 @end
