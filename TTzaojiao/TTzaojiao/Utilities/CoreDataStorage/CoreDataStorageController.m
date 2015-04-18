@@ -8,7 +8,7 @@
 
 #import "CoreDataStorageController.h"
 
-#define ManagedObjectModelFileName @"LittleKeeper"
+#define ManagedObjectModelFileName @"TTzaojiao"
 
 static CoreDataStorageController *sharedModel = nil;
 

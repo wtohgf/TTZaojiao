@@ -13,11 +13,13 @@
     CGFloat _backBottonBarY;
 }
 
+@property (weak, nonatomic) IBOutlet UIButton *savePassworkCheckButton;
 @property (weak, nonatomic) IBOutlet UIView *bottomBar;
 @property (weak, nonatomic) IBOutlet UITextField *account;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 - (IBAction)backLogRegPage:(UIButton *)sender;
 - (IBAction)Logon:(UIButton *)sender;
+- (IBAction)savePasswordCheck:(UIButton *)sender;
 
 @end
 
@@ -26,8 +28,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //注册键盘出现与隐藏时候的通知
     
+    //添加低栏
+    [self addBottomBar];
+    //注册键盘通知
+    [self addKeyNotification];
+    //设置记住密码按钮
+    [self setupSavePassworkButton];
+    
+    
+}
+#pragma mark 设置记住密码按钮
+-(void)setupSavePassworkButton{
+    [_savePassworkCheckButton setImage:[UIImage imageNamed:@"pic_unchecked"] forState:UIControlStateNormal];
+    [_savePassworkCheckButton setImage:[UIImage imageNamed:@"pic_checked"] forState:UIControlStateSelected];
+}
+#pragma mark 添加低栏
+-(void)addBottomBar{
     CGFloat h = self.view.frame.size.height*44/600;
     CGFloat w = self.view.frame.size.width;
     CGFloat y = self.view.frame.size.height -  h;
@@ -35,7 +52,9 @@
     _bottomBar.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;
     [self.view addSubview:_bottomBar];
-    
+}
+#pragma mark 注册键盘通知
+-(void)addKeyNotification{
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboadWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -44,6 +63,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
 }
 
 
@@ -99,15 +119,30 @@
         [[AFAppDotNetAPIClient sharedClient]apiGet:LOGIN Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (result_status == ApiStatusSuccess) {
-                NSLog(@"%@", result_data);
+                if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                    UserModel* user = result_data[0];
+                    [TTUserModelTool sharedUserModelTool].logonUser = user;
+                    NSLog(@"%@ %@", user.name, user.icon);
+                    //保存用户名和密码
+                    if(_savePassworkCheckButton.selected == YES)
+                    {
+                      
+                    }
+                }
+                
             }else{
                 if (result_status != ApiStatusNetworkNotReachable) {
-                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器有点慢" cancelButtonTitle:@"重试一下"];
+                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
                 }
             };
         }];
     }
     
+}
+
+#pragma mark 记住密码
+- (IBAction)savePasswordCheck:(UIButton *)sender {
+    sender.selected = !sender.selected;
 }
 
 - (IBAction)endEdit:(UITextField *)sender {

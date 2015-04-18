@@ -11,6 +11,7 @@
 #import "TTWebServerAPI.h"
 #import "UIAlertView+MoreAttribute.h"
 #import <MBProgressHUD.h>
+#import "TTUserModelTool.h"
 
 @interface TTBaseViewController : UIViewController
 
