@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#define kALertTiem 1.5
 @interface UIAlertView (MoreAttribute)
 - (void) showWithTitle:(NSString*)title message:(NSString*)message cancelButtonTitle:(NSString*)cancelButtontitle;
 

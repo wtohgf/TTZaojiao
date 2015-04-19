@@ -109,30 +109,36 @@
 
 #pragma mark 下一步
 - (IBAction)nextStep:(UIButton *)sender {
+    
+    //对手机号合理性判断
+    if (_phoneNumber.text.length != 11 || ![_phoneNumber.text hasPrefix:@"1"]) {
+        [[[UIAlertView alloc]init]showAlert:@"您输入的手机号无效" byTime:kALertTiem];
+        _phoneNumber.text = @"";
+        return;
+    }
+    //对密码长度进行判断
+    if (_firstPassword.text.length < 6 || _firstPassword.text.length>14) {
+        [[[UIAlertView alloc]init]showAlert:@"请您输入6~14位密码" byTime:kALertTiem];
+        _firstPassword.text = @"";
+        return;
+    }
+    
+    //对确认密码和首次密码一致性判断
+    if (![_sencondPassword.text isEqualToString:_firstPassword.text]) {
+        [[[UIAlertView alloc]init]showAlert:@"两次密码不一致" byTime:kALertTiem];
+        _sencondPassword.text = @"";
+        return;
+    }
+    
+    //验证用户是否已注册
+    
+    
     [self performSegueWithIdentifier:@"nextStep" sender:nil];
+
 }
 
-#pragma mark 输入信息完毕时内容合理性判断，隐藏键盘
+#pragma mark 点击retrun，隐藏键盘
 - (IBAction)editEnd:(UITextField *)sender {
-    switch (sender.tag) {
-        case 0:
-        {
-            //对手机号合理性判断
-        }
-            break;
-        case 1:
-        {
-            //对密码长度进行判断
-        }
-            break;
-        case 2:
-        {
-            //对确认密码和首次密码一致性判断
-        }
-            break;
-        default:
-            break;
-    }
     [sender resignFirstResponder];
 }
 
