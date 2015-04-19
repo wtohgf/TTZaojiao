@@ -632,7 +632,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1b2-yP-AGU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="C1BF4A02-5018-4CC0-A413-2BEC9C3D4949">
+                                <state key="normal" image="BD464E05-4556-435F-BCAA-B8742C81C3B5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1719,6 +1719,7 @@
                         <outlet property="birthDay" destination="2m9-nW-3ty" id="455-Vi-hef"/>
                         <outlet property="bottomBar" destination="e4Z-q1-MC2" id="eUI-H4-o3k"/>
                         <outlet property="gental" destination="40A-ac-EeI" id="Iec-l6-cch"/>
+                        <outlet property="icon" destination="huc-QN-Agh" id="dGu-Ii-bco"/>
                         <outlet property="location" destination="akg-TR-BQx" id="Xl4-v0-kRH"/>
                     </connections>
                 </viewController>
@@ -1815,7 +1816,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C1BF4A02-5018-4CC0-A413-2BEC9C3D4949" width="37" height="36">
+        <image name="BD464E05-4556-435F-BCAA-B8742C81C3B5" width="37" height="36">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

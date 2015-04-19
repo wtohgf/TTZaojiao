@@ -8,16 +8,18 @@
 
 #import "TTRealRegisitViewController.h"
 
+
 @interface TTRealRegisitViewController ()
 {
     CGFloat _backBottonBarY;
+
 }
 @property (strong, nonatomic) IBOutlet UIView *bottomBar;
+@property (weak, nonatomic) IBOutlet UIButton *icon;
 @property (weak, nonatomic) IBOutlet UITextField *babyName;
 @property (weak, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) IBOutlet UILabel *gental;
 @property (weak, nonatomic) IBOutlet UILabel *birthDay;
-
 
 - (IBAction)changGental:(UIButton *)sender;
 - (IBAction)changLocation:(UIButton *)sender;
@@ -130,14 +132,42 @@
 
 #pragma mark 更改位置
 - (IBAction)changLocation:(UIButton *)sender {
+    TSLocateView *locateView = [[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
+    [locateView showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    TSLocateView *locateView = (TSLocateView *)actionSheet;
+    TSLocation *location = locateView.locate;
+    NSLog(@"city:%@ lat:%f lon:%f", location.city, location.latitude, location.longitude);
+    //You can uses location to your application.
+    if(buttonIndex == 0) {
+        NSLog(@"Cancel");
+    }else {
+        NSLog(@"Select");
+    }
 }
 
 #pragma mark 更改头像
 - (IBAction)changIcon:(UIButton *)sender {
+    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+    imagePicker.delegate = self;
+    [imagePicker showImagePickerInController:self animated:YES];
+    
 }
+
+-(void)imagePickerDidSelectImage:(UIImage *)image{
+    [_icon setImage:image forState:UIControlStateNormal];
+}
+
 
 #pragma mark 更改生日
 - (IBAction)changBirthDay:(UIButton *)sender {
+    HSDatePickerViewController* dateVC = [[HSDatePickerViewController alloc]init];
+    [self presentViewController:dateVC animated:YES completion:^{
+        ;
+    }];
 }
 
 #pragma mark 注册

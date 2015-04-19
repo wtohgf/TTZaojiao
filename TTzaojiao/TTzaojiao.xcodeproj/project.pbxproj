@@ -47,6 +47,18 @@
 		1D60E5F81ADDB392003A632B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F61ADDB392003A632B /* LaunchScreen.xib */; };
 		1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E6031ADDB392003A632B /* TTzaojiaoTests.m */; };
 		1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */; };
+		1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4EA81AE3AA7E004661EB /* JSImagePickerViewController.m */; };
+		1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EAC1AE3B712004661EB /* bg_023@2x.png */; };
+		1DDF4EBA1AE3B712004661EB /* btn_020.disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EAD1AE3B712004661EB /* btn_020.disable@2x.png */; };
+		1DDF4EBB1AE3B712004661EB /* btn_020.press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EAE1AE3B712004661EB /* btn_020.press@2x.png */; };
+		1DDF4EBC1AE3B712004661EB /* btn_020@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EAF1AE3B712004661EB /* btn_020@2x.png */; };
+		1DDF4EBD1AE3B712004661EB /* btn_021.disable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB01AE3B712004661EB /* btn_021.disable@2x.png */; };
+		1DDF4EBE1AE3B712004661EB /* btn_021.press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB11AE3B712004661EB /* btn_021.press@2x.png */; };
+		1DDF4EBF1AE3B712004661EB /* btn_021@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB21AE3B712004661EB /* btn_021@2x.png */; };
+		1DDF4EC01AE3B712004661EB /* ProvincesAndCities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB31AE3B712004661EB /* ProvincesAndCities.plist */; };
+		1DDF4EC11AE3B712004661EB /* TSLocateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB51AE3B712004661EB /* TSLocateView.m */; };
+		1DDF4EC21AE3B712004661EB /* TSLocateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB61AE3B712004661EB /* TSLocateView.xib */; };
+		1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB81AE3B712004661EB /* TSLocation.m */; };
 		33B20F42452F1A1432ECAF26 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3C53EDF178EBFF1A8B6D88 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -213,6 +225,21 @@
 		1D60E6031ADDB392003A632B /* TTzaojiaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTzaojiaoTests.m; sourceTree = "<group>"; };
 		1DDF4E8C1AE26C82004661EB /* TTRealRegisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRealRegisitViewController.h; sourceTree = "<group>"; };
 		1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRealRegisitViewController.m; sourceTree = "<group>"; };
+		1DDF4EA71AE3AA7E004661EB /* JSImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSImagePickerViewController.h; sourceTree = "<group>"; };
+		1DDF4EA81AE3AA7E004661EB /* JSImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSImagePickerViewController.m; sourceTree = "<group>"; };
+		1DDF4EAC1AE3B712004661EB /* bg_023@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_023@2x.png"; sourceTree = "<group>"; };
+		1DDF4EAD1AE3B712004661EB /* btn_020.disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_020.disable@2x.png"; sourceTree = "<group>"; };
+		1DDF4EAE1AE3B712004661EB /* btn_020.press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_020.press@2x.png"; sourceTree = "<group>"; };
+		1DDF4EAF1AE3B712004661EB /* btn_020@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_020@2x.png"; sourceTree = "<group>"; };
+		1DDF4EB01AE3B712004661EB /* btn_021.disable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_021.disable@2x.png"; sourceTree = "<group>"; };
+		1DDF4EB11AE3B712004661EB /* btn_021.press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_021.press@2x.png"; sourceTree = "<group>"; };
+		1DDF4EB21AE3B712004661EB /* btn_021@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_021@2x.png"; sourceTree = "<group>"; };
+		1DDF4EB31AE3B712004661EB /* ProvincesAndCities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProvincesAndCities.plist; sourceTree = "<group>"; };
+		1DDF4EB41AE3B712004661EB /* TSLocateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLocateView.h; sourceTree = "<group>"; };
+		1DDF4EB51AE3B712004661EB /* TSLocateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLocateView.m; sourceTree = "<group>"; };
+		1DDF4EB61AE3B712004661EB /* TSLocateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSLocateView.xib; sourceTree = "<group>"; };
+		1DDF4EB71AE3B712004661EB /* TSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSLocation.h; sourceTree = "<group>"; };
+		1DDF4EB81AE3B712004661EB /* TSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSLocation.m; sourceTree = "<group>"; };
 		3CDF8365E2437F4D88B10312 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6A3C53EDF178EBFF1A8B6D88 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7404E2B103E0516C53F26443 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +271,8 @@
 		02BFC4E01ADF662500D0DF30 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1DDF4EAA1AE3B712004661EB /* CitySelect */,
+				1DDF4EA61AE3AA7E004661EB /* JSImagePickerController */,
 				02BFC56E1ADF903500D0DF30 /* CoreDataStorage */,
 				02BFC4F01ADF689900D0DF30 /* FileHelper */,
 				02BFC4EE1ADF683F00D0DF30 /* Constants */,
@@ -624,6 +653,43 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1DDF4EA61AE3AA7E004661EB /* JSImagePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				1DDF4EA71AE3AA7E004661EB /* JSImagePickerViewController.h */,
+				1DDF4EA81AE3AA7E004661EB /* JSImagePickerViewController.m */,
+			);
+			path = JSImagePickerController;
+			sourceTree = "<group>";
+		};
+		1DDF4EAA1AE3B712004661EB /* CitySelect */ = {
+			isa = PBXGroup;
+			children = (
+				1DDF4EAB1AE3B712004661EB /* img */,
+				1DDF4EB31AE3B712004661EB /* ProvincesAndCities.plist */,
+				1DDF4EB41AE3B712004661EB /* TSLocateView.h */,
+				1DDF4EB51AE3B712004661EB /* TSLocateView.m */,
+				1DDF4EB61AE3B712004661EB /* TSLocateView.xib */,
+				1DDF4EB71AE3B712004661EB /* TSLocation.h */,
+				1DDF4EB81AE3B712004661EB /* TSLocation.m */,
+			);
+			path = CitySelect;
+			sourceTree = "<group>";
+		};
+		1DDF4EAB1AE3B712004661EB /* img */ = {
+			isa = PBXGroup;
+			children = (
+				1DDF4EAC1AE3B712004661EB /* bg_023@2x.png */,
+				1DDF4EAD1AE3B712004661EB /* btn_020.disable@2x.png */,
+				1DDF4EAE1AE3B712004661EB /* btn_020.press@2x.png */,
+				1DDF4EAF1AE3B712004661EB /* btn_020@2x.png */,
+				1DDF4EB01AE3B712004661EB /* btn_021.disable@2x.png */,
+				1DDF4EB11AE3B712004661EB /* btn_021.press@2x.png */,
+				1DDF4EB21AE3B712004661EB /* btn_021@2x.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 		826DD09FD905B189E025009C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,10 +790,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDF4EBC1AE3B712004661EB /* btn_020@2x.png in Resources */,
+				1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */,
 				1D60E5F31ADDB392003A632B /* Main.storyboard in Resources */,
+				1DDF4EBA1AE3B712004661EB /* btn_020.disable@2x.png in Resources */,
+				1DDF4EBE1AE3B712004661EB /* btn_021.press@2x.png in Resources */,
+				1DDF4EBD1AE3B712004661EB /* btn_021.disable@2x.png in Resources */,
 				1D60E5F81ADDB392003A632B /* LaunchScreen.xib in Resources */,
 				02BFC5681ADF7A3700D0DF30 /* AlipaySDK.bundle in Resources */,
 				1D60E5F51ADDB392003A632B /* Images.xcassets in Resources */,
+				1DDF4EBF1AE3B712004661EB /* btn_021@2x.png in Resources */,
+				1DDF4EBB1AE3B712004661EB /* btn_020.press@2x.png in Resources */,
+				1DDF4EC01AE3B712004661EB /* ProvincesAndCities.plist in Resources */,
+				1DDF4EC21AE3B712004661EB /* TSLocateView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,16 +874,19 @@
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
 				1D018E141AE1622900696F25 /* UserModel.m in Sources */,
 				02BFC5611ADF7A3700D0DF30 /* DataSigner.m in Sources */,
+				1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */,
 				02BFC5631ADF7A3700D0DF30 /* MD5DataSigner.m in Sources */,
 				02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */,
 				1D018E341AE20E0F00696F25 /* TTBaseTableViewController.m in Sources */,
 				02BFC55F1ADF7A3700D0DF30 /* Order.m in Sources */,
 				02BFC5641ADF7A3700D0DF30 /* NSDataEx.m in Sources */,
+				1DDF4EC11AE3B712004661EB /* TSLocateView.m in Sources */,
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
 				1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */,
 				1D018E181AE1AC1600696F25 /* UIAlertView+MoreAttribute.m in Sources */,
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				02BFC5621ADF7A3700D0DF30 /* DataVerifier.m in Sources */,
+				1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

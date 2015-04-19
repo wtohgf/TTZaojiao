@@ -7,7 +7,10 @@
 //
 
 #import "TTBaseViewController.h"
+#import "JSImagePickerViewController.h"
+#import "HSDatePickerViewController.h"
+#import "TSLocateView.h"
 
-@interface TTRealRegisitViewController : TTBaseViewController
+@interface TTRealRegisitViewController : TTBaseViewController<JSImagePickerViewControllerDelegate, UIActionSheetDelegate>
 
 @end
