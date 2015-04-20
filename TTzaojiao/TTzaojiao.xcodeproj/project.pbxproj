@@ -46,6 +46,8 @@
 		1D60E5F51ADDB392003A632B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F41ADDB392003A632B /* Images.xcassets */; };
 		1D60E5F81ADDB392003A632B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F61ADDB392003A632B /* LaunchScreen.xib */; };
 		1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E6031ADDB392003A632B /* TTzaojiaoTests.m */; };
+		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
+		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
 		1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */; };
 		1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4EA81AE3AA7E004661EB /* JSImagePickerViewController.m */; };
 		1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EAC1AE3B712004661EB /* bg_023@2x.png */; };
@@ -223,6 +225,10 @@
 		1D60E5FD1ADDB392003A632B /* TTzaojiaoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTzaojiaoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D60E6021ADDB392003A632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D60E6031ADDB392003A632B /* TTzaojiaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTzaojiaoTests.m; sourceTree = "<group>"; };
+		1DC7C5C91AE4B36300346732 /* RegMsgFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgFirst.h; sourceTree = "<group>"; };
+		1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgFirst.m; sourceTree = "<group>"; };
+		1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MoreAttribute.h"; sourceTree = "<group>"; };
+		1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MoreAttribute.m"; sourceTree = "<group>"; };
 		1DDF4E8C1AE26C82004661EB /* TTRealRegisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRealRegisitViewController.h; sourceTree = "<group>"; };
 		1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRealRegisitViewController.m; sourceTree = "<group>"; };
 		1DDF4EA71AE3AA7E004661EB /* JSImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSImagePickerViewController.h; sourceTree = "<group>"; };
@@ -478,6 +484,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1DC7C5C81AE4B32E00346732 /* RegMsg */,
 				1D018E111AE1603E00696F25 /* UserModel */,
 			);
 			name = Models;
@@ -497,6 +504,8 @@
 			children = (
 				1D018E161AE1AC1600696F25 /* UIAlertView+MoreAttribute.h */,
 				1D018E171AE1AC1600696F25 /* UIAlertView+MoreAttribute.m */,
+				1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */,
+				1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -651,6 +660,15 @@
 				1D60E6021ADDB392003A632B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DC7C5C81AE4B32E00346732 /* RegMsg */ = {
+			isa = PBXGroup;
+			children = (
+				1DC7C5C91AE4B36300346732 /* RegMsgFirst.h */,
+				1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */,
+			);
+			name = RegMsg;
 			sourceTree = "<group>";
 		};
 		1DDF4EA61AE3AA7E004661EB /* JSImagePickerController */ = {
@@ -858,6 +876,7 @@
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
+				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
 				02BFC5651ADF7A3700D0DF30 /* openssl_wrapper.m in Sources */,
 				1D018E3B1AE20EEA00696F25 /* TTRegeistViewController.m in Sources */,
@@ -875,6 +894,7 @@
 				1D018E141AE1622900696F25 /* UserModel.m in Sources */,
 				02BFC5611ADF7A3700D0DF30 /* DataSigner.m in Sources */,
 				1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */,
+				1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */,
 				02BFC5631ADF7A3700D0DF30 /* MD5DataSigner.m in Sources */,
 				02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */,
 				1D018E341AE20E0F00696F25 /* TTBaseTableViewController.m in Sources */,

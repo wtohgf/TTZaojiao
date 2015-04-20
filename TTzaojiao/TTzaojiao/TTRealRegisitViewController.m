@@ -7,7 +7,8 @@
 //
 
 #import "TTRealRegisitViewController.h"
-
+#import <AFHTTPSessionManager.h>
+#import "UIImage+MoreAttribute.h"
 
 @interface TTRealRegisitViewController ()
 {
@@ -128,6 +129,20 @@
 
 #pragma mark 更改性别
 - (IBAction)changGental:(UIButton *)sender {
+    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择宝宝性别" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    ac.view.backgroundColor = [UIColor whiteColor];
+    
+    UIAlertAction* male = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+    }];
+    [ac addAction:male];
+    UIAlertAction* female = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        ;
+    }];
+    [ac addAction:female];
+    
+    [self presentViewController:ac animated:YES completion:nil];
 }
 
 #pragma mark 更改位置
@@ -158,19 +173,86 @@
 }
 
 -(void)imagePickerDidSelectImage:(UIImage *)image{
+    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
     [_icon setImage:image forState:UIControlStateNormal];
+    
+    NSMutableArray* images = [NSMutableArray array];
+    [images addObject:image];
+    [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
+        if ([result_data isKindOfClass:[NSMutableArray class]]) {
+            if (((NSMutableArray*)result_data).count!=0) {
+                NSDictionary* dict = (NSDictionary*)result_data[0];
+                if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
+                    NSString* filePath = dict[@"msg_word_1"];
+                    NSLog(@"%@",filePath);
+                }
+            }
+        }
+    } Progress:^(CGFloat progress) {
+        NSLog(@"failure");
+    }];
 }
-
 
 #pragma mark 更改生日
 - (IBAction)changBirthDay:(UIButton *)sender {
-    HSDatePickerViewController* dateVC = [[HSDatePickerViewController alloc]init];
-    [self presentViewController:dateVC animated:YES completion:^{
+    
+    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择宝宝类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    ac.view.backgroundColor = [UIColor whiteColor];
+
+    
+    UIAlertAction* ownBaby = [UIAlertAction actionWithTitle:@"已有宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            HSDatePickerViewController* dateVC = [[HSDatePickerViewController alloc]init];
+            [self presentViewController:dateVC animated:YES completion:^{
+                ;
+            }];
+    }];
+    [ac addAction:ownBaby];
+    UIAlertAction* yunBaby = [UIAlertAction actionWithTitle:@"孕期宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         ;
     }];
+    [ac addAction:yunBaby];
+    UIAlertAction* futureBaby = [UIAlertAction actionWithTitle:@"未来宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        ;
+    }];
+    [ac addAction:futureBaby];
+
+    [self presentViewController:ac animated:YES completion:nil];
+
 }
 
 #pragma mark 注册
 - (IBAction)regist:(UIButton *)sender {
+    
+    
+    
+//    NSDictionary* parameters = @{
+//                                 @"phone": ,
+//                                 @"password":,
+//                                 @"gender":,
+//                                 @"birthday": ,
+//                                 @"city":,
+//                                 @"name":,
+//                                 @"icon": ,
+//                                 @"type":,
+//                                 };
+//    
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    [[AFAppDotNetAPIClient sharedClient]apiGet:REGISTER_SECOND_STEP Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        if (result_status == ApiStatusSuccess) {
+//            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+//                if (((NSMutableArray*)result_data).count!=0) {
+//                    RegMsgFirst* msgFirst = (RegMsgFirst*)result_data[0];
+//                }
+//            }
+//        }else{
+//            if (result_status != ApiStatusNetworkNotReachable) {
+//                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+//            }
+//        };
+//        
+//    }];
+
 }
 @end

@@ -30,6 +30,7 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPRequestOperationManager.h"
 #import "JSONHelper.h"
+#import "TTWebServerAPI.h"
 
 typedef enum : NSUInteger {
     eJsonDefault = -1000,
@@ -54,7 +55,7 @@ typedef enum : NSUInteger {
 #define DownloadPath @"Download"
 
 #define PortalURL @"http://58.215.78.118/1709/ip.txt"
-#define APIName @"http://x.x.x.x/xxxx/api/"
+#define APIName UPLOAD_IMAGE
 #define APIImageName @"http://x.x.x.x/xxxx/"
 
 //Api Value Key
@@ -81,6 +82,13 @@ typedef enum : NSUInteger {
             Files:(NSArray *)files //文件名列表
            Result:(void (^)(id result_data, ApiStatus result_status))result //结果block
          Progress:(void (^)(CGFloat progress))progress; //进度
+
+//上传图片
+-(void)uploadImage:(NSDictionary *)parameters //参数
+            Images:(NSArray *)images //uimage图片列表
+           Result:(void (^)(id result_data, ApiStatus result_status))result //结果block
+         Progress:(void (^)(CGFloat progress))progress; //进度
+
 //下载文件
 -(void)downloadFile:(NSDictionary *)parameters //参数
            FileName:(NSString *)filename //文件名列表

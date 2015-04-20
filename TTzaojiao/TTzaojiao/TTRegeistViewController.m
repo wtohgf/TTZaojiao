@@ -131,9 +131,33 @@
     }
     
     //验证用户是否已注册
-    
-    
-    [self performSegueWithIdentifier:@"nextStep" sender:nil];
+    NSDictionary* parameters = @{
+                                 @"phone": _phoneNumber.text,
+                                 @"password": _firstPassword.text,
+                                 @"rpassword": _sencondPassword.text
+                                 };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:REGISTER_FIRST_STEP Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                if (((NSMutableArray*)result_data).count!=0) {
+                    RegMsgFirst* msgFirst = (RegMsgFirst*)result_data[0];
+                    if ([msgFirst.msg isEqualToString:@"Get_Reg_1"]) {
+                        [self performSegueWithIdentifier:@"nextStep" sender:nil];
+                    }else{
+                        [[[UIAlertView alloc]init] showAlert:msgFirst.msg_word byTime:1.5];
+                    }
+                }
+           }
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+        
+    }];
+
 
 }
 

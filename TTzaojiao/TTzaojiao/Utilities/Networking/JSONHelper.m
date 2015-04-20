@@ -15,12 +15,21 @@
 +(id)jsonToModel:(id)modelObj Api:(ApiEnum)apienum Idx:(NSInteger)idx ImageURL:(NSString *)url {
     
     switch (apienum) {
-        case ApiEnumNone:
+        case ApiEnumGet_Login:
         {
             modelObj = [UserModel userModelWithDict:(NSDictionary *)modelObj];
         }
             break;
-
+        case ApiEnumGet_Reg_1:
+        {
+            modelObj = [RegMsgFirst msgFirstWithDict:(NSDictionary *)modelObj];
+        }
+            break;
+        case ApiEnumGet_Reg_2:
+        {
+            //modelObj = [UserModel userModelWithDict:(NSDictionary *)modelObj];
+        }
+            break;
         default:
         {
             

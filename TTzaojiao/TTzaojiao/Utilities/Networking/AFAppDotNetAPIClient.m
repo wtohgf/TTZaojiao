@@ -78,7 +78,7 @@
     }
 }
 
--(void)uploadFile:(NSDictionary *)parameters Files:(NSArray *)files Result:(void (^)(id result_data, ApiStatus result_status))result Progress:(void (^)(CGFloat progress))progress {
+-(void)uploadImage:(NSDictionary *)parameters Images:(NSArray *)images Result:(void (^)(id result_data, ApiStatus result_status))result Progress:(void (^)(CGFloat progress))progress {
     
         if (![NetworkHelper isNetWorkReachable])
         {
@@ -87,19 +87,21 @@
             result(error,ApiStatusNetworkNotReachable);
         } else {
             
-            AFHTTPRequestOperation *operation = [self POST:APIName parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                
-                [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    NSDictionary *fileDic = (NSDictionary *)obj;
-                    NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"nodata" ofType:@"png"];
-                    NSString *name = [NetworkHelper makeModelValueWithKey:@"filename" Model:fileDic Null:@"nodata"];
-                    NSString *path = [NetworkHelper makeModelValueWithKey:@"filepath" Model:fileDic Null:defaultPath];
-                    NSURL *filePathUrl = [NSURL fileURLWithPath:path];
-                    [formData appendPartWithFileURL:filePathUrl name:name error:nil];
+            
+            AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+            manager.responseSerializer = [AFJSONResponseSerializer serializer];//使用这个将得到的是JSON
+            manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+
+            [manager POST:APIName parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                [images enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    UIImage* image = (UIImage*)obj;
+                    NSData* data = UIImagePNGRepresentation(image);
+                    NSString* file = [NSString stringWithFormat:@"file%ld",idx+1];
+                    NSString* fileName = [NSString stringWithFormat:@"temp%ld.png",idx+1];
+                    [formData appendPartWithFileData:data name:file fileName:fileName mimeType:@"image/png"];
                 }];
-                
+
             } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                
                 NSError *error = nil;
                 id json = @[];
                 if ([responseObject isKindOfClass:[NSArray class]] ||
@@ -134,18 +136,82 @@
                     result(nil,ApiStatusSuccess);
                 }
                 result(responseObject,ApiStatusSuccess);
-                
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                
                 result(error,ApiStatusError);
-                
-            }];
-            
-            [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
-                progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
             }];
         }
 }
+
+
+-(void)uploadFile:(NSDictionary *)parameters Files:(NSArray *)files Result:(void (^)(id result_data, ApiStatus result_status))result Progress:(void (^)(CGFloat progress))progress {
+    
+    if (![NetworkHelper isNetWorkReachable])
+    {
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Please check your network connection is correct", @"请检查您的网络连接是否正确") forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+        result(error,ApiStatusNetworkNotReachable);
+    } else {
+        
+        AFHTTPRequestOperation *operation = [self POST:APIName parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            
+            [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSDictionary *fileDic = (NSDictionary *)obj;
+                NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"nodata" ofType:@"png"];
+                NSString *name = [NetworkHelper makeModelValueWithKey:@"filename" Model:fileDic Null:@"nodata"];
+                NSString *path = [NetworkHelper makeModelValueWithKey:@"filepath" Model:fileDic Null:defaultPath];
+                NSURL *filePathUrl = [NSURL fileURLWithPath:path];
+                [formData appendPartWithFileURL:filePathUrl name:name error:nil];
+            }];
+            
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSError *error = nil;
+            id json = @[];
+            if ([responseObject isKindOfClass:[NSArray class]] ||
+                [responseObject isKindOfClass:[NSDictionary class]] ||
+                [responseObject isKindOfClass:[NSString class]]) {
+                json = responseObject;
+            }
+            else {
+                json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+            }
+            
+            if (json==nil)
+            {
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                result(error,ApiStatusError);
+            }
+            else if ([json isEqual:[NSNull null]])
+            {
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                result(error,ApiStatusError);
+            }
+            else if (![json isKindOfClass:[NSDictionary class]])
+            {
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+                error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+                result(error,ApiStatusError);
+            }
+            else
+            {
+                result(nil,ApiStatusSuccess);
+            }
+            result(responseObject,ApiStatusSuccess);
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            result(error,ApiStatusError);
+            
+        }];
+        
+        [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
+            progress(((float)totalBytesWritten) / totalBytesExpectedToWrite);
+        }];
+    }
+}
+
 
 -(void)downloadFile:(NSDictionary *)parameters FileName:(NSString *)filename Result:(void (^)(id result_data, ApiStatus result_status))result Progress:(void (^)(CGFloat progress))progress {
 
@@ -311,7 +377,7 @@
         } else {
             
             [self GET:function parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                
+
                 NSError *error = nil;
                 id json = @[];
                 if ([responseObject isKindOfClass:[NSArray class]] ||
@@ -342,15 +408,22 @@
                         NSArray *Data = json;
                         
                         ApiEnum api = ApiEnumNone;
+                        
                         //用function(NSString)参数if判断以确定ApiName枚举
-                        if ([function isEqualToString:@"ApiNamexxxx"]) {
-                            api = ApiEnumNone;
+                        if ([function rangeOfString:@"Get_Login"].length) {
+                            api = ApiEnumGet_Login;
+                        }
+                        if ([function rangeOfString:@"Get_Reg_1"].length) {
+                            api = ApiEnumGet_Reg_1;
+                        }
+                        if ([function rangeOfString:@"Get_Reg_2"].length) {
+                            api = ApiEnumGet_Reg_2;
                         }
                         
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             NSDictionary *modelDic = (NSDictionary *)obj;
                             
-                            id modelObject = [JSONHelper jsonToModel:modelDic Api:ApiEnumNone Idx:idx ImageURL:APIImageName];
+                            id modelObject = [JSONHelper jsonToModel:modelDic Api:api Idx:idx ImageURL:APIImageName];
                             if (modelArr!=nil) {
                                 [modelArr addObject:modelObject];
                                 *stop = YES;
