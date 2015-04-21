@@ -20,7 +20,7 @@
             </objects>
             <point key="canvasLocation" x="181.5" y="496.5"/>
         </scene>
-        <!--Zaojiao View Controller-->
+        <!--早教-->
         <scene sceneID="pfo-84-hQQ">
             <objects>
                 <viewController id="Flm-9H-tps" customClass="TTZaojiaoViewController" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qme-pd-e8G"/>
+                    <navigationItem key="navigationItem" title="早教" id="qme-pd-e8G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5M4-YO-nUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

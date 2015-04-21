@@ -129,8 +129,10 @@
                     [TTUserModelTool sharedUserModelTool].logonUser = user;
                     NSLog(@"%@ %@", user.name, user.icon);
                     
-                    [self.navigationController pushViewController:_mainViewController animated:YES];
-                    
+                    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
+                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+                    [UINavigationBar appearance].hidden = NO;
+                    [self.navigationController pushViewController:_mainViewController animated:YES];                    
                     //保存用户名和密码
                     if(_savePassworkCheckButton.selected == YES)
                     {
