@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="7cY-LY-ccI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHJ-PO-ljU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="ZaoJiaoNav" id="20g-l4-hPa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uO5-T6-Mz6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Flm-9H-tps" kind="relationship" relationship="rootViewController" id="nLb-Kg-OhR"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="181.5" y="496.5"/>
+        </scene>
+        <!--早教-->
+        <scene sceneID="pfo-84-hQQ">
+            <objects>
+                <viewController id="Flm-9H-tps" customClass="TTZaojiaoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eBd-IV-nrq"/>
+                        <viewControllerLayoutGuide type="bottom" id="nfU-6g-g9f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oLw-T6-dcT">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="早教" id="qme-pd-e8G"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5M4-YO-nUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861" y="496.5"/>
+        </scene>
+    </scenes>
+</document>

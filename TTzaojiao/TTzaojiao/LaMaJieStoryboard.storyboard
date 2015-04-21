@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="XiA-Xs-Dda">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CQ7-Q0-8In" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="LaMaJieNav" id="fCv-cO-BLj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a2E-9U-b6e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Pr1-HJ-Das" kind="relationship" relationship="rootViewController" id="JyP-qZ-6mF"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="71" y="459"/>
+        </scene>
+        <!--辣妈街-->
+        <scene sceneID="2Y4-Ur-uhA">
+            <objects>
+                <viewController id="Pr1-HJ-Das" customClass="TTLaMaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uhx-YW-BnB"/>
+                        <viewControllerLayoutGuide type="bottom" id="ikl-4M-7M7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zSP-bA-E6I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="辣妈街" id="DL7-E5-syI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ior-bS-dBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="459"/>
+        </scene>
+    </scenes>
+</document>
