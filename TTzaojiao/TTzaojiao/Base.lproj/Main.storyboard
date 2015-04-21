@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ip3-r2-9rg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ip3-r2-9rg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -539,7 +539,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vPI-hc-P3r" firstAttribute="height" secondItem="NDt-DN-LQF" secondAttribute="height" multiplier="44:600" id="0Vu-Ym-seh"/>
-                            <constraint firstItem="DxE-V1-6PJ" firstAttribute="top" secondItem="vPI-hc-P3r" secondAttribute="bottom" id="KQN-IX-1VL"/>
+                            <constraint firstItem="vPI-hc-P3r" firstAttribute="bottom" secondItem="DxE-V1-6PJ" secondAttribute="top" id="aLr-nI-5Jd"/>
                             <constraint firstItem="vPI-hc-P3r" firstAttribute="leading" secondItem="NDt-DN-LQF" secondAttribute="leadingMargin" constant="-16" id="g4L-ah-sd2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vPI-hc-P3r" secondAttribute="trailing" constant="-16" id="hor-Qj-bdB"/>
                         </constraints>
@@ -549,6 +549,7 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="0Vu-Ym-seh"/>
+                                <exclude reference="aLr-nI-5Jd"/>
                                 <exclude reference="g4L-ah-sd2"/>
                                 <exclude reference="hor-Qj-bdB"/>
                             </mask>
@@ -559,6 +560,7 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="0Vu-Ym-seh"/>
+                                <include reference="aLr-nI-5Jd"/>
                                 <include reference="g4L-ah-sd2"/>
                                 <include reference="hor-Qj-bdB"/>
                             </mask>
@@ -632,7 +634,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1b2-yP-AGU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="8902D4D0-C5B0-4A5E-984F-591D92ED1754">
+                                <state key="normal" image="8DB2A459-6C96-4B07-B40E-469876155D43">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1158,78 +1160,6 @@
         <!--Real Regisit View Controller-->
         <scene sceneID="zyJ-zw-Myu">
             <objects>
-                <view contentMode="scaleToFill" id="e4Z-q1-MC2">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJp-wb-Rfn">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.70332288170000001" green="0.3632306488" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="返回">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="backPage:" destination="Yzr-vF-L2G" eventType="touchUpInside" id="FA8-6m-U2t"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-A3-oYt" userLabel="注册">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.60835459260000002" green="0.31509581619999999" blue="0.84992825260000004" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="注册">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="regist:" destination="Yzr-vF-L2G" eventType="touchUpInside" id="RA1-QW-SNt"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="height" secondItem="e4Z-q1-MC2" secondAttribute="height" id="2MC-Cg-OPO"/>
-                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="width" secondItem="e4Z-q1-MC2" secondAttribute="width" multiplier="1:2" id="SSl-DH-0gh"/>
-                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="height" secondItem="Lts-A3-oYt" secondAttribute="height" id="TPZ-Z9-TNw"/>
-                        <constraint firstItem="Lts-A3-oYt" firstAttribute="width" secondItem="e4Z-q1-MC2" secondAttribute="width" multiplier="1:2" id="d6P-u3-orH"/>
-                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="top" secondItem="e4Z-q1-MC2" secondAttribute="top" id="er5-GU-a1C"/>
-                        <constraint firstItem="Lts-A3-oYt" firstAttribute="top" secondItem="e4Z-q1-MC2" secondAttribute="top" id="hig-0j-3gx"/>
-                        <constraint firstAttribute="trailing" secondItem="Lts-A3-oYt" secondAttribute="trailing" id="rdZ-lU-s24"/>
-                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="leading" secondItem="e4Z-q1-MC2" secondAttribute="leading" id="xd8-BG-nG0"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="eJp-wb-Rfn"/>
-                            <exclude reference="Lts-A3-oYt"/>
-                        </mask>
-                        <mask key="constraints">
-                            <exclude reference="d6P-u3-orH"/>
-                            <exclude reference="hig-0j-3gx"/>
-                            <exclude reference="rdZ-lU-s24"/>
-                            <exclude reference="2MC-Cg-OPO"/>
-                            <exclude reference="SSl-DH-0gh"/>
-                            <exclude reference="TPZ-Z9-TNw"/>
-                            <exclude reference="er5-GU-a1C"/>
-                            <exclude reference="xd8-BG-nG0"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="subviews">
-                            <include reference="eJp-wb-Rfn"/>
-                            <include reference="Lts-A3-oYt"/>
-                        </mask>
-                        <mask key="constraints">
-                            <include reference="d6P-u3-orH"/>
-                            <include reference="hig-0j-3gx"/>
-                            <include reference="rdZ-lU-s24"/>
-                            <include reference="2MC-Cg-OPO"/>
-                            <include reference="SSl-DH-0gh"/>
-                            <include reference="TPZ-Z9-TNw"/>
-                            <include reference="er5-GU-a1C"/>
-                            <include reference="xd8-BG-nG0"/>
-                        </mask>
-                    </variation>
-                </view>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9ZB-Vy-7hW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Yzr-vF-L2G" customClass="TTRealRegisitViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ppf-DA-4yg"/>
@@ -1795,6 +1725,78 @@
                         <outlet property="location" destination="akg-TR-BQx" id="Xl4-v0-kRH"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="e4Z-q1-MC2">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJp-wb-Rfn">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <color key="backgroundColor" red="0.70332288170000001" green="0.3632306488" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="返回">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="backPage:" destination="Yzr-vF-L2G" eventType="touchUpInside" id="FA8-6m-U2t"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-A3-oYt" userLabel="注册">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <color key="backgroundColor" red="0.60835459260000002" green="0.31509581619999999" blue="0.84992825260000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="注册">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="regist:" destination="Yzr-vF-L2G" eventType="touchUpInside" id="RA1-QW-SNt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="height" secondItem="e4Z-q1-MC2" secondAttribute="height" id="2MC-Cg-OPO"/>
+                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="width" secondItem="e4Z-q1-MC2" secondAttribute="width" multiplier="1:2" id="SSl-DH-0gh"/>
+                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="height" secondItem="Lts-A3-oYt" secondAttribute="height" id="TPZ-Z9-TNw"/>
+                        <constraint firstItem="Lts-A3-oYt" firstAttribute="width" secondItem="e4Z-q1-MC2" secondAttribute="width" multiplier="1:2" id="d6P-u3-orH"/>
+                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="top" secondItem="e4Z-q1-MC2" secondAttribute="top" id="er5-GU-a1C"/>
+                        <constraint firstItem="Lts-A3-oYt" firstAttribute="top" secondItem="e4Z-q1-MC2" secondAttribute="top" id="hig-0j-3gx"/>
+                        <constraint firstAttribute="trailing" secondItem="Lts-A3-oYt" secondAttribute="trailing" id="rdZ-lU-s24"/>
+                        <constraint firstItem="eJp-wb-Rfn" firstAttribute="leading" secondItem="e4Z-q1-MC2" secondAttribute="leading" id="xd8-BG-nG0"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="eJp-wb-Rfn"/>
+                            <exclude reference="Lts-A3-oYt"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="d6P-u3-orH"/>
+                            <exclude reference="hig-0j-3gx"/>
+                            <exclude reference="rdZ-lU-s24"/>
+                            <exclude reference="2MC-Cg-OPO"/>
+                            <exclude reference="SSl-DH-0gh"/>
+                            <exclude reference="TPZ-Z9-TNw"/>
+                            <exclude reference="er5-GU-a1C"/>
+                            <exclude reference="xd8-BG-nG0"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="eJp-wb-Rfn"/>
+                            <include reference="Lts-A3-oYt"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="d6P-u3-orH"/>
+                            <include reference="hig-0j-3gx"/>
+                            <include reference="rdZ-lU-s24"/>
+                            <include reference="2MC-Cg-OPO"/>
+                            <include reference="SSl-DH-0gh"/>
+                            <include reference="TPZ-Z9-TNw"/>
+                            <include reference="er5-GU-a1C"/>
+                            <include reference="xd8-BG-nG0"/>
+                        </mask>
+                    </variation>
+                </view>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ZB-Vy-7hW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1224" y="818.25"/>
         </scene>
@@ -1816,7 +1818,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8902D4D0-C5B0-4A5E-984F-591D92ED1754" width="37" height="36">
+        <image name="8DB2A459-6C96-4B07-B40E-469876155D43" width="37" height="36">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
