@@ -40,6 +40,10 @@
     [self setupSavePassworkButton];
     //装载tabbar
     [self setupViewControllers];
+    
+    _account.text = @"13381109915";
+    _password.text = @"123456";
+    
 }
 #pragma mark 设置记住密码按钮
 -(void)setupSavePassworkButton{
@@ -106,6 +110,7 @@
 #pragma mark 返回登录注册页面
 - (IBAction)backLogRegPage:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    
     
 }
 

@@ -183,13 +183,17 @@
 {
     TSLocateView *locateView = (TSLocateView *)actionSheet;
     TSLocation *location = locateView.locate;
-    NSLog(@"city:%@ lat:%f lon:%f", location.city, location.latitude, location.longitude);
+    NSLog(@"provice%@ city:%@", location.state, location.city);
     //You can uses location to your application.
+
     if(buttonIndex == 0) {
         _cityCode = @"";
     }else {
-        _cityCode = @"110000";
-        [_location setText:@"北京市"];
+        NSString* cityName = [NSString stringWithFormat:@"%@市", location.city];
+        _cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:cityName];
+        NSLog(@"code %@", _cityCode);
+        NSString* cityString = [NSString stringWithFormat:@"%@ %@",location.state, location.city];
+        [_location setText:cityString];
     }
 }
 

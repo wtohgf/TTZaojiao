@@ -10,7 +10,7 @@
 
 @interface FileManagerHelper : NSObject
 
-+ (void)CreatFilePath:(NSString *)name;
++ (NSString*)CreatFilePath:(NSString *)name;
 + (void)DeleteFilePath:(NSString *)name;
 //遍历文件夹获得文件夹大小，返回多少M
 + (float ) folderSizeAtPath:(NSString*) folderPath;

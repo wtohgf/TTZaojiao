@@ -12,6 +12,7 @@
 #import "UIAlertView+MoreAttribute.h"
 #import <MBProgressHUD.h>
 #import "TTUserModelTool.h"
+#import "TTCityMngTool.h"
 
 @interface TTBaseViewController : UIViewController
 
