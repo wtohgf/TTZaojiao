@@ -634,7 +634,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1b2-yP-AGU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="1250E2A7-C9D9-47F3-855D-5D4DD461AA78">
+                                <state key="normal" image="F703FC39-73F8-478D-B861-F365392629ED">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -739,7 +739,6 @@
                         <outlet property="bottomBar" destination="dzt-8M-nfO" id="7NH-aG-hFf"/>
                         <outlet property="password" destination="1Ju-ED-i4w" id="zLf-bE-wjZ"/>
                         <outlet property="savePassworkCheckButton" destination="1b2-yP-AGU" id="fay-gq-nzL"/>
-                        <segue destination="aCX-m6-elH" kind="show" identifier="tabbarNavId" id="lae-lw-Zuy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEQ-By-xpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -816,24 +815,6 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="-1231.5" y="-141"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="z1d-6a-0yq">
-            <objects>
-                <viewController id="aCX-m6-elH" customClass="RDVTabBarController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="REu-cA-p1O"/>
-                        <viewControllerLayoutGuide type="bottom" id="x2V-cu-3oA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eIH-vr-zEp">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aXz-9d-Ytu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7kF-PY-KlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-522" y="-141"/>
         </scene>
         <!--Regeist View Controller-->
         <scene sceneID="9Ea-7R-vgG">
@@ -1837,7 +1818,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1250E2A7-C9D9-47F3-855D-5D4DD461AA78" width="37" height="36">
+        <image name="F703FC39-73F8-478D-B861-F365392629ED" width="37" height="36">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
