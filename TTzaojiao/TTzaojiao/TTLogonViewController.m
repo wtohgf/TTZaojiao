@@ -32,14 +32,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //默认用户名密码
+    [self userRecord];
     //添加低栏
     [self addBottomBar];
     //注册键盘通知
     [self addKeyNotification];
-    //设置记住密码按钮
-    [self setupSavePassworkButton];
     //装载tabbar
     [self setupViewControllers];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self.view bringSubviewToFront:_bottomBar];
+}
+
+#pragma mark 设置记住的用户名密码
+-(void)userRecord {
+    _account.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"account"];
+    _password.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+    if (![_password.text isEqualToString:@""]) {
+        _savePassworkCheckButton.selected = YES;
+    }
 }
 #pragma mark 设置记住密码按钮
 -(void)setupSavePassworkButton{
@@ -55,7 +68,6 @@
     _bottomBar.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;
     [self.view addSubview:_bottomBar];
-    
 }
 #pragma mark 注册键盘通知
 -(void)addKeyNotification{
@@ -153,6 +165,10 @@
 #pragma mark 记住密码
 - (IBAction)savePasswordCheck:(UIButton *)sender {
     sender.selected = !sender.selected;
+    [[NSUserDefaults standardUserDefaults] setValue:_account.text forKey:@"account"];
+    [[NSUserDefaults standardUserDefaults] setValue:_password.text forKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 - (IBAction)endEdit:(UITextField *)sender {

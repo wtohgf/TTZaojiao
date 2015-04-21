@@ -7,7 +7,6 @@
         <!--Navigation Controller-->
         <scene sceneID="7cY-LY-ccI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bHJ-PO-ljU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ZaoJiaoNav" id="20g-l4-hPa" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uO5-T6-Mz6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -17,6 +16,7 @@
                         <segue destination="Flm-9H-tps" kind="relationship" relationship="rootViewController" id="nLb-Kg-OhR"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHJ-PO-ljU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="181.5" y="496.5"/>
         </scene>
@@ -29,6 +29,7 @@
                         <viewControllerLayoutGuide type="bottom" id="nfU-6g-g9f"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oLw-T6-dcT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
