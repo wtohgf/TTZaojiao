@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTBaseViewController.h"
 
-@interface TTZaojiaoViewController : UIViewController
+@interface TTZaojiaoViewController : TTBaseViewController
 
 @end

@@ -168,16 +168,16 @@
 
 - (void)setupViewControllers {
     UIStoryboard *storyBoardZaoJiao=[UIStoryboard storyboardWithName:@"ZaoJiaoStoryboard" bundle:nil];
-    UINavigationController *zaojiaoNavigationController = [storyBoardZaoJiao instantiateViewControllerWithIdentifier:@"ZaoJiaoNav"];
+    UIViewController *zaojiaoNavigationController = [storyBoardZaoJiao instantiateViewControllerWithIdentifier:@"ZaoJiaoNav"];
     
     UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    UINavigationController *dongtaiNavigationController = [storyBoardDongTai instantiateViewControllerWithIdentifier:@"DongTaiNav"];
+    UIViewController *dongtaiNavigationController = [storyBoardDongTai instantiateViewControllerWithIdentifier:@"DongTaiNav"];
     
     UIStoryboard *storyBoardLaMaJie=[UIStoryboard storyboardWithName:@"LaMaJieStoryboard" bundle:nil];
-    UINavigationController *lamajieNavigationController = [storyBoardLaMaJie instantiateViewControllerWithIdentifier:@"LaMaJieNav"];
+    UIViewController *lamajieNavigationController = [storyBoardLaMaJie instantiateViewControllerWithIdentifier:@"LaMaJieNav"];
     
     UIStoryboard *storyBoardWo=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
-    UINavigationController *woNavigationController = [storyBoardWo instantiateViewControllerWithIdentifier:@"WoNav"];
+    UIViewController *woNavigationController = [storyBoardWo instantiateViewControllerWithIdentifier:@"WoNav"];
 
     
     RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];

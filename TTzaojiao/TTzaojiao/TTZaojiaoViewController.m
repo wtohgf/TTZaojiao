@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [UINavigationBar appearance].hidden = NO;
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTBaseViewController.h"
 
-@interface TTLaMaViewController : UIViewController
+@interface TTLaMaViewController : TTBaseViewController
 
 @end

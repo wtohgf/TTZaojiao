@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTBaseViewController.h"
 
-@interface TTDongTaiViewController : UIViewController
+@interface TTDongTaiViewController : TTBaseViewController
 
 @end
