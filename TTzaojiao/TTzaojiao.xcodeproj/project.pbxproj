@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02240C971AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */; };
+		02240C991AE639A600EEB7AF /* DongTaiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */; };
+		02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */; };
+		02240C9D1AE639C000EEB7AF /* WoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */; };
+		02240CA01AE639DC00EEB7AF /* TTZaojiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */; };
+		02240CA31AE639EC00EEB7AF /* TTDongTaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240CA21AE639EC00EEB7AF /* TTDongTaiViewController.m */; };
+		02240CA61AE639FB00EEB7AF /* TTLaMaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240CA51AE639FB00EEB7AF /* TTLaMaViewController.m */; };
+		02240CA91AE63A1900EEB7AF /* TTWoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240CA81AE63A1900EEB7AF /* TTWoViewController.m */; };
 		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
 		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
 		02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E91ADF668100D0DF30 /* JSONHelper.m */; };
@@ -75,6 +83,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZaoJiaoStoryboard.storyboard; sourceTree = "<group>"; };
+		02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DongTaiStoryboard.storyboard; sourceTree = "<group>"; };
+		02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaMaJieStoryboard.storyboard; sourceTree = "<group>"; };
+		02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WoStoryboard.storyboard; sourceTree = "<group>"; };
+		02240C9E1AE639DC00EEB7AF /* TTZaojiaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoViewController.h; sourceTree = "<group>"; };
+		02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoViewController.m; sourceTree = "<group>"; };
+		02240CA11AE639EC00EEB7AF /* TTDongTaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDongTaiViewController.h; sourceTree = "<group>"; };
+		02240CA21AE639EC00EEB7AF /* TTDongTaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDongTaiViewController.m; sourceTree = "<group>"; };
+		02240CA41AE639FB00EEB7AF /* TTLaMaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLaMaViewController.h; sourceTree = "<group>"; };
+		02240CA51AE639FB00EEB7AF /* TTLaMaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLaMaViewController.m; sourceTree = "<group>"; };
+		02240CA71AE63A1900EEB7AF /* TTWoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoViewController.h; sourceTree = "<group>"; };
+		02240CA81AE63A1900EEB7AF /* TTWoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoViewController.m; sourceTree = "<group>"; };
 		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
 		02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
@@ -274,6 +294,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02240C921AE6392F00EEB7AF /* zaojiao */ = {
+			isa = PBXGroup;
+			children = (
+				02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */,
+				02240C9E1AE639DC00EEB7AF /* TTZaojiaoViewController.h */,
+				02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */,
+			);
+			name = zaojiao;
+			sourceTree = "<group>";
+		};
+		02240C931AE6394700EEB7AF /* wo */ = {
+			isa = PBXGroup;
+			children = (
+				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
+				02240CA71AE63A1900EEB7AF /* TTWoViewController.h */,
+				02240CA81AE63A1900EEB7AF /* TTWoViewController.m */,
+			);
+			name = wo;
+			sourceTree = "<group>";
+		};
+		02240C941AE6394B00EEB7AF /* lamajie */ = {
+			isa = PBXGroup;
+			children = (
+				02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */,
+				02240CA41AE639FB00EEB7AF /* TTLaMaViewController.h */,
+				02240CA51AE639FB00EEB7AF /* TTLaMaViewController.m */,
+			);
+			name = lamajie;
+			sourceTree = "<group>";
+		};
+		02240C951AE6395000EEB7AF /* dongtai */ = {
+			isa = PBXGroup;
+			children = (
+				02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */,
+				02240CA11AE639EC00EEB7AF /* TTDongTaiViewController.h */,
+				02240CA21AE639EC00EEB7AF /* TTDongTaiViewController.m */,
+			);
+			name = dongtai;
+			sourceTree = "<group>";
+		};
 		02BFC4E01ADF662500D0DF30 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +600,10 @@
 		1D1F2BEC1ADF98F9004F851D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				02240C921AE6392F00EEB7AF /* zaojiao */,
+				02240C951AE6395000EEB7AF /* dongtai */,
+				02240C941AE6394B00EEB7AF /* lamajie */,
+				02240C931AE6394700EEB7AF /* wo */,
 				1D018E351AE20E3D00696F25 /* RegeistPage */,
 				1D1F2C031AE0ABB9004F851D /* LogonPage */,
 				1D1F2BFF1AE099B9004F851D /* LogRegPage */,
@@ -809,18 +873,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DDF4EBC1AE3B712004661EB /* btn_020@2x.png in Resources */,
+				02240C971AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard in Resources */,
 				1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */,
 				1D60E5F31ADDB392003A632B /* Main.storyboard in Resources */,
 				1DDF4EBA1AE3B712004661EB /* btn_020.disable@2x.png in Resources */,
 				1DDF4EBE1AE3B712004661EB /* btn_021.press@2x.png in Resources */,
 				1DDF4EBD1AE3B712004661EB /* btn_021.disable@2x.png in Resources */,
+				02240C991AE639A600EEB7AF /* DongTaiStoryboard.storyboard in Resources */,
 				1D60E5F81ADDB392003A632B /* LaunchScreen.xib in Resources */,
 				02BFC5681ADF7A3700D0DF30 /* AlipaySDK.bundle in Resources */,
 				1D60E5F51ADDB392003A632B /* Images.xcassets in Resources */,
+				02240C9D1AE639C000EEB7AF /* WoStoryboard.storyboard in Resources */,
 				1DDF4EBF1AE3B712004661EB /* btn_021@2x.png in Resources */,
 				1DDF4EBB1AE3B712004661EB /* btn_020.press@2x.png in Resources */,
 				1DDF4EC01AE3B712004661EB /* ProvincesAndCities.plist in Resources */,
 				1DDF4EC21AE3B712004661EB /* TSLocateView.xib in Resources */,
+				02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,7 +951,9 @@
 				02BFC5661ADF7A3700D0DF30 /* RSADataSigner.m in Sources */,
 				1D018E1C1AE1C91A00696F25 /* TTUserModelTool.m in Sources */,
 				1D018E0F1AE15F8900696F25 /* TTBaseViewController.m in Sources */,
+				02240CA91AE63A1900EEB7AF /* TTWoViewController.m in Sources */,
 				1D018E381AE20EC500696F25 /* TTNavigationController.m in Sources */,
+				02240CA31AE639EC00EEB7AF /* TTDongTaiViewController.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
 				02BFC55E1ADF7A3700D0DF30 /* AlipayRequestConfig.m in Sources */,
@@ -892,7 +962,9 @@
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
 				1D018E141AE1622900696F25 /* UserModel.m in Sources */,
+				02240CA01AE639DC00EEB7AF /* TTZaojiaoViewController.m in Sources */,
 				02BFC5611ADF7A3700D0DF30 /* DataSigner.m in Sources */,
+				02240CA61AE639FB00EEB7AF /* TTLaMaViewController.m in Sources */,
 				1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */,
 				1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */,
 				02BFC5631ADF7A3700D0DF30 /* MD5DataSigner.m in Sources */,

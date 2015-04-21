@@ -7,12 +7,15 @@
 //
 
 #import "TTLogonViewController.h"
+#import "RDVTabBarController.h"
+#import "RDVTabBarItem.h"
 
 @interface TTLogonViewController ()
 {
     CGFloat _backBottonBarY;
 }
 
+@property (strong, nonatomic) UIViewController *mainViewController;
 @property (weak, nonatomic) IBOutlet UIButton *savePassworkCheckButton;
 @property (weak, nonatomic) IBOutlet UIView *bottomBar;
 @property (weak, nonatomic) IBOutlet UITextField *account;
@@ -35,8 +38,8 @@
     [self addKeyNotification];
     //设置记住密码按钮
     [self setupSavePassworkButton];
-    
-    
+    //装载tabbar
+    [self setupViewControllers];
 }
 #pragma mark 设置记住密码按钮
 -(void)setupSavePassworkButton{
@@ -125,10 +128,13 @@
                     UserModel* user = result_data[0];
                     [TTUserModelTool sharedUserModelTool].logonUser = user;
                     NSLog(@"%@ %@", user.name, user.icon);
+                    
+                    [self.navigationController pushViewController:_mainViewController animated:YES];
+                    
                     //保存用户名和密码
                     if(_savePassworkCheckButton.selected == YES)
                     {
-                      
+                        
                     }
                 }
                 
@@ -139,7 +145,6 @@
             };
         }];
     }
-    
 }
 
 #pragma mark 记住密码
@@ -158,4 +163,119 @@
     [_password resignFirstResponder];
     [_account resignFirstResponder];
 }
+
+#pragma mark Tabbar
+
+- (void)setupViewControllers {
+    UIStoryboard *storyBoardZaoJiao=[UIStoryboard storyboardWithName:@"ZaoJiaoStoryboard" bundle:nil];
+    UINavigationController *zaojiaoNavigationController = [storyBoardZaoJiao instantiateViewControllerWithIdentifier:@"ZaoJiaoNav"];
+    
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+    UINavigationController *dongtaiNavigationController = [storyBoardDongTai instantiateViewControllerWithIdentifier:@"DongTaiNav"];
+    
+    UIStoryboard *storyBoardLaMaJie=[UIStoryboard storyboardWithName:@"LaMaJieStoryboard" bundle:nil];
+    UINavigationController *lamajieNavigationController = [storyBoardLaMaJie instantiateViewControllerWithIdentifier:@"LaMaJieNav"];
+    
+    UIStoryboard *storyBoardWo=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
+    UINavigationController *woNavigationController = [storyBoardWo instantiateViewControllerWithIdentifier:@"WoNav"];
+
+    
+    RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
+    [tabBarController setViewControllers:@[zaojiaoNavigationController,
+                                           dongtaiNavigationController,
+                                           lamajieNavigationController,
+                                           woNavigationController]];
+    self.mainViewController = tabBarController;
+    
+    [self customizeTabBarForController:tabBarController];
+}
+
+- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
+    UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
+    NSArray *tabBarItemImages = @[@"bottom_btn1", @"bottom_btn2", @"bottom_btn4", @"bottom_btn5"];
+    NSInteger index = 0;
+    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        
+        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+        
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_checked",
+                                                      [tabBarItemImages objectAtIndex:index]]];
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_unchecked",
+                                                        [tabBarItemImages objectAtIndex:index]]];
+        
+        [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
+        
+        item.unselectedTitleAttributes = @{
+                                           NSFontAttributeName: [UIFont systemFontOfSize:12],
+                                           NSForegroundColorAttributeName: [UIColor darkGrayColor],
+                                           };
+        
+        item.selectedTitleAttributes = @{
+                                         NSFontAttributeName: [UIFont systemFontOfSize:12],
+                                         NSForegroundColorAttributeName: [UIColor colorWithRed:181.f/255.f green:64.f/355.f blue:92.f/255.f alpha:1],
+                                         };
+        
+        switch (index) {
+            case 0:
+            {
+                [item setTitle:@"早教"];
+            }
+                break;
+            case 1:
+            {
+                [item setTitle:@"动态"];
+            }
+                break;
+            case 2:
+            {
+                [item setTitle:@"辣妈街"];
+            }
+                break;
+            case 3:
+            {
+                [item setTitle:@"我"];
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        index++;
+    }
+}
+
+- (void)customizeInterface {
+    //    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+    //
+    //    UIImage *backgroundImage = nil;
+    //    NSDictionary *textAttributes = nil;
+    //
+    //    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+    //        backgroundImage = [UIImage imageNamed:@"navigationbar_background_tall"];
+    //
+    //        textAttributes = @{
+    //                           NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
+    //                           NSForegroundColorAttributeName: [UIColor blackColor],
+    //                           };
+    //    } else {
+    //#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+    //        backgroundImage = [UIImage imageNamed:@"navigationbar_background"];
+    //
+    //        textAttributes = @{
+    //                           UITextAttributeFont: [UIFont boldSystemFontOfSize:18],
+    //                           UITextAttributeTextColor: [UIColor blackColor],
+    //                           UITextAttributeTextShadowColor: [UIColor clearColor],
+    //                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero],
+    //                           };
+    //#endif
+    //    }
+    //
+    //    [navigationBarAppearance setBackgroundImage:backgroundImage
+    //                                  forBarMetrics:UIBarMetricsDefault];
+    //    [navigationBarAppearance setTitleTextAttributes:textAttributes];
+}
+
+
 @end
