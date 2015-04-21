@@ -11,6 +11,7 @@
 //#import "xxxxxModel.h"
 #import "UserModel.h"
 #import "RegMsgFirst.h"
+#import "RegMsgSecond.h"
 
 //Api Name
 typedef enum : NSUInteger {

@@ -27,7 +27,7 @@
             break;
         case ApiEnumGet_Reg_2:
         {
-            //modelObj = [UserModel userModelWithDict:(NSDictionary *)modelObj];
+            modelObj = [RegMsgSecond msgSecondWithDict:(NSDictionary *)modelObj];
         }
             break;
         default:

@@ -632,7 +632,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1b2-yP-AGU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="8902D4D0-C5B0-4A5E-984F-591D92ED1754">
+                                <state key="normal" image="1250E2A7-C9D9-47F3-855D-5D4DD461AA78">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1816,7 +1816,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="8902D4D0-C5B0-4A5E-984F-591D92ED1754" width="37" height="36">
+        <image name="1250E2A7-C9D9-47F3-855D-5D4DD461AA78" width="37" height="36">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

@@ -48,6 +48,7 @@
 		1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E6031ADDB392003A632B /* TTzaojiaoTests.m */; };
 		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
 		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
+		1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5D11AE6331700346732 /* RegMsgSecond.m */; };
 		1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */; };
 		1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4EA81AE3AA7E004661EB /* JSImagePickerViewController.m */; };
 		1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EAC1AE3B712004661EB /* bg_023@2x.png */; };
@@ -229,6 +230,8 @@
 		1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgFirst.m; sourceTree = "<group>"; };
 		1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MoreAttribute.h"; sourceTree = "<group>"; };
 		1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MoreAttribute.m"; sourceTree = "<group>"; };
+		1DC7C5D01AE6331700346732 /* RegMsgSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgSecond.h; sourceTree = "<group>"; };
+		1DC7C5D11AE6331700346732 /* RegMsgSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgSecond.m; sourceTree = "<group>"; };
 		1DDF4E8C1AE26C82004661EB /* TTRealRegisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRealRegisitViewController.h; sourceTree = "<group>"; };
 		1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRealRegisitViewController.m; sourceTree = "<group>"; };
 		1DDF4EA71AE3AA7E004661EB /* JSImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSImagePickerViewController.h; sourceTree = "<group>"; };
@@ -484,6 +487,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1DC7C5CF1AE632F300346732 /* RegSecond */,
 				1DC7C5C81AE4B32E00346732 /* RegMsg */,
 				1D018E111AE1603E00696F25 /* UserModel */,
 			);
@@ -669,6 +673,15 @@
 				1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */,
 			);
 			name = RegMsg;
+			sourceTree = "<group>";
+		};
+		1DC7C5CF1AE632F300346732 /* RegSecond */ = {
+			isa = PBXGroup;
+			children = (
+				1DC7C5D01AE6331700346732 /* RegMsgSecond.h */,
+				1DC7C5D11AE6331700346732 /* RegMsgSecond.m */,
+			);
+			name = RegSecond;
 			sourceTree = "<group>";
 		};
 		1DDF4EA61AE3AA7E004661EB /* JSImagePickerController */ = {
@@ -878,6 +891,7 @@
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
+				1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */,
 				02BFC5651ADF7A3700D0DF30 /* openssl_wrapper.m in Sources */,
 				1D018E3B1AE20EEA00696F25 /* TTRegeistViewController.m in Sources */,
 				02BFC5661ADF7A3700D0DF30 /* RSADataSigner.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "TTRegeistViewController.h"
+#import "TTRealRegisitViewController.h"
 
 @interface TTRegeistViewController ()
 {
@@ -144,7 +145,8 @@
                 if (((NSMutableArray*)result_data).count!=0) {
                     RegMsgFirst* msgFirst = (RegMsgFirst*)result_data[0];
                     if ([msgFirst.msg isEqualToString:@"Get_Reg_1"]) {
-                        [self performSegueWithIdentifier:@"nextStep" sender:nil];
+                        NSString* segTag = @"nextStep";
+                        [self performSegueWithIdentifier:@"nextStep" sender: segTag];
                     }else{
                         [[[UIAlertView alloc]init] showAlert:msgFirst.msg_word byTime:1.5];
                     }
@@ -166,5 +168,14 @@
     [sender resignFirstResponder];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([sender isKindOfClass:[NSString class]]) {
+        if ([sender isEqualToString:@"nextStep"]) {
+            TTRealRegisitViewController* realReg = (TTRealRegisitViewController*)segue.destinationViewController;
+            realReg.phoneNum = _phoneNumber.text;
+            realReg.password = _firstPassword.text;
+        }
+    }
+}
 
 @end
