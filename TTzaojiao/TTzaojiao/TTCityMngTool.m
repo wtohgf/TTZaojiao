@@ -94,7 +94,29 @@ static TTCityMngTool* tool;
             }
         }];
     }
+    cityName = [cityName stringByReplacingOccurrencesOfString:@"市" withString:@""];
     return cityName;
 }
+
+-(NSString *)provinceofCity:(NSString *)cityName{
+    NSString* path = [[NSBundle mainBundle]pathForResource:@"ProvincesAndCities.plist" ofType:nil];
+    NSArray* rootList = [NSArray arrayWithContentsOfFile:path];
+    __block NSString* retpro = nil;
+    [rootList enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSDictionary* dict = (NSDictionary*)obj;
+        __block NSString* province = dict[@"State"];
+        NSArray* citys = dict[@"Cities"];
+        [citys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSDictionary* city = (NSDictionary*)obj;
+            if ([city[@"city"] isEqualToString:cityName]) {
+                *stop = YES;
+                retpro = province;
+            }
+        }];
+    }];
+    return retpro;
+}
+
+
 
 @end

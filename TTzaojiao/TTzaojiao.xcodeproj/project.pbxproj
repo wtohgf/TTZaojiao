@@ -47,6 +47,8 @@
 		1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F2C011AE09A66004F851D /* TTLogRegViewController.m */; };
 		1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F2C051AE0AECA004F851D /* TTLogonViewController.m */; };
 		1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */; };
+		1D57E1AA1AE74FED00EA3D35 /* CustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */; };
+		1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */; };
 		1D60E5E71ADDB392003A632B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E61ADDB392003A632B /* main.m */; };
 		1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E91ADDB392003A632B /* AppDelegate.m */; };
 		1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */; };
@@ -235,6 +237,9 @@
 		1D1F2C091AE10BAF004F851D /* TTWebServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTWebServerAPI.h; sourceTree = "<group>"; };
 		1D57E1A61AE6E4A100EA3D35 /* TTCityMngTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCityMngTool.h; sourceTree = "<group>"; };
 		1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCityMngTool.m; sourceTree = "<group>"; };
+		1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePicker.xib; sourceTree = "<group>"; };
+		1D57E1AB1AE7511E00EA3D35 /* CustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePicker.h; sourceTree = "<group>"; };
+		1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePicker.m; sourceTree = "<group>"; };
 		1D60E5E11ADDB392003A632B /* TTzaojiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTzaojiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D60E5E51ADDB392003A632B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D60E5E61ADDB392003A632B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -602,6 +607,9 @@
 		1D018E3C1AE218DC00696F25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */,
+				1D57E1AB1AE7511E00EA3D35 /* CustomDatePicker.h */,
+				1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -906,6 +914,7 @@
 				1DDF4EBB1AE3B712004661EB /* btn_020.press@2x.png in Resources */,
 				1DDF4EC01AE3B712004661EB /* ProvincesAndCities.plist in Resources */,
 				1DDF4EC21AE3B712004661EB /* TSLocateView.xib in Resources */,
+				1D57E1AA1AE74FED00EA3D35 /* CustomDatePicker.xib in Resources */,
 				02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -990,6 +999,7 @@
 				02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */,
 				1D018E341AE20E0F00696F25 /* TTBaseTableViewController.m in Sources */,
 				02BFC55F1ADF7A3700D0DF30 /* Order.m in Sources */,
+				1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */,
 				02BFC5641ADF7A3700D0DF30 /* NSDataEx.m in Sources */,
 				1DDF4EC11AE3B712004661EB /* TSLocateView.m in Sources */,
 				1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */,

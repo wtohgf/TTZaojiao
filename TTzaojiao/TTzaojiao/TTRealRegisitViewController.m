@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) IBOutlet UILabel *gental;
 @property (weak, nonatomic) IBOutlet UILabel *birthDay;
-@property (weak, nonatomic) HSDatePickerViewController* dateVC;
+//@property (weak, nonatomic) HSDatePickerViewController* dateVC;
 
 @property (copy, nonatomic) NSString* genderType; //0 男 1 女
 @property (copy, nonatomic) NSString* birthdayString; //1970-01-01
@@ -76,7 +76,12 @@
 - (void)initAllParameters{
     _genderType= @"0";
     _birthdayString = @"";
-    _cityCode= @"";
+    
+    _cityCode= @"210200";
+    NSString* cityName = [[TTCityMngTool sharedCityMngTool]codetoCity:_cityCode];
+    NSString* provence = [[TTCityMngTool sharedCityMngTool]provinceofCity:cityName];
+    _location.text = [NSString stringWithFormat:@"%@ %@",provence, cityName];
+    
     _babyName.text= @"";
     _iconPath= @"";
     _type= @"";
@@ -181,21 +186,36 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    TSLocateView *locateView = (TSLocateView *)actionSheet;
-    TSLocation *location = locateView.locate;
-    NSLog(@"provice%@ city:%@", location.state, location.city);
-    //You can uses location to your application.
+    if ([actionSheet isKindOfClass:[TSLocateView class]]) {
+        TSLocateView *locateView = (TSLocateView *)actionSheet;
+        TSLocation *location = locateView.locate;
+        NSLog(@"provice%@ city:%@", location.state, location.city);
+        //You can uses location to your application.
+        
+        if(buttonIndex == 0) {
+            _cityCode = @"";
+        }else {
+            NSString* cityName = [NSString stringWithFormat:@"%@市", location.city];
+            _cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:cityName];
+            NSLog(@"code %@", _cityCode);
+            NSString* cityString = [NSString stringWithFormat:@"%@ %@",location.state, location.city];
+            [_location setText:cityString];
+        }
 
-    if(buttonIndex == 0) {
-        _cityCode = @"";
-    }else {
-        NSString* cityName = [NSString stringWithFormat:@"%@市", location.city];
-        _cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:cityName];
-        NSLog(@"code %@", _cityCode);
-        NSString* cityString = [NSString stringWithFormat:@"%@ %@",location.state, location.city];
-        [_location setText:cityString];
+    }else if([actionSheet isKindOfClass:[CustomDatePicker class]]){
+        CustomDatePicker *datePickerView = (CustomDatePicker *)actionSheet;
+        
+        if(buttonIndex == 0) {
+            _birthdayString = @"";
+        }else {
+            NSDate* date = datePickerView.datePicker.date;
+            NSDateFormatter* formater = [[NSDateFormatter alloc]init];
+            [formater setDateFormat:@"yyyy-MM-dd"];
+            _birthdayString = [formater stringFromDate:date];
+            [_birthDay setText:_birthdayString];
+        }
     }
-}
+ }
 
 #pragma mark 更改头像
 - (IBAction)changIcon:(UIButton *)sender {
@@ -208,17 +228,19 @@
 
 -(void)imagePickerDidSelectImage:(UIImage *)image{
     image = [image scaleToSize:image size:CGSizeMake(100, 100)];
-    [_icon setImage:image forState:UIControlStateNormal];
     
     NSMutableArray* images = [NSMutableArray array];
     [images addObject:image];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
         if ([result_data isKindOfClass:[NSMutableArray class]]) {
             if (((NSMutableArray*)result_data).count!=0) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
                 NSDictionary* dict = (NSDictionary*)result_data[0];
                 if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
                     NSString* filePath = dict[@"msg_word_1"];
                     _iconPath = filePath;
+                    [_icon setImage:image forState:UIControlStateNormal];
                 }else{
                     _iconPath = @"";
                 }
@@ -238,18 +260,14 @@
     
     UIAlertAction* ownBaby = [UIAlertAction actionWithTitle:@"已有宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         _type = @"0";
-        HSDatePickerViewController* dateVC = [[HSDatePickerViewController alloc]init];
+        CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
+        cdate.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
+        cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
+        [cdate showInView:self.view];
         NSDateFormatter* formater = [[NSDateFormatter alloc]init];
         [formater setDateFormat:@"yyyy-MM-dd"];
-        
-        dateVC.minDate = [formater dateFromString:@"1970-01-01"];
-        dateVC.maxDate = dateVC.date;
-        dateVC.dateFormatter = formater;
-        dateVC.backButtonTitle = @"取消";
-        dateVC.confirmButtonTitle = @"确定";
-        _dateVC = dateVC;
-        dateVC.delegate = self;
-        [self presentViewController:dateVC animated:YES completion:nil];
+        cdate.datePicker.minimumDate = [formater dateFromString:@"1970-01-01"];
+        cdate.datePicker.maximumDate = [NSDate date];
     }];
     [ac addAction:ownBaby];
     UIAlertAction* yunBaby = [UIAlertAction actionWithTitle:@"孕期宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -267,21 +285,6 @@
 
     [self presentViewController:ac animated:YES completion:nil];
 
-}
-
--(void)hsDatePickerPickedDate:(NSDate *)date{
-    NSDateFormatter* formater = [[NSDateFormatter alloc]init];
-    [formater setDateFormat:@"yyyy-MM-dd"];
-    _birthdayString = [formater stringFromDate:date];
-    [_birthDay setText:_birthdayString];
-}
-
--(void)hsDatePickerDidDismissWithQuitMethod:(HSDatePickerQuitMethod)method{
-    
-}
-
--(void)hsDatePickerWillDismissWithQuitMethod:(HSDatePickerQuitMethod)method{
-    
 }
 
 #pragma mark 注册

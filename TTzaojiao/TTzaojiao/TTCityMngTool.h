@@ -12,5 +12,6 @@
 +(instancetype)sharedCityMngTool;
 -(NSString*)citytoCode:(NSString*)cityName;
 -(NSString*)codetoCity:(NSString*)cityCode;
+-(NSString*)provinceofCity:(NSString*)cityName;
 @property (strong, nonatomic) NSArray* cityCodeList;
 @end

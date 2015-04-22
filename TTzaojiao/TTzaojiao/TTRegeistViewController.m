@@ -131,6 +131,8 @@
         return;
     }
     
+    [self performSegueWithIdentifier:@"nextStep" sender: nil];
+    
     //验证用户是否已注册
     NSDictionary* parameters = @{
                                  @"phone": _phoneNumber.text,

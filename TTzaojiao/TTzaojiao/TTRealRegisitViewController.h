@@ -8,10 +8,10 @@
 
 #import "TTBaseViewController.h"
 #import "JSImagePickerViewController.h"
-#import "HSDatePickerViewController.h"
 #import "TSLocateView.h"
+#import "CustomDatePicker.h"
 
-@interface TTRealRegisitViewController : TTBaseViewController<JSImagePickerViewControllerDelegate, UIActionSheetDelegate,HSDatePickerViewControllerDelegate>
+@interface TTRealRegisitViewController : TTBaseViewController<JSImagePickerViewControllerDelegate, UIActionSheetDelegate>
 //第一步传过来的
 @property (copy, nonatomic) NSString* phoneNum;
 @property (copy, nonatomic) NSString* password;
