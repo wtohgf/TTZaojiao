@@ -426,7 +426,7 @@
                             id modelObject = [JSONHelper jsonToModel:modelDic Api:api Idx:idx ImageURL:APIImageName];
                             if (modelArr!=nil) {
                                 [modelArr addObject:modelObject];
-                                *stop = YES;
+//                               *stop = YES;
                             }
                             else {
                                 if ([modelObject isKindOfClass:[NSArray class]]) {

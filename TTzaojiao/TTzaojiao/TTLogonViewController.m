@@ -40,6 +40,10 @@
     [self addKeyNotification];
     //装载tabbar
     [self setupViewControllers];
+    
+    _account.text = @"13381109915";
+    _password.text = @"123456";
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -118,6 +122,7 @@
 #pragma mark 返回登录注册页面
 - (IBAction)backLogRegPage:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+    
     
 }
 

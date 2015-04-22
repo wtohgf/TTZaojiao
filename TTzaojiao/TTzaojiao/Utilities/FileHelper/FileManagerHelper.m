@@ -11,7 +11,7 @@
 
 @implementation FileManagerHelper
 
-+ (void)CreatFilePath:(NSString *)name {
++ (NSString*)CreatFilePath:(NSString *)name {
     NSString *imageDir = [NSString stringWithFormat:@"%@/%@", pathDocuments, name];
     BOOL isDir = NO;
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -19,7 +19,9 @@
     if (!(isDir==YES && existed==YES)) {
         [fileManager createDirectoryAtPath:imageDir withIntermediateDirectories:YES attributes:nil error:nil];
     }
+    return imageDir;
 }
+
 
 + (void)DeleteFilePath:(NSString *)name {
     NSString *imageDir = [NSString stringWithFormat:@"%@/%@", pathDocuments, name];

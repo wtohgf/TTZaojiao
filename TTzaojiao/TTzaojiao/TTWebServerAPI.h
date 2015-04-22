@@ -15,7 +15,7 @@
 // ±‡¬Î∏Ò Ω£∫GBK
 #define GBK  @"GBK" 
 // ªÒµ√À˘”– ° ––≈œ¢
-#define LOCATION_INFO  @"http://www.ttzaojiao.com/appcode/?Act=Get_List_ProvinceAndCity&p_1=1&p_2=99999"
+#define LOCATION_INFO  @"http://www.ttzaojiao.com/appcode/?Act=Get_List_ProvinceAndCity"
 // ◊¢≤·µ⁄“ª≤Ω
 #define REGISTER_FIRST_STEP  @"http://www.ttzaojiao.com/appcode/?act=Get_Reg_1" 
 // ◊¢≤·µ⁄∂˛≤Ω

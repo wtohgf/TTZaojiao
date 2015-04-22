@@ -43,44 +43,6 @@
 	</dict>
 	<dict>
 		<key>State</key>
-		<string>特别行政区</string>
-		<key>Cities</key>
-		<array>
-			<dict>
-				<key>city</key>
-				<string>香港</string>
-				<key>lat</key>
-				<real>22.2</real>
-				<key>lon</key>
-				<real>114.1</real>
-			</dict>
-			<dict>
-				<key>city</key>
-				<string>澳门</string>
-				<key>lat</key>
-				<real>22.13</real>
-				<key>lon</key>
-				<real>113.33</real>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>State</key>
-		<string>台湾省</string>
-		<key>Cities</key>
-		<array>
-			<dict>
-				<key>city</key>
-				<string>台北</string>
-				<key>lat</key>
-				<real>25.05</real>
-				<key>lon</key>
-				<real>121.5</real>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>State</key>
 		<string>安徽省</string>
 		<key>Cities</key>
 		<array>
