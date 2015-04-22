@@ -7,11 +7,11 @@
 //
 
 #import "TTMainPageViewController.h"
-#import "HSDatePickerViewController.h"
+#import "CustomDatePicker.h"
 
 @interface TTMainPageViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logregButton;
-@property (weak, nonatomic) IBOutlet UIView *year;
+@property (weak, nonatomic) IBOutlet UILabel *year;
 @property (weak, nonatomic) IBOutlet UILabel *mouth;
 @property (weak, nonatomic) IBOutlet UILabel *day;
 
@@ -37,10 +37,41 @@
 
 #pragma mark 生日选择
 - (IBAction)dateChoice:(UIButton *)sender {
-    HSDatePickerViewController* dateVC = [[HSDatePickerViewController alloc]init];
-    [self presentViewController:dateVC animated:YES completion:^{
-        ;
-    }];
+    CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
+    cdate.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
+    cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
+   
+    NSDateFormatter* formater = [[NSDateFormatter alloc]init];
+    [formater setDateFormat:@"yyyy-MM-dd"];
+    cdate.datePicker.minimumDate = [formater dateFromString:@"1970-01-01"];
+    cdate.datePicker.maximumDate = [NSDate date];
+    
+    [cdate showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if([actionSheet isKindOfClass:[CustomDatePicker class]]){
+        CustomDatePicker *datePickerView = (CustomDatePicker *)actionSheet;
+        
+        if(buttonIndex == 0) {
+            return;
+        }else {
+            NSDate* date = datePickerView.datePicker.date;
+            NSDateFormatter* formater = [[NSDateFormatter alloc]init];
+            [formater setDateFormat:@"yyyy-MM-dd"];
+            NSString* dateString = [formater stringFromDate:date];
+            NSArray* dateArray = [dateString componentsSeparatedByString:@"-"];
+            if (dateArray.count == 3) {
+                _year.text = dateArray[0];
+                _mouth.text = dateArray[1];
+                _day.text = dateArray[2];
+            }
+           
+        }
+    }
+
+    
 }
 
 #pragma mark 设置背景图片

@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
 
-@interface TTMainPageViewController : TTBaseViewController
+@interface TTMainPageViewController : TTBaseViewController<UIActionSheetDelegate>
 
 
 @end
