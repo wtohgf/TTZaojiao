@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
-
+@class TTTabBarController;
 @interface TTLogonViewController :TTBaseViewController
 
 @end

@@ -36,6 +36,7 @@
 		02BFC56B1ADF7A3700D0DF30 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC55D1ADF7A3700D0DF30 /* libssl.a */; };
 		02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */; };
 		02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */; };
+		0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */; };
 		1D018E0F1AE15F8900696F25 /* TTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D018E0E1AE15F8900696F25 /* TTBaseViewController.m */; };
 		1D018E141AE1622900696F25 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D018E131AE1622900696F25 /* UserModel.m */; };
 		1D018E181AE1AC1600696F25 /* UIAlertView+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D018E171AE1AC1600696F25 /* UIAlertView+MoreAttribute.m */; };
@@ -214,6 +215,8 @@
 		02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		02BFC5751ADF903500D0DF30 /* CoreDataStorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStorageController.h; sourceTree = "<group>"; };
 		02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStorageController.m; sourceTree = "<group>"; };
+		0F6AE2E51AE7765B0004AD05 /* TTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabBarController.h; sourceTree = "<group>"; };
+		0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabBarController.m; sourceTree = "<group>"; };
 		1D018E0D1AE15F8900696F25 /* TTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBaseViewController.h; sourceTree = "<group>"; };
 		1D018E0E1AE15F8900696F25 /* TTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBaseViewController.m; sourceTree = "<group>"; };
 		1D018E121AE1622900696F25 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -539,6 +542,15 @@
 			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
+		0F6AE2E41AE775B40004AD05 /* TabbarPage */ = {
+			isa = PBXGroup;
+			children = (
+				0F6AE2E51AE7765B0004AD05 /* TTTabBarController.h */,
+				0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */,
+			);
+			name = TabbarPage;
+			sourceTree = "<group>";
+		};
 		1D018E0C1AE15F6200696F25 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +629,7 @@
 		1D1F2BEC1ADF98F9004F851D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0F6AE2E41AE775B40004AD05 /* TabbarPage */,
 				02240C921AE6392F00EEB7AF /* zaojiao */,
 				02240C951AE6395000EEB7AF /* dongtai */,
 				02240C941AE6394B00EEB7AF /* lamajie */,
@@ -973,6 +986,7 @@
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
+				0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */,
 				1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */,
 				02BFC5651ADF7A3700D0DF30 /* openssl_wrapper.m in Sources */,
 				1D018E3B1AE20EEA00696F25 /* TTRegeistViewController.m in Sources */,
