@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworkActivityLogger.h"
 #import "AFNetworkReachabilityManager.h"
 
 #define UID @"com.bbhouses.uid"

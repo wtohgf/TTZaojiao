@@ -21,6 +21,11 @@
     // Override point for customization after application launch.
     [NetworkHelper startMonitorNetworkConnection];
     
+#ifdef DEBUG
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+#endif
+    
     return YES;
 }
 
