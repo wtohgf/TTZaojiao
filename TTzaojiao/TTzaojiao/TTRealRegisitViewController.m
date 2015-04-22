@@ -248,6 +248,8 @@
         }
     } Progress:^(CGFloat progress) {
         _iconPath = @"";
+        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
 

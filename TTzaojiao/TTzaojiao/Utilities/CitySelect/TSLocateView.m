@@ -18,6 +18,7 @@
 
 - (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate
 {
+    
     self = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
     if (self) {
         self.delegate = delegate;
@@ -41,6 +42,11 @@
 
 - (void)showInView:(UIView *) view
 {
+    UIView* backMaskView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    _backMaskView = backMaskView;
+    
+    backMaskView.backgroundColor = [UIColor whiteColor];
+    backMaskView.alpha = 0.1;
     CATransition *animation = [CATransition  animation];
     animation.delegate = self;
     animation.duration = kDuration;
@@ -52,7 +58,7 @@
     self.backgroundColor = [UIColor whiteColor];
     self.alpha = 0.8;
     self.frame = CGRectMake(0, view.frame.size.height*0.5, view.frame.size.width, view.frame.size.height*0.5);
-    
+    [view addSubview:backMaskView];
     [view addSubview:self];
 }
 
@@ -128,6 +134,7 @@
     [self setAlpha:0.0f];
     [self.layer addAnimation:animation forKey:@"TSLocateView"];
     [self performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:kDuration];
+    [_backMaskView removeFromSuperview];
     if(self.delegate) {
         [self.delegate actionSheet:self clickedButtonAtIndex:0];
     }
@@ -143,6 +150,7 @@
     [self setAlpha:0.0f];
     [self.layer addAnimation:animation forKey:@"TSLocateView"];
     [self performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:kDuration];
+    [_backMaskView removeFromSuperview];
     if(self.delegate) {
         [self.delegate actionSheet:self clickedButtonAtIndex:1];
     }

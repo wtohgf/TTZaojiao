@@ -17,6 +17,7 @@
 @interface CustomDatePicker : UIActionSheet
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;
+@property (weak, nonatomic) UIView* backMaskView;
 
 - (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate;
 - (void)showInView:(UIView *) view;

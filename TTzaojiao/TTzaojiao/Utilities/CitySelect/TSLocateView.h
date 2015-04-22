@@ -20,6 +20,8 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *locatePicker;
 @property (strong, nonatomic) TSLocation *locate;
 
+@property (weak, nonatomic) UIView* backMaskView;
+
 - (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate;
 
 - (void)showInView:(UIView *)view;
