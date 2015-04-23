@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RDVTabBarController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2C5734079D88FDC830FA6926</key>
+		<key>0D8653DF81AA29C86D8236B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5456B6A3E5EABF05320644D4</key>
+		<key>0F50B501318C68BB0A7F981F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>738190806B35DE36BE5FF116</key>
+		<key>233997D08A98B4A3D542866C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A68D784744012055654EB03B</key>
+		<key>884374D8EF9BCE9A84989CA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B540B63437E3821FD058FDF9</key>
+		<key>C50D9583242705B32C19131D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE02365A59CF0E9F47BB1D86</key>
+		<key>D2EF02F0353891AE2B6B5007</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F87BDE6DCFEB01A2F88D7DED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
