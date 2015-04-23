@@ -7,10 +7,13 @@
 //
 
 #import "TTLaMaViewController.h"
+#import "CityListViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface TTLaMaViewController () <CLLocationManagerDelegate>
 @property (strong, nonatomic) CLLocationManager* locationManager;
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (strong, nonatomic) IBOutlet UILabel *locationCity;
 @end
 
 @implementation TTLaMaViewController
@@ -35,12 +38,26 @@
     return cell;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CGRect headerFrame = CGRectMake(0, 0, tableView.frame.size.width, 44.f);
+    _headerView.frame = headerFrame;
+    return _headerView;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 150;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 5;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 44.f;
+}
+
+- (IBAction)locationAction:(id)sender {
+    [self performSegueWithIdentifier:@"cityListSegue" sender:self];
 }
 
 //开始定位
@@ -80,6 +97,8 @@
         for (CLPlacemark * placemark in placemarks) {
             
             NSDictionary *test = [placemark addressDictionary];
+            
+            _locationCity.text = [test objectForKey:@"City"];
     
             //  Country(国家)  State(城市)  SubLocality(区)
             

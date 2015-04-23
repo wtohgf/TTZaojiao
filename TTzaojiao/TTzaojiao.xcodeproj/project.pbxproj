@@ -14,6 +14,10 @@
 		02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
 		02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
 		02041B8F1AE8D9C800B09561 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02041B8E1AE8D9C800B09561 /* CoreLocation.framework */; };
+		020999D81AE91DC800093608 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020999D51AE91DC800093608 /* citydict.plist */; };
+		020999D91AE91DC800093608 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020999D51AE91DC800093608 /* citydict.plist */; };
+		020999DA1AE91DC800093608 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020999D71AE91DC800093608 /* CityListViewController.m */; };
+		020999DB1AE91DC800093608 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020999D71AE91DC800093608 /* CityListViewController.m */; };
 		02240C971AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */; };
 		02240C991AE639A600EEB7AF /* DongTaiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */; };
 		02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */; };
@@ -102,6 +106,9 @@
 		02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoBackTableViewCell.h; sourceTree = "<group>"; };
 		02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoBackTableViewCell.m; sourceTree = "<group>"; };
 		02041B8E1AE8D9C800B09561 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		020999D51AE91DC800093608 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
+		020999D61AE91DC800093608 /* CityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
+		020999D71AE91DC800093608 /* CityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
 		02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZaoJiaoStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DongTaiStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaMaJieStoryboard.storyboard; sourceTree = "<group>"; };
@@ -355,6 +362,9 @@
 				02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */,
 				02240CA41AE639FB00EEB7AF /* TTLaMaViewController.h */,
 				02240CA51AE639FB00EEB7AF /* TTLaMaViewController.m */,
+				020999D51AE91DC800093608 /* citydict.plist */,
+				020999D61AE91DC800093608 /* CityListViewController.h */,
+				020999D71AE91DC800093608 /* CityListViewController.m */,
 			);
 			name = lamajie;
 			sourceTree = "<group>";
@@ -938,6 +948,7 @@
 				1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */,
 				1D60E5F31ADDB392003A632B /* Main.storyboard in Resources */,
 				1DDF4EBA1AE3B712004661EB /* btn_020.disable@2x.png in Resources */,
+				020999D81AE91DC800093608 /* citydict.plist in Resources */,
 				1DDF4EBE1AE3B712004661EB /* btn_021.press@2x.png in Resources */,
 				1DDF4EBD1AE3B712004661EB /* btn_021.disable@2x.png in Resources */,
 				02240C991AE639A600EEB7AF /* DongTaiStoryboard.storyboard in Resources */,
@@ -958,6 +969,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020999D91AE91DC800093608 /* citydict.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1020,7 @@
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
+				020999DA1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
 				0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */,
 				1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */,
@@ -1057,6 +1070,7 @@
 			files = (
 				02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
+				020999DB1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02041B801AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */,
 			);

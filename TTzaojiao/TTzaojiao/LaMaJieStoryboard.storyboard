@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -98,7 +98,9 @@
                                                 <constraint firstItem="QSQ-tD-JEu" firstAttribute="trailing" secondItem="5kg-hP-v6R" secondAttribute="trailing" id="eET-dp-ojt"/>
                                                 <constraint firstItem="5kg-hP-v6R" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QSQ-tD-JEu" secondAttribute="bottom" constant="8" id="exi-EO-aFm"/>
                                                 <constraint firstItem="Q3X-9H-5bw" firstAttribute="leading" secondItem="jsO-BE-HsX" secondAttribute="leadingMargin" constant="8" id="fAD-HB-zlx"/>
-                                                <constraint firstItem="dDf-rx-aJa" firstAttribute="width" secondItem="5kg-hP-v6R" secondAttribute="width" id="qd5-rV-9oc"/>
+                                                <constraint firstItem="dDf-rx-aJa" firstAttribute="width" secondItem="5kg-hP-v6R" secondAttribute="width" id="qd5-rV-9oc">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                                 <constraint firstItem="Q3X-9H-5bw" firstAttribute="width" secondItem="QSQ-tD-JEu" secondAttribute="width" multiplier="80:100" id="vtC-00-Mt4"/>
                                             </constraints>
                                             <variation key="default">
@@ -109,15 +111,7 @@
                                                     <exclude reference="Q3X-9H-5bw"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="C6E-v5-iQA"/>
-                                                    <exclude reference="Mj4-jC-1L4"/>
-                                                    <exclude reference="Pjo-q6-dkZ"/>
-                                                    <exclude reference="QdT-TS-JcV"/>
-                                                    <exclude reference="TDg-a4-er9"/>
-                                                    <exclude reference="WhM-bf-6Zm"/>
-                                                    <exclude reference="XGk-pw-p5X"/>
-                                                    <exclude reference="fAD-HB-zlx"/>
-                                                    <exclude reference="vtC-00-Mt4"/>
+                                                    <exclude reference="exi-EO-aFm"/>
                                                     <exclude reference="2fi-1a-8hf"/>
                                                     <exclude reference="AiE-nj-yAU"/>
                                                     <exclude reference="eET-dp-ojt"/>
@@ -127,7 +121,15 @@
                                                     <exclude reference="U3d-e0-dmx"/>
                                                     <exclude reference="UAE-hT-j47"/>
                                                     <exclude reference="qd5-rV-9oc"/>
-                                                    <exclude reference="exi-EO-aFm"/>
+                                                    <exclude reference="C6E-v5-iQA"/>
+                                                    <exclude reference="Mj4-jC-1L4"/>
+                                                    <exclude reference="Pjo-q6-dkZ"/>
+                                                    <exclude reference="QdT-TS-JcV"/>
+                                                    <exclude reference="TDg-a4-er9"/>
+                                                    <exclude reference="WhM-bf-6Zm"/>
+                                                    <exclude reference="XGk-pw-p5X"/>
+                                                    <exclude reference="fAD-HB-zlx"/>
+                                                    <exclude reference="vtC-00-Mt4"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -138,15 +140,7 @@
                                                     <include reference="Q3X-9H-5bw"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="C6E-v5-iQA"/>
-                                                    <include reference="Mj4-jC-1L4"/>
-                                                    <include reference="Pjo-q6-dkZ"/>
-                                                    <include reference="QdT-TS-JcV"/>
-                                                    <exclude reference="TDg-a4-er9"/>
-                                                    <exclude reference="WhM-bf-6Zm"/>
-                                                    <include reference="XGk-pw-p5X"/>
-                                                    <include reference="fAD-HB-zlx"/>
-                                                    <exclude reference="vtC-00-Mt4"/>
+                                                    <include reference="exi-EO-aFm"/>
                                                     <include reference="2fi-1a-8hf"/>
                                                     <include reference="AiE-nj-yAU"/>
                                                     <include reference="eET-dp-ojt"/>
@@ -156,7 +150,15 @@
                                                     <include reference="U3d-e0-dmx"/>
                                                     <include reference="UAE-hT-j47"/>
                                                     <include reference="qd5-rV-9oc"/>
-                                                    <include reference="exi-EO-aFm"/>
+                                                    <include reference="C6E-v5-iQA"/>
+                                                    <include reference="Mj4-jC-1L4"/>
+                                                    <include reference="Pjo-q6-dkZ"/>
+                                                    <include reference="QdT-TS-JcV"/>
+                                                    <exclude reference="TDg-a4-er9"/>
+                                                    <exclude reference="WhM-bf-6Zm"/>
+                                                    <include reference="XGk-pw-p5X"/>
+                                                    <include reference="fAD-HB-zlx"/>
+                                                    <exclude reference="vtC-00-Mt4"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -202,13 +204,90 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="辣妈街" id="DL7-E5-syI"/>
+                    <connections>
+                        <outlet property="headerView" destination="Fna-tZ-Ike" id="rGW-q1-jgl"/>
+                        <outlet property="locationCity" destination="JC4-8S-shg" id="Ep9-7A-4qt"/>
+                        <segue destination="e5h-bd-kvK" kind="show" identifier="cityListSegue" id="4Wy-Wh-5rv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ior-bS-dBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Fna-tZ-Ike">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="8ZV-tc-sB3">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="196" y="10" width="16" height="23"/>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大连市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-8S-shg">
+                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                <rect key="frame" x="220" y="11" width="42" height="21"/>
+                            </variation>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uad-0c-0j1">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="81" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="定位城市" image="more_city">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="270" y="6" width="96" height="32"/>
+                            </variation>
+                            <connections>
+                                <action selector="locationAction:" destination="Pr1-HJ-Das" eventType="touchUpInside" id="fVo-9p-CDx"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="8ZV-tc-sB3"/>
+                            <exclude reference="JC4-8S-shg"/>
+                            <exclude reference="Uad-0c-0j1"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="8ZV-tc-sB3"/>
+                            <include reference="JC4-8S-shg"/>
+                            <include reference="Uad-0c-0j1"/>
+                        </mask>
+                    </variation>
+                </view>
             </objects>
             <point key="canvasLocation" x="792" y="470.25"/>
+        </scene>
+        <!--城市列表-->
+        <scene sceneID="9Ix-Po-r48">
+            <objects>
+                <viewController id="e5h-bd-kvK" customClass="CityListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nDb-fK-2Nh"/>
+                        <viewControllerLayoutGuide type="bottom" id="YPg-Ed-aGf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ayF-d9-Hg0">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="城市列表" id="4Fd-Go-aE3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bn8-Yj-29L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516.5" y="470.25"/>
         </scene>
     </scenes>
     <resources>
         <image name="baby_icon1" width="180" height="180"/>
+        <image name="location" width="22" height="32"/>
+        <image name="more_city" width="9" height="16"/>
     </resources>
 </document>
