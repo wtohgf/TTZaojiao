@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02041B7F1AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */; };
+		02041B801AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */; };
+		02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */; };
+		02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */; };
+		02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
+		02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
 		02240C971AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */; };
 		02240C991AE639A600EEB7AF /* DongTaiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */; };
 		02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */; };
@@ -88,6 +94,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoLableTableViewCell.h; sourceTree = "<group>"; };
+		02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoLableTableViewCell.m; sourceTree = "<group>"; };
+		02041B811AE8BD1E00B09561 /* TTWoButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoButtonTableViewCell.h; sourceTree = "<group>"; };
+		02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoButtonTableViewCell.m; sourceTree = "<group>"; };
+		02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoBackTableViewCell.h; sourceTree = "<group>"; };
+		02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoBackTableViewCell.m; sourceTree = "<group>"; };
 		02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZaoJiaoStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DongTaiStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaMaJieStoryboard.storyboard; sourceTree = "<group>"; };
@@ -324,6 +336,12 @@
 				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
 				02240CA71AE63A1900EEB7AF /* TTWoViewController.h */,
 				02240CA81AE63A1900EEB7AF /* TTWoViewController.m */,
+				02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */,
+				02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */,
+				02041B811AE8BD1E00B09561 /* TTWoButtonTableViewCell.h */,
+				02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */,
+				02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */,
+				02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -982,6 +1000,7 @@
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
+				02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
@@ -1002,6 +1021,7 @@
 				1D018E311AE20DE300696F25 /* TTBaseNavgationController.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
+				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
 				1D018E141AE1622900696F25 /* UserModel.m in Sources */,
 				02240CA01AE639DC00EEB7AF /* TTZaojiaoViewController.m in Sources */,
@@ -1011,6 +1031,7 @@
 				1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */,
 				02BFC5631ADF7A3700D0DF30 /* MD5DataSigner.m in Sources */,
 				02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */,
+				02041B7F1AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D018E341AE20E0F00696F25 /* TTBaseTableViewController.m in Sources */,
 				02BFC55F1ADF7A3700D0DF30 /* Order.m in Sources */,
 				1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */,
@@ -1030,6 +1051,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
+				02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
+				02041B801AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

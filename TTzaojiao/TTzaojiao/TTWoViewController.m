@@ -7,8 +7,12 @@
 //
 
 #import "TTWoViewController.h"
+#import "TTWoLableTableViewCell.h"
+#import "TTWoButtonTableViewCell.h"
+#import "TTWoBackTableViewCell.h"
 
-@interface TTWoViewController ()
+@interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *tableview;
 
 @end
 
@@ -17,11 +21,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    actionSginBlock = ^() {
+#ifdef DEBUG
+        NSLog(@"Sign");
+#endif
+    };
+    actionBackBlock = ^() {
+#ifdef DEBUG
+        NSLog(@"Logout");
+#endif
+    };
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)rightButtonItem:(id)sender {
+}
+
+- (IBAction)rightButtonItemAction:(UIButton *)sender {
 }
 
 /*
@@ -33,5 +53,148 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma UITableViewDataSource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 7;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            return 3;
+            break;
+
+        case 2:
+            return 1;
+            break;
+
+        case 3:
+            return 3;
+            break;
+
+        case 4:
+            return 3;
+            break;
+
+        case 5:
+            return 2;
+            break;
+            
+        default:
+            return 3;
+            break;
+    }
+}
+
+#pragma UITableViewDelegate
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (0 == indexPath.section) {
+        return 65.f;
+    }
+    else if (6 == indexPath.section) {
+        return 60.f;
+    }
+    else {
+        return 44.f;
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (0 == indexPath.section) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell"];
+        return cell;
+    }
+    else if (1 == indexPath.section) {
+        if (0 == indexPath.row) {
+            TTWoLableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LableCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_score"];
+            return cell;
+        }
+        else if (1 == indexPath.row) {
+            TTWoButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_sign"];
+            return cell;
+        }
+        else {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_exchange"];
+            return cell;
+        }
+    }
+    else if (2 == indexPath.section) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+        cell.imageView.image = [UIImage imageNamed:@"user_info_icon4"];
+        return cell;
+    }
+    else if (3 == indexPath.section) {
+        if (0 == indexPath.row) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_gym_small"];
+            return cell;
+        }
+        else if (1 == indexPath.row) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_grow_test_small"];
+            return cell;
+        }
+        else {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_temperament_test_small"];
+            return cell;
+        }
+    }
+    else if (4 == indexPath.section) {
+        if (0 == indexPath.row) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon1"];
+            return cell;
+        }
+        else if (1 == indexPath.row) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon2"];
+            return cell;
+        }
+        else {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon3"];
+            return cell;
+        }
+    }
+    else if (5 == indexPath.section) {
+        if (0 == indexPath.row) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_check_version"];
+            return cell;
+        }
+        else {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_weixin"];
+            return cell;
+        }
+    }
+    else {
+        if (0 == indexPath.row) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon5"];
+            return cell;
+        }
+        else if (1 == indexPath.row) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon6"];
+            return cell;
+        }
+        else {
+            TTWoBackTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BackCell"];
+            return cell;
+        }
+    }
+}
+
 
 @end
