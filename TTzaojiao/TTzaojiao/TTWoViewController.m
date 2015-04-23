@@ -11,7 +11,9 @@
 #import "TTWoButtonTableViewCell.h"
 #import "TTWoBackTableViewCell.h"
 
-@interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate>
+#define LogoutAlertTag 19001
+
+@interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
@@ -28,9 +30,9 @@
 #endif
     };
     actionBackBlock = ^() {
-#ifdef DEBUG
-        NSLog(@"Logout");
-#endif
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要退出么？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = LogoutAlertTag;
+        [alert show];
     };
 }
 
@@ -213,5 +215,24 @@
     }
 }
 
+#pragma UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (LogoutAlertTag == alertView.tag) {
+        if (0 == buttonIndex) {
+            return;
+        }
+        else if (1 == buttonIndex) {
+#ifdef DEBUG
+            NSLog(@"Logout!!!");
+#endif
+        }
+        else {
+            return;
+        }
+    }
+    else {
+        return;
+    }
+}
 
 @end
