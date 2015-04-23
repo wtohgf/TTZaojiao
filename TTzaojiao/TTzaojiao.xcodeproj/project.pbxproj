@@ -13,6 +13,7 @@
 		02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */; };
 		02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
 		02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
+		02041B8F1AE8D9C800B09561 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02041B8E1AE8D9C800B09561 /* CoreLocation.framework */; };
 		02240C971AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */; };
 		02240C991AE639A600EEB7AF /* DongTaiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */; };
 		02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */; };
@@ -100,6 +101,7 @@
 		02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoButtonTableViewCell.m; sourceTree = "<group>"; };
 		02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoBackTableViewCell.h; sourceTree = "<group>"; };
 		02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoBackTableViewCell.m; sourceTree = "<group>"; };
+		02041B8E1AE8D9C800B09561 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZaoJiaoStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C981AE639A600EEB7AF /* DongTaiStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DongTaiStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaMaJieStoryboard.storyboard; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02041B8F1AE8D9C800B09561 /* CoreLocation.framework in Frameworks */,
 				02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */,
 				02BFC56B1ADF7A3700D0DF30 /* libssl.a in Frameworks */,
 				33B20F42452F1A1432ECAF26 /* libPods.a in Frameworks */,
@@ -841,6 +844,7 @@
 		BEEBD2BE5CF12C4233149FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02041B8E1AE8D9C800B09561 /* CoreLocation.framework */,
 				02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */,
 				6A3C53EDF178EBFF1A8B6D88 /* libPods.a */,
 			);
