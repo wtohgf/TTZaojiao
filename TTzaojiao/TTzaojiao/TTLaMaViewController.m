@@ -46,10 +46,7 @@
     return 5;
 }
 
-
-
 //开始定位
-
 -(void)startLocation{
     
     if ([CLLocationManager locationServicesEnabled])
@@ -71,7 +68,6 @@
         [self.locationManager startUpdatingLocation];//开启位置更新
     }
 }
-
 
 //定位代理经纬度回调
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
