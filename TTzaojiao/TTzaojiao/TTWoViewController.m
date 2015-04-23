@@ -40,6 +40,9 @@
 }
 
 - (IBAction)rightButtonItem:(id)sender {
+#ifdef DEBUG
+    NSLog(@"right button item action");
+#endif
 }
 
 - (IBAction)rightButtonItemAction:(UIButton *)sender {
