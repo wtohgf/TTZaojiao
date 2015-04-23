@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserCell" textLabel="mO1-W7-C6Z" imageView="pBF-dd-d3p" rowHeight="80" style="IBUITableViewCellStyleDefault" id="HQ8-0J-jjp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserCell" textLabel="mO1-W7-C6Z" imageView="pBF-dd-d3p" rowHeight="80" style="IBUITableViewCellStyleDefault" id="HQ8-0J-jjp">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQ8-0J-jjp" id="A5R-aP-U8G">
@@ -58,7 +58,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LableCell" textLabel="r6f-bG-oNF" imageView="cFD-Jd-j6A" style="IBUITableViewCellStyleDefault" id="LO0-A2-fgT" customClass="TTWoLableTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LableCell" textLabel="r6f-bG-oNF" imageView="cFD-Jd-j6A" style="IBUITableViewCellStyleDefault" id="LO0-A2-fgT" customClass="TTWoLableTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LO0-A2-fgT" id="2OH-b1-R3H">
@@ -166,7 +166,7 @@
                                             <outlet property="countLable" destination="r6f-bG-oNF" id="NjM-hk-Veb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" textLabel="iG4-wp-5ge" imageView="Mh0-I4-n1q" style="IBUITableViewCellStyleDefault" id="evx-6C-JNB" customClass="TTWoButtonTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ButtonCell" textLabel="iG4-wp-5ge" imageView="Mh0-I4-n1q" style="IBUITableViewCellStyleDefault" id="evx-6C-JNB" customClass="TTWoButtonTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="evx-6C-JNB" id="krC-xy-o1f">
@@ -347,7 +347,7 @@
                                             <outlet property="signButton" destination="Yhx-8W-seA" id="NbC-aE-aAC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DefaultCell" textLabel="Jpk-68-xRH" imageView="LcI-aa-SHm" style="IBUITableViewCellStyleDefault" id="Qce-Uz-ZeN">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DefaultCell" textLabel="Jpk-68-xRH" imageView="LcI-aa-SHm" style="IBUITableViewCellStyleDefault" id="Qce-Uz-ZeN">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qce-Uz-ZeN" id="1jV-ss-9El">
@@ -368,7 +368,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BackCell" rowHeight="60" id="Xew-Ac-wqp" customClass="TTWoBackTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BackCell" rowHeight="60" id="Xew-Ac-wqp" customClass="TTWoBackTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xew-Ac-wqp" id="i79-Kp-SKp">
@@ -491,6 +491,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="rightButtonItem" destination="pog-Z0-pNb" id="o8V-5V-NTX"/>
                         <outlet property="tableview" destination="UVk-HK-fyH" id="sh4-bi-I5q"/>
                     </connections>
                 </viewController>

@@ -13,6 +13,7 @@
 
 @interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
+@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
 @end
 
@@ -81,7 +82,7 @@
             break;
 
         case 5:
-            return 2;
+            return 1;
             break;
             
         default:
@@ -113,38 +114,45 @@
     else if (1 == indexPath.section) {
         if (0 == indexPath.row) {
             TTWoLableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LableCell"];
+            cell.textLabel.text = @"我的积分";
             cell.imageView.image = [UIImage imageNamed:@"icon_score"];
             return cell;
         }
         else if (1 == indexPath.row) {
             TTWoButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell"];
+            cell.textLabel.text = @"今日签到";
             cell.imageView.image = [UIImage imageNamed:@"icon_sign"];
             return cell;
         }
         else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"积分换课程";
             cell.imageView.image = [UIImage imageNamed:@"icon_exchange"];
             return cell;
         }
     }
     else if (2 == indexPath.section) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+        cell.textLabel.text = @"我的VIP会员服务";
         cell.imageView.image = [UIImage imageNamed:@"user_info_icon4"];
         return cell;
     }
     else if (3 == indexPath.section) {
         if (0 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"亲子母婴操";
             cell.imageView.image = [UIImage imageNamed:@"icon_gym_small"];
             return cell;
         }
         else if (1 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"成长发育测评";
             cell.imageView.image = [UIImage imageNamed:@"icon_grow_test_small"];
             return cell;
         }
         else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"气质情绪测评";
             cell.imageView.image = [UIImage imageNamed:@"icon_temperament_test_small"];
             return cell;
         }
@@ -152,40 +160,46 @@
     else if (4 == indexPath.section) {
         if (0 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"我的好友";
             cell.imageView.image = [UIImage imageNamed:@"user_info_icon1"];
             return cell;
         }
         else if (1 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"我的粉丝";
             cell.imageView.image = [UIImage imageNamed:@"user_info_icon2"];
             return cell;
         }
         else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"我的动态";
             cell.imageView.image = [UIImage imageNamed:@"user_info_icon3"];
             return cell;
         }
     }
     else if (5 == indexPath.section) {
-        if (0 == indexPath.row) {
+//        if (0 == indexPath.row) {
+//            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+//            cell.imageView.image = [UIImage imageNamed:@"icon_check_version"];
+//            return cell;
+//        }
+//        else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
-            cell.imageView.image = [UIImage imageNamed:@"icon_check_version"];
-            return cell;
-        }
-        else {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"微信公众平台";
             cell.imageView.image = [UIImage imageNamed:@"icon_weixin"];
             return cell;
-        }
+//        }
     }
     else {
         if (0 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"设置个人信息";
             cell.imageView.image = [UIImage imageNamed:@"user_info_icon5"];
             return cell;
         }
         else if (1 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
+            cell.textLabel.text = @"设置登录密码";
             cell.imageView.image = [UIImage imageNamed:@"user_info_icon6"];
             return cell;
         }
