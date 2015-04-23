@@ -7,6 +7,7 @@
 //
 
 #import "TTWoViewController.h"
+#import "TTTabBarController.h"
 #import "TTWoLableTableViewCell.h"
 #import "TTWoButtonTableViewCell.h"
 #import "TTWoBackTableViewCell.h"
@@ -225,6 +226,7 @@
 #ifdef DEBUG
             NSLog(@"Logout!!!");
 #endif
+            [self.rdv_tabBarController.navigationController popViewControllerAnimated:YES];
         }
         else {
             return;
