@@ -51,6 +51,11 @@
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    if ([self.tableView respondsToSelector:@selector(setSectionIndexColor:)]) {
+        self.tableView.sectionIndexBackgroundColor = [UIColor clearColor];
+        self.tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
+        self.tableView.sectionIndexColor = [UIColor colorWithRed:0.941 green:0.620 blue:0.694 alpha:1.000];
+    }
     [self.view addSubview:_tableView];
 }
 
@@ -139,8 +144,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *key = [_keys objectAtIndex:indexPath.section];
-
-    NSLog(@"城市：%@",[[_cities objectForKey:key] objectAtIndex:indexPath.row]);
+    NSString *city = [[_cities objectForKey:key] objectAtIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setValue:city forKey:@"location"];
+    NSLog(@"城市：%@",city);
 }
 
 - (void)didReceiveMemoryWarning

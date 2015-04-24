@@ -75,6 +75,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="280" y="116" width="104" height="20"/>
+                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="Q3X-9H-5bw">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -217,21 +220,45 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="8ZV-tc-sB3">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="196" y="10" width="16" height="23"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="EhX-he-n9Q"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="EhX-he-n9Q"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="EhX-he-n9Q"/>
+                                </mask>
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大连市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-8S-shg">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="gcy-Z1-wKl"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
-                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                <rect key="frame" x="220" y="11" width="42" height="21"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="gcy-Z1-wKl"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="gcy-Z1-wKl"/>
+                                </mask>
                             </variation>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uad-0c-0j1">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="96" id="Ds0-lN-NBo"/>
+                                <constraint firstAttribute="height" constant="32" id="E6x-9o-0gZ"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="81" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -239,20 +266,47 @@
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Ds0-lN-NBo"/>
+                                    <exclude reference="E6x-9o-0gZ"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <rect key="frame" x="270" y="6" width="96" height="32"/>
+                                <mask key="constraints">
+                                    <include reference="Ds0-lN-NBo"/>
+                                    <include reference="E6x-9o-0gZ"/>
+                                </mask>
                             </variation>
                             <connections>
                                 <action selector="locationAction:" destination="Pr1-HJ-Das" eventType="touchUpInside" id="fVo-9p-CDx"/>
                             </connections>
                         </button>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="Uad-0c-0j1" firstAttribute="top" secondItem="Fna-tZ-Ike" secondAttribute="top" constant="6" id="2qW-eq-iqr"/>
+                        <constraint firstItem="JC4-8S-shg" firstAttribute="leading" secondItem="8ZV-tc-sB3" secondAttribute="trailing" constant="8" symbolic="YES" id="3qV-gD-dFD"/>
+                        <constraint firstItem="8ZV-tc-sB3" firstAttribute="centerY" secondItem="JC4-8S-shg" secondAttribute="centerY" id="65h-wG-hmh"/>
+                        <constraint firstAttribute="trailing" secondItem="Uad-0c-0j1" secondAttribute="trailing" constant="18" id="bJf-Ow-SES"/>
+                        <constraint firstItem="Uad-0c-0j1" firstAttribute="leading" secondItem="JC4-8S-shg" secondAttribute="trailing" constant="8" symbolic="YES" id="dRX-mP-6Us"/>
+                        <constraint firstItem="JC4-8S-shg" firstAttribute="top" secondItem="Fna-tZ-Ike" secondAttribute="top" constant="11" id="mYw-p7-Axk"/>
+                        <constraint firstItem="8ZV-tc-sB3" firstAttribute="top" secondItem="Fna-tZ-Ike" secondAttribute="top" constant="10" id="qI4-H7-BJc"/>
+                    </constraints>
                     <variation key="default">
                         <mask key="subviews">
                             <exclude reference="8ZV-tc-sB3"/>
                             <exclude reference="JC4-8S-shg"/>
                             <exclude reference="Uad-0c-0j1"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="65h-wG-hmh"/>
+                            <exclude reference="qI4-H7-BJc"/>
+                            <exclude reference="3qV-gD-dFD"/>
+                            <exclude reference="mYw-p7-Axk"/>
+                            <exclude reference="2qW-eq-iqr"/>
+                            <exclude reference="bJf-Ow-SES"/>
+                            <exclude reference="dRX-mP-6Us"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -260,6 +314,15 @@
                             <include reference="8ZV-tc-sB3"/>
                             <include reference="JC4-8S-shg"/>
                             <include reference="Uad-0c-0j1"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="65h-wG-hmh"/>
+                            <include reference="qI4-H7-BJc"/>
+                            <include reference="3qV-gD-dFD"/>
+                            <include reference="mYw-p7-Axk"/>
+                            <include reference="2qW-eq-iqr"/>
+                            <include reference="bJf-Ow-SES"/>
+                            <include reference="dRX-mP-6Us"/>
                         </mask>
                     </variation>
                 </view>
@@ -275,6 +338,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YPg-Ed-aGf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ayF-d9-Hg0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
