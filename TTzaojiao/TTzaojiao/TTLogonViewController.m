@@ -128,63 +128,57 @@
 #pragma mark 登录
 - (IBAction)Logon:(UIButton *)sender {
     
-    //装载tabbar
-    TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-                       [UINavigationBar appearance].hidden = NO;
     
-    self.mainViewController = tabBarController;
+    NSString* account = _account.text;
+    NSString* password = _password.text;
+    if (account.length == 0 || password.length == 0) {
+        [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"账号或密码不能为空" cancelButtonTitle:@"重新输入"];
+    }else{
+        NSDictionary* parameters = @{
+                                     @"name": account,
+                                     @"password": password
+                                     };
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[AFAppDotNetAPIClient sharedClient]apiGet:LOGIN Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (result_status == ApiStatusSuccess) {
+                
+                                 if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                    UserModel* user = result_data[0];
+                    [TTUserModelTool sharedUserModelTool].logonUser = user;
+                    NSLog(@"%@ %@", user.name, user.icon);
+                    
+                    
+                    
+                    //装载tabbar
+                    TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
+                    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
+                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+                    [UINavigationBar appearance].hidden = NO;
+                    
+                    self.mainViewController = tabBarController;
+                    
+                    [self.navigationController pushViewController:_mainViewController animated:YES];
+                    
+                    //保存用户名和密码
+                    if(_savePassworkCheckButton.selected == YES)
+                    {
+                        
+                    }
+                }
+                
+                
+            }else{
+                if (result_status != ApiStatusNetworkNotReachable) {
+                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+                }
+            };
+        }];
+        
+        
+      
+    }
     
-    [self.navigationController pushViewController:_mainViewController animated:YES];
-    
-//    NSString* account = _account.text;
-//    NSString* password = _password.text;
-//    if (account.length == 0 || password.length == 0) {
-//        [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"账号或密码不能为空" cancelButtonTitle:@"重新输入"];
-//    }else{
-//        NSDictionary* parameters = @{
-//                                     @"name": account,
-//                                     @"password": password
-//                                     };
-//        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//        [[AFAppDotNetAPIClient sharedClient]apiGet:LOGIN Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-//            [MBProgressHUD hideHUDForView:self.view animated:YES];
-//            if (result_status == ApiStatusSuccess) {
-//                if ([result_data isKindOfClass:[NSMutableArray class]]) {
-//                    UserModel* user = result_data[0];
-//                    [TTUserModelTool sharedUserModelTool].logonUser = user;
-//                    NSLog(@"%@ %@", user.name, user.icon);
-//                    
-//                    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
-//                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-//                    [UINavigationBar appearance].hidden = NO;
-//                    
-//                    //装载tabbar
-//                    TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
-//                    
-//                    self.mainViewController = tabBarController;
-//                    
-//                    [self.navigationController pushViewController:_mainViewController animated:YES];
-//                    //保存用户名和密码
-//                    if(_savePassworkCheckButton.selected == YES)
-//                    {
-//                        
-//                    }
-//                }
-//                
-//                
-//            }else{
-//                if (result_status != ApiStatusNetworkNotReachable) {
-//                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-//                }
-//            };
-//        }];
-//        
-//        
-//      
-//    }
-//    
     
 }
 

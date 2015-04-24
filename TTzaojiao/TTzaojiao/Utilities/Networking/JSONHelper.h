@@ -19,7 +19,8 @@ typedef enum : NSUInteger {
 //    ApiEnumxxxxxx,
     ApiEnumGet_Login,
     ApiEnumGet_Reg_1,
-    ApiEnumGet_Reg_2
+    ApiEnumGet_Reg_2,
+    ApiEnumGet_List_Active //辣妈街刷列表
 } ApiEnum;
 
 @interface JSONHelper : NSObject

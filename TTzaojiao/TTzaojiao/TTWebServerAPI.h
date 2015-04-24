@@ -135,4 +135,5 @@
 // &i_id=1
 #define GET_LIST_ACTIVE_SHOW  @"http://www.ttzaojiao.com/appcode/?Act=Get_List_Active_Show" 
 
+#define TTBASE_URL @"http://www.ttzaojiao.com"
 #endif

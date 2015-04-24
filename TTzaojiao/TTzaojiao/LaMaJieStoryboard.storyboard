@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lamaCell" rowHeight="150" id="ZP4-e2-JQN">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="lamaCell" rowHeight="150" id="ZP4-e2-JQN" customClass="LamaTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZP4-e2-JQN" id="jsO-BE-HsX">
@@ -165,6 +165,12 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descLabel" destination="QSQ-tD-JEu" id="pxR-B8-Nvt"/>
+                                            <outlet property="imgView" destination="Q3X-9H-5bw" id="muU-er-Xgb"/>
+                                            <outlet property="time1Label" destination="dDf-rx-aJa" id="NqD-eo-aOu"/>
+                                            <outlet property="time2Label" destination="5kg-hP-v6R" id="VyB-bg-r7u"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -210,6 +216,7 @@
                     <connections>
                         <outlet property="headerView" destination="Fna-tZ-Ike" id="rGW-q1-jgl"/>
                         <outlet property="locationCity" destination="JC4-8S-shg" id="Ep9-7A-4qt"/>
+                        <outlet property="tableView" destination="P7D-IL-1M6" id="DyR-qn-SLO"/>
                         <segue destination="e5h-bd-kvK" kind="show" identifier="cityListSegue" id="4Wy-Wh-5rv"/>
                     </connections>
                 </viewController>
@@ -284,6 +291,7 @@
                             </connections>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Uad-0c-0j1" firstAttribute="top" secondItem="Fna-tZ-Ike" secondAttribute="top" constant="6" id="2qW-eq-iqr"/>
                         <constraint firstItem="JC4-8S-shg" firstAttribute="leading" secondItem="8ZV-tc-sB3" secondAttribute="trailing" constant="8" symbolic="YES" id="3qV-gD-dFD"/>
@@ -300,13 +308,13 @@
                             <exclude reference="Uad-0c-0j1"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="65h-wG-hmh"/>
-                            <exclude reference="qI4-H7-BJc"/>
                             <exclude reference="3qV-gD-dFD"/>
                             <exclude reference="mYw-p7-Axk"/>
                             <exclude reference="2qW-eq-iqr"/>
                             <exclude reference="bJf-Ow-SES"/>
                             <exclude reference="dRX-mP-6Us"/>
+                            <exclude reference="65h-wG-hmh"/>
+                            <exclude reference="qI4-H7-BJc"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -316,13 +324,13 @@
                             <include reference="Uad-0c-0j1"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="65h-wG-hmh"/>
-                            <include reference="qI4-H7-BJc"/>
                             <include reference="3qV-gD-dFD"/>
                             <include reference="mYw-p7-Axk"/>
                             <include reference="2qW-eq-iqr"/>
                             <include reference="bJf-Ow-SES"/>
                             <include reference="dRX-mP-6Us"/>
+                            <include reference="65h-wG-hmh"/>
+                            <include reference="qI4-H7-BJc"/>
                         </mask>
                     </variation>
                 </view>
