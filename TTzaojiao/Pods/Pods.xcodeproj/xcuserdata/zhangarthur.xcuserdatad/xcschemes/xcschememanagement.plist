@@ -19,12 +19,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MBTwitterScroll.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-RDVTabBarController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D8653DF81AA29C86D8236B8</key>
+		<key>16BD183095B7EE322E2074D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0F50B501318C68BB0A7F981F</key>
+		<key>743AAEE32068724E2ED0E54A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>233997D08A98B4A3D542866C</key>
+		<key>8B1D8C64BD729F8662341E81</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>884374D8EF9BCE9A84989CA0</key>
+		<key>8B471CD4F9F8B28000B4907D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C50D9583242705B32C19131D</key>
+		<key>9218AFCDB5DE9B804664E23D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2EF02F0353891AE2B6B5007</key>
+		<key>9BF5AEDB4BF5146909ABC95C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F87BDE6DCFEB01A2F88D7DED</key>
+		<key>B12F823D839BBF53D7D4BCEC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC1D449054D8399A9DF1B60A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB957BE9989F8264CCD4BD05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
