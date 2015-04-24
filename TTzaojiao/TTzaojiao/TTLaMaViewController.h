@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
 
-@interface TTLaMaViewController : TTBaseViewController
+@interface TTLaMaViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end
