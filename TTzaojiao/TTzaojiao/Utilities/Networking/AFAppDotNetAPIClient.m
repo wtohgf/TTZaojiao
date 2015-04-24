@@ -419,6 +419,9 @@
                         if ([function rangeOfString:@"Get_Reg_2"].length) {
                             api = ApiEnumGet_Reg_2;
                         }
+                        if ([function rangeOfString:@"Get_List_Active"].length) {
+                            api = ApiEnumGet_List_Active;
+                        }
                         
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             NSDictionary *modelDic = (NSDictionary *)obj;
