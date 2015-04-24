@@ -25,6 +25,9 @@ PODS:
   - MBTwitterScroll (0.1)
   - MJRefresh (1.4.5)
   - RDVTabBarController (1.1.9)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
   - SKSplashView (0.1.0)
 
 DEPENDENCIES:
@@ -34,6 +37,7 @@ DEPENDENCIES:
   - MBTwitterScroll
   - MJRefresh
   - RDVTabBarController
+  - SDWebImage (~> 3.7)
   - SKSplashView
 
 SPEC CHECKSUMS:
@@ -43,6 +47,7 @@ SPEC CHECKSUMS:
   MBTwitterScroll: 6c69bb2b864423db52b631f42311706b8d0440b6
   MJRefresh: 4b24394e577ea399fbc926e5b6072317aae2c152
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168
 
 COCOAPODS: 0.36.3
