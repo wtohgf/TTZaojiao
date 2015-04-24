@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_MBProgressHUD 9
 #define COCOAPODS_VERSION_PATCH_MBProgressHUD 1
 
+// MBTwitterScroll
+#define COCOAPODS_POD_AVAILABLE_MBTwitterScroll
+#define COCOAPODS_VERSION_MAJOR_MBTwitterScroll 0
+#define COCOAPODS_VERSION_MINOR_MBTwitterScroll 1
+#define COCOAPODS_VERSION_PATCH_MBTwitterScroll 0
+
 // MJRefresh
 #define COCOAPODS_POD_AVAILABLE_MJRefresh
 #define COCOAPODS_VERSION_MAJOR_MJRefresh 1
