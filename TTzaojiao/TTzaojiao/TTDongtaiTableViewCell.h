@@ -24,23 +24,13 @@ typedef enum {
 @property (strong, nonatomic) BlogModel* blogModel;
 
 @property (weak, nonatomic) IBOutlet UILabel *blogTime;
-@property (weak, nonatomic) IBOutlet UIImageView *icon1;
-@property (weak, nonatomic) IBOutlet UIImageView *icon2;
-@property (weak, nonatomic) IBOutlet UIImageView *icon3;
-@property (weak, nonatomic) IBOutlet UIImageView *icon4;
-@property (weak, nonatomic) IBOutlet UIImageView *icon5;
-@property (weak, nonatomic) IBOutlet UIImageView *icon6;
-@property (weak, nonatomic) IBOutlet UIImageView *icon7;
-@property (weak, nonatomic) IBOutlet UIImageView *icon8;
-@property (weak, nonatomic) IBOutlet UIImageView *icon9;
 @property (weak, nonatomic) IBOutlet UILabel *babyName;
 @property (weak, nonatomic) IBOutlet UIImageView *babyIcon;
 @property (weak, nonatomic) IBOutlet UILabel *dongtai;
 
-@property (strong, nonatomic) NSArray* picsNameArray; //保存多张图片名字
-@property (strong, nonatomic) NSMutableArray* picsArray; //九宫格imageView数组
+//@property (strong, nonatomic) NSArray* picsNameArray; //保存多张图片名字
+//@property (strong, nonatomic) NSMutableArray* picsArray; //九宫格imageView数组
 
-+(instancetype)dongtaiTableViewCellWithTableView:(UITableView*)tableView pics:(NSString*)pics;
++(instancetype)dongtaiTableViewCellWithTableView:(UITableView*)tableView;
 
--(void)setupPicsArray;
 @end

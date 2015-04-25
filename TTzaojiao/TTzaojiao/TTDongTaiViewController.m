@@ -10,6 +10,7 @@
 #import "TTDongtaiTableViewCell.h"
 #import "TTDongtaiCommentTableViewCell.h"
 #import "TTDongtaiPraiseTableViewCell.h"
+#import "TTDongtaiPicsTableViewCell.h"
 #import "BlogModel.h"
 
 
@@ -33,8 +34,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _i_sort = @"0";
-    _group = @"0";
+    _i_sort = @"1";
+    _group = @"1";
     _pageIndexInt = 0;
     _blogs = [NSMutableArray array];
     [self updateBlog];
@@ -43,6 +44,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     _pageIndexInt = 0;
+    
 }
 
 -(void)updateBlog{
@@ -90,9 +92,19 @@
         view1.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
         
         NSArray* items = @[@"早教自拍", @"课程提问", @"宝宝生活", @"附近宝宝"];
+
         UISegmentedControl* sortSeg = [[UISegmentedControl alloc]initWithItems:items];
         sortSeg.frame = CGRectMake(40, 4, view1.frame.size.width-80, view1.frame.size.height-8);
         [sortSeg addTarget:self action:@selector(selChanged:) forControlEvents:UIControlEventValueChanged];
+        sortSeg.tintColor = [UIColor colorWithHue:216.0/255.0 saturation:117.0/255.0 brightness:152.0/255.0 alpha:1.0];
+        NSDictionary* textAttr1 = @{
+                                   NSForegroundColorAttributeName:[UIColor colorWithRed:255.0/255.0 green:168.0/255.0 blue:188.0/255.0 alpha:1.0f]
+                                   };
+        [sortSeg setTitleTextAttributes:textAttr1 forState:UIControlStateNormal];
+        NSDictionary* textAttr2 = @{
+                                   NSForegroundColorAttributeName:[UIColor whiteColor]
+                                   };
+        [sortSeg setTitleTextAttributes:textAttr2 forState:UIControlStateSelected];
         [view1 addSubview:sortSeg];
         return view1;
     }
@@ -118,19 +130,26 @@
     switch (indexPath.row) {
         case 0:
         {
-            TTDongtaiTableViewCell* cell = [TTDongtaiTableViewCell dongtaiTableViewCellWithTableView:tableView pics:blog.i_pic];
+            TTDongtaiTableViewCell* cell = [TTDongtaiTableViewCell dongtaiTableViewCellWithTableView:tableView];
             cell.blogModel = _blogs[indexPath.section];
             retruncell = cell;
         }
             break;
         case 1:
         {
-            TTDongtaiPraiseTableViewCell* cell = [TTDongtaiPraiseTableViewCell dongtaiTableViewCellWithTableView:tableView];
+            TTDongtaiPicsTableViewCell* cell = [TTDongtaiPicsTableViewCell dongtaiPicsTableViewCellWithTableView:tableView];
             cell.blogModel = _blogs[indexPath.section];
             retruncell = cell;
         }
             break;
         case 2:
+        {
+            TTDongtaiPraiseTableViewCell* cell = [TTDongtaiPraiseTableViewCell dongtaiTableViewCellWithTableView:tableView];
+            cell.blogModel = _blogs[indexPath.section];
+            retruncell = cell;
+        }
+            break;
+        case 3:
         {
             BlogModel* blog = _blogs[indexPath.section];
             NSArray* replay = blog.replay;
@@ -140,7 +159,7 @@
             retruncell = cell;
         }
             break;
-        case 3:
+        case 4:
         {
             BlogModel* blog = _blogs[indexPath.section];
             NSArray* replay = blog.replay;
@@ -150,7 +169,7 @@
             retruncell = cell;
         }
             break;
-        case 4:
+        case 5:
         {
             BlogModel* blog = _blogs[indexPath.section];
             NSArray* replay = blog.replay;
@@ -175,9 +194,9 @@
     BlogModel* model = _blogs[section];
     NSArray* replay =  model.replay;
     if (replay.count>=3) {
-        return 5;
+        return 6;
     }
-    return 2+replay.count;
+    return 3+replay.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

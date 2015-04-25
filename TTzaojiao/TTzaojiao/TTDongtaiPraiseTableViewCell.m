@@ -17,6 +17,7 @@
     if (cell == nil) {
         cell = [[TTDongtaiPraiseTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
+    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
     return cell;
 }
 
