@@ -100,7 +100,10 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44.f;
+    if (section == 0) {
+        return 44.f;
+    }
+    return 0.f;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -110,10 +113,12 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
     UITableViewCell* retruncell = nil;
+    BlogModel* blog = _blogs[indexPath.section];
+    
     switch (indexPath.row) {
         case 0:
         {
-            TTDongtaiTableViewCell* cell = [TTDongtaiTableViewCell dongtaiTableViewCellWithTableView:tableView];
+            TTDongtaiTableViewCell* cell = [TTDongtaiTableViewCell dongtaiTableViewCellWithTableView:tableView pics:blog.i_pic];
             cell.blogModel = _blogs[indexPath.section];
             retruncell = cell;
         }
@@ -127,8 +132,31 @@
             break;
         case 2:
         {
+            BlogModel* blog = _blogs[indexPath.section];
+            NSArray* replay = blog.replay;
             TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
-            cell.blogModel = _blogs[indexPath.section];
+            BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:0]];
+            cell.blogReplayModel = mode;
+            retruncell = cell;
+        }
+            break;
+        case 3:
+        {
+            BlogModel* blog = _blogs[indexPath.section];
+            NSArray* replay = blog.replay;
+            TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
+            BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:1]];
+            cell.blogReplayModel = mode;
+            retruncell = cell;
+        }
+            break;
+        case 4:
+        {
+            BlogModel* blog = _blogs[indexPath.section];
+            NSArray* replay = blog.replay;
+            TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
+            BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:2]];
+            cell.blogReplayModel = mode;
             retruncell = cell;
         }
             break;
@@ -144,7 +172,12 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 2;
+    BlogModel* model = _blogs[section];
+    NSArray* replay =  model.replay;
+    if (replay.count>=3) {
+        return 5;
+    }
+    return 2+replay.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

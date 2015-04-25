@@ -30,8 +30,11 @@
     // Configure the view for the selected state
 }
 
--(void)setBlogModel:(BlogModel *)blogModel{
-    _comment.text = blogModel.replay;
+-(void)setBlogReplayModel:(BlogReplayModel *)blogReplayModel{
+    _comment.text = blogReplayModel.i_content;
+//    NSString* str = [NSString stringWithFormat:@"%@%@",TTBASE_URL ,blogReplayModel.face];
+//    [_commentbabyIcon setImageWithURL:[NSURL URLWithString:str]];
+    _commentbabyName.text = blogReplayModel.baby_name;
 }
 
 

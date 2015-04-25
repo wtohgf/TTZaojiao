@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dongtaiCell" rowHeight="245" id="jnT-hH-Nbv" userLabel="dongtai" customClass="TTDongtaiTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dongtai1to3" rowHeight="245" id="jnT-hH-Nbv" userLabel="dongtai1to3" customClass="TTDongtaiTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jnT-hH-Nbv" id="9rB-ek-4fU">
@@ -293,7 +293,7 @@
                                             <outlet property="icon3" destination="Ozw-Cs-hP3" id="BC5-2Z-T9k"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dongtaiCell1" rowHeight="245" id="kzZ-Ji-ktH" userLabel="dongtai1" customClass="TTDongtaiTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dongtainoPic" rowHeight="245" id="kzZ-Ji-ktH" userLabel="dongtainoPic" customClass="TTDongtaiTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kzZ-Ji-ktH" id="6qb-oy-XEC">
@@ -587,11 +587,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA5-wh-gdb" userLabel="comment">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="125" y="9" width="267" height="83"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -645,6 +642,7 @@
                                         <connections>
                                             <outlet property="comment" destination="RA5-wh-gdb" id="9kO-9Y-pXQ"/>
                                             <outlet property="commentbabyIcon" destination="QQv-Jd-U7j" id="otf-PO-IUn"/>
+                                            <outlet property="commentbabyName" destination="3yv-8O-Y4i" id="Bfp-3g-5ft"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

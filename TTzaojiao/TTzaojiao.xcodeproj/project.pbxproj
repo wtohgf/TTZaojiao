@@ -65,6 +65,7 @@
 		1D4755051AEB2468004EDEED /* TTDongtaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755001AEB2468004EDEED /* TTDongtaiTableViewCell.m */; };
 		1D4755061AEB2468004EDEED /* TTDongTaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755021AEB2468004EDEED /* TTDongTaiViewController.m */; };
 		1D4755091AEB2493004EDEED /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755081AEB2493004EDEED /* BlogModel.m */; };
+		1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D47550D1AEB317D004EDEED /* BlogReplayModel.m */; };
 		1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */; };
 		1D57E1AA1AE74FED00EA3D35 /* CustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */; };
 		1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */; };
@@ -280,6 +281,8 @@
 		1D4755021AEB2468004EDEED /* TTDongTaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDongTaiViewController.m; sourceTree = "<group>"; };
 		1D4755071AEB2493004EDEED /* BlogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogModel.h; sourceTree = "<group>"; };
 		1D4755081AEB2493004EDEED /* BlogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogModel.m; sourceTree = "<group>"; };
+		1D47550C1AEB317D004EDEED /* BlogReplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogReplayModel.h; sourceTree = "<group>"; };
+		1D47550D1AEB317D004EDEED /* BlogReplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogReplayModel.m; sourceTree = "<group>"; };
 		1D57E1A61AE6E4A100EA3D35 /* TTCityMngTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCityMngTool.h; sourceTree = "<group>"; };
 		1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCityMngTool.m; sourceTree = "<group>"; };
 		1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePicker.xib; sourceTree = "<group>"; };
@@ -620,6 +623,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1D47550B1AEB3140004EDEED /* BlogModel */,
 				1DC7C5CF1AE632F300346732 /* RegSecond */,
 				1DC7C5C81AE4B32E00346732 /* RegMsg */,
 				1D018E111AE1603E00696F25 /* UserModel */,
@@ -630,8 +634,6 @@
 		1D018E111AE1603E00696F25 /* UserModel */ = {
 			isa = PBXGroup;
 			children = (
-				1D4755071AEB2493004EDEED /* BlogModel.h */,
-				1D4755081AEB2493004EDEED /* BlogModel.m */,
 				1D018E121AE1622900696F25 /* UserModel.h */,
 				1D018E131AE1622900696F25 /* UserModel.m */,
 				0F7C06CA1AEA1B120020ACBA /* LamaModel.h */,
@@ -762,6 +764,17 @@
 				1D4755001AEB2468004EDEED /* TTDongtaiTableViewCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		1D47550B1AEB3140004EDEED /* BlogModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D4755071AEB2493004EDEED /* BlogModel.h */,
+				1D4755081AEB2493004EDEED /* BlogModel.m */,
+				1D47550C1AEB317D004EDEED /* BlogReplayModel.h */,
+				1D47550D1AEB317D004EDEED /* BlogReplayModel.m */,
+			);
+			name = BlogModel;
 			sourceTree = "<group>";
 		};
 		1D60E5D81ADDB392003A632B = {
@@ -1062,6 +1075,7 @@
 				1D4755061AEB2468004EDEED /* TTDongTaiViewController.m in Sources */,
 				02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
+				1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1D4755041AEB2468004EDEED /* TTDongtaiPraiseTableViewCell.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
