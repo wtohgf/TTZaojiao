@@ -190,6 +190,10 @@
     return 10;
 }
 
+-(NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 0;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     BlogModel* model = _blogs[section];
     NSArray* replay =  model.replay;
