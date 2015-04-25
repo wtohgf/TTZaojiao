@@ -12,6 +12,7 @@
 #import "UserModel.h"
 #import "RegMsgFirst.h"
 #import "RegMsgSecond.h"
+#import "BlogModel.h"
 
 //Api Name
 typedef enum : NSUInteger {
@@ -20,7 +21,8 @@ typedef enum : NSUInteger {
     ApiEnumGet_Login,
     ApiEnumGet_Reg_1,
     ApiEnumGet_Reg_2,
-    ApiEnumGet_List_Active //辣妈街刷列表
+    ApiEnumGet_List_Active, //辣妈街刷列表
+    ApiEnumGet_List_Blog_Group //动态
 } ApiEnum;
 
 @interface JSONHelper : NSObject

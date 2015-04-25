@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
 
-@interface TTDongTaiViewController : TTBaseViewController
+@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end

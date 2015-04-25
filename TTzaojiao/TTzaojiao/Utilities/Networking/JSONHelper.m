@@ -8,7 +8,6 @@
 
 #import "JSONHelper.h"
 #import "NetworkHelper.h"
-#import "UserModel.h"
 
 @implementation JSONHelper
 
@@ -28,6 +27,14 @@
         case ApiEnumGet_Reg_2:
         {
             modelObj = [RegMsgSecond msgSecondWithDict:(NSDictionary *)modelObj];
+        }
+            break;
+        case ApiEnumGet_List_Blog_Group:
+        {
+            id tmpModel = [BlogModel blogModeWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
         }
             break;
         default:

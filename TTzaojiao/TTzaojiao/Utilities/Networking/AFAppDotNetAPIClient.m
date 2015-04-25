@@ -422,6 +422,9 @@
                         if ([function rangeOfString:@"Get_List_Active"].length) {
                             api = ApiEnumGet_List_Active;
                         }
+                        if ([function rangeOfString:@"Get_List_Blog_Group"].length) {
+                            api = ApiEnumGet_List_Blog_Group;
+                        }
                         
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             NSDictionary *modelDic = (NSDictionary *)obj;
