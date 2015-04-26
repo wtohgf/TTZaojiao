@@ -121,17 +121,15 @@
     [MBProgressHUD showHUDAddedTo:_dongtaiTable animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_BLOG_GROUP Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
         [MBProgressHUD hideAllHUDsForView:_dongtaiTable animated:YES];
-        if (_isGetMoreBlog) {
-            [_dongtaiTable.footer endRefreshing];
-            _isGetMoreBlog = NO;
-        }else{
-            [_dongtaiTable.header endRefreshing];
+        if (_blogs == nil) {
+            _blogs = [NSMutableArray array];
         }
         if (result_status == ApiStatusSuccess) {
-            if (_blogs == nil) {
-                _blogs = [NSMutableArray array];
-            }
-            if (!_isGetMoreBlog) {
+            if (_isGetMoreBlog) {
+                [_dongtaiTable.footer endRefreshing];
+                _isGetMoreBlog = NO;
+            }else{
+                [_dongtaiTable.header endRefreshing];
                 [_blogs removeAllObjects];
             }
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
