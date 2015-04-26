@@ -143,6 +143,12 @@
             }
             
         }else{
+            if (_isGetMoreBlog) {
+                [_dongtaiTable.footer endRefreshing];
+                _isGetMoreBlog = NO;
+            }else{
+                [_dongtaiTable.header endRefreshing];
+            }
             if (result_status != ApiStatusNetworkNotReachable) {
                 [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
             }
@@ -259,6 +265,7 @@
 }
 
 - (void)selChanged:(UISegmentedControl *)sender {
+    _pageIndexInt = 0;
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
     [self updateBlog];
 }
