@@ -19,6 +19,9 @@
     NSUInteger _pageIndexInt;
     NSString* _i_sort;
     NSString* _group;
+    UIView* _customHeaderView;
+    UISegmentedControl* _sortSeg;
+    BOOL _isGetMoreBlog;
 }
 @property (weak, nonatomic) IBOutlet UITableView *dongtaiTable;
 
@@ -29,25 +32,83 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self loadHeaderView];
     
+    [self setupRefresh];
+    
+    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars
+        = NO;
+        self.modalPresentationCapturesStatusBarAppearance
+        = NO;
+    }
+}
+
+-(void)setupRefresh{
+    _isGetMoreBlog = NO;
+    [_dongtaiTable addLegendHeaderWithRefreshingBlock:^{
+        [_dongtaiTable.header beginRefreshing];
+        [self updateBlog];
+    }];
+
+    [_dongtaiTable addLegendFooterWithRefreshingBlock:^{
+        [_dongtaiTable.footer beginRefreshing];
+        _pageIndexInt++;
+        _isGetMoreBlog = YES;
+        [self updateBlog];
+    }];
+    
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section{
+    if (section == _blogs.count - 1) {
+        _dongtaiTable.footer.hidden = NO;
+    }else{
+        _dongtaiTable.footer.hidden = YES;
+    }
+}
+
+-(void)loadHeaderView{
+    UIView* view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44.f)];
+    _customHeaderView = view;
+    view.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+    
+    NSArray* items = @[@"早教自拍", @"课程提问", @"宝宝生活", @"附近宝宝"];
+    
+    UISegmentedControl* sortSeg = [[UISegmentedControl alloc]initWithItems:items];
+    sortSeg.frame = CGRectMake(40, 4, view.frame.size.width-80, view.frame.size.height-8);
+    [sortSeg addTarget:self action:@selector(selChanged:) forControlEvents:UIControlEventValueChanged];
+    sortSeg.tintColor = [UIColor colorWithHue:216.0/255.0 saturation:117.0/255.0 brightness:152.0/255.0 alpha:1.0];
+    NSDictionary* textAttr1 = @{
+                                NSForegroundColorAttributeName:[UIColor colorWithRed:255.0/255.0 green:168.0/255.0 blue:188.0/255.0 alpha:1.0f]
+                                };
+    [sortSeg setTitleTextAttributes:textAttr1 forState:UIControlStateNormal];
+    NSDictionary* textAttr2 = @{
+                                NSForegroundColorAttributeName:[UIColor whiteColor]
+                                };
+    [sortSeg setTitleTextAttributes:textAttr2 forState:UIControlStateSelected];
+    _sortSeg = sortSeg;
+    sortSeg.selectedSegmentIndex = 0;
+    [view addSubview:sortSeg];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _pageIndexInt = 1;
     _i_sort = @"1";
     _group = @"1";
-    _pageIndexInt = 0;
-    _blogs = [NSMutableArray array];
+    _sortSeg.selectedSegmentIndex = 0;
     [self updateBlog];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    _pageIndexInt = 0;
-    
+
 }
 
 -(void)updateBlog{
+   
     NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
     NSDictionary* parameters = @{
@@ -59,8 +120,20 @@
                                  };
     [MBProgressHUD showHUDAddedTo:_dongtaiTable animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_BLOG_GROUP Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:_dongtaiTable animated:YES];
+        [MBProgressHUD hideAllHUDsForView:_dongtaiTable animated:YES];
+        if (_isGetMoreBlog) {
+            [_dongtaiTable.footer endRefreshing];
+            _isGetMoreBlog = NO;
+        }else{
+            [_dongtaiTable.header endRefreshing];
+        }
         if (result_status == ApiStatusSuccess) {
+            if (_blogs == nil) {
+                _blogs = [NSMutableArray array];
+            }
+            if (!_isGetMoreBlog) {
+                [_blogs removeAllObjects];
+            }
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                     if ([obj isKindOfClass:[BlogModel class]]) {
@@ -78,7 +151,6 @@
         };
     }];
 
-    _pageIndexInt++;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,25 +160,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        UIView* view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44.f)];
-        view1.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
-        
-        NSArray* items = @[@"早教自拍", @"课程提问", @"宝宝生活", @"附近宝宝"];
-
-        UISegmentedControl* sortSeg = [[UISegmentedControl alloc]initWithItems:items];
-        sortSeg.frame = CGRectMake(40, 4, view1.frame.size.width-80, view1.frame.size.height-8);
-        [sortSeg addTarget:self action:@selector(selChanged:) forControlEvents:UIControlEventValueChanged];
-        sortSeg.tintColor = [UIColor colorWithHue:216.0/255.0 saturation:117.0/255.0 brightness:152.0/255.0 alpha:1.0];
-        NSDictionary* textAttr1 = @{
-                                   NSForegroundColorAttributeName:[UIColor colorWithRed:255.0/255.0 green:168.0/255.0 blue:188.0/255.0 alpha:1.0f]
-                                   };
-        [sortSeg setTitleTextAttributes:textAttr1 forState:UIControlStateNormal];
-        NSDictionary* textAttr2 = @{
-                                   NSForegroundColorAttributeName:[UIColor whiteColor]
-                                   };
-        [sortSeg setTitleTextAttributes:textAttr2 forState:UIControlStateSelected];
-        [view1 addSubview:sortSeg];
-        return view1;
+        return _customHeaderView;
     }
     return [[UIView alloc]initWithFrame:CGRectZero];
 }
@@ -118,6 +172,10 @@
     return 0.f;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 10.f;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewAutomaticDimension;
 }
@@ -125,74 +183,69 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
     UITableViewCell* retruncell = nil;
-    BlogModel* blog = _blogs[indexPath.section];
-    
-    switch (indexPath.row) {
-        case 0:
-        {
-            TTDongtaiTableViewCell* cell = [TTDongtaiTableViewCell dongtaiTableViewCellWithTableView:tableView];
-            cell.blogModel = _blogs[indexPath.section];
-            retruncell = cell;
+    if([_i_sort integerValue] == 4){
+        
+    }else{
+        switch (indexPath.row) {
+            case 0:
+            {
+                TTDongtaiTableViewCell* cell = [TTDongtaiTableViewCell dongtaiTableViewCellWithTableView:tableView];
+                cell.blogModel = _blogs[indexPath.section];
+                retruncell = cell;
+            }
+                break;
+            case 1:
+            {
+                TTDongtaiPicsTableViewCell* cell = [TTDongtaiPicsTableViewCell dongtaiPicsTableViewCellWithTableView:tableView];
+                cell.blogModel = _blogs[indexPath.section];
+                retruncell = cell;
+            }
+                break;
+            case 2:
+            {
+                TTDongtaiPraiseTableViewCell* cell = [TTDongtaiPraiseTableViewCell dongtaiTableViewCellWithTableView:tableView];
+                cell.blogModel = _blogs[indexPath.section];
+                retruncell = cell;
+            }
+                break;
+            case 3:
+            {
+                BlogModel* blog = _blogs[indexPath.section];
+                NSArray* replay = blog.replay;
+                TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
+                BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:0]];
+                cell.blogReplayModel = mode;
+                retruncell = cell;
+            }
+                break;
+            case 4:
+            {
+                BlogModel* blog = _blogs[indexPath.section];
+                NSArray* replay = blog.replay;
+                TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
+                BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:1]];
+                cell.blogReplayModel = mode;
+                retruncell = cell;
+            }
+                break;
+            case 5:
+            {
+                BlogModel* blog = _blogs[indexPath.section];
+                NSArray* replay = blog.replay;
+                TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
+                BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:2]];
+                cell.blogReplayModel = mode;
+                retruncell = cell;
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case 1:
-        {
-            TTDongtaiPicsTableViewCell* cell = [TTDongtaiPicsTableViewCell dongtaiPicsTableViewCellWithTableView:tableView];
-            cell.blogModel = _blogs[indexPath.section];
-            retruncell = cell;
-        }
-            break;
-        case 2:
-        {
-            TTDongtaiPraiseTableViewCell* cell = [TTDongtaiPraiseTableViewCell dongtaiTableViewCellWithTableView:tableView];
-            cell.blogModel = _blogs[indexPath.section];
-            retruncell = cell;
-        }
-            break;
-        case 3:
-        {
-            BlogModel* blog = _blogs[indexPath.section];
-            NSArray* replay = blog.replay;
-            TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
-            BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:0]];
-            cell.blogReplayModel = mode;
-            retruncell = cell;
-        }
-            break;
-        case 4:
-        {
-            BlogModel* blog = _blogs[indexPath.section];
-            NSArray* replay = blog.replay;
-            TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
-            BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:1]];
-            cell.blogReplayModel = mode;
-            retruncell = cell;
-        }
-            break;
-        case 5:
-        {
-            BlogModel* blog = _blogs[indexPath.section];
-            NSArray* replay = blog.replay;
-            TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
-            BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:2]];
-            cell.blogReplayModel = mode;
-            retruncell = cell;
-        }
-            break;
-        default:
-            break;
     }
     
     return retruncell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 10;
-}
-
--(NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 0;
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     BlogModel* model = _blogs[section];
@@ -208,7 +261,8 @@
 }
 
 - (void)selChanged:(UISegmentedControl *)sender {
-    _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex];
+    _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
+    [self updateBlog];
 }
 
 @end

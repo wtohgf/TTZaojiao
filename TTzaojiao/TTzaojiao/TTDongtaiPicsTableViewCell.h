@@ -15,7 +15,10 @@
 
 @interface TTDongtaiPicsTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *icons;
+@property (weak, nonatomic) NSLayoutConstraint *cellheight;
+@property (weak, nonatomic) IBOutlet UIView *backView;
+
+@property (strong, nonatomic) NSMutableArray *icons;
 @property (strong, nonatomic) BlogModel* blogModel;
 +(instancetype)dongtaiPicsTableViewCellWithTableView:(UITableView*)tableView;
 

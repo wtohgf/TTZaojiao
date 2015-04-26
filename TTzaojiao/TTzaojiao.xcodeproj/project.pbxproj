@@ -64,7 +64,6 @@
 		1D4755031AEB2468004EDEED /* TTDongtaiCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4754FC1AEB2468004EDEED /* TTDongtaiCommentTableViewCell.m */; };
 		1D4755041AEB2468004EDEED /* TTDongtaiPraiseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4754FE1AEB2468004EDEED /* TTDongtaiPraiseTableViewCell.m */; };
 		1D4755051AEB2468004EDEED /* TTDongtaiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755001AEB2468004EDEED /* TTDongtaiTableViewCell.m */; };
-		1D4755061AEB2468004EDEED /* TTDongTaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755021AEB2468004EDEED /* TTDongTaiViewController.m */; };
 		1D4755091AEB2493004EDEED /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755081AEB2493004EDEED /* BlogModel.m */; };
 		1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D47550D1AEB317D004EDEED /* BlogReplayModel.m */; };
 		1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */; };
@@ -81,6 +80,7 @@
 		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
 		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
 		1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5D11AE6331700346732 /* RegMsgSecond.m */; };
+		1DD95FB81AED0CB100C15215 /* TTDongTaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD95FB71AED0CB100C15215 /* TTDongTaiViewController.m */; };
 		1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */; };
 		1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4EA81AE3AA7E004661EB /* JSImagePickerViewController.m */; };
 		1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DDF4EAC1AE3B712004661EB /* bg_023@2x.png */; };
@@ -280,8 +280,6 @@
 		1D4754FE1AEB2468004EDEED /* TTDongtaiPraiseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDongtaiPraiseTableViewCell.m; sourceTree = "<group>"; };
 		1D4754FF1AEB2468004EDEED /* TTDongtaiTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDongtaiTableViewCell.h; sourceTree = "<group>"; };
 		1D4755001AEB2468004EDEED /* TTDongtaiTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDongtaiTableViewCell.m; sourceTree = "<group>"; };
-		1D4755011AEB2468004EDEED /* TTDongTaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDongTaiViewController.h; sourceTree = "<group>"; };
-		1D4755021AEB2468004EDEED /* TTDongTaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDongTaiViewController.m; sourceTree = "<group>"; };
 		1D4755071AEB2493004EDEED /* BlogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogModel.h; sourceTree = "<group>"; };
 		1D4755081AEB2493004EDEED /* BlogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogModel.m; sourceTree = "<group>"; };
 		1D47550C1AEB317D004EDEED /* BlogReplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogReplayModel.h; sourceTree = "<group>"; };
@@ -311,6 +309,8 @@
 		1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MoreAttribute.m"; sourceTree = "<group>"; };
 		1DC7C5D01AE6331700346732 /* RegMsgSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgSecond.h; sourceTree = "<group>"; };
 		1DC7C5D11AE6331700346732 /* RegMsgSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgSecond.m; sourceTree = "<group>"; };
+		1DD95FB61AED0CB100C15215 /* TTDongTaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDongTaiViewController.h; sourceTree = "<group>"; };
+		1DD95FB71AED0CB100C15215 /* TTDongTaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDongTaiViewController.m; sourceTree = "<group>"; };
 		1DDF4E8C1AE26C82004661EB /* TTRealRegisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRealRegisitViewController.h; sourceTree = "<group>"; };
 		1DDF4E8D1AE26C82004661EB /* TTRealRegisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRealRegisitViewController.m; sourceTree = "<group>"; };
 		1DDF4EA71AE3AA7E004661EB /* JSImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSImagePickerViewController.h; sourceTree = "<group>"; };
@@ -400,8 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				1D47550A1AEB2648004EDEED /* Views */,
-				1D4755011AEB2468004EDEED /* TTDongTaiViewController.h */,
-				1D4755021AEB2468004EDEED /* TTDongTaiViewController.m */,
+				1DD95FB61AED0CB100C15215 /* TTDongTaiViewController.h */,
+				1DD95FB71AED0CB100C15215 /* TTDongTaiViewController.m */,
 				1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */,
 			);
 			name = dongtai;
@@ -1077,7 +1077,6 @@
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
-				1D4755061AEB2468004EDEED /* TTDongTaiViewController.m in Sources */,
 				02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
 				1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */,
@@ -1126,6 +1125,7 @@
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
 				1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */,
 				1D018E181AE1AC1600696F25 /* UIAlertView+MoreAttribute.m in Sources */,
+				1DD95FB81AED0CB100C15215 /* TTDongTaiViewController.m in Sources */,
 				0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */,
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				02BFC5621ADF7A3700D0DF30 /* DataVerifier.m in Sources */,
