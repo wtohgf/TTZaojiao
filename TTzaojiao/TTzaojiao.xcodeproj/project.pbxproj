@@ -610,6 +610,17 @@
 			name = TabbarPage;
 			sourceTree = "<group>";
 		};
+		0FAD38F21AEDDB9100644273 /* LamaModel */ = {
+			isa = PBXGroup;
+			children = (
+				0F7C06CA1AEA1B120020ACBA /* LamaModel.h */,
+				0F7C06CB1AEA1B120020ACBA /* LamaModel.m */,
+				0F7C06CD1AEA216C0020ACBA /* LamaTotalModel.h */,
+				0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */,
+			);
+			name = LamaModel;
+			sourceTree = "<group>";
+		};
 		1D018E0C1AE15F6200696F25 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +637,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0FAD38F21AEDDB9100644273 /* LamaModel */,
 				1D47550B1AEB3140004EDEED /* BlogModel */,
 				1DC7C5CF1AE632F300346732 /* RegSecond */,
 				1DC7C5C81AE4B32E00346732 /* RegMsg */,
@@ -639,10 +651,6 @@
 			children = (
 				1D018E121AE1622900696F25 /* UserModel.h */,
 				1D018E131AE1622900696F25 /* UserModel.m */,
-				0F7C06CA1AEA1B120020ACBA /* LamaModel.h */,
-				0F7C06CB1AEA1B120020ACBA /* LamaModel.m */,
-				0F7C06CD1AEA216C0020ACBA /* LamaTotalModel.h */,
-				0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */,
 			);
 			name = UserModel;
 			sourceTree = "<group>";

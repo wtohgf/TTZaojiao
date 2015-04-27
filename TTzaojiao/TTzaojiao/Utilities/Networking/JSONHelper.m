@@ -37,6 +37,17 @@
             }
         }
             break;
+        case ApiEnumGet_List_Active:
+        {
+            id tmpModel = [LamaModel LamaModelWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
+        }
+            break;
+            
+           
+            
         default:
         {
             

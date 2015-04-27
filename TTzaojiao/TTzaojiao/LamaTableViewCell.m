@@ -73,14 +73,43 @@
 //    
 //    return self;
 //}
-
+- (NSDate *)dateFromString:(NSString *)dateString{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+    
+    
+    
+    
+    
+    NSDate *destDate= [dateFormatter dateFromString:dateString];
+    
+    
+    
+    
+    
+   // [dateFormatter release];
+    
+    return destDate;
+    
+}
 - (void)setLamaModel:(LamaModel *)lamaModel
 {
     _lamaModel = lamaModel;
     _descLabel.text = lamaModel.i_name;
     _time1Label.text = @"剩余时间：";
-    _time2Label.text = lamaModel.i_otime_end;
-    NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,_lamaModel.i_pic];
+    NSDate *date = [self dateFromString:lamaModel.i_otime_end];
+    NSDate *now = [NSDate date];
+    
+     NSTimeInterval intetval =   [date timeIntervalSinceDate:now
+                                                 ];
+    int day =(int) (intetval/(60*60*24));
+    
+    int hour = (int)((intetval - (int )day*(60*60*24))/(60*60));
+    
+    _time2Label.text =[NSString stringWithFormat:@"%d天%d小时",day,hour];
+      NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,_lamaModel.i_pic];
     NSArray * tempArray =  [url componentsSeparatedByString:@"|"];
    
     [_imgView setImageWithURL:[NSURL URLWithString: [tempArray firstObject]]];

@@ -41,17 +41,23 @@
                 
                 //暂时不知道有什么用途
                 //              LamaTotalModel *total= [LamaTotalModel LamaTotalModelWithdict:result_data[0]];
-                
-                //数据模型数组制作
-                NSMutableArray * dataArray = result_data;
                 NSMutableArray *tempArray = [NSMutableArray array];
-                for (int i = 1; i < dataArray.count; i++) {
-                    LamaModel *lama = [LamaModel LamaModelWithDict:result_data[i]];
-                    [tempArray addObject:lama];
-                }
                 
-                _models = tempArray;
-                NSLog(@"count is %zi",_models.count);
+                if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                    [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        if ([obj isKindOfClass:[LamaModel class]]) {
+                            [tempArray addObject:obj];
+                        }
+                    }];
+                    
+                    _models = tempArray;
+                    NSLog(@"count is %zi",_models.count);
+
+                    [_tableView reloadData];
+                    
+                   
+                }
+
                 
                 //当前用户信息
                 //UserModel *user = [TTUserModelTool sharedUserModelTool].logonUser;
@@ -69,6 +75,21 @@
     }];
     
 
+}
+- (void) rightBtnClick:(UIBarButtonItem*)btn
+{
+    NSLog(@"right");
+    //导航
+}
+- (void) test
+{
+    UIBarButtonItem *left = [[UIBarButtonItem alloc]init];
+   left.title = @"入住辣妈街";
+    self.navigationItem.leftBarButtonItem= left;
+    
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"pic" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick:)];
+   
+    self.navigationItem.rightBarButtonItem= right;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,7 +110,7 @@
     }
     
    
-
+    [self test];
     
 }
 
@@ -140,6 +161,18 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 44.f;
 }
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"willSelectRowAtIndexPath is %zi",indexPath.row);
+    UITableViewController *controller = [[UITableViewController alloc]init];
+    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(160, 0, 120, 50)];
+    [title setText:@"详情"];
+    controller.navigationItem.titleView= title;
+    [self.navigationController pushViewController:controller animated:YES];
+    return indexPath;
+}
+
 
 - (IBAction)locationAction:(id)sender {
     [self performSegueWithIdentifier:@"cityListSegue" sender:self];

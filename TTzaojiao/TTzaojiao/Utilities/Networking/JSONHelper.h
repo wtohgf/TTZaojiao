@@ -13,7 +13,7 @@
 #import "RegMsgFirst.h"
 #import "RegMsgSecond.h"
 #import "BlogModel.h"
-
+#import "LamaModel.h"
 //Api Name
 typedef enum : NSUInteger {
     ApiEnumNone,
