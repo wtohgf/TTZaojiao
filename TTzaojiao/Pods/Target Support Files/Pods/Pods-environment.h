@@ -60,6 +60,12 @@
 #define COCOAPODS_VERSION_MINOR_HSDatePickerViewController 0
 #define COCOAPODS_VERSION_PATCH_HSDatePickerViewController 0
 
+// ImagePlayerView
+#define COCOAPODS_POD_AVAILABLE_ImagePlayerView
+#define COCOAPODS_VERSION_MAJOR_ImagePlayerView 1
+#define COCOAPODS_VERSION_MINOR_ImagePlayerView 0
+#define COCOAPODS_VERSION_PATCH_ImagePlayerView 2
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
