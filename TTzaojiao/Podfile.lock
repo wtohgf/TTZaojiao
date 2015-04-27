@@ -20,10 +20,18 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DACircularProgress (2.3.1)
   - HSDatePickerViewController (1.0.0)
+  - ImagePlayerView (1.0.2)
   - MBProgressHUD (0.9.1)
   - MBTwitterScroll (0.1)
   - MJRefresh (1.4.5)
+  - MWPhotoBrowser (1.4.1):
+    - DACircularProgress
+    - MBProgressHUD (~> 0.8)
+    - PSTCollectionView (~> 1.2)
+    - SDWebImage (~> 3.7)
+  - PSTCollectionView (1.2.3)
   - RDVTabBarController (1.1.9)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -33,19 +41,25 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
   - HSDatePickerViewController (~> 1.0)
+  - ImagePlayerView
   - MBProgressHUD (~> 0.9.1)
   - MBTwitterScroll
   - MJRefresh
+  - MWPhotoBrowser
   - RDVTabBarController
   - SDWebImage (~> 3.7)
   - SKSplashView
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HSDatePickerViewController: 3854fa84da85c6c5704ba727a8b579e22ed1f6e5
+  ImagePlayerView: f32dbbaf9aea86d25f5ccba7fb67f644b56f9464
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MBTwitterScroll: 6c69bb2b864423db52b631f42311706b8d0440b6
   MJRefresh: 4b24394e577ea399fbc926e5b6072317aae2c152
+  MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
+  PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168

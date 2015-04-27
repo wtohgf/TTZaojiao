@@ -48,11 +48,23 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
+// DACircularProgress
+#define COCOAPODS_POD_AVAILABLE_DACircularProgress
+#define COCOAPODS_VERSION_MAJOR_DACircularProgress 2
+#define COCOAPODS_VERSION_MINOR_DACircularProgress 3
+#define COCOAPODS_VERSION_PATCH_DACircularProgress 1
+
 // HSDatePickerViewController
 #define COCOAPODS_POD_AVAILABLE_HSDatePickerViewController
 #define COCOAPODS_VERSION_MAJOR_HSDatePickerViewController 1
 #define COCOAPODS_VERSION_MINOR_HSDatePickerViewController 0
 #define COCOAPODS_VERSION_PATCH_HSDatePickerViewController 0
+
+// ImagePlayerView
+#define COCOAPODS_POD_AVAILABLE_ImagePlayerView
+#define COCOAPODS_VERSION_MAJOR_ImagePlayerView 1
+#define COCOAPODS_VERSION_MINOR_ImagePlayerView 0
+#define COCOAPODS_VERSION_PATCH_ImagePlayerView 2
 
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
@@ -71,6 +83,18 @@
 #define COCOAPODS_VERSION_MAJOR_MJRefresh 1
 #define COCOAPODS_VERSION_MINOR_MJRefresh 4
 #define COCOAPODS_VERSION_PATCH_MJRefresh 5
+
+// MWPhotoBrowser
+#define COCOAPODS_POD_AVAILABLE_MWPhotoBrowser
+#define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 1
+#define COCOAPODS_VERSION_MINOR_MWPhotoBrowser 4
+#define COCOAPODS_VERSION_PATCH_MWPhotoBrowser 1
+
+// PSTCollectionView
+#define COCOAPODS_POD_AVAILABLE_PSTCollectionView
+#define COCOAPODS_VERSION_MAJOR_PSTCollectionView 1
+#define COCOAPODS_VERSION_MINOR_PSTCollectionView 2
+#define COCOAPODS_VERSION_PATCH_PSTCollectionView 3
 
 // RDVTabBarController
 #define COCOAPODS_POD_AVAILABLE_RDVTabBarController

@@ -46,6 +46,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.view bringSubviewToFront:_bottomBar];
 }
 

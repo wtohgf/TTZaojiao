@@ -194,6 +194,7 @@ int base64_decode( unsigned char *dst, int *dlen,
 	if (ret == XYSSL_ERR_BASE64_BUFFER_TOO_SMALL) {
 		dst = (char *)malloc(dlen);
 		ret = base64_decode((unsigned char *)dst, &dlen, (unsigned char *)src, slen);
+        NSLog(@"%d",ret);
 	}
 	
 	NSData *data = [NSData dataWithBytes:dst length:dlen];

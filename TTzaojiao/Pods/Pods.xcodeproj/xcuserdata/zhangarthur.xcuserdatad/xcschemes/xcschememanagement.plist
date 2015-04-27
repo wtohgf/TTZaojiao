@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HSDatePickerViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ImagePlayerView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -25,6 +35,16 @@
 			<false/>
 		</dict>
 		<key>Pods-MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PSTCollectionView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,47 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16BD183095B7EE322E2074D0</key>
+		<key>16942BB34D91713D46E8B4CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>743AAEE32068724E2ED0E54A</key>
+		<key>29D4E243C344204DB9E2B1EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B1D8C64BD729F8662341E81</key>
+		<key>43938DBA639CEA452799594B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B471CD4F9F8B28000B4907D</key>
+		<key>6B3F4EA4CC52C479A8C4E6D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9218AFCDB5DE9B804664E23D</key>
+		<key>77102C11B3848A15E61D64F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9BF5AEDB4BF5146909ABC95C</key>
+		<key>777EF5573107187EFEB9D8A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B12F823D839BBF53D7D4BCEC</key>
+		<key>95E01EF07AA0A232A0693A36</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC1D449054D8399A9DF1B60A</key>
+		<key>C2BDEFFA001CC1E1139AF90D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB957BE9989F8264CCD4BD05</key>
+		<key>C3F29D535EDD40A3B868FD9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1591C9878D57C489FDDA467</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7379727B4B15DC37576BD43</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F45F3A71451B4C589DE15599</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC83EFB85B7257F2E73CA226</key>
 		<dict>
 			<key>primary</key>
 			<true/>
