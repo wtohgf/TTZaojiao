@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-HSDatePickerViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -25,6 +30,16 @@
 			<false/>
 		</dict>
 		<key>Pods-MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MWPhotoBrowser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-PSTCollectionView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,47 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16BD183095B7EE322E2074D0</key>
+		<key>1D822C677A6687EB953FF8D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>743AAEE32068724E2ED0E54A</key>
+		<key>2F1FDE967791726A29BB92DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B1D8C64BD729F8662341E81</key>
+		<key>3D39245B44213D4948D319B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B471CD4F9F8B28000B4907D</key>
+		<key>42BD060E4CA9007C39D3546F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9218AFCDB5DE9B804664E23D</key>
+		<key>698AFFC1A6ED67427117A14C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9BF5AEDB4BF5146909ABC95C</key>
+		<key>769DC5673B160ADE3D46198E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B12F823D839BBF53D7D4BCEC</key>
+		<key>7A6FD81945822DEFBDDD9608</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC1D449054D8399A9DF1B60A</key>
+		<key>94C0F906989614E967D0C3D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB957BE9989F8264CCD4BD05</key>
+		<key>AA866B82AF1170503E588D9D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4F79D8E79962E64DA56D6E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B522F1A5EB6CB2523849A79B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA60D5017AB39A7F16E4CDB8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
