@@ -7,12 +7,14 @@
 //
 
 #import "TTDongTaiViewController.h"
-#import "TTDongtaiTableViewCell.h"
-#import "TTDongtaiCommentTableViewCell.h"
-#import "TTDongtaiPraiseTableViewCell.h"
-#import "TTDongtaiPicsTableViewCell.h"
+//#import "TTDongtaiTableViewCell.h"
+//#import "TTDongtaiCommentTableViewCell.h"
+//#import "TTDongtaiPraiseTableViewCell.h"
+//#import "TTDongtaiPicsTableViewCell.h"
 #import "BlogModel.h"
 
+#import "TTBlogFrame.h"
+#import "TTDyanmicUserStautsCell.h"
 
 @interface TTDongTaiViewController (){
     NSMutableArray* _blogs;
@@ -165,7 +167,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return _customHeaderView;
-    }
+    }else
     return [[UIView alloc]initWithFrame:CGRectZero];
 }
 
@@ -173,96 +175,34 @@
     if (section == 0) {
         return 44.f;
     }
-    return 0.f;
+    return 1.f;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 10.f;
 }
 
--(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UITableViewAutomaticDimension;
-}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
-    UITableViewCell* retruncell = nil;
-    if([_i_sort integerValue] == 4){
-        
-    }else{
-        switch (indexPath.row) {
-            case 0:
-            {
-                TTDongtaiTableViewCell* cell = [TTDongtaiTableViewCell dongtaiTableViewCellWithTableView:tableView];
-                cell.blogModel = _blogs[indexPath.section];
-                retruncell = cell;
-            }
-                break;
-            case 1:
-            {
-                TTDongtaiPicsTableViewCell* cell = [TTDongtaiPicsTableViewCell dongtaiPicsTableViewCellWithTableView:tableView];
-                cell.blogModel = _blogs[indexPath.section];
-                retruncell = cell;
-            }
-                break;
-            case 2:
-            {
-                TTDongtaiPraiseTableViewCell* cell = [TTDongtaiPraiseTableViewCell dongtaiTableViewCellWithTableView:tableView];
-                cell.blogModel = _blogs[indexPath.section];
-                retruncell = cell;
-            }
-                break;
-            case 3:
-            {
-                BlogModel* blog = _blogs[indexPath.section];
-                NSArray* replay = blog.replay;
-                TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
-                BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:0]];
-                cell.blogReplayModel = mode;
-                retruncell = cell;
-            }
-                break;
-            case 4:
-            {
-                BlogModel* blog = _blogs[indexPath.section];
-                NSArray* replay = blog.replay;
-                TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
-                BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:1]];
-                cell.blogReplayModel = mode;
-                retruncell = cell;
-            }
-                break;
-            case 5:
-            {
-                BlogModel* blog = _blogs[indexPath.section];
-                NSArray* replay = blog.replay;
-                TTDongtaiCommentTableViewCell* cell = [TTDongtaiCommentTableViewCell dongtaiTableViewCellWithTableView:tableView];
-                BlogReplayModel* mode = [BlogReplayModel blogReplayModelWithDict:[replay objectAtIndex:2]];
-                cell.blogReplayModel = mode;
-                retruncell = cell;
-            }
-                break;
-            default:
-                break;
-        }
-    }
-    
-    return retruncell;
+    TTDyanmicUserStautsCell* cell = [TTDyanmicUserStautsCell dyanmicUserStautsCellWithTableView:tableView];
+    TTBlogFrame* frame = [[TTBlogFrame alloc]init];
+    frame.blog = _blogs[indexPath.row];
+    cell.blogFrame = frame;
+    return cell;
 }
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    BlogModel* model = _blogs[section];
-    NSArray* replay =  model.replay;
-    if (replay.count>=3) {
-        return 6;
-    }
-    return 3+replay.count;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return _blogs.count;
 }
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TTBlogFrame* frame = [[TTBlogFrame alloc]init];
+    frame.blog = _blogs[indexPath.row];
+    return frame.cellHeight;
+}
+
 
 - (void)selChanged:(UISegmentedControl *)sender {
     _pageIndexInt = 0;

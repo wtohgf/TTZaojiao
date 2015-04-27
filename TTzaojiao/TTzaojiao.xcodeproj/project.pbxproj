@@ -60,6 +60,11 @@
 		1D1E81621AEBE95000FBCE29 /* TTDongtaiPicsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E81611AEBE95000FBCE29 /* TTDongtaiPicsTableViewCell.m */; };
 		1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F2C011AE09A66004F851D /* TTLogRegViewController.m */; };
 		1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F2C051AE0AECA004F851D /* TTLogonViewController.m */; };
+		1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */; };
+		1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BB1AEE8712006D66FC /* TTDynamicUserStatusTopView.m */; };
+		1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */; };
+		1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */; };
+		1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */; };
 		1D4754FA1AEB2450004EDEED /* DongTaiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */; };
 		1D4755031AEB2468004EDEED /* TTDongtaiCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4754FC1AEB2468004EDEED /* TTDongtaiCommentTableViewCell.m */; };
 		1D4755041AEB2468004EDEED /* TTDongtaiPraiseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4754FE1AEB2468004EDEED /* TTDongtaiPraiseTableViewCell.m */; };
@@ -273,6 +278,16 @@
 		1D1F2C041AE0AECA004F851D /* TTLogonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLogonViewController.h; sourceTree = "<group>"; };
 		1D1F2C051AE0AECA004F851D /* TTLogonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLogonViewController.m; sourceTree = "<group>"; };
 		1D1F2C091AE10BAF004F851D /* TTWebServerAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTWebServerAPI.h; sourceTree = "<group>"; };
+		1D3FE2B71AEE8708006D66FC /* TTBlogFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBlogFrame.h; sourceTree = "<group>"; };
+		1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBlogFrame.m; sourceTree = "<group>"; };
+		1D3FE2BA1AEE8712006D66FC /* TTDynamicUserStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicUserStatusTopView.h; sourceTree = "<group>"; };
+		1D3FE2BB1AEE8712006D66FC /* TTDynamicUserStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicUserStatusTopView.m; sourceTree = "<group>"; };
+		1D3FE2BD1AEE8718006D66FC /* TTDyanmicUserStautsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDyanmicUserStautsCell.h; sourceTree = "<group>"; };
+		1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDyanmicUserStautsCell.m; sourceTree = "<group>"; };
+		1D3FE2C01AEE8818006D66FC /* UIImageView+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MoreAttribute.h"; sourceTree = "<group>"; };
+		1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MoreAttribute.m"; sourceTree = "<group>"; };
+		1D44C88E1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDaynamicUserStatusZancountView.h; sourceTree = "<group>"; };
+		1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDaynamicUserStatusZancountView.m; sourceTree = "<group>"; };
 		1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DongTaiStoryboard.storyboard; sourceTree = "<group>"; };
 		1D4754FB1AEB2468004EDEED /* TTDongtaiCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDongtaiCommentTableViewCell.h; sourceTree = "<group>"; };
 		1D4754FC1AEB2468004EDEED /* TTDongtaiCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDongtaiCommentTableViewCell.m; sourceTree = "<group>"; };
@@ -399,6 +414,8 @@
 		02240C951AE6395000EEB7AF /* dongtai */ = {
 			isa = PBXGroup;
 			children = (
+				1D3FE2B61AEE86A7006D66FC /* DynamicCell */,
+				1D3FE2B51AEE8691006D66FC /* Models */,
 				1D47550A1AEB2648004EDEED /* Views */,
 				1DD95FB61AED0CB100C15215 /* TTDongTaiViewController.h */,
 				1DD95FB71AED0CB100C15215 /* TTDongTaiViewController.m */,
@@ -658,6 +675,8 @@
 		1D018E151AE1AB9000696F25 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1D3FE2C01AEE8818006D66FC /* UIImageView+MoreAttribute.h */,
+				1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */,
 				1D018E161AE1AC1600696F25 /* UIAlertView+MoreAttribute.h */,
 				1D018E171AE1AC1600696F25 /* UIAlertView+MoreAttribute.m */,
 				1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */,
@@ -762,6 +781,28 @@
 				1D1F2C091AE10BAF004F851D /* TTWebServerAPI.h */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		1D3FE2B51AEE8691006D66FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D3FE2B71AEE8708006D66FC /* TTBlogFrame.h */,
+				1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1D3FE2B61AEE86A7006D66FC /* DynamicCell */ = {
+			isa = PBXGroup;
+			children = (
+				1D3FE2BD1AEE8718006D66FC /* TTDyanmicUserStautsCell.h */,
+				1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */,
+				1D3FE2BA1AEE8712006D66FC /* TTDynamicUserStatusTopView.h */,
+				1D3FE2BB1AEE8712006D66FC /* TTDynamicUserStatusTopView.m */,
+				1D44C88E1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.h */,
+				1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */,
+			);
+			name = DynamicCell;
 			sourceTree = "<group>";
 		};
 		1D47550A1AEB2648004EDEED /* Views */ = {
@@ -1085,11 +1126,13 @@
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
+				1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */,
 				02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
 				1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1D4755041AEB2468004EDEED /* TTDongtaiPraiseTableViewCell.m in Sources */,
+				1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
 				020999DA1AE91DC800093608 /* CityListViewController.m in Sources */,
 				1D4755031AEB2468004EDEED /* TTDongtaiCommentTableViewCell.m in Sources */,
@@ -1107,6 +1150,7 @@
 				1D018E381AE20EC500696F25 /* TTNavigationController.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
+				1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */,
 				02BFC55E1ADF7A3700D0DF30 /* AlipayRequestConfig.m in Sources */,
 				1D018E311AE20DE300696F25 /* TTBaseNavgationController.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
@@ -1137,6 +1181,8 @@
 				0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */,
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				02BFC5621ADF7A3700D0DF30 /* DataVerifier.m in Sources */,
+				1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */,
+				1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */,
 				1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */,
 				0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */,
 			);
