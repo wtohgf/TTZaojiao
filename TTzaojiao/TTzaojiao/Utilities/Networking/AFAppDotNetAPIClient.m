@@ -103,7 +103,7 @@
 
             } success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSError *error = nil;
-                id json = @[];
+                id json = nil;
                 if ([responseObject isKindOfClass:[NSArray class]] ||
                     [responseObject isKindOfClass:[NSDictionary class]] ||
                     [responseObject isKindOfClass:[NSString class]]) {
@@ -166,7 +166,7 @@
         } success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             NSError *error = nil;
-            id json = @[];
+            id json = nil;
             if ([responseObject isKindOfClass:[NSArray class]] ||
                 [responseObject isKindOfClass:[NSDictionary class]] ||
                 [responseObject isKindOfClass:[NSString class]]) {
@@ -225,7 +225,7 @@
             AFHTTPRequestOperation *operation = [self GET:APIName parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
                 NSError *error = nil;
-                id json = @[];
+                id json = nil;
                 if ([responseObject isKindOfClass:[NSArray class]] ||
                     [responseObject isKindOfClass:[NSDictionary class]] ||
                     [responseObject isKindOfClass:[NSString class]]) {
