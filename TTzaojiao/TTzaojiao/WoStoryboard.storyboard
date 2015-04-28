@@ -36,7 +36,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="UVk-HK-fyH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserCell" textLabel="mO1-W7-C6Z" imageView="pBF-dd-d3p" rowHeight="80" style="IBUITableViewCellStyleDefault" id="HQ8-0J-jjp">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -47,7 +47,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="亮亮" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mO1-W7-C6Z">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -68,7 +68,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="我的积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r6f-bG-oNF">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -87,7 +87,7 @@
                                                                 <constraint firstAttribute="width" constant="42" id="Scd-2g-X1Y"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -107,6 +107,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="d1f-y3-FBq" secondAttribute="bottom" constant="12" id="P0m-RY-Pbx"/>
                                                         <constraint firstItem="d1f-y3-FBq" firstAttribute="leading" secondItem="F3A-5J-kXZ" secondAttribute="leading" constant="6" id="PyK-wl-oo3"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d1f-y3-FBq" secondAttribute="trailing" constant="8" id="Tlh-Ap-nZS"/>
                                                         <constraint firstAttribute="trailing" secondItem="d1f-y3-FBq" secondAttribute="trailing" constant="8" id="gpJ-BB-Kok"/>
                                                         <constraint firstItem="d1f-y3-FBq" firstAttribute="top" secondItem="F3A-5J-kXZ" secondAttribute="top" constant="11" id="zub-dc-MSF"/>
                                                     </constraints>
@@ -117,6 +118,7 @@
                                                         <mask key="constraints">
                                                             <exclude reference="P0m-RY-Pbx"/>
                                                             <exclude reference="PyK-wl-oo3"/>
+                                                            <exclude reference="Tlh-Ap-nZS"/>
                                                             <exclude reference="gpJ-BB-Kok"/>
                                                             <exclude reference="zub-dc-MSF"/>
                                                         </mask>
@@ -128,6 +130,7 @@
                                                         <mask key="constraints">
                                                             <include reference="P0m-RY-Pbx"/>
                                                             <include reference="PyK-wl-oo3"/>
+                                                            <include reference="Tlh-Ap-nZS"/>
                                                             <include reference="gpJ-BB-Kok"/>
                                                             <include reference="zub-dc-MSF"/>
                                                         </mask>
@@ -135,7 +138,6 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="F3A-5J-kXZ" firstAttribute="leading" secondItem="2OH-b1-R3H" secondAttribute="leading" constant="309" id="TPv-E2-dgx"/>
                                                 <constraint firstItem="F3A-5J-kXZ" firstAttribute="top" secondItem="r6f-bG-oNF" secondAttribute="top" id="ZQZ-I8-XXx"/>
                                                 <constraint firstItem="F3A-5J-kXZ" firstAttribute="trailing" secondItem="r6f-bG-oNF" secondAttribute="trailing" id="kbS-Er-yxR"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="F3A-5J-kXZ" secondAttribute="bottom" constant="-9" id="xj6-na-6VF"/>
@@ -145,7 +147,6 @@
                                                     <exclude reference="F3A-5J-kXZ"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="TPv-E2-dgx"/>
                                                     <exclude reference="ZQZ-I8-XXx"/>
                                                     <exclude reference="kbS-Er-yxR"/>
                                                     <exclude reference="xj6-na-6VF"/>
@@ -156,7 +157,6 @@
                                                     <include reference="F3A-5J-kXZ"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="TPv-E2-dgx"/>
                                                     <include reference="ZQZ-I8-XXx"/>
                                                     <include reference="kbS-Er-yxR"/>
                                                     <include reference="xj6-na-6VF"/>
@@ -176,7 +176,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="今日签到" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iG4-wp-5ge">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -188,31 +188,6 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Jn-LO-BiZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkV-E4-Axn">
-                                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="69" id="J3h-sl-j89"/>
-                                                                <constraint firstAttribute="height" constant="30" id="M8Y-Yr-Jyb"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <state key="normal" title="立即签到">
-                                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="J3h-sl-j89"/>
-                                                                    <exclude reference="M8Y-Yr-Jyb"/>
-                                                                </mask>
-                                                            </variation>
-                                                            <variation key="heightClass=regular-widthClass=compact">
-                                                                <mask key="constraints">
-                                                                    <include reference="J3h-sl-j89"/>
-                                                                    <include reference="M8Y-Yr-Jyb"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqA-jf-Trw">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                             <subviews>
@@ -225,7 +200,7 @@
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <state key="normal" title="立即签到">
-                                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
                                                                     <variation key="default">
@@ -249,6 +224,7 @@
                                                             <constraints>
                                                                 <constraint firstItem="Yhx-8W-seA" firstAttribute="leading" secondItem="uqA-jf-Trw" secondAttribute="leading" constant="8" id="26f-vE-zOx"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Yhx-8W-seA" secondAttribute="bottom" constant="7" id="Kl8-uy-RT6"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yhx-8W-seA" secondAttribute="trailing" constant="8" id="Xz1-mw-iJ4"/>
                                                                 <constraint firstItem="Yhx-8W-seA" firstAttribute="top" secondItem="uqA-jf-Trw" secondAttribute="top" constant="7" id="aq7-Iy-i3C"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Yhx-8W-seA" secondAttribute="trailing" constant="8" id="hwx-dq-EPd"/>
                                                             </constraints>
@@ -259,6 +235,7 @@
                                                                 <mask key="constraints">
                                                                     <exclude reference="26f-vE-zOx"/>
                                                                     <exclude reference="Kl8-uy-RT6"/>
+                                                                    <exclude reference="Xz1-mw-iJ4"/>
                                                                     <exclude reference="aq7-Iy-i3C"/>
                                                                     <exclude reference="hwx-dq-EPd"/>
                                                                 </mask>
@@ -270,6 +247,7 @@
                                                                 <mask key="constraints">
                                                                     <include reference="26f-vE-zOx"/>
                                                                     <include reference="Kl8-uy-RT6"/>
+                                                                    <include reference="Xz1-mw-iJ4"/>
                                                                     <include reference="aq7-Iy-i3C"/>
                                                                     <include reference="hwx-dq-EPd"/>
                                                                 </mask>
@@ -278,38 +256,31 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="uqA-jf-Trw" firstAttribute="centerY" secondItem="WkV-E4-Axn" secondAttribute="centerY" id="0mz-CK-9PX"/>
-                                                        <constraint firstAttribute="trailing" secondItem="WkV-E4-Axn" secondAttribute="trailing" constant="8" id="CfE-ks-wNM"/>
-                                                        <constraint firstItem="WkV-E4-Axn" firstAttribute="top" secondItem="6Jn-LO-BiZ" secondAttribute="top" constant="7" id="JBj-TM-jgf"/>
-                                                        <constraint firstItem="WkV-E4-Axn" firstAttribute="leading" secondItem="6Jn-LO-BiZ" secondAttribute="leading" constant="8" id="Qhn-1g-5cX"/>
-                                                        <constraint firstAttribute="bottom" secondItem="WkV-E4-Axn" secondAttribute="bottom" constant="7" id="dXi-GK-5fw"/>
-                                                        <constraint firstItem="uqA-jf-Trw" firstAttribute="leading" secondItem="6Jn-LO-BiZ" secondAttribute="leading" constant="-16" id="sH9-tP-7x5"/>
+                                                        <constraint firstItem="uqA-jf-Trw" firstAttribute="top" secondItem="6Jn-LO-BiZ" secondAttribute="top" id="RfQ-X0-kKG"/>
+                                                        <constraint firstAttribute="trailing" secondItem="uqA-jf-Trw" secondAttribute="trailing" constant="16" id="VFH-Va-DO1">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                        </constraint>
+                                                        <constraint firstItem="uqA-jf-Trw" firstAttribute="leading" secondItem="6Jn-LO-BiZ" secondAttribute="leading" constant="-16" id="sH9-tP-7x5">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                        </constraint>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="subviews">
-                                                            <exclude reference="WkV-E4-Axn"/>
                                                             <exclude reference="uqA-jf-Trw"/>
                                                         </mask>
                                                         <mask key="constraints">
-                                                            <exclude reference="CfE-ks-wNM"/>
-                                                            <exclude reference="JBj-TM-jgf"/>
-                                                            <exclude reference="Qhn-1g-5cX"/>
-                                                            <exclude reference="dXi-GK-5fw"/>
-                                                            <exclude reference="0mz-CK-9PX"/>
+                                                            <exclude reference="RfQ-X0-kKG"/>
+                                                            <exclude reference="VFH-Va-DO1"/>
                                                             <exclude reference="sH9-tP-7x5"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="subviews">
-                                                            <include reference="WkV-E4-Axn"/>
                                                             <include reference="uqA-jf-Trw"/>
                                                         </mask>
                                                         <mask key="constraints">
-                                                            <include reference="CfE-ks-wNM"/>
-                                                            <include reference="JBj-TM-jgf"/>
-                                                            <include reference="Qhn-1g-5cX"/>
-                                                            <include reference="dXi-GK-5fw"/>
-                                                            <include reference="0mz-CK-9PX"/>
+                                                            <include reference="RfQ-X0-kKG"/>
+                                                            <include reference="VFH-Va-DO1"/>
                                                             <include reference="sH9-tP-7x5"/>
                                                         </mask>
                                                     </variation>
@@ -318,7 +289,6 @@
                                             <constraints>
                                                 <constraint firstItem="6Jn-LO-BiZ" firstAttribute="top" secondItem="iG4-wp-5ge" secondAttribute="top" id="9vS-SW-THb"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="6Jn-LO-BiZ" secondAttribute="bottom" constant="-9" id="rd0-1H-Qpt"/>
-                                                <constraint firstItem="6Jn-LO-BiZ" firstAttribute="leading" secondItem="krC-xy-o1f" secondAttribute="leading" constant="300" id="xfc-rz-9Lc"/>
                                                 <constraint firstItem="6Jn-LO-BiZ" firstAttribute="trailing" secondItem="iG4-wp-5ge" secondAttribute="trailing" id="yAh-6f-vJp"/>
                                             </constraints>
                                             <variation key="default">
@@ -328,7 +298,6 @@
                                                 <mask key="constraints">
                                                     <exclude reference="9vS-SW-THb"/>
                                                     <exclude reference="rd0-1H-Qpt"/>
-                                                    <exclude reference="xfc-rz-9Lc"/>
                                                     <exclude reference="yAh-6f-vJp"/>
                                                 </mask>
                                             </variation>
@@ -339,7 +308,6 @@
                                                 <mask key="constraints">
                                                     <include reference="9vS-SW-THb"/>
                                                     <include reference="rd0-1H-Qpt"/>
-                                                    <include reference="xfc-rz-9Lc"/>
                                                     <include reference="yAh-6f-vJp"/>
                                                 </mask>
                                             </variation>
@@ -357,7 +325,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="积分换课程" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jpk-68-xRH">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
