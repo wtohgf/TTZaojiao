@@ -64,6 +64,10 @@
 		1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */; };
 		1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */; };
 		1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */; };
+		1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8921AEF210700D2FC93 /* TTDynamicPhotosView.m */; };
+		1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8981AEF3AD200D2FC93 /* TTCommentFrame.m */; };
+		1D44C89C1AEF3D9D00D2FC93 /* TTDynamicCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C89B1AEF3D9D00D2FC93 /* TTDynamicCommentView.m */; };
+		1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C89E1AEF411A00D2FC93 /* TTDynamicCommentsView.m */; };
 		1D4754FA1AEB2450004EDEED /* DongTaiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */; };
 		1D4755091AEB2493004EDEED /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755081AEB2493004EDEED /* BlogModel.m */; };
 		1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D47550D1AEB317D004EDEED /* BlogReplayModel.m */; };
@@ -282,6 +286,14 @@
 		1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MoreAttribute.m"; sourceTree = "<group>"; };
 		1D44C88E1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDaynamicUserStatusZancountView.h; sourceTree = "<group>"; };
 		1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDaynamicUserStatusZancountView.m; sourceTree = "<group>"; };
+		1D44C8911AEF210700D2FC93 /* TTDynamicPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicPhotosView.h; sourceTree = "<group>"; };
+		1D44C8921AEF210700D2FC93 /* TTDynamicPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicPhotosView.m; sourceTree = "<group>"; };
+		1D44C8971AEF3AD200D2FC93 /* TTCommentFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCommentFrame.h; sourceTree = "<group>"; };
+		1D44C8981AEF3AD200D2FC93 /* TTCommentFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCommentFrame.m; sourceTree = "<group>"; };
+		1D44C89A1AEF3D9D00D2FC93 /* TTDynamicCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicCommentView.h; sourceTree = "<group>"; };
+		1D44C89B1AEF3D9D00D2FC93 /* TTDynamicCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicCommentView.m; sourceTree = "<group>"; };
+		1D44C89D1AEF411A00D2FC93 /* TTDynamicCommentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicCommentsView.h; sourceTree = "<group>"; };
+		1D44C89E1AEF411A00D2FC93 /* TTDynamicCommentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicCommentsView.m; sourceTree = "<group>"; };
 		1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DongTaiStoryboard.storyboard; sourceTree = "<group>"; };
 		1D4755071AEB2493004EDEED /* BlogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogModel.h; sourceTree = "<group>"; };
 		1D4755081AEB2493004EDEED /* BlogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogModel.m; sourceTree = "<group>"; };
@@ -775,6 +787,8 @@
 			children = (
 				1D3FE2B71AEE8708006D66FC /* TTBlogFrame.h */,
 				1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */,
+				1D44C8971AEF3AD200D2FC93 /* TTCommentFrame.h */,
+				1D44C8981AEF3AD200D2FC93 /* TTCommentFrame.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -788,6 +802,12 @@
 				1D3FE2BB1AEE8712006D66FC /* TTDynamicUserStatusTopView.m */,
 				1D44C88E1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.h */,
 				1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */,
+				1D44C8911AEF210700D2FC93 /* TTDynamicPhotosView.h */,
+				1D44C8921AEF210700D2FC93 /* TTDynamicPhotosView.m */,
+				1D44C89A1AEF3D9D00D2FC93 /* TTDynamicCommentView.h */,
+				1D44C89B1AEF3D9D00D2FC93 /* TTDynamicCommentView.m */,
+				1D44C89D1AEF411A00D2FC93 /* TTDynamicCommentsView.h */,
+				1D44C89E1AEF411A00D2FC93 /* TTDynamicCommentsView.m */,
 			);
 			name = DynamicCell;
 			sourceTree = "<group>";
@@ -1104,11 +1124,13 @@
 				1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */,
+				1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
 				020999DA1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
 				0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */,
 				1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */,
+				1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */,
 				02BFC5651ADF7A3700D0DF30 /* openssl_wrapper.m in Sources */,
 				1D018E3B1AE20EEA00696F25 /* TTRegeistViewController.m in Sources */,
 				02BFC5661ADF7A3700D0DF30 /* RSADataSigner.m in Sources */,
@@ -1119,6 +1141,7 @@
 				1D018E381AE20EC500696F25 /* TTNavigationController.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
+				1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */,
 				1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */,
 				02BFC55E1ADF7A3700D0DF30 /* AlipayRequestConfig.m in Sources */,
 				1D018E311AE20DE300696F25 /* TTBaseNavgationController.m in Sources */,
@@ -1137,6 +1160,7 @@
 				02041B7F1AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D018E341AE20E0F00696F25 /* TTBaseTableViewController.m in Sources */,
 				02BFC55F1ADF7A3700D0DF30 /* Order.m in Sources */,
+				1D44C89C1AEF3D9D00D2FC93 /* TTDynamicCommentView.m in Sources */,
 				1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */,
 				1D4755091AEB2493004EDEED /* BlogModel.m in Sources */,
 				02BFC5641ADF7A3700D0DF30 /* NSDataEx.m in Sources */,

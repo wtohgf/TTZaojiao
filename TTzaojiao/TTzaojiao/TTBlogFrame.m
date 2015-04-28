@@ -13,7 +13,7 @@
     _blog = blog;
     
     //cell的宽度
-    CGFloat cellW = [UIScreen mainScreen].bounds.size.width - 2*TTBlogTableBorder;
+    CGFloat cellW = TTCellWidth;
     
     // 头像
     CGFloat iconViewWH = cellW*TTHeaderWithRatio;
@@ -55,9 +55,19 @@
     CGFloat contentLabelH = contentLablebounding.size.height + TTBlogTableBorder;
     _contentLabelF = CGRectMake(contentLabelX, contentLabelY, contentLabelW, contentLabelH);
     
+    //配图
+    CGFloat photosViewX = contentLabelX;
+    CGFloat photosViewY = CGRectGetMaxY(_contentLabelF)+TTBlogTableBorder;
+    CGSize photosViewSize = CGSizeZero;
+    if (blog.photosURLStr != nil) {
+        photosViewSize = [self photosViewSizeWithPhotosCount:blog.photosURLStr.count];
+    }
+
+    _photosViewF = (CGRect){{photosViewX, photosViewY}, {photosViewSize.width, photosViewSize.height + TTBlogTableBorder}};
+    
     //作为remsg zan两个按钮的父控件 作为topView的子控件
     CGFloat zanCountViewX = contentLabelX;
-    CGFloat zanCountViewY = CGRectGetMaxY(_contentLabelF);
+    CGFloat zanCountViewY = CGRectGetMaxY(_photosViewF);
     CGFloat zanCountViewW = maxWidth;
     CGFloat zanCountViewH = iconViewWH*0.4;
     _zanCountViewF = CGRectMake(zanCountViewX, zanCountViewY, zanCountViewW, zanCountViewH);
@@ -75,15 +85,79 @@
     CGFloat zanBtnW = remsgBtnW;
     CGFloat zanBtnH = remsgBtnH;
     _zanBtnF = CGRectMake(zanBtnX, zanBtnY, zanBtnW, zanBtnH);
-   
-    CGFloat topViewX = 0;
-    CGFloat topViewY = 0;
-    CGFloat topViewW = cellW;
-    CGFloat topViewH = CGRectGetMaxY(_zanCountViewF);
     
-    _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
-    
+    //回复数不为0
+    if (blog.replay.count != 0) {
+        CGFloat comentsViewH = 0;
+        NSMutableArray* commentsArray = [NSMutableArray array];
+        TTCommentFrame* preFrame = nil;
+        for (int i = 0; i<blog.replay.count; i++) {
+            if (i > 2) {
+                break;
+            }
+            NSDictionary* commentDict = blog.replay[i];
+            TTCommentFrame* frame = [[TTCommentFrame alloc]init];
+            if (i == 0) {
+                frame.offsetY = 0;
+                frame.comment = [BlogReplayModel blogReplayModelWithDict:commentDict];
+                preFrame = frame;
+            }else{
+                frame.offsetY = CGRectGetMaxY(preFrame.comentViewF);
+                frame.comment = [BlogReplayModel blogReplayModelWithDict:commentDict];
+                preFrame = frame;
+            }
+            comentsViewH += frame.commentHeight;
+            [commentsArray addObject:frame];
+        }
+        
+        _commentsFrame = commentsArray;
+        
+        CGFloat comentsViewX = 0;
+        CGFloat comentsViewY = CGRectGetMaxY(_zanCountViewF);
+        CGFloat comentsViewW = cellW;
+        _commentsViewF = CGRectMake(comentsViewX, comentsViewY, comentsViewW, comentsViewH + ScreenWidth*TTHeaderWithRatio*0.6);
+
+        CGFloat topViewX = 0;
+        CGFloat topViewY = 0;
+        CGFloat topViewW = cellW;
+        CGFloat topViewH = CGRectGetMaxY(_commentsViewF);
+        _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
+    }else{
+        CGFloat topViewX = 0;
+        CGFloat topViewY = 0;
+        CGFloat topViewW = cellW;
+        CGFloat topViewH = CGRectGetMaxY(_zanCountViewF);
+        _topViewF = CGRectMake(topViewX, topViewY, topViewW, topViewH);
+    }
     
     _cellHeight = CGRectGetMaxY(_topViewF) + TTBlogTableBorder;
 }
+
+/**
+ *  根据图片的个数返回相册的最终尺寸
+ */
+- (CGSize)photosViewSizeWithPhotosCount:(NSUInteger)count
+{
+    // 一行最多有3列
+    NSUInteger maxColumns = (count == 4) ? 2 : 3;
+    
+    //  总行数
+    NSUInteger rows = (count + maxColumns - 1) / maxColumns;
+    // 高度
+    CGFloat photosH = rows * TTPhotoH + (rows - 1) * TTPhotoMargin;
+    
+    // 总列数
+    NSUInteger cols = (count >= maxColumns) ? maxColumns : count;
+    // 宽度
+    CGFloat photosW = cols * TTPhotoW + (cols - 1) * TTPhotoMargin;
+    
+    return CGSizeMake(photosW, photosH);
+    /**
+     一共60条数据 == count
+     一页10条 == size
+     总页数 == pages
+     pages = (count + size - 1)/size;
+     */
+}
+
 @end

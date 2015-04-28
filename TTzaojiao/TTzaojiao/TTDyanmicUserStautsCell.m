@@ -18,6 +18,7 @@
         cell = [[TTDyanmicUserStautsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
 
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -31,9 +32,17 @@
         _topView = topView;
         [self.contentView addSubview:topView];
         
+        TTDynamicPhotosView* photosView = [[TTDynamicPhotosView alloc]init];
+        _photosView = photosView;
+        [self.contentView addSubview:photosView];
+        
         TTDaynamicUserStatusZancountView* zanCountView = [[TTDaynamicUserStatusZancountView alloc]init];
         _zanCountView = zanCountView;
         [self.contentView addSubview:zanCountView];
+        
+        TTDynamicCommentsView* commentsView = [[TTDynamicCommentsView alloc]init];
+        [self.contentView addSubview:commentsView];
+        _commentsView = commentsView;
     }
     return self;
 }
@@ -43,7 +52,12 @@
     self.contentView.frame = blogFrame.topViewF;
     _topView.blogFrame = blogFrame;
     
+    _photosView.blogFrame = blogFrame;
+    
     _zanCountView.blogFrame = blogFrame;
     
+    _commentsView.blogFrame = blogFrame;
+    
 }
+
 @end

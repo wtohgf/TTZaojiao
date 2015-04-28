@@ -30,6 +30,7 @@
         [self addSubview:zanBtn];
         zanBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _zanBtn = zanBtn;
+        
     }
     return self;
 }
