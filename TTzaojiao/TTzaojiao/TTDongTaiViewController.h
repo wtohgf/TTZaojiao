@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
 #import <MJRefresh.h>
+#import "TTDynamicCommentsView.h"
+#import "TTDynamicUserStatusTopView.h"
 
-@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource>
+@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDynamicCommentsViewDelegate, TTDynamicUserStatusTopViewDelegate>
 
 @end

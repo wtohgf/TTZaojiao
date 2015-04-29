@@ -45,9 +45,24 @@
             }
         }
             break;
-            
-           
-            
+        case ApiEnumGet_List_Blog_Replay:
+        {
+            id tmpModel = [BlogReplayModel blogReplayModelWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
+        }
+            break;
+        case ApiEnumGet_List_User_Info:
+        {
+            id tmpModel = [DynamicUserModel dynamicUserModelWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+                
+            }
+        }
+            break;
+        //case ApiEnumGet_List_User_Blog:
         default:
         {
             

@@ -73,7 +73,13 @@
 }
 #pragma mark 显示全部回复 此处用代理
 -(void)showAllReplay:(UIButton*)sender{
-    
+    if ([_delegate respondsToSelector:@selector(dynamicCommentsView:didShowCommentList:)]) {
+        if (_blogFrame.blog != nil) {
+            BlogModel* blog = _blogFrame.blog;
+            [_delegate dynamicCommentsView:self didShowCommentList:blog.id];
+        }
+        
+    }
 }
 
 @end

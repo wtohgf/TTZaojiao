@@ -10,6 +10,9 @@
 
 @implementation BlogReplayModel
 +(instancetype)blogReplayModelWithDict:(NSDictionary *)dict{
+    if (dict.count == 4) {
+        return nil;
+    }
     BlogReplayModel* model = [[BlogReplayModel alloc]init];
     if (model) {
         [model setValuesForKeysWithDictionary:dict];

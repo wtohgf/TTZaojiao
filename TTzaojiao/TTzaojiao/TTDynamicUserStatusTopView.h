@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TTBlogFrame.h"
 
+@class TTDynamicUserStatusTopView;
+@protocol TTDynamicUserStatusTopViewDelegate<NSObject>
+-(void)dynamicUserStatusTopView:(TTDynamicUserStatusTopView*)view didIconTaped:(NSString*)uid;
+@end
+
 @interface TTDynamicUserStatusTopView : UIView
 @property (strong, nonatomic) TTBlogFrame* blogFrame;
+@property (weak, nonatomic) id<TTDynamicUserStatusTopViewDelegate> delegate;
 @end

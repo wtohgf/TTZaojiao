@@ -425,6 +425,16 @@
                         if ([function rangeOfString:@"Get_List_Blog_Group"].length) {
                             api = ApiEnumGet_List_Blog_Group;
                         }
+                        if ([function rangeOfString:@"Get_List_Blog_Replay"].length) {
+                            api = ApiEnumGet_List_Blog_Replay;
+                        }
+                        if ([function rangeOfString:@"Get_List_User_Info"].length) {
+                            api = ApiEnumGet_List_User_Info;
+                        }
+                        
+//                        if ([function rangeOfString:@"Get_List_User_Blog"].length) {
+//                            api = ApiEnumGet_List_User_Blog;
+//                        }
                         
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             NSDictionary *modelDic = (NSDictionary *)obj;

@@ -90,11 +90,47 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dongtaiTable" destination="ZsM-t0-AN1" id="ChK-SS-0vy"/>
+                        <segue destination="vJn-Ds-I7w" kind="show" identifier="toCommentList" id="hzc-tP-phY"/>
+                        <segue destination="u2F-kZ-jzI" kind="show" identifier="toUserDynamic" id="hH0-8n-o8Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQB-I7-sPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="228" y="322.5"/>
+        </scene>
+        <!--Comment List View Controller-->
+        <scene sceneID="8Uy-dF-kiy">
+            <objects>
+                <viewController id="vJn-Ds-I7w" customClass="TTCommentListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gC3-Vt-kUO"/>
+                        <viewControllerLayoutGuide type="bottom" id="dPx-Xi-BmE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VzT-Su-pLW">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CQR-cs-IR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="322.5"/>
+        </scene>
+        <!--User Dongtai View Controller-->
+        <scene sceneID="9et-7G-jOi">
+            <objects>
+                <viewController id="u2F-kZ-jzI" customClass="TTUserDongtaiViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YBv-HP-dDm"/>
+                        <viewControllerLayoutGuide type="bottom" id="5lj-w5-2uc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ttf-yV-IxW">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hwg-gk-6Vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1648.5" y="321"/>
         </scene>
     </scenes>
 </document>

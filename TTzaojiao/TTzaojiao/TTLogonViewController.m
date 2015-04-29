@@ -147,8 +147,8 @@
                                  if ([result_data isKindOfClass:[NSMutableArray class]]) {
                     UserModel* user = result_data[0];
                     [TTUserModelTool sharedUserModelTool].logonUser = user;
+                    [TTUserModelTool sharedUserModelTool].password = user.id_c;
                     NSLog(@"%@ %@", user.name, user.icon);
-                    
                     
                     
                     //装载tabbar

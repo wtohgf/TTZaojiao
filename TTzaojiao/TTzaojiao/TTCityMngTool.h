@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface TTCityMngTool : NSObject
+typedef void(^actionLocationBlock)(CLLocation* location);
+
+@interface TTCityMngTool : NSObject<CLLocationManagerDelegate>
 +(instancetype)sharedCityMngTool;
 -(NSString*)citytoCode:(NSString*)cityName;
 -(NSString*)codetoCity:(NSString*)cityCode;
 -(NSString*)provinceofCity:(NSString*)cityName;
+
+@property (strong, nonatomic) CLLocationManager* locationManager;
+-(void)startLocation:(actionLocationBlock)locationBlock;
+
 @property (strong, nonatomic) NSArray* cityCodeList;
+@property (strong, nonatomic) actionLocationBlock locationBlock ;
+
 @end

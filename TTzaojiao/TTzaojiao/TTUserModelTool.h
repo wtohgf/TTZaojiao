@@ -13,4 +13,6 @@
 +(instancetype)sharedUserModelTool;
 
 @property (strong, nonatomic) UserModel* logonUser;
+@property (copy, nonatomic) NSString * password;
+
 @end

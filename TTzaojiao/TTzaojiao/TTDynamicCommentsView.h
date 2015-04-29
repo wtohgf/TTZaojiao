@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "TTDynamicCommentView.h"
 #import "TTBlogFrame.h"
-
+@class TTDynamicCommentsView;
+@protocol TTDynamicCommentsViewDelegate<NSObject>
+-(void)dynamicCommentsView:(TTDynamicCommentsView*)dynamicCommentsView didShowCommentList:(NSString*)blog_id;
+@end
 @interface TTDynamicCommentsView : UIView
 @property (strong, nonatomic) TTBlogFrame* blogFrame;
 @property (weak, nonatomic) UIButton* showAllReplayButton;
+
+@property (weak, nonatomic) id<TTDynamicCommentsViewDelegate> delegate;
 @end

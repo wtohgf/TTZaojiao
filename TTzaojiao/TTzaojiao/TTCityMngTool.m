@@ -117,6 +117,36 @@ static TTCityMngTool* tool;
     return retpro;
 }
 
+//开始定位
+-(void)startLocation:(actionLocationBlock)locationBlock{
+    _locationBlock = locationBlock;
+    if ([CLLocationManager locationServicesEnabled])
+    {
+        
+        if (!self.locationManager)
+        {
+            self.locationManager = [[CLLocationManager alloc] init];
+        }
+        self.locationManager.delegate = self;
+        self.locationManager.distanceFilter=1.0;
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
+        {
+            [self.locationManager requestAlwaysAuthorization]; // 永久授权
+            [self.locationManager requestWhenInUseAuthorization]; //使用中授权
+        }
+        
+        [self.locationManager startUpdatingLocation];//开启位置更新
+    }
+}
 
+//定位代理经纬度回调
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [_locationManager stopUpdatingLocation];
+    
+    CLLocation *newLocation = [locations lastObject];
+    _locationBlock(newLocation);
+}
 
 @end

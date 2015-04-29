@@ -14,6 +14,9 @@
 #import "RegMsgSecond.h"
 #import "BlogModel.h"
 #import "LamaModel.h"
+#import "BlogReplayModel.h"
+#import "DynamicUserModel.h"
+
 //Api Name
 typedef enum : NSUInteger {
     ApiEnumNone,
@@ -22,7 +25,10 @@ typedef enum : NSUInteger {
     ApiEnumGet_Reg_1,
     ApiEnumGet_Reg_2,
     ApiEnumGet_List_Active, //辣妈街刷列表
-    ApiEnumGet_List_Blog_Group //动态
+    ApiEnumGet_List_Blog_Group, //动态
+    ApiEnumGet_List_Blog_Replay,  //一条blog的评论列表
+    ApiEnumGet_List_User_Info,
+    ApiEnumGet_List_User_Blog
 } ApiEnum;
 
 @interface JSONHelper : NSObject

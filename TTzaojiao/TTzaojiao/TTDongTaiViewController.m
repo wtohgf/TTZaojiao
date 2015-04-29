@@ -7,14 +7,11 @@
 //
 
 #import "TTDongTaiViewController.h"
-//#import "TTDongtaiTableViewCell.h"
-//#import "TTDongtaiCommentTableViewCell.h"
-//#import "TTDongtaiPraiseTableViewCell.h"
-//#import "TTDongtaiPicsTableViewCell.h"
 #import "BlogModel.h"
-
 #import "TTBlogFrame.h"
 #import "TTDyanmicUserStautsCell.h"
+#import "TTCommentListViewController.h"
+#import "TTUserDongtaiViewController.h"
 
 @interface TTDongTaiViewController (){
     NSMutableArray* _blogs;
@@ -61,14 +58,6 @@
         [self updateBlog];
     }];
     
-}
-
--(void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section{
-    if (section == _blogs.count - 1) {
-        _dongtaiTable.footer.hidden = NO;
-    }else{
-        _dongtaiTable.footer.hidden = YES;
-    }
 }
 
 -(void)loadHeaderView{
@@ -184,6 +173,9 @@
     TTBlogFrame* frame = [[TTBlogFrame alloc]init];
     frame.blog = _blogs[indexPath.row];
     cell.blogFrame = frame;
+    //评论列表View的代理 响应查看全部按钮代理方法
+    cell.commentsView.delegate = self;
+    cell.topView.delegate = self;
     return cell;
 }
 
@@ -203,6 +195,27 @@
     _pageIndexInt = 0;
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
     [self updateBlog];
+}
+
+#pragma mark 查看回复全部列表
+-(void)dynamicCommentsView:(TTDynamicCommentsView *)dynamicCommentsView didShowCommentList:(NSString *)blog_id{
+    [self performSegueWithIdentifier:@"toCommentList" sender:blog_id];
+}
+#pragma mark 头像点击代理
+-(void)dynamicUserStatusTopView:(TTDynamicUserStatusTopView *)view didIconTaped:(NSString *)uid{
+    [self performSegueWithIdentifier:@"toUserDynamic" sender:uid];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[TTCommentListViewController class]]) {
+        TTCommentListViewController* dvc = (TTCommentListViewController*)segue.destinationViewController;
+        dvc.blog_id = sender;
+    }
+    if ([segue.destinationViewController isKindOfClass:[TTUserDongtaiViewController class]]) {
+        
+        TTUserDongtaiViewController* uvc = (TTUserDongtaiViewController*)segue.destinationViewController;
+        uvc.i_uid = sender;
+    }
 }
 
 @end
