@@ -53,12 +53,10 @@ install_resource()
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "HSDatePickerViewController/HSDatePickerViewControllerDemo/HSDatePickerViewController/HSDatePickerViewController.xib"
   install_resource "MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle"
-  install_resource "MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "HSDatePickerViewController/HSDatePickerViewControllerDemo/HSDatePickerViewController/HSDatePickerViewController.xib"
   install_resource "MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle"
-  install_resource "MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
