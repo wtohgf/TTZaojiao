@@ -48,12 +48,6 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
-// DACircularProgress
-#define COCOAPODS_POD_AVAILABLE_DACircularProgress
-#define COCOAPODS_VERSION_MAJOR_DACircularProgress 2
-#define COCOAPODS_VERSION_MINOR_DACircularProgress 3
-#define COCOAPODS_VERSION_PATCH_DACircularProgress 1
-
 // HSDatePickerViewController
 #define COCOAPODS_POD_AVAILABLE_HSDatePickerViewController
 #define COCOAPODS_VERSION_MAJOR_HSDatePickerViewController 1
@@ -84,18 +78,6 @@
 #define COCOAPODS_VERSION_MINOR_MJRefresh 4
 #define COCOAPODS_VERSION_PATCH_MJRefresh 5
 
-// MWPhotoBrowser
-#define COCOAPODS_POD_AVAILABLE_MWPhotoBrowser
-#define COCOAPODS_VERSION_MAJOR_MWPhotoBrowser 1
-#define COCOAPODS_VERSION_MINOR_MWPhotoBrowser 4
-#define COCOAPODS_VERSION_PATCH_MWPhotoBrowser 1
-
-// PSTCollectionView
-#define COCOAPODS_POD_AVAILABLE_PSTCollectionView
-#define COCOAPODS_VERSION_MAJOR_PSTCollectionView 1
-#define COCOAPODS_VERSION_MINOR_PSTCollectionView 2
-#define COCOAPODS_VERSION_PATCH_PSTCollectionView 3
-
 // RDVTabBarController
 #define COCOAPODS_POD_AVAILABLE_RDVTabBarController
 #define COCOAPODS_VERSION_MAJOR_RDVTabBarController 1
@@ -119,4 +101,16 @@
 #define COCOAPODS_VERSION_MAJOR_SKSplashView 0
 #define COCOAPODS_VERSION_MINOR_SKSplashView 1
 #define COCOAPODS_VERSION_PATCH_SKSplashView 0
+
+// SlackTextViewController
+#define COCOAPODS_POD_AVAILABLE_SlackTextViewController
+#define COCOAPODS_VERSION_MAJOR_SlackTextViewController 1
+#define COCOAPODS_VERSION_MINOR_SlackTextViewController 5
+#define COCOAPODS_VERSION_PATCH_SlackTextViewController 0
+
+// SlackTextViewController/Additions
+#define COCOAPODS_POD_AVAILABLE_SlackTextViewController_Additions
+#define COCOAPODS_VERSION_MAJOR_SlackTextViewController_Additions 1
+#define COCOAPODS_VERSION_MINOR_SlackTextViewController_Additions 5
+#define COCOAPODS_VERSION_PATCH_SlackTextViewController_Additions 0
 

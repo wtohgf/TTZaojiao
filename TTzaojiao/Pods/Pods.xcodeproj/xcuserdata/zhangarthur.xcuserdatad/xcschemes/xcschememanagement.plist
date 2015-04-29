@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DACircularProgress.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-HSDatePickerViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,16 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MWPhotoBrowser.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-PSTCollectionView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-RDVTabBarController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SlackTextViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,67 +62,57 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16942BB34D91713D46E8B4CF</key>
+		<key>34F0F1942843062C36C5F771</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29D4E243C344204DB9E2B1EF</key>
+		<key>7FDABEA1A2C2FCDF50A37B44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43938DBA639CEA452799594B</key>
+		<key>8111DA5F0A7C9C2AAC33DF57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B3F4EA4CC52C479A8C4E6D7</key>
+		<key>924A3AC48B86A26A752DCB4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>77102C11B3848A15E61D64F4</key>
+		<key>9CE10491E6BD3F3EB1F4B7B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>777EF5573107187EFEB9D8A0</key>
+		<key>BAA7B938D37A4B00476A5EE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95E01EF07AA0A232A0693A36</key>
+		<key>C4570438C843D197E284FFFD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C2BDEFFA001CC1E1139AF90D</key>
+		<key>D6746752C34621A952961882</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3F29D535EDD40A3B868FD9F</key>
+		<key>DDD1A7766EA50F8EFF288B8A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1591C9878D57C489FDDA467</key>
+		<key>E4BC6D77C7E8D5EDBFE453C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7379727B4B15DC37576BD43</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F45F3A71451B4C589DE15599</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC83EFB85B7257F2E73CA226</key>
+		<key>F3E01B161EDE79A790814604</key>
 		<dict>
 			<key>primary</key>
 			<true/>
