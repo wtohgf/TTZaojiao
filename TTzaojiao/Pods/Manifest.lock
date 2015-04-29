@@ -30,9 +30,7 @@ PODS:
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
   - SKSplashView (0.1.0)
-  - SlackTextViewController (1.5):
-    - SlackTextViewController/Additions (= 1.5)
-  - SlackTextViewController/Additions (1.5)
+  - ZWIntroductionViewController (0.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
@@ -44,7 +42,7 @@ DEPENDENCIES:
   - RDVTabBarController
   - SDWebImage (~> 3.7)
   - SKSplashView
-  - SlackTextViewController
+  - ZWIntroductionViewController
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
@@ -56,6 +54,6 @@ SPEC CHECKSUMS:
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SKSplashView: 8cdb1bfccb5857cb141751d01b03cf132b110168
-  SlackTextViewController: 4a1797ac2f3616dbd37435fc62da655e61399cdd
+  ZWIntroductionViewController: be141e26f92974cbcee929eca0f5edf9d77a742c
 
 COCOAPODS: 0.36.3
