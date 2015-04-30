@@ -56,4 +56,25 @@
     
 }
 
+-(void)setUserblogFrame:(TTUserBlogFrame *)userblogFrame{
+    _userblogFrame = userblogFrame;
+    BlogUserDynamicModel* blog = userblogFrame.userblog;
+    
+    _remsgBtn.frame = userblogFrame.remsgBtnF;
+    //    [_remsgBtn setTitle:blog.i_replay forState:UIControlStateNormal];
+    NSDictionary* atrr = @{
+                           NSFontAttributeName:TTBlogSubtitleFont,
+                           NSForegroundColorAttributeName:[UIColor grayColor]
+                           };
+    NSAttributedString* remsg = [[NSAttributedString alloc]initWithString:blog.i_replay attributes:atrr];
+    [_remsgBtn setAttributedTitle:remsg forState:UIControlStateNormal];
+    
+    _zanBtn.frame = userblogFrame.delBtnF;
+   // [_zanBtn setImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
+    NSAttributedString* zan = [[NSAttributedString alloc]initWithString:blog.i_zan attributes:atrr];
+    [_zanBtn setAttributedTitle:zan forState:UIControlStateNormal];
+    
+    self.frame = userblogFrame.zanCountViewF;
+}
+
 @end

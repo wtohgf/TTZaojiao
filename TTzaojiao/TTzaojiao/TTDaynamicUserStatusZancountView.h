@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TTBlogFrame.h"
 #import "BlogModel.h"
+#import "BlogUserDynamicModel.h"
+#import "TTUserBlogFrame.h"
 
 @interface TTDaynamicUserStatusZancountView : UIView
 @property (strong, nonatomic) TTBlogFrame* blogFrame;
+@property (strong, nonatomic) TTUserBlogFrame* userblogFrame;
 @end

@@ -60,6 +60,27 @@
     self.frame = blogFrame.photosViewF;
 }
 
+-(void)setUserblogFrame:(TTUserBlogFrame *)userblogFrame{
+    _userblogFrame = userblogFrame;
+    BlogUserDynamicModel* mode = userblogFrame.userblog;
+    NSString* picurlstrs = mode.i_pic;
+    NSArray* picurls = [picurlstrs componentsSeparatedByString:@"|"];
+    NSMutableArray* tmparray = [picurls mutableCopy];
+    
+    [picurls enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isEqualToString:@""]) {
+            [tmparray removeObject:obj];
+        }
+    }];
+    
+    picurls = tmparray;
+    
+    [self setPhotos:picurls];
+    
+    self.frame = userblogFrame.photosViewF;
+}
+
+
 - (void)setPhotos:(NSArray *)photos
 {
     

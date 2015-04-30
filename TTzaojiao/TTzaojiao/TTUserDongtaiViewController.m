@@ -19,10 +19,13 @@
 }
 
 @property (strong, nonatomic) DynamicUserModel* curUser;
-@property (weak, nonatomic) MBTwitterScroll* userDynamicScroll;
+@property (weak, nonatomic) IBOutlet UITableView *userDynamicTableView;
+@property (weak, nonatomic) TTDynamicUserStatusHeaderView* headerView;
+
 @end
 
 @implementation TTUserDongtaiViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,13 +39,20 @@
         self.modalPresentationCapturesStatusBarAppearance
         = NO;
     }
+    _userDynamicTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+
+    //取得用户模型
+    if (_i_uid.length != 0) {
+        [self getUserinfo:_i_uid];
+    }
     
     _blogList = [NSMutableArray array];
-//    [self setupRefresh];
-    
     _isGetMoreList = NO;
     _pageIndex = @"1";
     [self updateDynamicBlog];
+    
+    [self setupRefresh];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,20 +62,29 @@
     if (_i_uid.length != 0) {
         [self getUserinfo:_i_uid];
     }
-    
+    self.navigationController.navigationBar.hidden = YES;
+    [UIApplication sharedApplication].statusBarHidden = YES;
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO];
+    self.navigationController.navigationBar.hidden = NO;
+    [UIApplication sharedApplication].statusBarHidden = NO;
+}
+
 
 -(void)setupRefresh{
 
-    [_userDynamicScroll.tableView addLegendHeaderWithRefreshingBlock:^{
-        [self.userDynamicScroll.tableView.header beginRefreshing];
+    [_userDynamicTableView addLegendHeaderWithRefreshingBlock:^{
+        [_userDynamicTableView.header beginRefreshing];
         _isGetMoreList = NO;
         _pageIndex = @"1";
         [self updateDynamicBlog];
     }];
     
-    [_userDynamicScroll.tableView  addLegendFooterWithRefreshingBlock:^{
-        [self.userDynamicScroll.tableView.footer beginRefreshing];
+    [_userDynamicTableView addLegendFooterWithRefreshingBlock:^{
+        [_userDynamicTableView.footer beginRefreshing];
         _isGetMoreList = YES;
         NSUInteger idx = [_pageIndex integerValue]+1;
         _pageIndex = [NSString stringWithFormat:@"%ld", idx];
@@ -83,9 +102,9 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:USER_BLOG Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        [_userDynamicScroll.tableView.header endRefreshing];
-//        [_userDynamicScroll.tableView.footer endRefreshing];
-//        
+        [_userDynamicTableView.header endRefreshing];
+        [_userDynamicTableView.footer endRefreshing];
+        
         if (result_status == ApiStatusSuccess) {
             if (!_isGetMoreList) {
                 [_blogList removeAllObjects];
@@ -94,9 +113,9 @@
                 if (((NSMutableArray*)result_data).count!=0) {
                     NSMutableArray* list = (NSMutableArray*)result_data;
                     [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                        if ([obj isKindOfClass:[BlogModel class]]) {
+                        if ([obj isKindOfClass:[BlogUserDynamicModel class]]) {
                             [_blogList addObject:obj];
-                            [_userDynamicScroll.tableView reloadData];
+                            [_userDynamicTableView reloadData];
                         }
                     }];
                 }
@@ -141,29 +160,19 @@
 
 //加载用户数据
 -(void)loadUserInfo{
-    [self addUserTwitterScroll];
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [[self rdv_tabBarController] setTabBarHidden:NO];
-}
-
--(void)addUserTwitterScroll{
-    
-    MBTwitterScroll* scroll = [[MBTwitterScroll alloc]initTableViewWithBackgound:[UIImage imageNamed:@"baby_icon1"] avatarImage:[UIImage imageNamed:@"baby_icon1"]  titleString:_curUser.name subtitleString:_curUser.birthday buttonTitle:nil];
-
-    _userDynamicScroll = scroll;
+    if(_curUser.i_Cover.length !=0){
+        [_headerView.coverView setImageIcon:_curUser.i_Cover];
+    }else
     if (_curUser.icon.length != 0) {
-        [scroll.avatarImage setImageIcon:_curUser.icon];
+         [_headerView.iconView setImageIcon:_curUser.icon];
     }
-    
-    scroll.tableView.delegate = self;
-    scroll.tableView.dataSource = self;
-    
-    [self.view addSubview:scroll];
+   
+    _headerView.babyName.text = _curUser.name;
+    _headerView.genderMounth.text = _curUser.birthday;
+    _headerView.sepintr.text = _curUser.i_intr;
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -171,38 +180,79 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString* ID = @"saveEditCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    TTDynamicUserBlogCell* cell = [TTDynamicUserBlogCell dyanmicUserBlogCellWithTableView:tableView];
+    TTUserBlogFrame* frame = [[TTUserBlogFrame alloc]init];
+    frame.userblog = _blogList[indexPath.row];
+    if (_curUser.icon.length != 0) {
+        [cell.topView.iconView setImageIcon:_curUser.icon];
+    }else{
+        [cell.topView.iconView setImage:[UIImage imageNamed:@"baby_icon1"]];
     }
-    cell.textLabel.text = @"TEST";
+    cell.topView.name.text = _curUser.name;
+    cell.blogFrame = frame;
+    cell.delegate = self;
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return _blogList.count;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        UIButton* btn = [[UIButton alloc]init];
-        [btn setTitle:@"动态" forState:UIControlStateNormal];
-        btn.userInteractionEnabled = NO;
-        [btn setBackgroundColor:[UIColor colorWithRed:247.f/255.f green:215.f/255.f blue:226.f/255.f alpha:1.f]];
-        //btn.frame = CGRectMake(0, 0, self.view.frame.size.width, 10);
-        return btn;
-    }else{
-        return [[UIView alloc]initWithFrame:CGRectZero];
-    }
+    
+    NSArray* views = [[NSBundle mainBundle]loadNibNamed:@"TTDynamicUserStatusHeaderView" owner:self options:nil];
+    TTDynamicUserStatusHeaderView* headerView = [views firstObject];
+    _headerView = headerView;
+    _headerView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*9/20);
+    _headerView.delegate = self;
+    [self loadUserInfo];
+    return _headerView;
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    TTUserBlogFrame* frame = [[TTUserBlogFrame alloc]init];
+    frame.userblog = _blogList[indexPath.row];
+    return frame.cellHeight;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 44.f;
-    }else{
-        return 0.f;
+    return self.view.frame.size.height*9/20;
+}
+
+-(void)dynamicHeaderView:(TTDynamicUserStatusHeaderView *)headerView didActionType:(ActionType)type{
+    switch (type) {
+        case kChangeCover:
+            ;
+            break;
+        case kChangeIcon:
+            ;
+            break;
+        case kzanCover:
+            ;
+            break;
+        case kBack:
+            [self backToPrePaeg];
+            break;
+        default:
+            break;
     }
+}
+
+-(void)backToPrePaeg{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)dynamicUserBlogCell:(TTDynamicUserBlogCell *)cell didShowCommentList:(NSString *)blog_id{
+    [self performSegueWithIdentifier:@"toCommentList" sender:blog_id];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[TTCommentListViewController class]]) {
+        TTCommentListViewController* dvc = (TTCommentListViewController*)segue.destinationViewController;
+        dvc.blog_id = sender;
+    }
+
 }
 
 @end

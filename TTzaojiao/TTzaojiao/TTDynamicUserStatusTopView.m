@@ -12,14 +12,6 @@
 #import "UIImageView+MoreAttribute.h"
 
 @interface TTDynamicUserStatusTopView()
-//头像
-@property (weak, nonatomic) UIImageView* iconView;
-//昵称
-@property (weak, nonatomic) UILabel* name;
-//距离及发布时间
-@property (weak, nonatomic) UILabel* distancetime;
-//正文
-@property (weak, nonatomic) UILabel* content;
 /** 配图 */
 //@property (weak, nonatomic) TTPhotosView *photosView;
 @end
@@ -95,6 +87,23 @@
     
     self.frame = blogFrame.topViewF;
     
+}
+
+-(void)setUserblogFrame:(TTUserBlogFrame *)userblogFrame{
+    _userblogFrame = userblogFrame;
+    BlogUserDynamicModel* blog = userblogFrame.userblog;
+    
+    _iconView.frame = userblogFrame.iconViewF;
+    
+    _name.frame = userblogFrame.nameLabelF;
+    
+    _distancetime.text = blog.i_distance_time;
+    _distancetime.frame = userblogFrame.timeLabelF;
+    
+    _content.text = blog.i_content;
+    _content.frame = userblogFrame.contentLabelF;
+    
+    self.frame = userblogFrame.topViewF;
 }
 
 @end

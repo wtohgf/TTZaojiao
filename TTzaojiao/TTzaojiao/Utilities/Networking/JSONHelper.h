@@ -16,6 +16,7 @@
 #import "LamaModel.h"
 #import "BlogReplayModel.h"
 #import "DynamicUserModel.h"
+#import "BlogUserDynamicModel.h"
 
 //Api Name
 typedef enum : NSUInteger {

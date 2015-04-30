@@ -46,7 +46,6 @@
     _isGetMoreList = NO;
     _pageIndex = @"1";
     [self updateCommentlist];
-    
     [self addBottomBar];
 }
 
@@ -55,12 +54,14 @@
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     
     [self addKeyNotification];
+    [UIApplication sharedApplication].statusBarHidden = YES;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO];
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
+    [UIApplication sharedApplication].statusBarHidden = NO;
 }
 
 -(void)setupRefresh{
@@ -148,8 +149,9 @@
    
     _replayView.delegate = self;
     CGFloat h = [UIScreen mainScreen].bounds.size.height*44.f/600.f;
+
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
-    CGFloat y = [UIScreen mainScreen].bounds.size.height - h - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat y = [UIScreen mainScreen].bounds.size.height - self.navigationController.navigationBar.height - h;
     CGFloat x = 0;
     commentView.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;

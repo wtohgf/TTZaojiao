@@ -7,10 +7,14 @@
 //
 
 #import "TTBaseViewController.h"
-#import <MBTwitterScroll.h>
-#import <UIImageView+WebCache.h>
 #import "DynamicUserModel.h"
+#import "TTDynamicUserStatusHeaderView.h"
+#import "UIImageView+MoreAttribute.h"
+#import "TTUserBlogFrame.h"
+#import "TTDynamicUserBlogCell.h"
+#import "TTCommentListViewController.h"
 
-@interface TTUserDongtaiViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface TTUserDongtaiViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTDynamicUserStatusHeaderViewDelegate, TTDynamicUserBlogCellDelegate>
 @property (copy, nonatomic) NSString * i_uid;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "TTDynamicCommentsView.h"
+#import "UIButton+MoreAttribute.h"
 
 @implementation TTDynamicCommentsView
 
@@ -21,14 +22,8 @@
             [self addSubview:commentView];
         };
         
-        UIButton* showAllBtn = [[UIButton alloc]init];
+        UIButton* showAllBtn = [UIButton buttonWithTitleForCell:@"查看全部回复" target:self action:@selector(showAllReplay:)];
         [self addSubview:showAllBtn];
-        
-        [showAllBtn setTitle:@"查看全部回复" forState:UIControlStateNormal];
-        [showAllBtn setTitleColor:[UIColor colorWithRed:51.f/255.f green:144.f/255.f blue:207.f/255.f alpha:1.f] forState:UIControlStateNormal];
-        [showAllBtn setTitleColor:[UIColor colorWithRed:245.f/255.f green:245.f/255.f blue:245.f/255.f alpha:1.f] forState:UIControlStateHighlighted];
-        [showAllBtn addTarget:self action:@selector(showAllReplay:) forControlEvents:UIControlEventTouchUpInside];
-        
         _showAllReplayButton = showAllBtn;
     }
     return self;
