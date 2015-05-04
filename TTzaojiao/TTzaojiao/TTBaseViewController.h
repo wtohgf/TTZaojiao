@@ -14,6 +14,7 @@
 #import "TTUserModelTool.h"
 #import "TTCityMngTool.h"
 #import <UIImageView+AFNetworking.h>
+#import "UIBarButtonItem+MoreAttribute.h"
 
 @interface TTBaseViewController : UIViewController
 

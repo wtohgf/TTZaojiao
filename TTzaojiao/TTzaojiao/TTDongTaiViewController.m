@@ -42,6 +42,21 @@
         self.modalPresentationCapturesStatusBarAppearance
         = NO;
     }
+
+    UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state" target:self action:@selector(dynamic_state:)];
+    self.navigationItem.rightBarButtonItem = itemright;
+    
+    
+    UIBarButtonItem* itemleft = [UIBarButtonItem barButtonItemWithImage:@"icon_menu" target:self action:@selector(selAgeRange:)];
+    self.navigationItem.leftBarButtonItem = itemleft;
+}
+
+-(void)dynamic_state:(UIBarButtonItem*)item{
+    [self performSegueWithIdentifier:@"toRelease" sender:nil];
+}
+
+-(void)selAgeRange:(UIBarButtonItem*)item{
+    
 }
 
 -(void)setupRefresh{

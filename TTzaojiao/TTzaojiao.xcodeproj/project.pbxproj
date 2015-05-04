@@ -83,6 +83,10 @@
 		1D3762951AF0C76200CAAA05 /* TTUserDongtaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3762941AF0C76200CAAA05 /* TTUserDongtaiViewController.m */; };
 		1D3762981AF0C8F700CAAA05 /* DynamicUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3762971AF0C8F700CAAA05 /* DynamicUserModel.m */; };
 		1D3BC0561AF72E1A00E8BE72 /* NSString+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */; };
+		1D3BC0591AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */; };
+		1D3BC05C1AF7477100E8BE72 /* TTDynamicReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */; };
+		1D3BC0611AF7599D00E8BE72 /* TTPublichView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0601AF7599D00E8BE72 /* TTPublichView.m */; };
+		1D3BC0671AF76F5B00E8BE72 /* TTPublichPicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0661AF76F5B00E8BE72 /* TTPublichPicsView.m */; };
 		1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */; };
 		1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BB1AEE8712006D66FC /* TTDynamicUserStatusTopView.m */; };
 		1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */; };
@@ -345,6 +349,14 @@
 		1D3762971AF0C8F700CAAA05 /* DynamicUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicUserModel.m; sourceTree = "<group>"; };
 		1D3BC0541AF72E1A00E8BE72 /* NSString+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MoreAttribute.h"; sourceTree = "<group>"; };
 		1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoreAttribute.m"; sourceTree = "<group>"; };
+		1D3BC0571AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MoreAttribute.h"; sourceTree = "<group>"; };
+		1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MoreAttribute.m"; sourceTree = "<group>"; };
+		1D3BC05A1AF7477100E8BE72 /* TTDynamicReleaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicReleaseViewController.h; sourceTree = "<group>"; };
+		1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicReleaseViewController.m; sourceTree = "<group>"; };
+		1D3BC05F1AF7599D00E8BE72 /* TTPublichView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPublichView.h; sourceTree = "<group>"; };
+		1D3BC0601AF7599D00E8BE72 /* TTPublichView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPublichView.m; sourceTree = "<group>"; };
+		1D3BC0651AF76F5B00E8BE72 /* TTPublichPicsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPublichPicsView.h; sourceTree = "<group>"; };
+		1D3BC0661AF76F5B00E8BE72 /* TTPublichPicsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPublichPicsView.m; sourceTree = "<group>"; };
 		1D3FE2B71AEE8708006D66FC /* TTBlogFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBlogFrame.h; sourceTree = "<group>"; };
 		1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBlogFrame.m; sourceTree = "<group>"; };
 		1D3FE2BA1AEE8712006D66FC /* TTDynamicUserStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicUserStatusTopView.h; sourceTree = "<group>"; };
@@ -493,6 +505,8 @@
 				1D3762861AF038BD00CAAA05 /* TTCommentListViewController.h */,
 				1D3762871AF038BD00CAAA05 /* TTCommentListViewController.m */,
 				1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */,
+				1D3BC05A1AF7477100E8BE72 /* TTDynamicReleaseViewController.h */,
+				1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */,
 			);
 			name = dongtai;
 			sourceTree = "<group>";
@@ -763,6 +777,8 @@
 				1D370AFA1AF20F9600DF99CE /* UIButton+MoreAttribute.m */,
 				1D3BC0541AF72E1A00E8BE72 /* NSString+MoreAttribute.h */,
 				1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */,
+				1D3BC0571AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.h */,
+				1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -924,6 +940,10 @@
 				1D370AE81AF1179500DF99CE /* TTDynamicUserStatusHeaderView.h */,
 				1D370AE91AF1179500DF99CE /* TTDynamicUserStatusHeaderView.m */,
 				1D370AEB1AF1218C00DF99CE /* TTDynamicUserStatusHeaderView.xib */,
+				1D3BC05F1AF7599D00E8BE72 /* TTPublichView.h */,
+				1D3BC0601AF7599D00E8BE72 /* TTPublichView.m */,
+				1D3BC0651AF76F5B00E8BE72 /* TTPublichPicsView.h */,
+				1D3BC0661AF76F5B00E8BE72 /* TTPublichPicsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1289,6 +1309,7 @@
 				1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */,
 				1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */,
 				1D370B3E1AF2345100DF99CE /* MJPhotoView.m in Sources */,
+				1D3BC0671AF76F5B00E8BE72 /* TTPublichPicsView.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
 				1D370AF51AF1E0B500DF99CE /* TTDynamicUserBlogCell.m in Sources */,
 				020999DA1AE91DC800093608 /* CityListViewController.m in Sources */,
@@ -1315,6 +1336,7 @@
 				1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */,
 				1D370B3B1AF2345100DF99CE /* MJPhotoLoadingView.m in Sources */,
 				02BFC55E1ADF7A3700D0DF30 /* AlipayRequestConfig.m in Sources */,
+				1D3BC05C1AF7477100E8BE72 /* TTDynamicReleaseViewController.m in Sources */,
 				1D018E311AE20DE300696F25 /* TTBaseNavgationController.m in Sources */,
 				1D370B361AF2345100DF99CE /* MBProgressHUD+Add.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
@@ -1346,6 +1368,8 @@
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
 				1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */,
 				1D018E181AE1AC1600696F25 /* UIAlertView+MoreAttribute.m in Sources */,
+				1D3BC0591AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m in Sources */,
+				1D3BC0611AF7599D00E8BE72 /* TTPublichView.m in Sources */,
 				1DD95FB81AED0CB100C15215 /* TTDongTaiViewController.m in Sources */,
 				0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */,
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,

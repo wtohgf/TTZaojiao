@@ -45,24 +45,24 @@
         [self addSubview:_indexLabel];
     }
     
-    // 保存图片按钮
-    CGFloat btnWidth = 44;
-    _saveImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _saveImageBtn.frame = CGRectMake(20, 50, btnWidth, btnWidth);
-    _saveImageBtn.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon.png"] forState:UIControlStateNormal];
-    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon_highlighted.png"] forState:UIControlStateHighlighted];
-    [_saveImageBtn addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:_saveImageBtn];
-    
-    _textView = [[UITextView alloc] init];
-    [_textView setFrame:CGRectMake(0, 0, 320, 50)];
-    _textView.backgroundColor = [UIColor clearColor];
-    _textView.editable = NO;
-    _textView.textAlignment = NSTextAlignmentLeft;
-    _textView.textColor = [UIColor whiteColor];
-    _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [self addSubview:_textView];
+//    // 保存图片按钮
+//    CGFloat btnWidth = 44;
+//    _saveImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    _saveImageBtn.frame = CGRectMake(20, 50, btnWidth, btnWidth);
+//    _saveImageBtn.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon.png"] forState:UIControlStateNormal];
+//    [_saveImageBtn setImage:[UIImage imageNamed:@"MJPhotoBrowser.bundle/save_icon_highlighted.png"] forState:UIControlStateHighlighted];
+//    [_saveImageBtn addTarget:self action:@selector(saveImage) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:_saveImageBtn];
+//    
+//    _textView = [[UITextView alloc] init];
+//    [_textView setFrame:CGRectMake(0, 0, 320, 50)];
+//    _textView.backgroundColor = [UIColor clearColor];
+//    _textView.editable = NO;
+//    _textView.textAlignment = NSTextAlignmentLeft;
+//    _textView.textColor = [UIColor whiteColor];
+//    _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//    [self addSubview:_textView];
 }
 
 - (void)saveImage
