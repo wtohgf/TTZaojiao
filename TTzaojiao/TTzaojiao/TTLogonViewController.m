@@ -154,7 +154,7 @@
                     //装载tabbar
                     TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
                     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
-                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+//                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
                     [UINavigationBar appearance].hidden = NO;
                     
                     self.mainViewController = tabBarController;

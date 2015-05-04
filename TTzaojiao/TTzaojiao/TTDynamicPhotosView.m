@@ -7,6 +7,7 @@
 //
 
 #import "TTDynamicPhotosView.h"
+#import "NSString+MoreAttribute.h"
 
 @implementation TTDynamicPhotosView
 - (id)initWithFrame:(CGRect)frame
@@ -27,17 +28,28 @@
 
 - (void)photoTap:(UITapGestureRecognizer *)recognizer
 {
-//    NSUInteger count = self.photos.count;
-//    
-//    // 1.封装图片数据
-//    NSMutableArray *myphotos = [NSMutableArray arrayWithCapacity:count];
-//    for (int i = 0; i<count; i++) {
-//        // 一个MJPhoto对应一张显示的图片
-//        UIImage * photo = self.subviews[i]; // 来源于哪个UIImageView
-//        [myphotos addObject:photo];
-//    }
+    NSUInteger count = self.photos.count;
+    
+    // 1.封装图片数据
+    NSMutableArray *myphotos = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i<count; i++) {
+        // 一个MJPhoto对应一张显示的图片
+        MJPhoto *mjphoto = [[MJPhoto alloc] init];
+        
+        mjphoto.srcImageView = self.subviews[i]; // 来源于哪个UIImageView
+        
+//        NSString *photoUrl = [NSString appendBaseURL:_photos[i]];
+//        
+//        mjphoto.url = [NSURL URLWithString:photoUrl]; // 图片路径
+//        
+        [myphotos addObject:mjphoto];
+    }
     
     // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = recognizer.view.tag; // 弹出相册时显示的第一张图片是？
+    browser.photos = myphotos; // 设置所有的图片
+    [browser show];
 }
 
 -(void)setBlogFrame:(TTBlogFrame *)blogFrame{
@@ -83,7 +95,7 @@
 
 - (void)setPhotos:(NSArray *)photos
 {
-    
+    _photos = photos;
     for (int i = 0; i<self.subviews.count; i++) {
         // 取出i位置对应的imageView
         UIImageView *photoView = self.subviews[i];

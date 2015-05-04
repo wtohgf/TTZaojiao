@@ -12,6 +12,8 @@
 #import "UIImageView+MoreAttribute.h"
 #import "TTBlogFrame.h"
 #import "TTUserBlogFrame.h"
+#import <MJPhoto.h>
+#import "MJPhotoBrowser.h"
 
 @interface TTDynamicPhotosView : UIView
 /**
@@ -19,7 +21,7 @@
  */
 @property (strong, nonatomic) TTBlogFrame* blogFrame;
 @property (strong, nonatomic) TTUserBlogFrame* userblogFrame;
-//@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, strong) NSArray *photos;
 
 /**
  *  根据图片的个数返回相册的最终尺寸
