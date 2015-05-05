@@ -18,8 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     CGRect frame = CGRectMake(self.contentView.bounds.origin.x,
-                              self.contentView.bounds.origin.y+25.f,
+                              self.contentView.bounds.origin.y+[UIApplication sharedApplication].statusBarFrame.size.height,
                               self.contentView.bounds.size.width,
                               self.contentView.bounds.size.height);
     self.menuTableView = [[UITableView alloc] initWithFrame:frame];
