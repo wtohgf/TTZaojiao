@@ -9,11 +9,13 @@
 #import "TTBaseViewController.h"
 #import "TTPublichView.h"
 #import "TTPublichPicsView.h"
+#import "JSImagePickerViewController.h"
 
-@interface TTDynamicReleaseViewController : TTBaseViewController<TTPublichViewDelegate, UITextViewDelegate>
+@interface TTDynamicReleaseViewController : TTBaseViewController<TTPublichViewDelegate, UITextViewDelegate,JSImagePickerViewControllerDelegate>
 
 @property (weak, nonatomic) TTPublichView *bottomBar;
 @property (weak, nonatomic) UITextView *textView;
 @property (weak, nonatomic) TTPublichPicsView* publichPicsView;
+@property (strong, nonatomic) CLLocation* location;
 
 @end

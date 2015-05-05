@@ -23,6 +23,10 @@
 		02240C9D1AE639C000EEB7AF /* WoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */; };
 		02240CA01AE639DC00EEB7AF /* TTZaojiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */; };
 		02240CA91AE63A1900EEB7AF /* TTWoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240CA81AE63A1900EEB7AF /* TTWoViewController.m */; };
+		02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */; };
+		02442BC11AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */; };
+		02442BC41AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
+		02442BC51AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
 		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
 		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
 		02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E91ADF668100D0DF30 /* JSONHelper.m */; };
@@ -164,6 +168,10 @@
 		02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoViewController.m; sourceTree = "<group>"; };
 		02240CA71AE63A1900EEB7AF /* TTWoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoViewController.h; sourceTree = "<group>"; };
 		02240CA81AE63A1900EEB7AF /* TTWoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoViewController.m; sourceTree = "<group>"; };
+		02442BBE1AF871FE00AF8DDC /* LLBlurSidebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLBlurSidebar.h; sourceTree = "<group>"; };
+		02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBlurSidebar.m; sourceTree = "<group>"; };
+		02442BC21AF8723E00AF8DDC /* TTDynamicSidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicSidebarViewController.h; sourceTree = "<group>"; };
+		02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicSidebarViewController.m; sourceTree = "<group>"; };
 		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
 		02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
@@ -527,13 +535,25 @@
 				1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */,
 				1D3BC05A1AF7477100E8BE72 /* TTDynamicReleaseViewController.h */,
 				1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */,
+				02442BC21AF8723E00AF8DDC /* TTDynamicSidebarViewController.h */,
+				02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */,
 			);
 			name = dongtai;
+			sourceTree = "<group>";
+		};
+		02442BBD1AF871FE00AF8DDC /* LLBlurSidebar */ = {
+			isa = PBXGroup;
+			children = (
+				02442BBE1AF871FE00AF8DDC /* LLBlurSidebar.h */,
+				02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */,
+			);
+			path = LLBlurSidebar;
 			sourceTree = "<group>";
 		};
 		02BFC4E01ADF662500D0DF30 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				02442BBD1AF871FE00AF8DDC /* LLBlurSidebar */,
 				1D370AFC1AF2345100DF99CE /* lib */,
 				1DDF4EAA1AE3B712004661EB /* CitySelect */,
 				1DDF4EA61AE3AA7E004661EB /* JSImagePickerController */,
@@ -1354,6 +1374,7 @@
 				1D018E3B1AE20EEA00696F25 /* TTRegeistViewController.m in Sources */,
 				1D370AFB1AF20F9600DF99CE /* UIButton+MoreAttribute.m in Sources */,
 				02BFC5661ADF7A3700D0DF30 /* RSADataSigner.m in Sources */,
+				02442BC41AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */,
 				1D018E1C1AE1C91A00696F25 /* TTUserModelTool.m in Sources */,
 				0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */,
 				1D370B4D1AF2345100DF99CE /* SDWebImageManager+MJ.m in Sources */,
@@ -1374,6 +1395,7 @@
 				1D370B361AF2345100DF99CE /* MBProgressHUD+Add.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
+				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1D370AEF1AF1DACF00DF99CE /* BlogUserDynamicModel.m in Sources */,
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
@@ -1422,7 +1444,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02442BC51AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */,
 				02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
+				02442BC11AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				020999DB1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02041B801AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,

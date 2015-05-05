@@ -8,9 +8,13 @@
 
 #import "TTDynamicReleaseViewController.h"
 #import <RDVTabBarController.h>
+#import "UIImage+MoreAttribute.h"
+
 @interface TTDynamicReleaseViewController()
 {
     CGFloat _backBottonBarY;
+    NSString* _picsPath;
+    NSMutableArray* _images;
 }
 @end
 @implementation TTDynamicReleaseViewController
@@ -18,7 +22,7 @@
     [super viewDidLoad];
     self.title = @"发布动态";
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(cancel:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(release:)];
     
     [self addSubTextView];
@@ -32,6 +36,8 @@
         self.modalPresentationCapturesStatusBarAppearance
         = NO;
     }
+    _images = [NSMutableArray array];
+    _picsPath = @"";
 }
 
 -(void)addSubTextView{
@@ -60,14 +66,121 @@
     publichPicsView.frame = CGRectMake(0, _textView.bottom, self.view.width, kBoder*2+(kScreenWidth*kPicWRatio+kMargin)*3);
     [self.view addSubview:publichPicsView];
     _publichPicsView = publichPicsView;
+    
+}
+
+-(void)imagePickerDidSelectImage:(UIImage *)image{
+    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
+    [_images addObject:image];
+    [_publichPicsView addPicImage:image];
 }
 
 -(void)cancel:(UIBarButtonItem*)item{
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark 发布动态
 -(void)release:(UIBarButtonItem*)item{
+
+    if (_textView.text.length == 0) {
+        [[UIAlertView alloc]showAlert:@"评论内容不能为空" byTime:2.f];
+        return;
+    }
     
+    [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location) {
+            _location = location;
+        if(_images.count != 0){
+            [self uploadPics];
+        }else{
+            [self publichState];
+        }
+    }];
+
+}
+
+-(void)uploadPics{
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:_images Result:^(id result_data, ApiStatus result_status) {
+        if ([result_data isKindOfClass:[NSMutableArray class]]) {
+            NSMutableArray* list = (NSMutableArray*)result_data;
+            if (list.count!=0) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                
+                [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    NSDictionary* dict = (NSDictionary*)obj;
+                    NSString* msgkey = [NSString stringWithFormat:@"msg_%01ld", idx+1];
+                    NSString* msgwordkey = [NSString stringWithFormat:@"msg_word_%01ld", idx+1];
+                    if ([dict[msgkey] isEqualToString:@"Up_Ok"]) {
+                        NSString* filePath = dict[msgwordkey];
+                        _picsPath = [_picsPath stringByAppendingString:filePath];
+                        _picsPath = [_picsPath stringByAppendingString:@"|"];
+                    }else{
+                        *stop = YES;
+                    }
+                }];
+                [self publichState];
+            }
+        }
+    } Progress:^(CGFloat progress) {
+        _picsPath = @"";
+        [[[UIAlertView alloc]init]showAlert:@"图片上传失败" byTime:3.0];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+}
+
+-(void)publichState{
+    /*
+     latitude = MySPManager.getValue(PublishStateActivity.this,
+     MySPManager.LATITUDE);
+					longitude = MySPManager.getValue(PublishStateActivity.this,
+     MySPManager.LONGITUDE);
+					Date birDate = new SimpleDateFormat("yyyy-M-d")
+     .parse(birthday);
+					Date currentDate = new Date();
+					long age = (currentDate.getTime() - birDate.getTime())
+     / 1000 / 60 / 60 / 24 / 30;
+					result = WebServer.requestByGet(WebServer.PUBLISH_STATE
+     + "&i_uid=" + uid + "&i_psd=" + secondPassword
+     + "&i_content=" + content + "&i_pic=" + picPath
+     + "&i_x=" + latitude + "&i_y=" + longitude
+     + "&i_sort=" + sort + "&i_type="
+     + LessonNewFragment.activeID + "&i_month=" + age
+     + "&i_item=" + group);
+     */
+    UserModel* user = [TTUserModelTool sharedUserModelTool].logonUser;
+    NSString* lat = [NSString stringWithFormat:@"%.2f", _location.coordinate.latitude];
+    NSString* lon = [NSString stringWithFormat:@"%.2f", _location.coordinate.longitude];
+    
+    NSDictionary* parameters = @{
+                                 @"i_uid": user.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"i_content":_textView.text,
+                                 @"i_pic": _picsPath,
+                                 @"i_x":lat,
+                                 @"i_y":lon,
+                                 @"i_sort":@"1",
+                                 @"i_type":@"1",
+                                 @"i_month":@"6",
+                                 @"i_item":@"1",
+                                 };
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:PUBLISH_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                if (((NSMutableArray*)result_data).count!=0) {
+                    
+                }
+            }
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+        
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -91,7 +204,11 @@
 }
 
 -(void)publichViewdidSelPic:(TTPublichView *)view{
-    [_publichPicsView addPic:@"baby_icon1"];
+    
+    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+    imagePicker.delegate = self;
+    [imagePicker showImagePickerInController:self animated:YES];
+    
     [_textView resignFirstResponder];
 }
 
