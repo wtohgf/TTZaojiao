@@ -14,7 +14,7 @@
 #import "UserModel.h"
 #import "TTBaseViewController.h"
 #import "LamaTableViewCell.h"
-
+#import "LaMaDetailViewController.h"
 @interface TTLaMaViewController () <CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
@@ -43,7 +43,7 @@
                 //              LamaTotalModel *total= [LamaTotalModel LamaTotalModelWithdict:result_data[0]];
                 NSMutableArray *tempArray = [NSMutableArray array];
                 
-                if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                
                     [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                         if ([obj isKindOfClass:[LamaModel class]]) {
                             [tempArray addObject:obj];
@@ -51,19 +51,18 @@
                     }];
                     
                     _models = tempArray;
-                    NSLog(@"count is %zi",_models.count);
+                    //NSLog(@"count is %zi",_models.count);
 
                     [_tableView reloadData];
                     
                    
-                }
+               
 
                 
                 //当前用户信息
                 //UserModel *user = [TTUserModelTool sharedUserModelTool].logonUser;
                 // NSLog(@"%@ %@", user.name, user.icon);
-                [_tableView reloadData];
-                
+            
             }
             
             
@@ -88,7 +87,6 @@
     self.navigationItem.leftBarButtonItem= left;
     
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"pic" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick:)];
-   
     self.navigationItem.rightBarButtonItem= right;
 }
 - (void)viewDidLoad {
@@ -162,16 +160,23 @@
     return 44.f;
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"willSelectRowAtIndexPath is %zi",indexPath.row);
-    UITableViewController *controller = [[UITableViewController alloc]init];
-    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(160, 0, 120, 50)];
-    [title setText:@"详情"];
-    controller.navigationItem.titleView= title;
-    [self.navigationController pushViewController:controller animated:YES];
-    return indexPath;
+    LamaModel *model = _models[indexPath.row];
+    LaMaDetailViewController *detailController = [[LaMaDetailViewController alloc]init];
+    //UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(160, 0, 120, 50)];
+    //[title setText:@"详情"];
+    // controller.navigationItem.titleView= title;
+    detailController.ttid = model.ttid;
+    
+    self.navigationController.title = @"详情";
+    [self.navigationController pushViewController:detailController animated:YES];
 }
+//- (NSIndexPath *)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//
+//    return indexPath;
+//}
 
 
 - (IBAction)locationAction:(id)sender {
