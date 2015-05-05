@@ -9,13 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface LaMaDetailModel : NSObject
-typedef enum : NSUInteger {
-    CellEnumNameAndPic,
-    //    ApiEnumxxxxxx,
-    CellEnumPicListAndContent
-    
-} CellType;
-@property (nonatomic, assign) CellType cellType;
+
+
 @property (nonatomic, copy) NSString * i_name;
 @property (nonatomic, copy) NSString * i_otime_end;
 @property (nonatomic, copy) NSString * i_tel;
@@ -25,6 +20,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString * i_content;
 @property (nonatomic, copy) NSString * i_pic_list;
 @property (nonatomic, copy) NSString * i_company;
+
+@property (nonatomic,assign ) int count;
 
 +(instancetype)LaMaDetailModelWithDict:(NSDictionary *)dict;
 @end

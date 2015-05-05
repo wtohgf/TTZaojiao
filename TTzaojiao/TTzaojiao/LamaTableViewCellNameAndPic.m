@@ -20,7 +20,7 @@
         cell = [[LamaTableViewCellNameAndPic alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    cell.backgroundColor = [UIColor greenColor];
+    //cell.backgroundColor = [UIColor greenColor];
     return cell;
 }
 - (void)awakeFromNib {
@@ -31,8 +31,7 @@
    
     [_picView setFrame:_modelFrame.i_picFrame];
     [_nameLabel setFrame:_modelFrame.i_nameFrame];
-
-
+   
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -40,16 +39,15 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         //pic
-        UIImageView *imgView = [[UIImageView alloc]init];
-        
-        [self.contentView addSubview:imgView];
-        _picView = imgView;
+        UIImageView *picView = [[UIImageView alloc]init];
+        [self.contentView addSubview:picView];
+        _picView = picView;
         
         
         //name
-        UILabel *name  = [[UILabel alloc]init];
-        [self.contentView addSubview:name];
-        _nameLabel = name;
+        UILabel *nameLabel  = [[UILabel alloc]init];
+        [self.contentView addSubview:nameLabel];
+        _nameLabel = nameLabel;
         _nameLabel.numberOfLines = 0;
 
         
@@ -63,18 +61,14 @@
 - (void)setModelFrame:(LamaTableViewCellModelFrame *)modelFrame
 {
 
-        _modelFrame = modelFrame;
+    _modelFrame = modelFrame;
     
-    [_picView setFrame:_modelFrame.i_picFrame];
-    [_nameLabel setFrame:_modelFrame.i_nameFrame];
-        _nameLabel.text = modelFrame.model.i_name;
+    _nameLabel.text = modelFrame.model.i_name;
         
-        NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,modelFrame.model.i_pic];
-        NSArray * tempArray =  [url componentsSeparatedByString:@"|"];
-        
-        [_picView setImageWithURL:[NSURL URLWithString: [tempArray firstObject]]];
+    NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,modelFrame.model.i_pic];
+    NSArray * tempArray =  [url componentsSeparatedByString:@"|"];
+    [_picView setImageWithURL:[NSURL URLWithString: [tempArray firstObject]]];
 
-    _modelFrame.model.cellType = CellEnumNameAndPic;
 
 }
 

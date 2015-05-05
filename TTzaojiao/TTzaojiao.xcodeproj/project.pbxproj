@@ -50,7 +50,7 @@
 		0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */; };
 		0FE8309C1AF85CF600A15860 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309B1AF85CF600A15860 /* NSString+Extension.m */; };
 		0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */; };
-		0FE830A21AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A01AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m */; };
+		0FE830A21AF85DE800A15860 /* LamaTableViewCellPicList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */; };
 		0FE830A41AF85E5B00A15860 /* LamaTableViewCellModelFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A31AF85E5B00A15860 /* LamaTableViewCellModelFrame.m */; };
 		0FE830A91AF85EC100A15860 /* LaMaDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A81AF85EC100A15860 /* LaMaDetailModel.m */; };
 		0FE830AB1AF85ECA00A15860 /* LaMaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830AA1AF85ECA00A15860 /* LaMaDetailViewController.m */; };
@@ -290,8 +290,8 @@
 		0FE8309A1AF85CF600A15860 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		0FE8309B1AF85CF600A15860 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellNameAndPic.m; sourceTree = "<group>"; };
-		0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicListAndContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellPicListAndContent.h; sourceTree = "<group>"; };
-		0FE830A01AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellPicListAndContent.m; sourceTree = "<group>"; };
+		0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellPicList.h; sourceTree = "<group>"; };
+		0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellPicList.m; sourceTree = "<group>"; };
 		0FE830A11AF85DE800A15860 /* LamaTableViewCellModelFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellModelFrame.h; sourceTree = "<group>"; };
 		0FE830A31AF85E5B00A15860 /* LamaTableViewCellModelFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellModelFrame.m; sourceTree = "<group>"; };
 		0FE830A51AF85E8B00A15860 /* LamaTableViewCellNameAndPic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellNameAndPic.h; sourceTree = "<group>"; };
@@ -835,12 +835,12 @@
 				1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */,
 				1D57E1AB1AE7511E00EA3D35 /* CustomDatePicker.h */,
 				1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */,
-				0FE830A01AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m */,
 				0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */,
 				0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */,
 				0FE830A51AF85E8B00A15860 /* LamaTableViewCellNameAndPic.h */,
 				0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */,
-				0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicListAndContent.h */,
+				0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicList.h */,
+				0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1360,7 +1360,7 @@
 				1D018E0F1AE15F8900696F25 /* TTBaseViewController.m in Sources */,
 				02240CA91AE63A1900EEB7AF /* TTWoViewController.m in Sources */,
 				1D018E381AE20EC500696F25 /* TTNavigationController.m in Sources */,
-				0FE830A21AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m in Sources */,
+				0FE830A21AF85DE800A15860 /* LamaTableViewCellPicList.m in Sources */,
 				0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
