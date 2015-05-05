@@ -10,6 +10,7 @@
 #import "TTPublichView.h"
 #import "TTPublichPicsView.h"
 #import "JSImagePickerViewController.h"
+#import "NSAttributedString+EmojiExtension.h"
 
 @interface TTDynamicReleaseViewController : TTBaseViewController<TTPublichViewDelegate, UITextViewDelegate,JSImagePickerViewControllerDelegate>
 

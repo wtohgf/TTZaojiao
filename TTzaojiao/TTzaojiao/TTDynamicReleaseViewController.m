@@ -9,6 +9,7 @@
 #import "TTDynamicReleaseViewController.h"
 #import <RDVTabBarController.h>
 #import "UIImage+MoreAttribute.h"
+#import "WUDemoKeyboardBuilder.h"
 
 @interface TTDynamicReleaseViewController()
 {
@@ -151,11 +152,11 @@
     UserModel* user = [TTUserModelTool sharedUserModelTool].logonUser;
     NSString* lat = [NSString stringWithFormat:@"%.2f", _location.coordinate.latitude];
     NSString* lon = [NSString stringWithFormat:@"%.2f", _location.coordinate.longitude];
-    
+   
     NSDictionary* parameters = @{
                                  @"i_uid": user.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
-                                 @"i_content":_textView.text,
+                                 @"i_content":[_textView.textStorage getPlainString],
                                  @"i_pic": _picsPath,
                                  @"i_x":lat,
                                  @"i_y":lon,
@@ -200,7 +201,13 @@
 }
 
 -(void)publichViewdidSelBiaoqing:(TTPublichView *)view{
-    
+    if (self.textView.isFirstResponder) {
+        if (self.textView.emoticonsKeyboard) [self.textView switchToDefaultKeyboard];
+        else [self.textView switchToEmoticonsKeyboard:[WUDemoKeyboardBuilder sharedEmoticonsKeyboard]];
+    }else{
+        [self.textView switchToEmoticonsKeyboard:[WUDemoKeyboardBuilder sharedEmoticonsKeyboard]];
+        [self.textView becomeFirstResponder];
+    }
 }
 
 -(void)publichViewdidSelPic:(TTPublichView *)view{
