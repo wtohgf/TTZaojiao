@@ -12,6 +12,7 @@
 #import "TTDyanmicUserStautsCell.h"
 #import "TTCommentListViewController.h"
 #import "TTUserDongtaiViewController.h"
+#import "TTDynamicSidebarViewController.h"
 
 @interface TTDongTaiViewController (){
     NSMutableArray* _blogs;
@@ -23,6 +24,7 @@
     BOOL _isGetMoreBlog;
 }
 @property (weak, nonatomic) IBOutlet UITableView *dongtaiTable;
+@property (strong, nonatomic) TTDynamicSidebarViewController *siderbar;
 
 @end
 
@@ -49,6 +51,17 @@
     
     UIBarButtonItem* itemleft = [UIBarButtonItem barButtonItemWithImage:@"icon_menu" target:self action:@selector(selAgeRange:)];
     self.navigationItem.leftBarButtonItem = itemleft;
+    
+    // 左侧边栏开始
+    UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+    [panGesture delaysTouchesBegan];
+    [self.tabBarController.view addGestureRecognizer:panGesture];
+    
+    self.siderbar = [[TTDynamicSidebarViewController alloc] init];
+    [self.siderbar setBgRGB:0xF09EB1];
+    [self.rdv_tabBarController.view addSubview:self.siderbar.view];
+    self.siderbar.view.frame  = self.view.bounds;
+    // 左侧边栏结束
 }
 
 -(void)dynamic_state:(UIBarButtonItem*)item{
@@ -56,7 +69,7 @@
 }
 
 -(void)selAgeRange:(UIBarButtonItem*)item{
-    
+    [_siderbar showHideSidebar];
 }
 
 -(void)setupRefresh{
@@ -111,6 +124,11 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 
+}
+
+- (void)panDetected:(UIPanGestureRecognizer*)recoginzer
+{
+    [self.siderbar panDetected:recoginzer];
 }
 
 -(void)updateBlog{
