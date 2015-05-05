@@ -15,4 +15,5 @@
 @interface TTPublichPicsView : UIView
 @property (strong, nonatomic) NSMutableArray* pics;
 -(void)addPic:(NSString*)picName;
+-(void)addPicImage:(UIImage *)image;
 @end

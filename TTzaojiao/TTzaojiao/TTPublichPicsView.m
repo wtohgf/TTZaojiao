@@ -56,4 +56,15 @@
     }
 }
 
+-(void)addPicImage:(UIImage *)image{
+    for (int i=0; i<_pics.count; i++) {
+        UIImageView* imageView = self.subviews[i];
+        if (imageView.hidden == YES) {
+            imageView.hidden = NO;
+            [imageView setImage:image];
+            break;
+        }
+    }
+}
+
 @end
