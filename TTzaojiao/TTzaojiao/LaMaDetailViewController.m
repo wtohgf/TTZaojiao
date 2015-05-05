@@ -32,7 +32,7 @@
 }
 -(void)viewDidLoad
 {
-    
+    [super viewDidLoad];
     UITableView * tableView = [[UITableView alloc]init];
     tableView.frame = self.view.frame;
     _tableView = tableView;

@@ -440,13 +440,13 @@
     self.pageControl.numberOfPages = count;
     self.pageControl.currentPage = 0;
     
-    CGFloat startX = self.scrollView.bounds.origin.x;
+//    CGFloat startX = self.scrollView.bounds.origin.x;
     CGFloat width = self.bounds.size.width - edgeInsets.left - edgeInsets.right;
     CGFloat height = self.bounds.size.height - edgeInsets.top - edgeInsets.bottom;
     
     for (int i = 0; i < count; i++) {
-        startX = i * width;
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(startX, 0, width, height)];
+//        startX = i * width;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((i * width), 0, width, height)];
         imageView.contentMode = UIViewContentModeScaleToFill;
         imageView.tag = kStartTag + i;
         imageView.userInteractionEnabled = YES;
