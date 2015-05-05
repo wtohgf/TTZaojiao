@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "LamaTableViewCellModelFrame.h"
-@interface LamaTableViewCellPicListAndContent : UITableViewCell
-+ (instancetype)LamaTableViewCellPicListAndContentWithTabelView:(UITableView *)tableView;
+@interface LamaTableViewCellPicList : UITableViewCell
++ (instancetype)LamaTableViewCellPicListWithTabelView:(UITableView *)tableView;
 
 
-@property (nonatomic,strong) UIImageView *picListView;
-@property (nonatomic,strong) UILabel *contentLabel;
+@property (nonatomic, strong ) UIImageView *picListView;
+
 @property (nonatomic,strong) LamaTableViewCellModelFrame *modelFrame;
 @end

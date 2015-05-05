@@ -12,8 +12,10 @@
 + (instancetype)LamaTableViewCellNameAndPicWithTabelView:(UITableView *)tableView;
 
 
-@property (nonatomic,strong) UIImageView *picView;
-@property (nonatomic,strong) UILabel *nameLabel;
+@property (nonatomic,weak) UIImageView *picView;
+@property (nonatomic,weak) UILabel *nameLabel;
+//@property (nonatomic,weak ) UIImageView *picListView;
+//@property (nonatomic,weak ) UILabel *companyLabel;
 @property (nonatomic,strong) LamaTableViewCellModelFrame *modelFrame;
 
 @end
