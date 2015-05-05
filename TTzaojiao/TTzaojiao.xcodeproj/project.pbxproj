@@ -22,7 +22,6 @@
 		02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */; };
 		02240C9D1AE639C000EEB7AF /* WoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */; };
 		02240CA01AE639DC00EEB7AF /* TTZaojiaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */; };
-		02240CA61AE639FB00EEB7AF /* TTLaMaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240CA51AE639FB00EEB7AF /* TTLaMaViewController.m */; };
 		02240CA91AE63A1900EEB7AF /* TTWoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02240CA81AE63A1900EEB7AF /* TTWoViewController.m */; };
 		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
 		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
@@ -49,6 +48,13 @@
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
 		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
 		0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */; };
+		0FE8309C1AF85CF600A15860 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309B1AF85CF600A15860 /* NSString+Extension.m */; };
+		0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */; };
+		0FE830A21AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A01AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m */; };
+		0FE830A41AF85E5B00A15860 /* LamaTableViewCellModelFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A31AF85E5B00A15860 /* LamaTableViewCellModelFrame.m */; };
+		0FE830A91AF85EC100A15860 /* LaMaDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A81AF85EC100A15860 /* LaMaDetailModel.m */; };
+		0FE830AB1AF85ECA00A15860 /* LaMaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830AA1AF85ECA00A15860 /* LaMaDetailViewController.m */; };
+		0FE830AD1AF8618400A15860 /* TTLaMaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830AC1AF8618400A15860 /* TTLaMaViewController.m */; };
 		1D018E0F1AE15F8900696F25 /* TTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D018E0E1AE15F8900696F25 /* TTBaseViewController.m */; };
 		1D018E141AE1622900696F25 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D018E131AE1622900696F25 /* UserModel.m */; };
 		1D018E181AE1AC1600696F25 /* UIAlertView+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D018E171AE1AC1600696F25 /* UIAlertView+MoreAttribute.m */; };
@@ -156,8 +162,6 @@
 		02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WoStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C9E1AE639DC00EEB7AF /* TTZaojiaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoViewController.h; sourceTree = "<group>"; };
 		02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoViewController.m; sourceTree = "<group>"; };
-		02240CA41AE639FB00EEB7AF /* TTLaMaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLaMaViewController.h; sourceTree = "<group>"; };
-		02240CA51AE639FB00EEB7AF /* TTLaMaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLaMaViewController.m; sourceTree = "<group>"; };
 		02240CA71AE63A1900EEB7AF /* TTWoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoViewController.h; sourceTree = "<group>"; };
 		02240CA81AE63A1900EEB7AF /* TTWoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoViewController.m; sourceTree = "<group>"; };
 		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
@@ -283,6 +287,20 @@
 		0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTotalModel.m; sourceTree = "<group>"; };
 		0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCell.h; sourceTree = "<group>"; };
 		0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCell.m; sourceTree = "<group>"; };
+		0FE8309A1AF85CF600A15860 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		0FE8309B1AF85CF600A15860 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellNameAndPic.m; sourceTree = "<group>"; };
+		0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicListAndContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellPicListAndContent.h; sourceTree = "<group>"; };
+		0FE830A01AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellPicListAndContent.m; sourceTree = "<group>"; };
+		0FE830A11AF85DE800A15860 /* LamaTableViewCellModelFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellModelFrame.h; sourceTree = "<group>"; };
+		0FE830A31AF85E5B00A15860 /* LamaTableViewCellModelFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellModelFrame.m; sourceTree = "<group>"; };
+		0FE830A51AF85E8B00A15860 /* LamaTableViewCellNameAndPic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellNameAndPic.h; sourceTree = "<group>"; };
+		0FE830A61AF85EA100A15860 /* LaMaDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaMaDetailViewController.h; sourceTree = "<group>"; };
+		0FE830A71AF85EA700A15860 /* LaMaDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaMaDetailModel.h; sourceTree = "<group>"; };
+		0FE830A81AF85EC100A15860 /* LaMaDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaMaDetailModel.m; sourceTree = "<group>"; };
+		0FE830AA1AF85ECA00A15860 /* LaMaDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaMaDetailViewController.m; sourceTree = "<group>"; };
+		0FE830AC1AF8618400A15860 /* TTLaMaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLaMaViewController.m; sourceTree = "<group>"; };
+		0FE830AE1AF8619300A15860 /* TTLaMaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLaMaViewController.h; sourceTree = "<group>"; };
 		1D018E0D1AE15F8900696F25 /* TTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBaseViewController.h; sourceTree = "<group>"; };
 		1D018E0E1AE15F8900696F25 /* TTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBaseViewController.m; sourceTree = "<group>"; };
 		1D018E121AE1622900696F25 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -482,9 +500,11 @@
 		02240C941AE6394B00EEB7AF /* lamajie */ = {
 			isa = PBXGroup;
 			children = (
+				0FE830A61AF85EA100A15860 /* LaMaDetailViewController.h */,
+				0FE830AA1AF85ECA00A15860 /* LaMaDetailViewController.m */,
+				0FE830AC1AF8618400A15860 /* TTLaMaViewController.m */,
+				0FE830AE1AF8619300A15860 /* TTLaMaViewController.h */,
 				02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */,
-				02240CA41AE639FB00EEB7AF /* TTLaMaViewController.h */,
-				02240CA51AE639FB00EEB7AF /* TTLaMaViewController.m */,
 				020999D51AE91DC800093608 /* citydict.plist */,
 				020999D61AE91DC800093608 /* CityListViewController.h */,
 				020999D71AE91DC800093608 /* CityListViewController.m */,
@@ -722,6 +742,10 @@
 				0F7C06CB1AEA1B120020ACBA /* LamaModel.m */,
 				0F7C06CD1AEA216C0020ACBA /* LamaTotalModel.h */,
 				0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */,
+				0FE830A71AF85EA700A15860 /* LaMaDetailModel.h */,
+				0FE830A81AF85EC100A15860 /* LaMaDetailModel.m */,
+				0FE830A11AF85DE800A15860 /* LamaTableViewCellModelFrame.h */,
+				0FE830A31AF85E5B00A15860 /* LamaTableViewCellModelFrame.m */,
 			);
 			name = LamaModel;
 			sourceTree = "<group>";
@@ -811,8 +835,12 @@
 				1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */,
 				1D57E1AB1AE7511E00EA3D35 /* CustomDatePicker.h */,
 				1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */,
+				0FE830A01AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m */,
 				0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */,
 				0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */,
+				0FE830A51AF85E8B00A15860 /* LamaTableViewCellNameAndPic.h */,
+				0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */,
+				0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicListAndContent.h */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -865,6 +893,8 @@
 		1D1F2C071AE10B7A004F851D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0FE8309A1AF85CF600A15860 /* NSString+Extension.h */,
+				0FE8309B1AF85CF600A15860 /* NSString+Extension.m */,
 				1D018E191AE1C8CE00696F25 /* Tools */,
 				1D018E151AE1AB9000696F25 /* Category */,
 				1D018E0C1AE15F6200696F25 /* BaseClass */,
@@ -1296,6 +1326,7 @@
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
 				1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */,
+				0FE830A41AF85E5B00A15860 /* LamaTableViewCellModelFrame.m in Sources */,
 				02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				1D37628B1AF06A0500CAAA05 /* TTCommentListCell.m in Sources */,
 				1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */,
@@ -1329,6 +1360,8 @@
 				1D018E0F1AE15F8900696F25 /* TTBaseViewController.m in Sources */,
 				02240CA91AE63A1900EEB7AF /* TTWoViewController.m in Sources */,
 				1D018E381AE20EC500696F25 /* TTNavigationController.m in Sources */,
+				0FE830A21AF85DE800A15860 /* LamaTableViewCellPicListAndContent.m in Sources */,
+				0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
 				1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */,
@@ -1344,13 +1377,14 @@
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1D370AEF1AF1DACF00DF99CE /* BlogUserDynamicModel.m in Sources */,
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
+				0FE830AB1AF85ECA00A15860 /* LaMaDetailViewController.m in Sources */,
+				0FE830A91AF85EC100A15860 /* LaMaDetailModel.m in Sources */,
 				1D370B3D1AF2345100DF99CE /* MJPhotoToolbar.m in Sources */,
 				1D3762981AF0C8F700CAAA05 /* DynamicUserModel.m in Sources */,
 				1D370AF81AF1E1D800DF99CE /* TTUserBlogFrame.m in Sources */,
 				1D018E141AE1622900696F25 /* UserModel.m in Sources */,
 				02240CA01AE639DC00EEB7AF /* TTZaojiaoViewController.m in Sources */,
 				02BFC5611ADF7A3700D0DF30 /* DataSigner.m in Sources */,
-				02240CA61AE639FB00EEB7AF /* TTLaMaViewController.m in Sources */,
 				1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */,
 				1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */,
 				02BFC5631ADF7A3700D0DF30 /* MD5DataSigner.m in Sources */,
@@ -1363,6 +1397,8 @@
 				1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */,
 				1D4755091AEB2493004EDEED /* BlogModel.m in Sources */,
 				02BFC5641ADF7A3700D0DF30 /* NSDataEx.m in Sources */,
+				0FE830AD1AF8618400A15860 /* TTLaMaViewController.m in Sources */,
+				0FE8309C1AF85CF600A15860 /* NSString+Extension.m in Sources */,
 				1DDF4EC11AE3B712004661EB /* TSLocateView.m in Sources */,
 				1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */,
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
