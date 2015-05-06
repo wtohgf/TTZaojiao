@@ -7,6 +7,7 @@
 //
 
 #import "TTUserModelTool.h"
+#import "NSString+Extension.h"
 
 static TTUserModelTool* tool;
 
@@ -27,6 +28,31 @@ static TTUserModelTool* tool;
     });
     return tool;
 }
+
+-(NSString *)group{
+    if (_logonUser == nil) {
+        return @"";
+    }
+    NSUInteger group = [self.mouth integerValue] / 3 + ([self.mouth integerValue]% 3 > 0 ? 1 : 0);
+    if ( group > 8) {
+        group = 9;
+    }
+    return [NSString stringWithFormat:@"%ld",group];
+}
+
+-(NSString *)mouth{
+    if (_logonUser == nil) {
+        return @"";
+    }
+    NSDate* date = [[NSDate alloc]init];
+    NSDateFormatter* dateFormater = [[NSDateFormatter alloc]init];
+    [dateFormater setDateFormat:@"yyyy-MM-dd"];
+    date = [dateFormater dateFromString:_logonUser.birthday];
+    
+    NSString* mouth = [NSString getMounthOfDate:date];
+    return mouth;
+}
+
 
 
 @end

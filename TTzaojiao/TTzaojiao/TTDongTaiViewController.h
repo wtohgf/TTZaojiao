@@ -11,7 +11,9 @@
 #import <MJRefresh.h>
 #import "TTDynamicCommentsView.h"
 #import "TTDynamicUserStatusTopView.h"
+#import "TTDynamicSidebarViewController.h"
+#import "TTDaynamicUserStatusZancountView.h"
 
-@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDynamicCommentsViewDelegate, TTDynamicUserStatusTopViewDelegate>
+@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDynamicCommentsViewDelegate, TTDynamicUserStatusTopViewDelegate, TTDynamicSidebarViewControllerDelegate,TTDaynamicUserStatusZancountViewDelegate>
 
 @end

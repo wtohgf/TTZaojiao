@@ -12,7 +12,7 @@
 #import "TTDyanmicUserStautsCell.h"
 #import "TTCommentListViewController.h"
 #import "TTUserDongtaiViewController.h"
-#import "TTDynamicSidebarViewController.h"
+
 
 @interface TTDongTaiViewController (){
     NSMutableArray* _blogs;
@@ -58,6 +58,7 @@
     [self.tabBarController.view addGestureRecognizer:panGesture];
     
     self.siderbar = [[TTDynamicSidebarViewController alloc] init];
+    self.siderbar.delegate = self;
     [self.siderbar setBgRGB:0xF09EB1];
     [self.rdv_tabBarController.view addSubview:self.siderbar.view];
     self.siderbar.view.frame  = self.view.bounds;
@@ -70,6 +71,12 @@
 
 -(void)selAgeRange:(UIBarButtonItem*)item{
     [_siderbar showHideSidebar];
+}
+
+-(void)didselAgeGroup:(NSString *)group{
+    _pageIndexInt = 0;
+    _group = group;
+    [self updateBlog];
 }
 
 -(void)setupRefresh{
@@ -209,9 +216,38 @@
     //评论列表View的代理 响应查看全部按钮代理方法
     cell.commentsView.delegate = self;
     cell.topView.delegate = self;
+    cell.zanCountView.delegate = self;
     return cell;
 }
 
+//点赞
+-(void)daynamicUserStatusZanClicked:blogid{
+    
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"id": blogid,
+                                 };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:PRAISE_NEW Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            
+            [self updateBlog];
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+        
+    }];
+
+}
+
+//消息查看
+-(void)daynamicUserStatusRemsgClicked:(NSString *)blogid{
+    [self performSegueWithIdentifier:@"toCommentList" sender:blogid];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _blogs.count;

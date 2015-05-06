@@ -12,7 +12,7 @@
 #import "JSImagePickerViewController.h"
 #import "NSAttributedString+EmojiExtension.h"
 
-@interface TTDynamicReleaseViewController : TTBaseViewController<TTPublichViewDelegate, UITextViewDelegate,JSImagePickerViewControllerDelegate>
+@interface TTDynamicReleaseViewController : TTBaseViewController<TTPublichViewDelegate,JSImagePickerViewControllerDelegate>
 
 @property (weak, nonatomic) TTPublichView *bottomBar;
 @property (weak, nonatomic) UITextView *textView;

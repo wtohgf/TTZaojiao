@@ -16,6 +16,7 @@
     CGFloat _backBottonBarY;
     NSString* _picsPath;
     NSMutableArray* _images;
+    NSString* _sort;//1早教自拍 2课程提问 3宝宝生活
 }
 @end
 @implementation TTDynamicReleaseViewController
@@ -39,6 +40,7 @@
     }
     _images = [NSMutableArray array];
     _picsPath = @"";
+    _sort = @"1";
 }
 
 -(void)addSubTextView{
@@ -52,15 +54,8 @@
     [self.view addSubview:textView];
     [_textView becomeFirstResponder];
     _textView = textView;
-    _textView.delegate = self;
+
 }
-
-
--(void)textViewDidChange:(UITextView *)textView
-{
-    
-}
-
 
 -(void)addPublichPicsView{
     TTPublichPicsView* publichPicsView = [[TTPublichPicsView alloc]init];
@@ -88,13 +83,18 @@
         return;
     }
     
-    [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location) {
+    [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
+        if (location != nil) {
             _location = location;
+        }else{
+            _location = nil;
+        }
         if(_images.count != 0){
             [self uploadPics];
         }else{
             [self publichState];
         }
+
     }];
 
 }
@@ -150,9 +150,14 @@
      + "&i_item=" + group);
      */
     UserModel* user = [TTUserModelTool sharedUserModelTool].logonUser;
-    NSString* lat = [NSString stringWithFormat:@"%.2f", _location.coordinate.latitude];
-    NSString* lon = [NSString stringWithFormat:@"%.2f", _location.coordinate.longitude];
-   
+    
+    NSString* lat = @"0";
+    NSString* lon = @"0";
+    if (_location != nil) {
+        lat = [NSString stringWithFormat:@"%.2f", _location.coordinate.latitude];
+        lon = [NSString stringWithFormat:@"%.2f", _location.coordinate.longitude];
+    }
+
     NSDictionary* parameters = @{
                                  @"i_uid": user.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
@@ -160,21 +165,18 @@
                                  @"i_pic": _picsPath,
                                  @"i_x":lat,
                                  @"i_y":lon,
-                                 @"i_sort":@"1",
+                                 @"i_sort":_sort,
                                  @"i_type":@"1",
-                                 @"i_month":@"6",
-                                 @"i_item":@"1",
+                                 @"i_month":[TTUserModelTool sharedUserModelTool].mouth,
+                                 @"i_item":[TTUserModelTool sharedUserModelTool].group,
                                  };
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:PUBLISH_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
-            if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                if (((NSMutableArray*)result_data).count!=0) {
-                    
-                }
-            }
+            [[[UIAlertView alloc]init] showAlert:@"发布成功" byTime:2.f];
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             if (result_status != ApiStatusNetworkNotReachable) {
                 [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
@@ -197,7 +199,25 @@
 }
 
 -(void)publichViewdidPublicTo:(TTPublichView *)view{
+    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择发布到:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
+    ac.view.backgroundColor = [UIColor whiteColor];
+    
+    UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"早教自拍" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        _sort = @"1";
+    }];
+    [ac addAction:action1];
+    UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"课程提问" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        ;
+         _sort = @"2";
+    }];
+    [ac addAction:action2];
+    UIAlertAction* action3 = [UIAlertAction actionWithTitle:@"宝宝生活" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        ;
+        _sort = @"3";
+    }];
+    [ac addAction:action3];
+    [self presentViewController:ac animated:YES completion:nil];
 }
 
 -(void)publichViewdidSelBiaoqing:(TTPublichView *)view{
