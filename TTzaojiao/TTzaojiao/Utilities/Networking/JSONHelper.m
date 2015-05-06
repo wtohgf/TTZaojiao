@@ -67,8 +67,15 @@
             id tmpModel = [BlogUserDynamicModel blogUserDynamicModelWithDict:(NSDictionary *)modelObj];
             if (tmpModel != nil) {
                 modelObj = tmpModel;
-                
             }
+        }
+            break;
+        case ApiEnumGet_VIP_PRICE:{
+            id tmpModel = [WoVipModel woVipModelWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
+
         }
             break;
         default:

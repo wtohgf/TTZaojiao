@@ -216,6 +216,54 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (0 == indexPath.section) {
+    }
+    else if (1 == indexPath.section) {
+        if (0 == indexPath.row) {
+        }
+        else if (1 == indexPath.row) {
+        }
+        else {
+        }
+    }
+    else if (2 == indexPath.section) {
+        [self performSegueWithIdentifier:@"vipSegue" sender:self];
+    }
+    else if (3 == indexPath.section) {
+        if (0 == indexPath.row) {
+        }
+        else if (1 == indexPath.row) {
+        }
+        else {
+        }
+    }
+    else if (4 == indexPath.section) {
+        if (0 == indexPath.row) {
+        }
+        else if (1 == indexPath.row) {
+        }
+        else {
+        }
+    }
+    else if (5 == indexPath.section) {
+        //        if (0 == indexPath.row) {
+        //        }
+        //        else {
+        
+        //        }
+    }
+    else {
+        if (0 == indexPath.row) {
+        }
+        else if (1 == indexPath.row) {
+        }
+        else {
+        }
+    }
+
+}
+
 #pragma UIAlertViewDelegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (LogoutAlertTag == alertView.tag) {
