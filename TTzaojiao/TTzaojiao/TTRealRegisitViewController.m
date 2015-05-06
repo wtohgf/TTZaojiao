@@ -180,7 +180,10 @@
 - (IBAction)changLocation:(UIButton *)sender {
     [_babyName resignFirstResponder];
     
-    TSLocateView *locateView = [[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
+    TSLocateView *locateView = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
+    locateView.titleLabel.text = @"定位城市";
+    locateView.delegate = self;
+    //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
     [locateView showInView:self.view];
 }
 

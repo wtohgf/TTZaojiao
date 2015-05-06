@@ -22,7 +22,7 @@
 
 @property (weak, nonatomic) UIView* backMaskView;
 
-- (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate;
+//- (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate;
 
 - (void)showInView:(UIView *)view;
 

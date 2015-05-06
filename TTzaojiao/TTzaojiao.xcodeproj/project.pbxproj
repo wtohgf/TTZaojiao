@@ -621,8 +621,8 @@
 			children = (
 				0FE830A61AF85EA100A15860 /* LaMaDetailViewController.h */,
 				0FE830AA1AF85ECA00A15860 /* LaMaDetailViewController.m */,
-				0FE830AC1AF8618400A15860 /* TTLaMaViewController.m */,
 				0FE830AE1AF8619300A15860 /* TTLaMaViewController.h */,
+				0FE830AC1AF8618400A15860 /* TTLaMaViewController.m */,
 				02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */,
 				020999D51AE91DC800093608 /* citydict.plist */,
 				020999D61AE91DC800093608 /* CityListViewController.h */,
