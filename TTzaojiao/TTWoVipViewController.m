@@ -63,20 +63,12 @@
 */
 
 - (IBAction)commitAction:(UIButton *)sender {
+//    PAY_BY_CARD
 }
 
 - (IBAction)alipayAction:(UIButton *)sender {
-    double delayInSeconds = 1.5;
-    
-    _payButton.enabled = NO;
-    
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        _payButton.enabled = YES;
-    });
-    //支付
-    [AlipayRequestConfig payWithProductName:@"课程名" productDescription:@"早教课程VIP服务" amount:@"0.8"];
+//    VIP_PRICE
+    [self performSegueWithIdentifier:@"vippriceSegue" sender:self];
 }
 
 @end

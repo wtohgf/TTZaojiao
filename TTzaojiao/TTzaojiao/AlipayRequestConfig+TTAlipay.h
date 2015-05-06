@@ -17,6 +17,6 @@
  *  @param productDescription 商品详情
  *  @param amount             总金额
  */
-+(void)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount;
++(NSString *)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount;
 
 @end

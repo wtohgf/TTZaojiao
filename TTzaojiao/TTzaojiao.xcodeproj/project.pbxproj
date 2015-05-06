@@ -49,6 +49,8 @@
 		02BFC56B1ADF7A3700D0DF30 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC55D1ADF7A3700D0DF30 /* libssl.a */; };
 		02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */; };
 		02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */; };
+		02FBF1211AFA38AE0009425A /* TTWoVipPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */; };
+		02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1241AFA3EE20009425A /* WoVipModel.m */; };
 		0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */; };
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
 		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
@@ -340,6 +342,10 @@
 		02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		02BFC5751ADF903500D0DF30 /* CoreDataStorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStorageController.h; sourceTree = "<group>"; };
 		02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStorageController.m; sourceTree = "<group>"; };
+		02FBF11F1AFA38AE0009425A /* TTWoVipPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoVipPriceViewController.h; sourceTree = "<group>"; };
+		02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoVipPriceViewController.m; sourceTree = "<group>"; };
+		02FBF1231AFA3EE20009425A /* WoVipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoVipModel.h; sourceTree = "<group>"; };
+		02FBF1241AFA3EE20009425A /* WoVipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoVipModel.m; sourceTree = "<group>"; };
 		0F6AE2E51AE7765B0004AD05 /* TTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabBarController.h; sourceTree = "<group>"; };
 		0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabBarController.m; sourceTree = "<group>"; };
 		0F7C06CA1AEA1B120020ACBA /* LamaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaModel.h; sourceTree = "<group>"; };
@@ -620,6 +626,8 @@
 				02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */,
 				023DEC711AFA103500DB082F /* TTWoVipViewController.h */,
 				023DEC721AFA103500DB082F /* TTWoVipViewController.m */,
+				02FBF11F1AFA38AE0009425A /* TTWoVipPriceViewController.h */,
+				02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -866,6 +874,15 @@
 			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
+		02FBF1221AFA3EB30009425A /* WoModel */ = {
+			isa = PBXGroup;
+			children = (
+				02FBF1231AFA3EE20009425A /* WoVipModel.h */,
+				02FBF1241AFA3EE20009425A /* WoVipModel.m */,
+			);
+			name = WoModel;
+			sourceTree = "<group>";
+		};
 		0F6AE2E41AE775B40004AD05 /* TabbarPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -906,6 +923,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				02FBF1221AFA3EB30009425A /* WoModel */,
 				0FAD38F21AEDDB9100644273 /* LamaModel */,
 				1D47550B1AEB3140004EDEED /* BlogModel */,
 				1DC7C5CF1AE632F300346732 /* RegSecond */,
@@ -1598,6 +1616,7 @@
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
+				02FBF1211AFA38AE0009425A /* TTWoVipPriceViewController.m in Sources */,
 				1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */,
 				0FE830A41AF85E5B00A15860 /* LamaTableViewCellModelFrame.m in Sources */,
 				02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
@@ -1651,6 +1670,7 @@
 				1D370B361AF2345100DF99CE /* MBProgressHUD+Add.m in Sources */,
 				1D3BC0D71AF8BA0E00E8BE72 /* EmojiTextAttachment.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
+				02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,

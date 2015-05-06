@@ -10,15 +10,18 @@
 
 @implementation AlipayRequestConfig (TTAlipay)
 
-+(void)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount {
++(NSString *)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount {
+    NSString *tradeNo = [AlipayToolKit genTradeNoWithTime];
     [AlipayRequestConfig alipayWithPartner:kPartnerID
                                     seller:kSellerAccount
-                                   tradeNO:[AlipayToolKit genTradeNoWithTime]
+                                   tradeNO:tradeNo
                                productName:productName
                         productDescription:productDescription
                                     amount:amount
                                  notifyURL:kNotifyURL
                                     itBPay:@"30m"];
+    
+    return tradeNo;
 }
 
 @end

@@ -431,9 +431,11 @@
                         if ([function rangeOfString:@"Get_List_User_Info"].length) {
                             api = ApiEnumGet_List_User_Info;
                         }
-                        
                         if ([function rangeOfString:@"Get_List_User_Blog"].length) {
                             api = ApiEnumGet_List_User_Blog;
+                        }
+                        if ([function rangeOfString:@"Get_List_Alipay_Price"].length) {
+                            api = ApiEnumGet_VIP_PRICE;
                         }
                         
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
