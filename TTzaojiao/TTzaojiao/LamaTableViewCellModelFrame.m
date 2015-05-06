@@ -50,7 +50,7 @@
     }
     _i_PicListFrame = CGRectMake(0, 0, width, height);
     _picListArray = picListArray;
-    _model.count = heightArray.count;
+    _model.count = (int)heightArray.count;
        
         
 //       //算公司描述
