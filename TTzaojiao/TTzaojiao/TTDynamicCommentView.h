@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TTCommentFrame.h"
 #import "UIImageView+MoreAttribute.h"
+#import "NSAttributedString+EmojiExtension.h"
 
 @interface TTDynamicCommentView : UIView
 @property (strong, nonatomic) TTCommentFrame* commentFrame;

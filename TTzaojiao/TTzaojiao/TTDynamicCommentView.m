@@ -59,7 +59,10 @@
     _name.text = comment.baby_name;
     _name.frame = commentFrame.nameLabelF;
     
-    _comment.text = comment.i_content;
+    
+    NSAttributedString* attrString = [NSAttributedString replaceEmojs:comment.i_content];
+    
+    [_comment setAttributedText:attrString];
     _comment.frame = commentFrame.contentLabelF;
     
     self.frame = commentFrame.comentViewF;

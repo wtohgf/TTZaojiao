@@ -4,7 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EmojiTextAttachment.h"
 
 @interface NSAttributedString (EmojiExtension)
 - (NSString *)getPlainString;
++ (instancetype)replaceEmojs:(NSString*)plainString;
 @end

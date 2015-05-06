@@ -22,8 +22,40 @@
                           base += ((EmojiTextAttachment *) value).emojiTag.length - 1;
                       }
                   }];
+    return [plainString stringByAppendingString:@" "];
+}
+
++(instancetype)replaceEmojs:(NSString *)plainString{
     
-    return plainString;
+    NSString* string = [plainString stringByReplacingOccurrencesOfString:@"&nbsp" withString:@" "];
+    string = [string stringByReplacingOccurrencesOfString:@"<br>" withString:@" "];
+    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc]initWithString:string];
+    
+    NSMutableString* tmpString = [plainString mutableCopy];
+    NSRange range = [tmpString rangeOfString:@"[expre_"];
+    while (range.location != NSNotFound) {
+        NSRange numrange;
+        numrange.location = range.location+range.length;
+        numrange.length  = 2;
+        NSString* numString = [tmpString substringWithRange:numrange];
+        
+        EmojiTextAttachment *emojiTextAttachment = [EmojiTextAttachment new];
+        
+        //Set emoji size
+        emojiTextAttachment.emojiSize = 16.f;
+        //Set tag and image
+        emojiTextAttachment.emojiTag = [NSString stringWithFormat:@"[expre_%@]", numString];
+        NSString* imageStr = [NSString stringWithFormat:@"expression_%@", numString];
+        emojiTextAttachment.image = [UIImage imageNamed:imageStr];
+        
+        NSRange allRange = {range.location, range.length+3};
+        [tmpString replaceCharactersInRange:allRange withString:@"t"];
+        [attrString deleteCharactersInRange:allRange];
+        [attrString insertAttributedString:[NSAttributedString attributedStringWithAttachment:emojiTextAttachment] atIndex:allRange.location];
+        range = [tmpString rangeOfString:@"[expre_"];
+    }
+    
+    return attrString;
 }
 
 @end

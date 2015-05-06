@@ -10,6 +10,7 @@
 #import "BlogModel.h"
 #import <UIImageView+AFNetworking.h>
 #import "UIImageView+MoreAttribute.h"
+#import "NSAttributedString+EmojiExtension.h"
 
 @interface TTDynamicUserStatusTopView()
 /** 配图 */
@@ -82,7 +83,10 @@
     _distancetime.text = blog.i_distance_time;
     _distancetime.frame = blogFrame.timeLabelF;
     
-    _content.text = blog.i_content;
+    NSAttributedString* attrString = [NSAttributedString replaceEmojs:blog.i_content];
+
+    [_content setAttributedText:attrString];
+    
     _content.frame = blogFrame.contentLabelF;
     
     self.frame = blogFrame.topViewF;
@@ -100,7 +104,10 @@
     _distancetime.text = blog.i_distance_time;
     _distancetime.frame = userblogFrame.timeLabelF;
     
-    _content.text = blog.i_content;
+    NSAttributedString* attrString = [NSAttributedString replaceEmojs:blog.i_content];
+    
+    [_content setAttributedText:attrString];
+
     _content.frame = userblogFrame.contentLabelF;
     
     self.frame = userblogFrame.topViewF;
