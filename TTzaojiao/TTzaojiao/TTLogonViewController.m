@@ -196,9 +196,9 @@
 #pragma mark 记住密码
 - (IBAction)savePasswordCheck:(UIButton *)sender {
     sender.selected = !sender.selected;
-    [[NSUserDefaults standardUserDefaults] setValue:_account.text forKey:@"account"];
-    [[NSUserDefaults standardUserDefaults] setValue:_password.text forKey:@"password"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setValue:_account.text forKey:@"account"];
+//    [[NSUserDefaults standardUserDefaults] setValue:_password.text forKey:@"password"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
 
