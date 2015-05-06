@@ -9,6 +9,7 @@
 #import "TTWoVipViewController.h"
 #import "AlipayRequestConfig+TTAlipay.h"
 #import <RDVTabBarController.h>
+#import "TTUserModelTool.h"
 
 @interface TTWoVipViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *accountTextFiled;
@@ -30,6 +31,12 @@
     _payButton.layer.borderWidth = 1;
     _payButton.layer.borderColor = (__bridge CGColorRef)([UIColor colorWithRed:0.710 green:0.251 blue:0.357 alpha:1.000]);
     _payButton.layer.cornerRadius = 20.f;
+    
+    NSString *account = [[[TTUserModelTool sharedUserModelTool] logonUser] name];
+    if (account != nil &&
+        ![account isEqualToString:@""]) {
+        _accountTextFiled.text = account;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated {
