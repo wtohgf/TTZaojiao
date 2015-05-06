@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UserModel* logonUser;
 @property (copy, nonatomic) NSString * password;
+@property (copy, nonatomic) NSString * account;
 
 -(NSString*)group;
 -(NSString*)mouth;

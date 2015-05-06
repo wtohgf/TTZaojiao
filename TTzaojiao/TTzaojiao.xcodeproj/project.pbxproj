@@ -190,6 +190,7 @@
 		1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDF4EB81AE3B712004661EB /* TSLocation.m */; };
 		1DF097E11AF8CBBE00033B7D /* NSAttributedString+EmojiExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF097DF1AF8CBBE00033B7D /* NSAttributedString+EmojiExtension.m */; };
 		1DF097E41AF9FEE400033B7D /* AlipayRequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF097E31AF9FEE300033B7D /* AlipayRequestConfig.m */; };
+		1DF097E71AFA618E00033B7D /* TTKeyChainTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF097E61AFA618E00033B7D /* TTKeyChainTool.m */; };
 		33B20F42452F1A1432ECAF26 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3C53EDF178EBFF1A8B6D88 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -573,6 +574,8 @@
 		1DF097E01AF8CBBE00033B7D /* NSAttributedString+EmojiExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+EmojiExtension.h"; sourceTree = "<group>"; };
 		1DF097E21AF9FEE300033B7D /* AlipayRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlipayRequestConfig.h; sourceTree = "<group>"; };
 		1DF097E31AF9FEE300033B7D /* AlipayRequestConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlipayRequestConfig.m; sourceTree = "<group>"; };
+		1DF097E51AFA618E00033B7D /* TTKeyChainTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKeyChainTool.h; sourceTree = "<group>"; };
+		1DF097E61AFA618E00033B7D /* TTKeyChainTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTKeyChainTool.m; sourceTree = "<group>"; };
 		3CDF8365E2437F4D88B10312 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6A3C53EDF178EBFF1A8B6D88 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7404E2B103E0516C53F26443 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -976,6 +979,8 @@
 				1D018E1B1AE1C91A00696F25 /* TTUserModelTool.m */,
 				1D57E1A61AE6E4A100EA3D35 /* TTCityMngTool.h */,
 				1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */,
+				1DF097E51AFA618E00033B7D /* TTKeyChainTool.h */,
+				1DF097E61AFA618E00033B7D /* TTKeyChainTool.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -1625,6 +1630,7 @@
 				1D370B3C1AF2345100DF99CE /* MJPhotoProgressView.m in Sources */,
 				1D370B3A1AF2345100DF99CE /* MJPhotoBrowser.m in Sources */,
 				1D3762921AF081A500CAAA05 /* UIView+NKMoreAttribute.m in Sources */,
+				1DF097E71AFA618E00033B7D /* TTKeyChainTool.m in Sources */,
 				1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */,
 				1D370B381AF2345100DF99CE /* MJPhoto.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
