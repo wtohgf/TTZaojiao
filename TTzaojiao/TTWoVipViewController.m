@@ -32,7 +32,7 @@
     _payButton.layer.borderColor = (__bridge CGColorRef)([UIColor colorWithRed:0.710 green:0.251 blue:0.357 alpha:1.000]);
     _payButton.layer.cornerRadius = 20.f;
     
-    NSString *account = [[[TTUserModelTool sharedUserModelTool] logonUser] name];
+    NSString *account = [[TTUserModelTool sharedUserModelTool] account];
     if (account != nil &&
         ![account isEqualToString:@""]) {
         _accountTextFiled.text = account;
@@ -64,6 +64,19 @@
 
 - (IBAction)commitAction:(UIButton *)sender {
 //    PAY_BY_CARD
+//    if ([_cardTextField.text isEqualToString:@""] || [_passwordTextField.text isEqualToString:@""]) {
+//
+//        return;
+//    }
+    
+    [[AFAppDotNetAPIClient sharedClient] apiGet:PAY_BY_CARD Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],@"i_psd":[[[TTUserModelTool sharedUserModelTool] logonUser] id_c],@"i_card":_cardTextField.text,@"i_password":_passwordTextField.text} Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[[result_data firstObject] objectForKey:@"msg_word"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
+        }
+        else {
+        }
+    }];
 }
 
 - (IBAction)alipayAction:(UIButton *)sender {

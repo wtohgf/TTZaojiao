@@ -346,20 +346,32 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="0Us-1a-8Ja" firstAttribute="bottom" secondItem="i79-Kp-SKp" secondAttribute="bottomMargin" id="JUh-TK-3ib"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0Us-1a-8Ja" secondAttribute="trailing" constant="73" id="Jcl-6l-xmn"/>
-                                                <constraint firstItem="0Us-1a-8Ja" firstAttribute="centerY" secondItem="i79-Kp-SKp" secondAttribute="centerY" id="VNz-1I-gtJ"/>
-                                                <constraint firstItem="0Us-1a-8Ja" firstAttribute="leading" secondItem="i79-Kp-SKp" secondAttribute="leadingMargin" constant="-7" id="du2-QF-Mjd"/>
+                                                <constraint firstItem="0Us-1a-8Ja" firstAttribute="top" secondItem="i79-Kp-SKp" secondAttribute="topMargin" id="BcC-pH-HJN"/>
+                                                <constraint firstItem="0Us-1a-8Ja" firstAttribute="leading" secondItem="i79-Kp-SKp" secondAttribute="leadingMargin" id="OAl-AP-bPh">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                                                </constraint>
+                                                <constraint firstItem="0Us-1a-8Ja" firstAttribute="bottom" secondItem="i79-Kp-SKp" secondAttribute="bottomMargin" id="R3J-qB-B7A"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0Us-1a-8Ja" secondAttribute="trailing" constant="-2" id="Xcs-51-CVs">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                                                </constraint>
+                                                <constraint firstItem="0Us-1a-8Ja" firstAttribute="leading" secondItem="i79-Kp-SKp" secondAttribute="leadingMargin" constant="-7" id="dCQ-WQ-fiI">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                                                </constraint>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0Us-1a-8Ja" secondAttribute="trailing" constant="-9" id="ns9-p3-LvZ">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
+                                                </constraint>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="0Us-1a-8Ja"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="JUh-TK-3ib"/>
-                                                    <exclude reference="Jcl-6l-xmn"/>
-                                                    <exclude reference="VNz-1I-gtJ"/>
-                                                    <exclude reference="du2-QF-Mjd"/>
+                                                    <exclude reference="BcC-pH-HJN"/>
+                                                    <exclude reference="OAl-AP-bPh"/>
+                                                    <exclude reference="R3J-qB-B7A"/>
+                                                    <exclude reference="Xcs-51-CVs"/>
+                                                    <exclude reference="dCQ-WQ-fiI"/>
+                                                    <exclude reference="ns9-p3-LvZ"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -367,10 +379,12 @@
                                                     <include reference="0Us-1a-8Ja"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="JUh-TK-3ib"/>
-                                                    <include reference="Jcl-6l-xmn"/>
-                                                    <include reference="VNz-1I-gtJ"/>
-                                                    <include reference="du2-QF-Mjd"/>
+                                                    <include reference="BcC-pH-HJN"/>
+                                                    <include reference="OAl-AP-bPh"/>
+                                                    <include reference="R3J-qB-B7A"/>
+                                                    <include reference="Xcs-51-CVs"/>
+                                                    <include reference="dCQ-WQ-fiI"/>
+                                                    <include reference="ns9-p3-LvZ"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
