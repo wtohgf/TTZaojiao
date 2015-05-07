@@ -437,6 +437,9 @@
                         if ([function rangeOfString:@"Get_List_Alipay_Price"].length) {
                             api = ApiEnumGet_VIP_PRICE;
                         }
+                        if ([function rangeOfString:@"Get_Pay_Card"].length) {
+                            api = ApiEnumGet_PAY_BY_CARD;
+                        }
                         
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             NSDictionary *modelDic = (NSDictionary *)obj;

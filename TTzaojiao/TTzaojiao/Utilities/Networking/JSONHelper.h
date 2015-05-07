@@ -31,7 +31,8 @@ typedef enum : NSUInteger {
     ApiEnumGet_List_Blog_Replay,  //一条blog的评论列表
     ApiEnumGet_List_User_Info,
     ApiEnumGet_List_User_Blog,
-    ApiEnumGet_VIP_PRICE
+    ApiEnumGet_VIP_PRICE,
+    ApiEnumGet_PAY_BY_CARD
 } ApiEnum;
 
 @interface JSONHelper : NSObject

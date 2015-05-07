@@ -78,6 +78,9 @@
 
         }
             break;
+        case ApiEnumGet_PAY_BY_CARD:{
+            modelObj = modelObj;
+        }
         default:
         {
             

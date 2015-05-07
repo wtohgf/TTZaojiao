@@ -10,6 +10,7 @@
 #import <RDVTabBarController.h>
 #import "AFAppDotNetAPIClient.h"
 #import "AlipayRequestConfig+TTAlipay.h"
+#import "UIAlertView+MoreAttribute.h"
 
 @interface TTWoVipPriceViewController ()
 @property (strong, nonatomic) NSMutableArray *list;
@@ -28,6 +29,7 @@
             [self.tableView reloadData];
         }
         else {
+            [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
         }
     }];
 }
@@ -58,7 +60,7 @@
 #pragma table view
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return _list.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,12 +68,12 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _list.count;
+    return 1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VipPriceCell"];
-    WoVipModel *model = (WoVipModel *)[_list objectAtIndex:indexPath.row];
+    WoVipModel *model = (WoVipModel *)[_list objectAtIndex:indexPath.section];
     cell.textLabel.text = [NSString stringWithFormat:@"%@个月VIP早教服务",model.i_month];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@元",model.i_price];
     return cell;
@@ -81,7 +83,7 @@
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 1:
         {
             NSString *tradeNo = [AlipayRequestConfig payWithProductName:@"课程名1" productDescription:@"早教课程VIP服务" amount:@"81"];

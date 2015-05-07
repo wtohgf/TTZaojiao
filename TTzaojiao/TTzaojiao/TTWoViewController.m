@@ -48,9 +48,6 @@
 #endif
 }
 
-- (IBAction)rightButtonItemAction:(UIButton *)sender {
-}
-
 /*
 #pragma mark - Navigation
 
@@ -255,8 +252,10 @@
     }
     else {
         if (0 == indexPath.row) {
+            [self performSegueWithIdentifier:@"personalSegue" sender:self];
         }
         else if (1 == indexPath.row) {
+            [self performSegueWithIdentifier:@"passwordSegue" sender:self];
         }
         else {
         }
