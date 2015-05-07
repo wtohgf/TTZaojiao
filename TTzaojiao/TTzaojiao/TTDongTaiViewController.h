@@ -13,7 +13,8 @@
 #import "TTDynamicUserStatusTopView.h"
 #import "TTDynamicSidebarViewController.h"
 #import "TTDaynamicUserStatusZancountView.h"
+#import "TTDyanmicUserStautsCell.h"
 
-@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDynamicCommentsViewDelegate, TTDynamicUserStatusTopViewDelegate, TTDynamicSidebarViewControllerDelegate,TTDaynamicUserStatusZancountViewDelegate>
+@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDyanmicUserStautsCellDelegate, TTDynamicSidebarViewControllerDelegate>
 
 @end

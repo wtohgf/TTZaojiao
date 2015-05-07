@@ -12,14 +12,12 @@
 #import "BlogUserDynamicModel.h"
 #import "TTUserBlogFrame.h"
 
-@protocol TTDaynamicUserStatusZancountViewDelegate <NSObject>
--(void)daynamicUserStatusZanClicked:(NSString*)blogid;
--(void)daynamicUserStatusRemsgClicked:(NSString*)blogid;
-@end
-
 @interface TTDaynamicUserStatusZancountView : UIView
 @property (strong, nonatomic) TTBlogFrame* blogFrame;
 @property (strong, nonatomic) TTUserBlogFrame* userblogFrame;
 
-@property (weak, nonatomic) id<TTDaynamicUserStatusZancountViewDelegate> delegate;
+
+@property (weak, nonatomic) UIButton* remsgBtn;
+@property (weak, nonatomic) UIButton* zanBtn;
+
 @end

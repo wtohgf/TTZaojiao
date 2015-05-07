@@ -15,8 +15,10 @@
     [showAllBtn setTitle:title forState:UIControlStateNormal];
     [showAllBtn setTitleColor:[UIColor colorWithRed:51.f/255.f green:144.f/255.f blue:207.f/255.f alpha:1.f] forState:UIControlStateNormal];
     [showAllBtn setTitleColor:[UIColor colorWithRed:245.f/255.f green:245.f/255.f blue:245.f/255.f alpha:1.f] forState:UIControlStateHighlighted];
-    [showAllBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    
+    if (target != nil) {
+        [showAllBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+
+    }
     return showAllBtn;
 }
 @end

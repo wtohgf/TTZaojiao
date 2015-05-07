@@ -14,6 +14,16 @@
 #import "TTDynamicCommentsView.h"
 #import "TTCommentFrame.h"
 
+@protocol TTDyanmicUserStautsCellDelegate<NSObject>
+-(void)dynamicUserStatusTopView:(TTDynamicUserStatusTopView*)view didIconTaped:(NSString*)uid;
+
+-(void)daynamicUserStatusZanClicked:(NSString*)blogid;
+-(void)daynamicUserStatusRemsgClicked:(NSString*)blogid;
+
+-(void)dynamicCommentsView:(TTDynamicCommentsView*)dynamicCommentsView didShowCommentList:(NSString*)blog_id;
+@end
+
+
 @interface TTDyanmicUserStautsCell : UITableViewCell
 
 @property (weak, nonatomic) TTDynamicUserStatusTopView* topView;
@@ -24,4 +34,7 @@
 @property (strong, nonatomic) NSArray* commentsFrame;
 
 +(instancetype)dyanmicUserStautsCellWithTableView:(UITableView *)tableView;
+
+
+@property (weak, nonatomic) id<TTDyanmicUserStautsCellDelegate> delegate;
 @end

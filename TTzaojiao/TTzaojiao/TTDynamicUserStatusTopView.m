@@ -29,8 +29,6 @@
         [self addSubview:iconView];
         _iconView = iconView;
         iconView.userInteractionEnabled = YES;
-        [iconView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)]];
-        
         
         //昵称
         UILabel* name = [[UILabel alloc]init];
@@ -57,13 +55,6 @@
         //配图
     }
     return self;
-}
-
-- (void)iconTap:(UITapGestureRecognizer *)recognizer
-{
-    if ([_delegate respondsToSelector:@selector(dynamicUserStatusTopView:didIconTaped:)]) {
-        [_delegate dynamicUserStatusTopView:self didIconTaped:_blogFrame.blog.i_uid];
-    }
 }
 
 

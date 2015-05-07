@@ -9,7 +9,6 @@
 #import "TTDongTaiViewController.h"
 #import "BlogModel.h"
 #import "TTBlogFrame.h"
-#import "TTDyanmicUserStautsCell.h"
 #import "TTCommentListViewController.h"
 #import "TTUserDongtaiViewController.h"
 
@@ -214,9 +213,8 @@
     frame.blog = _blogs[indexPath.row];
     cell.blogFrame = frame;
     //评论列表View的代理 响应查看全部按钮代理方法
-    cell.commentsView.delegate = self;
-    cell.topView.delegate = self;
-    cell.zanCountView.delegate = self;
+    cell.delegate = self;
+
     return cell;
 }
 
@@ -270,6 +268,7 @@
 -(void)dynamicCommentsView:(TTDynamicCommentsView *)dynamicCommentsView didShowCommentList:(NSString *)blog_id{
     [self performSegueWithIdentifier:@"toCommentList" sender:blog_id];
 }
+
 #pragma mark 头像点击代理
 -(void)dynamicUserStatusTopView:(TTDynamicUserStatusTopView *)view didIconTaped:(NSString *)uid{
     [self performSegueWithIdentifier:@"toUserDynamic" sender:uid];
