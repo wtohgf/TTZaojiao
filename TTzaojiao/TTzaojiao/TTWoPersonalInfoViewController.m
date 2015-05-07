@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *accountTextFeild;
 @property (strong, nonatomic) IBOutlet UITextField *nameTextFeild;
 @property (strong, nonatomic) IBOutlet UIButton *commitButton;
+@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
 @end
 
@@ -52,6 +53,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)rightAction:(id)sender {
+#ifdef DEBUG
+    NSLog(@"right button item action");
+#endif
+}
 
 - (IBAction)commitAction:(UIButton *)sender {
 }

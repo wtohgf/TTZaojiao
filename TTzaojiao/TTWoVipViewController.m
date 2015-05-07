@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UIButton *commitButton;
 @property (strong, nonatomic) IBOutlet UIButton *payButton;
+@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
 @end
 
@@ -50,6 +51,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)rightAction:(id)sender {
+#ifdef DEBUG
+    NSLog(@"right button item action");
+#endif
 }
 
 /*

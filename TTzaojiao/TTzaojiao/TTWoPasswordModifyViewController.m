@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *nnewTextField;
 @property (strong, nonatomic) IBOutlet UITextField *confirmTextField;
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
+@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
 @end
 
@@ -50,6 +51,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)rightAction:(id)sender {
+#ifdef DEBUG
+    NSLog(@"right button item action");
+#endif
+}
 
 - (IBAction)confirmAction:(UIButton *)sender {
 }

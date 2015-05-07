@@ -48,9 +48,6 @@
 #endif
 }
 
-- (IBAction)rightButtonItemAction:(UIButton *)sender {
-}
-
 /*
 #pragma mark - Navigation
 
