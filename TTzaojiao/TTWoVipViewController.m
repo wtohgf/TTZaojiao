@@ -64,11 +64,6 @@
 
 - (IBAction)commitAction:(UIButton *)sender {
 //    PAY_BY_CARD
-//    if ([_cardTextField.text isEqualToString:@""] || [_passwordTextField.text isEqualToString:@""]) {
-//
-//        return;
-//    }
-    
     [[AFAppDotNetAPIClient sharedClient] apiGet:PAY_BY_CARD Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],@"i_psd":[[[TTUserModelTool sharedUserModelTool] logonUser] id_c],@"i_card":_cardTextField.text,@"i_password":_passwordTextField.text} Result:^(id result_data, ApiStatus result_status, NSString *api) {
         if (result_status == ApiStatusSuccess) {
             [[[UIAlertView alloc] init] showWithTitle:@"" message:[[result_data firstObject] objectForKey:@"msg_word"] cancelButtonTitle:@"重试一下"];
