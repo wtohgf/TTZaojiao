@@ -10,6 +10,7 @@
 #import <RDVTabBarController.h>
 #import "AFAppDotNetAPIClient.h"
 #import "AlipayRequestConfig+TTAlipay.h"
+#import "UIAlertView+MoreAttribute.h"
 
 @interface TTWoVipPriceViewController ()
 @property (strong, nonatomic) NSMutableArray *list;
@@ -28,6 +29,7 @@
             [self.tableView reloadData];
         }
         else {
+            [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
         }
     }];
 }

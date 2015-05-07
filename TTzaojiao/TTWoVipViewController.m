@@ -71,10 +71,10 @@
     
     [[AFAppDotNetAPIClient sharedClient] apiGet:PAY_BY_CARD Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],@"i_psd":[[[TTUserModelTool sharedUserModelTool] logonUser] id_c],@"i_card":_cardTextField.text,@"i_password":_passwordTextField.text} Result:^(id result_data, ApiStatus result_status, NSString *api) {
         if (result_status == ApiStatusSuccess) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[[result_data firstObject] objectForKey:@"msg_word"] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-            [alert show];
+            [[[UIAlertView alloc] init] showWithTitle:@"" message:[[result_data firstObject] objectForKey:@"msg_word"] cancelButtonTitle:@"重试一下"];
         }
         else {
+            [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
         }
     }];
 }
