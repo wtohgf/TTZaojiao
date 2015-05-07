@@ -11,6 +11,7 @@
 #import <UIImageView+AFNetworking.h>
 #import "UIImageView+MoreAttribute.h"
 #import "NSAttributedString+EmojiExtension.h"
+#import "NSString+Extension.h"
 
 @interface TTDynamicUserStatusTopView()
 /** 配图 */
@@ -80,7 +81,11 @@
     _name.text = blog.baby_name;
     _name.frame = blogFrame.nameLabelF;
     
-    _distancetime.text = blog.i_distance_time;
+    NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate* date = [formatter dateFromString:blog.i_distance_time];
+    
+    _distancetime.text = [NSString compareCurrentTime:date];
     _distancetime.frame = blogFrame.timeLabelF;
     
     NSAttributedString* attrString = [NSAttributedString replaceEmojs:blog.i_content];

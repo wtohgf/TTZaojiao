@@ -17,7 +17,7 @@
 
 - (void)showAlert:(NSString *) message byTime:(CGFloat) time
 {
-    UIAlertView *promptAlert = [[UIAlertView alloc] initWithTitle:@"友情提示" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    UIAlertView *promptAlert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
     
     [NSTimer scheduledTimerWithTimeInterval:time
                                      target:self

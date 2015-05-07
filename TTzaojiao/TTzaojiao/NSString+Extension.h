@@ -10,4 +10,8 @@
 #import <UIKit/UIKit.h>
 @interface NSString (Extension)
 -(CGSize)sizeWithMaxSize:(CGSize)maxSize andFont:(UIFont*)font;
+
++(NSString *) compareCurrentTime:(NSDate*) compareDate;
++(NSString *) getMounthOfDate:(NSDate*) compareDate;
+
 @end

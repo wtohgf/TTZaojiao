@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-typedef void(^actionLocationBlock)(CLLocation* location);
+typedef void(^actionLocationBlock)(CLLocation* location, NSError* error);
 
 @interface TTCityMngTool : NSObject<CLLocationManagerDelegate>
 +(instancetype)sharedCityMngTool;

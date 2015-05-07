@@ -7,6 +7,7 @@
 //
 
 #import "TTDynamicSidebarViewController.h"
+#import "TTUserModelTool.h"
 
 @interface TTDynamicSidebarViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UITableView* menuTableView;
@@ -131,7 +132,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    NSString * group = [NSString stringWithFormat:@"%ld", indexPath.row];
+    if ([_delegate respondsToSelector:@selector(didselAgeGroup:)]) {
+        [_delegate didselAgeGroup:group];
+    }
     [self showHideSidebar];
     
 }

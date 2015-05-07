@@ -24,6 +24,8 @@
         remsgBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _remsgBtn = remsgBtn;
         
+        [remsgBtn addTarget:self action:@selector(remsg:) forControlEvents:UIControlEventTouchUpInside];
+        
         //赞
         UIButton* zanBtn = [[UIButton alloc]init];
         [zanBtn setImage:[UIImage imageNamed:@"icon_praise"] forState:UIControlStateNormal];
@@ -31,8 +33,30 @@
         zanBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _zanBtn = zanBtn;
         
+        [zanBtn addTarget:self action:@selector(zan:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return self;
+}
+
+-(void)remsg:(UIButton*)sender{
+    if ([_delegate respondsToSelector:@selector(daynamicUserStatusRemsgClicked:)]) {
+        
+        if (_blogFrame.blog != nil) {
+            BlogModel* blog = _blogFrame.blog;
+            [_delegate daynamicUserStatusRemsgClicked:blog.id];
+        }
+        
+    }
+}
+
+-(void)zan:(UIButton*)sender{
+    if ([_delegate respondsToSelector:@selector(daynamicUserStatusZanClicked:)]) {
+        if (_blogFrame.blog != nil) {
+            BlogModel* blog = _blogFrame.blog;
+            [_delegate daynamicUserStatusZanClicked:blog.id];
+        }
+    }
 }
 
 -(void)setBlogFrame:(TTBlogFrame *)blogFrame{

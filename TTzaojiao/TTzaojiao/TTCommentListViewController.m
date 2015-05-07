@@ -216,7 +216,7 @@
 
 -(void)didReplayButtonClick{
     if (_replayView.commentTextField.text.length != 0) {
-        [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location) {
+        [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError* error) {
             _location = location;
             [self replayComment];
         }];
@@ -226,9 +226,12 @@
 
 -(void)replayComment{
     UserModel* user = [TTUserModelTool sharedUserModelTool].logonUser;
-    NSString* lat = [NSString stringWithFormat:@"%.2f", _location.coordinate.latitude];
-    NSString* lon = [NSString stringWithFormat:@"%.2f", _location.coordinate.longitude];
-    
+    NSString* lat = @"0";
+    NSString* lon = @"0";
+    if (_location != nil) {
+        lat = [NSString stringWithFormat:@"%.2f", _location.coordinate.latitude];
+        lon = [NSString stringWithFormat:@"%.2f", _location.coordinate.longitude];
+    }
     NSDictionary* parameters = @{
                                  @"i_uid": user.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,

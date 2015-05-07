@@ -146,7 +146,13 @@ static TTCityMngTool* tool;
     [_locationManager stopUpdatingLocation];
     
     CLLocation *newLocation = [locations lastObject];
-    _locationBlock(newLocation);
+    _locationBlock(newLocation, nil);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    [_locationManager stopUpdatingLocation];
+  
+    _locationBlock(nil, error);
 }
 
 @end

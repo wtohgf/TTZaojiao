@@ -7,8 +7,8 @@
 //
 
 #import "TTLogonViewController.h"
-
 #import "TTTabBarController.h"
+#import "TTKeyChainTool.h"
 
 @interface TTLogonViewController ()
 {
@@ -39,10 +39,6 @@
     //注册键盘通知
     [self addKeyNotification];
    
-    
-    _account.text = @"13381109915";
-    _password.text = @"123456";
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -52,10 +48,17 @@
 
 #pragma mark 设置记住的用户名密码
 -(void)userRecord {
-    _account.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"account"];
-    _password.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
-    if (![_password.text isEqualToString:@""]) {
+//    _account.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"account"];
+//    _password.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
+//    if (![_password.text isEqualToString:@""]) {
+//        _savePassworkCheckButton.selected = YES;
+//    }
+    
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[TTKeyChainTool load:KEY_USERNAME_PASSWORD];
+    if (usernamepasswordKVPairs != nil) {
         _savePassworkCheckButton.selected = YES;
+        _account.text = [usernamepasswordKVPairs objectForKey:KEY_USERNAME];;
+        _password.text = [usernamepasswordKVPairs objectForKey:KEY_PASSWORD];
     }
 }
 #pragma mark 设置记住密码按钮
@@ -148,6 +151,7 @@
                     UserModel* user = result_data[0];
                     [TTUserModelTool sharedUserModelTool].logonUser = user;
                     [TTUserModelTool sharedUserModelTool].password = user.id_c;
+                    [TTUserModelTool sharedUserModelTool].account = account;
                     NSLog(@"%@ %@", user.name, user.icon);
                     
                     
@@ -165,6 +169,12 @@
                     if(_savePassworkCheckButton.selected == YES)
                     {
                         
+                        NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
+                        [usernamepasswordKVPairs setObject:_account.text forKey:KEY_USERNAME];
+                        [usernamepasswordKVPairs setObject:_password.text forKey:KEY_PASSWORD];
+                        [TTKeyChainTool save:KEY_USERNAME_PASSWORD data:usernamepasswordKVPairs];
+                    }else{
+                        [TTKeyChainTool delete:KEY_USERNAME_PASSWORD];
                     }
                 }
                 
