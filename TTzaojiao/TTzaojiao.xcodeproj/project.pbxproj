@@ -51,6 +51,8 @@
 		02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */; };
 		02FBF1211AFA38AE0009425A /* TTWoVipPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */; };
 		02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1241AFA3EE20009425A /* WoVipModel.m */; };
+		02FBF12C1AFB26B70009425A /* TTWoPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */; };
+		02FBF1331AFB2A130009425A /* TTWoPasswordModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */; };
 		0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */; };
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
 		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
@@ -347,6 +349,10 @@
 		02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoVipPriceViewController.m; sourceTree = "<group>"; };
 		02FBF1231AFA3EE20009425A /* WoVipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoVipModel.h; sourceTree = "<group>"; };
 		02FBF1241AFA3EE20009425A /* WoVipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoVipModel.m; sourceTree = "<group>"; };
+		02FBF12A1AFB26B70009425A /* TTWoPersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoPersonalInfoViewController.h; sourceTree = "<group>"; };
+		02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoPersonalInfoViewController.m; sourceTree = "<group>"; };
+		02FBF1311AFB2A130009425A /* TTWoPasswordModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoPasswordModifyViewController.h; sourceTree = "<group>"; };
+		02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoPasswordModifyViewController.m; sourceTree = "<group>"; };
 		0F6AE2E51AE7765B0004AD05 /* TTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabBarController.h; sourceTree = "<group>"; };
 		0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabBarController.m; sourceTree = "<group>"; };
 		0F7C06CA1AEA1B120020ACBA /* LamaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaModel.h; sourceTree = "<group>"; };
@@ -631,6 +637,10 @@
 				023DEC721AFA103500DB082F /* TTWoVipViewController.m */,
 				02FBF11F1AFA38AE0009425A /* TTWoVipPriceViewController.h */,
 				02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */,
+				02FBF12A1AFB26B70009425A /* TTWoPersonalInfoViewController.h */,
+				02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */,
+				02FBF1311AFB2A130009425A /* TTWoPasswordModifyViewController.h */,
+				02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1636,6 +1646,7 @@
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1D370AEA1AF1179500DF99CE /* TTDynamicUserStatusHeaderView.m in Sources */,
 				1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */,
+				02FBF1331AFB2A130009425A /* TTWoPasswordModifyViewController.m in Sources */,
 				1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */,
 				1D370B3E1AF2345100DF99CE /* MJPhotoView.m in Sources */,
 				1D3BC0671AF76F5B00E8BE72 /* TTPublichPicsView.m in Sources */,
@@ -1692,6 +1703,7 @@
 				02240CA01AE639DC00EEB7AF /* TTZaojiaoViewController.m in Sources */,
 				02BFC5611ADF7A3700D0DF30 /* DataSigner.m in Sources */,
 				1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */,
+				02FBF12C1AFB26B70009425A /* TTWoPersonalInfoViewController.m in Sources */,
 				1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */,
 				1D3BC07D1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeysPageFlowLayout.m in Sources */,
 				02BFC5631ADF7A3700D0DF30 /* MD5DataSigner.m in Sources */,
