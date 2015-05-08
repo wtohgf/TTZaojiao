@@ -30,6 +30,7 @@
 		02442BC41AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
 		02442BC51AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
 		025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */; };
+		025A78541AFC99D1006581A7 /* TTWoIconModiyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */; };
 		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
 		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
 		02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E91ADF668100D0DF30 /* JSONHelper.m */; };
@@ -50,6 +51,8 @@
 		02BFC56B1ADF7A3700D0DF30 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC55D1ADF7A3700D0DF30 /* libssl.a */; };
 		02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */; };
 		02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */; };
+		02D144FB1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */; };
+		02D144FC1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */; };
 		02FBF1211AFA38AE0009425A /* TTWoVipPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */; };
 		02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1241AFA3EE20009425A /* WoVipModel.m */; };
 		02FBF12C1AFB26B70009425A /* TTWoPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */; };
@@ -235,6 +238,8 @@
 		02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicSidebarViewController.m; sourceTree = "<group>"; };
 		025A784B1AFC8A86006581A7 /* MBProgressHUD+TTHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TTHud.h"; sourceTree = "<group>"; };
 		025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TTHud.m"; sourceTree = "<group>"; };
+		025A78521AFC99D1006581A7 /* TTWoIconModiyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoIconModiyViewController.h; sourceTree = "<group>"; };
+		025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoIconModiyViewController.m; sourceTree = "<group>"; };
 		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
 		02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
@@ -348,6 +353,8 @@
 		02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		02BFC5751ADF903500D0DF30 /* CoreDataStorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStorageController.h; sourceTree = "<group>"; };
 		02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStorageController.m; sourceTree = "<group>"; };
+		02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoIconTableViewCell.h; sourceTree = "<group>"; };
+		02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoIconTableViewCell.m; sourceTree = "<group>"; };
 		02FBF11F1AFA38AE0009425A /* TTWoVipPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoVipPriceViewController.h; sourceTree = "<group>"; };
 		02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoVipPriceViewController.m; sourceTree = "<group>"; };
 		02FBF1231AFA3EE20009425A /* WoVipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoVipModel.h; sourceTree = "<group>"; };
@@ -630,6 +637,8 @@
 				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
 				02240CA71AE63A1900EEB7AF /* TTWoViewController.h */,
 				02240CA81AE63A1900EEB7AF /* TTWoViewController.m */,
+				02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */,
+				02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */,
 				02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */,
 				02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */,
 				02041B811AE8BD1E00B09561 /* TTWoButtonTableViewCell.h */,
@@ -644,6 +653,8 @@
 				02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */,
 				02FBF1311AFB2A130009425A /* TTWoPasswordModifyViewController.h */,
 				02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */,
+				025A78521AFC99D1006581A7 /* TTWoIconModiyViewController.h */,
+				025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1698,6 +1709,7 @@
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1D370AEF1AF1DACF00DF99CE /* BlogUserDynamicModel.m in Sources */,
+				02D144FB1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */,
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
 				0FE830AB1AF85ECA00A15860 /* LaMaDetailViewController.m in Sources */,
 				0FE830A91AF85EC100A15860 /* LaMaDetailModel.m in Sources */,
@@ -1736,6 +1748,7 @@
 				023DEC731AFA103500DB082F /* TTWoVipViewController.m in Sources */,
 				1D3BC0611AF7599D00E8BE72 /* TTPublichView.m in Sources */,
 				1DD95FB81AED0CB100C15215 /* TTDongTaiViewController.m in Sources */,
+				025A78541AFC99D1006581A7 /* TTWoIconModiyViewController.m in Sources */,
 				0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */,
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				1D3BC07B1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
@@ -1758,6 +1771,7 @@
 				02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				02442BC11AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
+				02D144FC1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */,
 				020999DB1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02041B801AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */,

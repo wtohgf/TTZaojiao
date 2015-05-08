@@ -12,13 +12,14 @@
 #import "TTWoButtonTableViewCell.h"
 #import "TTWoBackTableViewCell.h"
 #import "TTUserDongtaiViewController.h"
+#import "TTWoIconTableViewCell.h"
 
 #define LogoutAlertTag 19001
 
 @interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
-
+@property (strong, nonatomic) UIImageView *myIconView;
 @end
 
 @implementation TTWoViewController
@@ -36,6 +37,7 @@
         alert.tag = LogoutAlertTag;
         [alert show];
     };
+    [_myIconView setImageIcon:[[[TTUserModelTool sharedUserModelTool] logonUser] icon]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +50,14 @@
     TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
     [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
     [self.navigationController pushViewController:userViewController animated:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableview reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self.tableview reloadData];
 }
 
 /*
@@ -113,7 +123,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (0 == indexPath.section) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell"];
+        TTWoIconTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserCell"];
+        cell.textLabel.text = [[[TTUserModelTool sharedUserModelTool] logonUser] name];
+        [cell.imageView setImageIcon:[[[TTUserModelTool sharedUserModelTool] logonUser] icon]];
         return cell;
     }
     else if (1 == indexPath.section) {
@@ -217,6 +229,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 == indexPath.section) {
+        [self performSegueWithIdentifier:@"iconSegue" sender:self];
     }
     else if (1 == indexPath.section) {
         if (0 == indexPath.row) {
@@ -243,6 +256,10 @@
         else if (1 == indexPath.row) {
         }
         else {
+            UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+            TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
+            [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
+            [self.navigationController pushViewController:userViewController animated:YES];
         }
     }
     else if (5 == indexPath.section) {
