@@ -29,6 +29,8 @@
 		02442BC11AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */; };
 		02442BC41AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
 		02442BC51AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
+		025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */; };
+		025A78541AFC99D1006581A7 /* TTWoIconModiyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */; };
 		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
 		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
 		02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E91ADF668100D0DF30 /* JSONHelper.m */; };
@@ -49,6 +51,8 @@
 		02BFC56B1ADF7A3700D0DF30 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC55D1ADF7A3700D0DF30 /* libssl.a */; };
 		02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */; };
 		02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */; };
+		02D144FB1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */; };
+		02D144FC1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */; };
 		02FBF1211AFA38AE0009425A /* TTWoVipPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */; };
 		02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1241AFA3EE20009425A /* WoVipModel.m */; };
 		02FBF12C1AFB26B70009425A /* TTWoPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */; };
@@ -57,6 +61,9 @@
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
 		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
 		0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */; };
+		0FCB300C1AFC907D005F00C7 /* LamaTableViewCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */; };
+		0FCB300F1AFC90A2005F00C7 /* LamaTableViewCellContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */; };
+		0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */; };
 		0FE8309C1AF85CF600A15860 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309B1AF85CF600A15860 /* NSString+Extension.m */; };
 		0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */; };
 		0FE830A21AF85DE800A15860 /* LamaTableViewCellPicList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */; };
@@ -235,6 +242,10 @@
 		02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBlurSidebar.m; sourceTree = "<group>"; };
 		02442BC21AF8723E00AF8DDC /* TTDynamicSidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicSidebarViewController.h; sourceTree = "<group>"; };
 		02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicSidebarViewController.m; sourceTree = "<group>"; };
+		025A784B1AFC8A86006581A7 /* MBProgressHUD+TTHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TTHud.h"; sourceTree = "<group>"; };
+		025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TTHud.m"; sourceTree = "<group>"; };
+		025A78521AFC99D1006581A7 /* TTWoIconModiyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoIconModiyViewController.h; sourceTree = "<group>"; };
+		025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoIconModiyViewController.m; sourceTree = "<group>"; };
 		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
 		02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
@@ -348,6 +359,8 @@
 		02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		02BFC5751ADF903500D0DF30 /* CoreDataStorageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStorageController.h; sourceTree = "<group>"; };
 		02BFC5761ADF903500D0DF30 /* CoreDataStorageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStorageController.m; sourceTree = "<group>"; };
+		02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoIconTableViewCell.h; sourceTree = "<group>"; };
+		02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoIconTableViewCell.m; sourceTree = "<group>"; };
 		02FBF11F1AFA38AE0009425A /* TTWoVipPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoVipPriceViewController.h; sourceTree = "<group>"; };
 		02FBF1201AFA38AE0009425A /* TTWoVipPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoVipPriceViewController.m; sourceTree = "<group>"; };
 		02FBF1231AFA3EE20009425A /* WoVipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoVipModel.h; sourceTree = "<group>"; };
@@ -364,6 +377,12 @@
 		0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTotalModel.m; sourceTree = "<group>"; };
 		0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCell.h; sourceTree = "<group>"; };
 		0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCell.m; sourceTree = "<group>"; };
+		0FCB300A1AFC907D005F00C7 /* LamaTableViewCellLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellLabel.h; sourceTree = "<group>"; };
+		0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellLabel.m; sourceTree = "<group>"; };
+		0FCB300D1AFC90A2005F00C7 /* LamaTableViewCellContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellContact.h; sourceTree = "<group>"; };
+		0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellContact.m; sourceTree = "<group>"; };
+		0FCB30101AFC90B9005F00C7 /* LamaTableViewCellContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellContent.h; sourceTree = "<group>"; };
+		0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellContent.m; sourceTree = "<group>"; };
 		0FE8309A1AF85CF600A15860 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		0FE8309B1AF85CF600A15860 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellNameAndPic.m; sourceTree = "<group>"; };
@@ -636,6 +655,8 @@
 				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
 				02240CA71AE63A1900EEB7AF /* TTWoViewController.h */,
 				02240CA81AE63A1900EEB7AF /* TTWoViewController.m */,
+				02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */,
+				02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */,
 				02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */,
 				02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */,
 				02041B811AE8BD1E00B09561 /* TTWoButtonTableViewCell.h */,
@@ -650,6 +671,8 @@
 				02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */,
 				02FBF1311AFB2A130009425A /* TTWoPasswordModifyViewController.h */,
 				02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */,
+				025A78521AFC99D1006581A7 /* TTWoIconModiyViewController.h */,
+				025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -988,6 +1011,8 @@
 				1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */,
 				023DEC6B1AFA0F5E00DB082F /* AlipayRequestConfig+TTAlipay.h */,
 				023DEC6C1AFA0F5E00DB082F /* AlipayRequestConfig+TTAlipay.m */,
+				025A784B1AFC8A86006581A7 /* MBProgressHUD+TTHud.h */,
+				025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -1028,6 +1053,12 @@
 				0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */,
 				0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicList.h */,
 				0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */,
+				0FCB300A1AFC907D005F00C7 /* LamaTableViewCellLabel.h */,
+				0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */,
+				0FCB300D1AFC90A2005F00C7 /* LamaTableViewCellContact.h */,
+				0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */,
+				0FCB30101AFC90B9005F00C7 /* LamaTableViewCellContent.h */,
+				0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1686,6 +1717,7 @@
 				020999DA1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
 				0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */,
+				025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */,
 				1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */,
 				1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */,
 				1D3762881AF038BD00CAAA05 /* TTCommentListViewController.m in Sources */,
@@ -1707,6 +1739,7 @@
 				0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
+				0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */,
 				1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */,
 				1D3762951AF0C76200CAAA05 /* TTUserDongtaiViewController.m in Sources */,
 				1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */,
@@ -1725,6 +1758,7 @@
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1D370AEF1AF1DACF00DF99CE /* BlogUserDynamicModel.m in Sources */,
+				02D144FB1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */,
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
 				0FE830AB1AF85ECA00A15860 /* LaMaDetailViewController.m in Sources */,
 				0FE830A91AF85EC100A15860 /* LaMaDetailModel.m in Sources */,
@@ -1764,15 +1798,18 @@
 				023DEC731AFA103500DB082F /* TTWoVipViewController.m in Sources */,
 				1D3BC0611AF7599D00E8BE72 /* TTPublichView.m in Sources */,
 				1DD95FB81AED0CB100C15215 /* TTDongTaiViewController.m in Sources */,
+				025A78541AFC99D1006581A7 /* TTWoIconModiyViewController.m in Sources */,
 				0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */,
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				1D3BC07B1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
 				02BFC5621ADF7A3700D0DF30 /* DataVerifier.m in Sources */,
+				0FCB300F1AFC90A2005F00C7 /* LamaTableViewCellContact.m in Sources */,
 				1D37628F1AF07FA600CAAA05 /* TTCommentRelaseView.m in Sources */,
 				1DF097E41AF9FEE400033B7D /* AlipayRequestConfig.m in Sources */,
 				1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */,
 				1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */,
 				1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */,
+				0FCB300C1AFC907D005F00C7 /* LamaTableViewCellLabel.m in Sources */,
 				1D3BC0781AF89F6100E8BE72 /* WUEmoticonsKeyboard.m in Sources */,
 				0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */,
 			);
@@ -1786,6 +1823,7 @@
 				02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */,
 				02442BC11AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
+				02D144FC1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */,
 				020999DB1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02041B801AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */,

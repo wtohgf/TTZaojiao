@@ -30,7 +30,7 @@
     _i_nameFrame = CGRectMake(0, height, width, 30);
     _NameAndPicCellHeight = CGRectGetMaxY(_i_nameFrame);
     
-   
+    
     //算图片list高度
     UIImageView *picView2 = [[UIImageView alloc]init];
     //每张图片的url
@@ -50,15 +50,16 @@
     }
     _i_PicListFrame = CGRectMake(0, 0, width, height);
     _picListArray = picListArray;
-    _model.count = (int)heightArray.count;
-       
-        
-//       //算公司描述
-//        CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, MAXFLOAT);
-//        CGSize  textSize = [model.i_content  sizeWithMaxSize:maxSize andFont:kTextFont];
-//        _i_contentFrame = CGRectMake(0, lastHeight, [UIScreen mainScreen].bounds.size.width, textSize.height);
-        
-  
+    _model.count =  (int)heightArray.count;
+    _model.count += 3;
+    
+    
+    //算公司描述
+    CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, MAXFLOAT);
+    CGSize  textSize = [model.i_content  sizeWithMaxSize:maxSize andFont:kTextFont];
+    _i_contentFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, textSize.height);
+    
+    
     
 }
 @end

@@ -15,6 +15,7 @@
 #import "TTCityMngTool.h"
 #import <UIImageView+AFNetworking.h>
 #import "UIBarButtonItem+MoreAttribute.h"
+#import "MBProgressHUD+TTHud.h"
 
 @interface TTBaseViewController : UIViewController
 
