@@ -10,6 +10,10 @@
 #import "LamaTableViewCellModelFrame.h"
 #import "LamaTableViewCellNameAndPic.h"
 #import "LamaTableViewCellPicList.h"
+#import "LamaTableViewCellContent.h"
+#import "LamaTableViewCellContact.h"
+#import "LamaTableViewCellLabel.h"
+
 #import <UIImageView+WebCache.h>
 @interface LaMaDetailViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic)  UITableView *tableView;
@@ -26,7 +30,7 @@
         modelFrame.i_picFrame= CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 100);
         modelFrame.i_nameFrame = CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 100);
         modelFrame.i_PicListFrame = CGRectMake(0, 0,  [UIScreen mainScreen].bounds.size.width, 100);
-       
+        modelFrame.i_contentFrame = CGRectMake(0, 0,  [UIScreen mainScreen].bounds.size.width, 100);
     }
     return _modelFrame;
 }
@@ -39,17 +43,17 @@
     [self.view addSubview:tableView];
     tableView.dataSource = self;
     tableView.delegate = self;
-
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     
     [super viewWillAppear:animated];
-   
+    
     [self modelFrame];
-     // NSString* i_id = _ttid;
-//    NSString* i_id = [NSString stringWithFormat:@"%d",[_ttid intValue] + 1 ];
+    // NSString* i_id = _ttid;
+    //    NSString* i_id = [NSString stringWithFormat:@"%d",[_ttid intValue] + 1 ];
     NSDictionary* parameters = @{
                                  @"i_id":_ttid
                                  };
@@ -66,7 +70,7 @@
             
             [_tableView reloadData];
             
-        
+            
         }else{
             if (result_status != ApiStatusNetworkNotReachable) {
                 [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
@@ -85,20 +89,51 @@
     }
     else
     {
-    return self.modelFrame.model.count;
-   }
+        return self.modelFrame.model.count;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-   
-    
-      //创建相应cell－－NameAndPic
+    //创建相应cell－－NameAndPic
     if (indexPath.row == 0) {
         LamaTableViewCellNameAndPic *cell = [LamaTableViewCellNameAndPic LamaTableViewCellNameAndPicWithTabelView:_tableView];
         //数据传给cell，由cell处理设置
         cell.modelFrame = _modelFrame;
         return cell;
     }
+    else if (indexPath.row == 1)
+    {
+        LamaTableViewCellLabel *cell = [LamaTableViewCellLabel LamaTableViewCellContactWithTabelView:_tableView];
+        cell.label.text = @"活动详情";
+        return cell;
+        
+    }
+    else if(indexPath.row == (self.modelFrame.model.count - 1))
+    {
+        
+        
+        LamaTableViewCellContact *cell = [LamaTableViewCellContact LamaTableViewCellContactWithTabelView:_tableView];
+        //数据传给cell，由cell处理设置
+        cell.modelFrame = _modelFrame;
+        return cell;
+        
+    }
+    else if (indexPath.row == self.modelFrame.model.count - 2)
+    {
+        LamaTableViewCellLabel *cell = [LamaTableViewCellLabel LamaTableViewCellContactWithTabelView:_tableView ];
+        cell.label.text = @"商家信息";
+        return cell;
+    }
+    else if (indexPath.row == (self.modelFrame.model.count - 3))
+    {
+        
+        LamaTableViewCellContent *cell = [LamaTableViewCellContent LamaTableViewCellContentWithTabelView:_tableView];
+        //数据传给cell，由cell处理设置
+        cell.modelFrame = _modelFrame;
+        return cell;
+        
+    }
+    
     else
     {
         LamaTableViewCellPicList *cell = [LamaTableViewCellPicList LamaTableViewCellPicListWithTabelView:_tableView];
@@ -106,9 +141,7 @@
         NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,name];
         [cell.picListView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_pic"]];
         return cell;
-
     }
-  
     
 }
 
@@ -117,11 +150,27 @@
     if (indexPath.row == 0 ) {
         return  self.modelFrame.NameAndPicCellHeight;
     }
+    else if(indexPath.row == 1)
+    {
+        return 30;
+    }
     
+    else if(indexPath.row == self.modelFrame.model.count - 1)
+    {
+        return 60+47*2+10;
+        
+    }
+    else if (indexPath.row == self.modelFrame.model.count - 2)
+    {
+        return 30;
+    }
+    else if (indexPath.row == self.modelFrame.model.count - 3)
+    {
+        return self.modelFrame.i_contentFrame.size.height+5;
+    }
     else
     {
-       
-        return  self.modelFrame.i_PicListFrame.size.height;
+        return  self.modelFrame.i_PicListFrame.size.height + 5;
     }
     
 }

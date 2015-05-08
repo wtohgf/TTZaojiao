@@ -61,6 +61,9 @@
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
 		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
 		0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */; };
+		0FCB300C1AFC907D005F00C7 /* LamaTableViewCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */; };
+		0FCB300F1AFC90A2005F00C7 /* LamaTableViewCellContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */; };
+		0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */; };
 		0FE8309C1AF85CF600A15860 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309B1AF85CF600A15860 /* NSString+Extension.m */; };
 		0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */; };
 		0FE830A21AF85DE800A15860 /* LamaTableViewCellPicList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */; };
@@ -371,6 +374,12 @@
 		0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTotalModel.m; sourceTree = "<group>"; };
 		0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCell.h; sourceTree = "<group>"; };
 		0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCell.m; sourceTree = "<group>"; };
+		0FCB300A1AFC907D005F00C7 /* LamaTableViewCellLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellLabel.h; sourceTree = "<group>"; };
+		0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellLabel.m; sourceTree = "<group>"; };
+		0FCB300D1AFC90A2005F00C7 /* LamaTableViewCellContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellContact.h; sourceTree = "<group>"; };
+		0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellContact.m; sourceTree = "<group>"; };
+		0FCB30101AFC90B9005F00C7 /* LamaTableViewCellContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellContent.h; sourceTree = "<group>"; };
+		0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellContent.m; sourceTree = "<group>"; };
 		0FE8309A1AF85CF600A15860 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		0FE8309B1AF85CF600A15860 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellNameAndPic.m; sourceTree = "<group>"; };
@@ -1034,6 +1043,12 @@
 				0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */,
 				0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicList.h */,
 				0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */,
+				0FCB300A1AFC907D005F00C7 /* LamaTableViewCellLabel.h */,
+				0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */,
+				0FCB300D1AFC90A2005F00C7 /* LamaTableViewCellContact.h */,
+				0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */,
+				0FCB30101AFC90B9005F00C7 /* LamaTableViewCellContent.h */,
+				0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1692,6 +1707,7 @@
 				0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
+				0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */,
 				1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */,
 				1D3762951AF0C76200CAAA05 /* TTUserDongtaiViewController.m in Sources */,
 				1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */,
@@ -1753,11 +1769,13 @@
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				1D3BC07B1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
 				02BFC5621ADF7A3700D0DF30 /* DataVerifier.m in Sources */,
+				0FCB300F1AFC90A2005F00C7 /* LamaTableViewCellContact.m in Sources */,
 				1D37628F1AF07FA600CAAA05 /* TTCommentRelaseView.m in Sources */,
 				1DF097E41AF9FEE400033B7D /* AlipayRequestConfig.m in Sources */,
 				1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */,
 				1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */,
 				1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */,
+				0FCB300C1AFC907D005F00C7 /* LamaTableViewCellLabel.m in Sources */,
 				1D3BC0781AF89F6100E8BE72 /* WUEmoticonsKeyboard.m in Sources */,
 				0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */,
 			);
