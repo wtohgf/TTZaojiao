@@ -9,6 +9,7 @@
 #import "TTWoPasswordModifyViewController.h"
 #import <RDVTabBarController.h>
 #import "TTUserModelTool.h"
+#import "TTUserDongtaiViewController.h"
 
 @interface TTWoPasswordModifyViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *oldTextField;
@@ -53,12 +54,28 @@
 */
 
 - (IBAction)rightAction:(id)sender {
-#ifdef DEBUG
-    NSLog(@"right button item action");
-#endif
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
+    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
+    [self.navigationController pushViewController:userViewController animated:YES];
 }
 
 - (IBAction)confirmAction:(UIButton *)sender {
+    [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_PASSWORD
+                                     Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],
+                                                  @"i_psd":[[TTUserModelTool sharedUserModelTool] password],
+                                                  @"opsd":_oldTextField.text,
+                                                  @"psd":_nnewTextField.text,
+                                                  @"rpsd":_confirmTextField.text}
+                                         Result:^(id result_data, ApiStatus result_status, NSString *api) {
+                                             if (result_status == ApiStatusSuccess) {
+                                                 [[TTUserModelTool sharedUserModelTool] setPassword:_nnewTextField.text];
+                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+                                             }
+                                             else {
+                                                 [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+                                             }
+                                         }];
 }
 
 @end
