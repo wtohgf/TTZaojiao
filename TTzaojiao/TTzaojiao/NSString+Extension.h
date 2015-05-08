@@ -13,5 +13,6 @@
 
 +(NSString *) compareCurrentTime:(NSDate*) compareDate;
 +(NSString *) getMounthOfDate:(NSDate*) compareDate;
-
+//yyyy－MM-HH
++(NSString *) getMounthOfDateString:(NSString*) dateString;
 @end

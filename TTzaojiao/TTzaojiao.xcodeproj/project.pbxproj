@@ -150,6 +150,9 @@
 		1D3BC0D31AF8A1F500E8BE72 /* WUDemoKeyboardPressedCellPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0CF1AF8A1F500E8BE72 /* WUDemoKeyboardPressedCellPopupView.m */; };
 		1D3BC0D41AF8A1F500E8BE72 /* WUDemoKeyboardTextKeyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0D11AF8A1F500E8BE72 /* WUDemoKeyboardTextKeyCell.m */; };
 		1D3BC0D71AF8BA0E00E8BE72 /* EmojiTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0D61AF8BA0E00E8BE72 /* EmojiTextAttachment.m */; };
+		1D3FD90E1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FD90D1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m */; };
+		1D3FD9121AFC4C9600B9CA6B /* TTNearBybabyInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FD9111AFC4C9600B9CA6B /* TTNearBybabyInfoView.m */; };
+		1D3FD9191AFC5AD800B9CA6B /* NearByBabyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FD9181AFC5AD800B9CA6B /* NearByBabyModel.m */; };
 		1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */; };
 		1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BB1AEE8712006D66FC /* TTDynamicUserStatusTopView.m */; };
 		1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */; };
@@ -509,6 +512,12 @@
 		1D3BC0D11AF8A1F500E8BE72 /* WUDemoKeyboardTextKeyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUDemoKeyboardTextKeyCell.m; sourceTree = "<group>"; };
 		1D3BC0D51AF8BA0E00E8BE72 /* EmojiTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiTextAttachment.h; sourceTree = "<group>"; };
 		1D3BC0D61AF8BA0E00E8BE72 /* EmojiTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiTextAttachment.m; sourceTree = "<group>"; };
+		1D3FD90C1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNearBybabyTableViewCell.h; sourceTree = "<group>"; };
+		1D3FD90D1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNearBybabyTableViewCell.m; sourceTree = "<group>"; };
+		1D3FD9101AFC4C9600B9CA6B /* TTNearBybabyInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNearBybabyInfoView.h; sourceTree = "<group>"; };
+		1D3FD9111AFC4C9600B9CA6B /* TTNearBybabyInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNearBybabyInfoView.m; sourceTree = "<group>"; };
+		1D3FD9171AFC5AD800B9CA6B /* NearByBabyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByBabyModel.h; sourceTree = "<group>"; };
+		1D3FD9181AFC5AD800B9CA6B /* NearByBabyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByBabyModel.m; sourceTree = "<group>"; };
 		1D3FE2B71AEE8708006D66FC /* TTBlogFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBlogFrame.h; sourceTree = "<group>"; };
 		1D3FE2B81AEE8708006D66FC /* TTBlogFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBlogFrame.m; sourceTree = "<group>"; };
 		1D3FE2BA1AEE8712006D66FC /* TTDynamicUserStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicUserStatusTopView.h; sourceTree = "<group>"; };
@@ -936,6 +945,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1D3FD9161AFC5AB800B9CA6B /* NearByBabyModel */,
 				02FBF1221AFA3EB30009425A /* WoModel */,
 				0FAD38F21AEDDB9100644273 /* LamaModel */,
 				1D47550B1AEB3140004EDEED /* BlogModel */,
@@ -1142,6 +1152,7 @@
 		1D37628C1AF07F7F00CAAA05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D3FD90F1AFC4C3C00B9CA6B /* NearBybabyCell */,
 				1D3BC07F1AF8A09E00E8BE72 /* TTEmotionsKeyboard */,
 				1D37628D1AF07FA500CAAA05 /* TTCommentRelaseView.h */,
 				1D37628E1AF07FA600CAAA05 /* TTCommentRelaseView.m */,
@@ -1241,6 +1252,26 @@
 				1D3BC0A61AF8A1BD00E8BE72 /* keyboard_text_selected@2x.png */,
 			);
 			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		1D3FD90F1AFC4C3C00B9CA6B /* NearBybabyCell */ = {
+			isa = PBXGroup;
+			children = (
+				1D3FD90C1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.h */,
+				1D3FD90D1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m */,
+				1D3FD9101AFC4C9600B9CA6B /* TTNearBybabyInfoView.h */,
+				1D3FD9111AFC4C9600B9CA6B /* TTNearBybabyInfoView.m */,
+			);
+			name = NearBybabyCell;
+			sourceTree = "<group>";
+		};
+		1D3FD9161AFC5AB800B9CA6B /* NearByBabyModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D3FD9171AFC5AD800B9CA6B /* NearByBabyModel.h */,
+				1D3FD9181AFC5AD800B9CA6B /* NearByBabyModel.m */,
+			);
+			name = NearByBabyModel;
 			sourceTree = "<group>";
 		};
 		1D3FE2B51AEE8691006D66FC /* Models */ = {
@@ -1665,6 +1696,7 @@
 				1D370AFB1AF20F9600DF99CE /* UIButton+MoreAttribute.m in Sources */,
 				02BFC5661ADF7A3700D0DF30 /* RSADataSigner.m in Sources */,
 				02442BC41AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */,
+				1D3FD90E1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m in Sources */,
 				1D018E1C1AE1C91A00696F25 /* TTUserModelTool.m in Sources */,
 				0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */,
 				1D370B4D1AF2345100DF99CE /* SDWebImageManager+MJ.m in Sources */,
@@ -1687,6 +1719,7 @@
 				1D370B361AF2345100DF99CE /* MBProgressHUD+Add.m in Sources */,
 				1D3BC0D71AF8BA0E00E8BE72 /* EmojiTextAttachment.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
+				1D3FD9191AFC5AD800B9CA6B /* NearByBabyModel.m in Sources */,
 				02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
@@ -1721,6 +1754,7 @@
 				1D3BC0D21AF8A1F500E8BE72 /* WUDemoKeyboardBuilder.m in Sources */,
 				0FE8309C1AF85CF600A15860 /* NSString+Extension.m in Sources */,
 				1DDF4EC11AE3B712004661EB /* TSLocateView.m in Sources */,
+				1D3FD9121AFC4C9600B9CA6B /* TTNearBybabyInfoView.m in Sources */,
 				1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */,
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
 				1D3BC07A1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItem.m in Sources */,

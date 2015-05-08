@@ -94,7 +94,7 @@
                         <constraint firstAttribute="width" secondItem="Y7x-nh-C4Z" secondAttribute="height" multiplier="1:1" id="Swg-Dy-McW"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaA-tM-n80">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaA-tM-n80">
                     <rect key="frame" x="223" y="196" width="68" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="Qul-9n-JXk"/>

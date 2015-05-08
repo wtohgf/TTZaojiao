@@ -11,10 +11,11 @@
 #import "TTBlogFrame.h"
 #import "TTCommentListViewController.h"
 #import "TTUserDongtaiViewController.h"
-
+#import "NearByBabyModel.h"
 
 @interface TTDongTaiViewController (){
     NSMutableArray* _blogs;
+    NSMutableArray* _nearByBabys;
     NSUInteger _pageIndexInt;
     NSString* _i_sort;
     NSString* _group;
@@ -62,6 +63,11 @@
     [self.rdv_tabBarController.view addSubview:self.siderbar.view];
     self.siderbar.view.frame  = self.view.bounds;
     // 左侧边栏结束
+    
+    _pageIndexInt = 1;
+    _group = @"0";//全部月龄
+    _i_sort = @"1"; //早教自拍
+    [self updateBlog];
 }
 
 -(void)dynamic_state:(UIBarButtonItem*)item{
@@ -73,7 +79,7 @@
 }
 
 -(void)didselAgeGroup:(NSString *)group{
-    _pageIndexInt = 0;
+    _pageIndexInt = 1;
     _group = group;
     [self updateBlog];
 }
@@ -82,14 +88,23 @@
     _isGetMoreBlog = NO;
     [_dongtaiTable addLegendHeaderWithRefreshingBlock:^{
         [_dongtaiTable.header beginRefreshing];
-        [self updateBlog];
+        _pageIndexInt = 1;
+        if (_sortSeg.selectedSegmentIndex == 3) {
+            [self showNearByBaby];
+        }else{
+            [self updateBlog];
+        }
     }];
 
     [_dongtaiTable addLegendFooterWithRefreshingBlock:^{
         [_dongtaiTable.footer beginRefreshing];
         _pageIndexInt++;
         _isGetMoreBlog = YES;
-        [self updateBlog];
+        if (_sortSeg.selectedSegmentIndex == 3) {
+            [self showNearByBaby];
+        }else{
+            [self updateBlog];
+        }
     }];
     
 }
@@ -116,15 +131,11 @@
     _sortSeg = sortSeg;
     sortSeg.selectedSegmentIndex = 0;
     [view addSubview:sortSeg];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _pageIndexInt = 1;
-    _i_sort = @"1";
-    _group = @"1";
-    _sortSeg.selectedSegmentIndex = 0;
-    [self updateBlog];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -208,14 +219,27 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
-    TTDyanmicUserStautsCell* cell = [TTDyanmicUserStautsCell dyanmicUserStautsCellWithTableView:tableView];
-    TTBlogFrame* frame = [[TTBlogFrame alloc]init];
-    frame.blog = _blogs[indexPath.row];
-    cell.blogFrame = frame;
-    //评论列表View的代理 响应查看全部按钮代理方法
-    cell.delegate = self;
+    if (_sortSeg.selectedSegmentIndex == 3) {
+        TTNearBybabyTableViewCell* cell = [TTNearBybabyTableViewCell nearBybabyCellWithTableView:tableView];
+        
+        cell.nearByBaby = _nearByBabys[indexPath.row];
+        cell.delegate = self;
+        return cell;
+    }else{
+        TTDyanmicUserStautsCell* cell = [TTDyanmicUserStautsCell dyanmicUserStautsCellWithTableView:tableView];
+        TTBlogFrame* frame = [[TTBlogFrame alloc]init];
+        frame.blog = _blogs[indexPath.row];
+        cell.blogFrame = frame;
+        //评论列表View的代理 响应查看全部按钮代理方法
+        cell.delegate = self;
+        return cell;
+    }
+    
+}
 
-    return cell;
+//附近宝宝头像点击处理
+-(void)didIconTaped:(NSString *)uid{
+    [self performSegueWithIdentifier:@"toUserDynamic" sender:uid];
 }
 
 //点赞
@@ -248,20 +272,47 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _blogs.count;
+    if (_sortSeg.selectedSegmentIndex == 3) {
+        return _nearByBabys.count;
+    }else{
+        return _blogs.count;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TTBlogFrame* frame = [[TTBlogFrame alloc]init];
-    frame.blog = _blogs[indexPath.row];
-    return frame.cellHeight;
+    if (_sortSeg.selectedSegmentIndex == 3) {
+        return ScreenWidth*TTHeaderWithRatio+2*TTBlogTableBorder;
+    }else{
+        TTBlogFrame* frame = [[TTBlogFrame alloc]init];
+        frame.blog = _blogs[indexPath.row];
+        return frame.cellHeight;
+    }
 }
 
-
 - (void)selChanged:(UISegmentedControl *)sender {
-    _pageIndexInt = 0;
+    _pageIndexInt = 1;
+    
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
-    [self updateBlog];
+    if ([_i_sort isEqualToString:@"4"]) {
+        [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
+            if (location != nil) {
+                _location = location;
+            }else{
+                _location = nil;
+            }
+            [self showNearByBaby];
+            //回到顶部
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [_dongtaiTable scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+        }];
+    }else{
+        [self updateBlog];
+        //回到顶部
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [_dongtaiTable scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
+    
+
 }
 
 #pragma mark 查看回复全部列表
@@ -284,6 +335,79 @@
         TTUserDongtaiViewController* uvc = (TTUserDongtaiViewController*)segue.destinationViewController;
         uvc.i_uid = sender;
     }
+}
+
+-(void)showNearByBaby{
+//    String result = WebServer
+//    .requestByGet(WebServer.NEARBY_BABY + "&i_uid="
+//                  + uid + "&i_psd=" + secondPassword
+//                  + "&p_1=" + pageIndex + "&p_2=10" + "&i_x="
+//                  + latitude + "&i_y=" + longitude);
+    NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
+    NSString* lat = @"0";
+    NSString* lon = @"0";
+    if (_location != nil) {
+        lat = [NSString stringWithFormat:@"%f", _location.coordinate.latitude];
+        lon = [NSString stringWithFormat:@"%f", _location.coordinate.longitude];
+    }
+    
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"p_1": pageIndex,
+                                 @"p_2": @"10",
+                                 @"i_x": lat,
+                                 @"i_y": lon
+                                 };
+    
+    [MBProgressHUD showHUDAddedTo:_dongtaiTable animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:NEARBY_BABY Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideAllHUDsForView:_dongtaiTable animated:YES];
+        if (_nearByBabys == nil) {
+            _nearByBabys = [NSMutableArray array];
+        }
+        if (result_status == ApiStatusSuccess) {
+            if (_isGetMoreBlog) {
+                [_dongtaiTable.footer endRefreshing];
+                _isGetMoreBlog = NO;
+            }else{
+                [_dongtaiTable.header endRefreshing];
+                [_nearByBabys removeAllObjects];
+            }
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* array = result_data;
+                if ([result_data[0] isKindOfClass:[NearByBabyModel class]] && array.count > 0) {
+                    NearByBabyModel* msg = result_data[0];
+                    if ([msg.msg isEqualToString:@"Get_Test_User_List_Distance"]) {
+                        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                            if (idx > 0) {
+                                if ([obj isKindOfClass:[NearByBabyModel class]]) {
+                                    [_nearByBabys addObject:obj];
+                                }
+                            }
+                        }];
+                        
+                        [_dongtaiTable reloadData];
+                    }else{
+                        [[UIAlertView alloc]showAlert:msg.msg byTime:2.f];
+                    }
+
+                }
+                
+            }
+            
+        }else{
+            if (_isGetMoreBlog) {
+                [_dongtaiTable.footer endRefreshing];
+                _isGetMoreBlog = NO;
+            }else{
+                [_dongtaiTable.header endRefreshing];
+            }
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+    }];
 }
 
 @end

@@ -255,4 +255,33 @@
 
 }
 
+//点赞
+-(void)daynamicUserStatusZanClicked:blogid{
+    
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"id": blogid,
+                                 };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:PRAISE_NEW Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            
+            [self updateDynamicBlog];
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+        
+    }];
+    
+}
+
+//消息查看
+-(void)daynamicUserStatusRemsgClicked:(NSString *)blogid{
+    [self performSegueWithIdentifier:@"toCommentList" sender:blogid];
+}
+
 @end

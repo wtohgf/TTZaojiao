@@ -81,6 +81,14 @@
         case ApiEnumGet_PAY_BY_CARD:{
             modelObj = modelObj;
         }
+            break;
+        case ApiEnumGet_Test_User_List_Distance:{
+            id tmpModel = [NearByBabyModel nearByBabyWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
+        }
+            break;
         default:
         {
             

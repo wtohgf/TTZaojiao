@@ -440,7 +440,9 @@
                         if ([function rangeOfString:@"Get_Pay_Card"].length) {
                             api = ApiEnumGet_PAY_BY_CARD;
                         }
-                        
+                        if ([function rangeOfString:@"Get_Test_User_List_Distance"].length) {
+                            api = ApiEnumGet_Test_User_List_Distance;
+                        }
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             NSDictionary *modelDic = (NSDictionary *)obj;
                             

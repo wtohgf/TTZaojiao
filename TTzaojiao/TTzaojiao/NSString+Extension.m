@@ -101,4 +101,15 @@
 
     return  result;
 }
+
++(NSString *)getMounthOfDateString:(NSString *)dateString{
+    NSDateFormatter* formater = [[NSDateFormatter alloc]init];
+    [formater setDateFormat:@"yyyy-MM-dd"];
+    
+    NSDate* date = [formater dateFromString:dateString];
+    NSString* mouth = [self getMounthOfDate:date];
+    mouth = [mouth stringByAppendingString:@"个月"];
+    return mouth;
+}
+
 @end

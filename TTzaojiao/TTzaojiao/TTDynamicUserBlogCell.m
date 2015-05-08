@@ -40,6 +40,8 @@
         
         TTDaynamicUserStatusZancountView* zanCountView = [[TTDaynamicUserStatusZancountView alloc]init];
         _zanCountView = zanCountView;
+        [_zanCountView.remsgBtn addTarget:self action:@selector(remsg:) forControlEvents:UIControlEventTouchUpInside];
+        [_zanCountView.zanBtn addTarget:self action:@selector(zan:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:zanCountView];
 
         UIButton* showAllBtn = [UIButton buttonWithTitleForCell:@"查看全部回复" target:self action:@selector(showAllReplay:)];
@@ -72,6 +74,27 @@
         if (_blogFrame.userblog != nil) {
             BlogUserDynamicModel* blog = _blogFrame.userblog;
             [_delegate dynamicUserBlogCell:self didShowCommentList:blog.id];
+        }
+    }
+}
+
+
+-(void)remsg:(UIButton*)sender{
+    if ([_delegate respondsToSelector:@selector(daynamicUserStatusRemsgClicked:)]) {
+        
+        if (_blogFrame.userblog != nil) {
+            BlogUserDynamicModel* blog = _blogFrame.userblog;
+            [_delegate daynamicUserStatusRemsgClicked:blog.id];
+        }
+        
+    }
+}
+
+-(void)zan:(UIButton*)sender{
+    if ([_delegate respondsToSelector:@selector(daynamicUserStatusZanClicked:)]) {
+        if (_blogFrame.userblog != nil) {
+            BlogUserDynamicModel* blog = _blogFrame.userblog;
+            [_delegate daynamicUserStatusZanClicked:blog.id];
         }
     }
 }

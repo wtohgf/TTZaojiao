@@ -15,6 +15,10 @@
 @class TTDynamicUserBlogCell;
 @protocol TTDynamicUserBlogCellDelegate<NSObject>
 -(void)dynamicUserBlogCell:(TTDynamicUserBlogCell*)cell didShowCommentList:(NSString*)blog_id;
+
+-(void)daynamicUserStatusZanClicked:(NSString*)blogid;
+-(void)daynamicUserStatusRemsgClicked:(NSString*)blogid;
+
 @end
 
 
