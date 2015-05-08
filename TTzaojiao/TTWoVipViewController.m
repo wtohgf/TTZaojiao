@@ -10,6 +10,7 @@
 #import "AlipayRequestConfig+TTAlipay.h"
 #import <RDVTabBarController.h>
 #import "TTUserModelTool.h"
+#import "TTUserDongtaiViewController.h"
 
 @interface TTWoVipViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *accountTextFiled;
@@ -54,9 +55,10 @@
 }
 
 - (IBAction)rightAction:(id)sender {
-#ifdef DEBUG
-    NSLog(@"right button item action");
-#endif
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
+    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
+    [self.navigationController pushViewController:userViewController animated:YES];
 }
 
 /*

@@ -11,6 +11,7 @@
 #import "TTWoLableTableViewCell.h"
 #import "TTWoButtonTableViewCell.h"
 #import "TTWoBackTableViewCell.h"
+#import "TTUserDongtaiViewController.h"
 
 #define LogoutAlertTag 19001
 
@@ -43,9 +44,10 @@
 }
 
 - (IBAction)rightButtonItem:(id)sender {
-#ifdef DEBUG
-    NSLog(@"right button item action");
-#endif
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
+    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
+    [self.navigationController pushViewController:userViewController animated:YES];
 }
 
 /*

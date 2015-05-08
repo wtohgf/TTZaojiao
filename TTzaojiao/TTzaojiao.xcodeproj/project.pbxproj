@@ -29,6 +29,7 @@
 		02442BC11AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */; };
 		02442BC41AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
 		02442BC51AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
+		025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */; };
 		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
 		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
 		02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E91ADF668100D0DF30 /* JSONHelper.m */; };
@@ -232,6 +233,8 @@
 		02442BBF1AF871FE00AF8DDC /* LLBlurSidebar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBlurSidebar.m; sourceTree = "<group>"; };
 		02442BC21AF8723E00AF8DDC /* TTDynamicSidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicSidebarViewController.h; sourceTree = "<group>"; };
 		02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDynamicSidebarViewController.m; sourceTree = "<group>"; };
+		025A784B1AFC8A86006581A7 /* MBProgressHUD+TTHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TTHud.h"; sourceTree = "<group>"; };
+		025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TTHud.m"; sourceTree = "<group>"; };
 		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
 		02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
@@ -978,6 +981,8 @@
 				1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */,
 				023DEC6B1AFA0F5E00DB082F /* AlipayRequestConfig+TTAlipay.h */,
 				023DEC6C1AFA0F5E00DB082F /* AlipayRequestConfig+TTAlipay.m */,
+				025A784B1AFC8A86006581A7 /* MBProgressHUD+TTHud.h */,
+				025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -1655,6 +1660,7 @@
 				020999DA1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
 				0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */,
+				025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */,
 				1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */,
 				1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */,
 				1D3762881AF038BD00CAAA05 /* TTCommentListViewController.m in Sources */,

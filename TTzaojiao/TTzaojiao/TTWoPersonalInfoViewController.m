@@ -9,6 +9,8 @@
 #import "TTWoPersonalInfoViewController.h"
 #import <RDVTabBarController.h>
 #import "TTUserModelTool.h"
+#import "TTCityMngTool.h"
+#import "TTUserDongtaiViewController.h"
 
 @interface TTWoPersonalInfoViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *accountTextFeild;
@@ -55,12 +57,30 @@
 */
 
 - (IBAction)rightAction:(id)sender {
-#ifdef DEBUG
-    NSLog(@"right button item action");
-#endif
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
+    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
+    [self.navigationController pushViewController:userViewController animated:YES];
 }
 
 - (IBAction)commitAction:(UIButton *)sender {
+    [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_INFO
+                                     Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],
+                                                  @"i_psd":[[TTUserModelTool sharedUserModelTool] password],
+                                                  @"phone":_accountTextFeild.text,
+                                                  @"name":_nameTextFeild.text,
+                                                  @"city":[[TTCityMngTool sharedCityMngTool] citytoCode:[[[TTUserModelTool sharedUserModelTool] logonUser] city]],
+                                                  @"address":@""}
+                                         Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            [[TTUserModelTool sharedUserModelTool] setAccount:_accountTextFeild.text];
+            [[[TTUserModelTool sharedUserModelTool] logonUser] setName:_nameTextFeild.text];
+            [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+        }
+        else {
+            [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+        }
+    }];
 }
 
 @end
