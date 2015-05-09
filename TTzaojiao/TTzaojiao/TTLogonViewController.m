@@ -147,35 +147,18 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (result_status == ApiStatusSuccess) {
                 
-                                 if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                    UserModel* user = result_data[0];
-                    [TTUserModelTool sharedUserModelTool].logonUser = user;
-                    [TTUserModelTool sharedUserModelTool].password = user.id_c;
-                    [TTUserModelTool sharedUserModelTool].account = account;
-                    NSLog(@"%@ %@", user.name, user.icon);
-                    
-                    
-                    //装载tabbar
-                    TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
-                    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
-//                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-                    [UINavigationBar appearance].hidden = NO;
-                    
-                    self.mainViewController = tabBarController;
-                    
-                    [self.navigationController pushViewController:_mainViewController animated:YES];
-                    
-                    //保存用户名和密码
-                    if(_savePassworkCheckButton.selected == YES)
-                    {
+                    if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                        if (((NSMutableArray*)result_data).count != 0) {
+                            UserModel* mode = [result_data firstObject];
+                            if ([mode.msg isEqualToString:@"Err_Normal"]&& mode.msg_word!= nil) {
+                                [MBProgressHUD TTDelayHudWithMassage:mode.msg_word View:self.view];
+                            }else{
+                                [self longonSucess:mode];
+                            }
+                        }else{
+                            [MBProgressHUD TTDelayHudWithMassage:@"登录失败" View:self.view];
+                        }
                         
-                        NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
-                        [usernamepasswordKVPairs setObject:_account.text forKey:KEY_USERNAME];
-                        [usernamepasswordKVPairs setObject:_password.text forKey:KEY_PASSWORD];
-                        [TTKeyChainTool save:KEY_USERNAME_PASSWORD data:usernamepasswordKVPairs];
-                    }else{
-                        [TTKeyChainTool delete:KEY_USERNAME_PASSWORD];
-                    }
                 }
                 
                 
@@ -191,6 +174,36 @@
     }
     
     
+}
+
+-(void)longonSucess:(UserModel*) user{
+    
+    [TTUserModelTool sharedUserModelTool].logonUser = user;
+    [TTUserModelTool sharedUserModelTool].password = user.id_c;
+    [TTUserModelTool sharedUserModelTool].account = _account.text;
+
+    //装载tabbar
+    TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
+    //                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [UINavigationBar appearance].hidden = NO;
+    
+    self.mainViewController = tabBarController;
+    
+    [self.navigationController pushViewController:_mainViewController animated:YES];
+    
+    //保存用户名和密码
+    if(_savePassworkCheckButton.selected == YES)
+    {
+        
+        NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
+        [usernamepasswordKVPairs setObject:_account.text forKey:KEY_USERNAME];
+        [usernamepasswordKVPairs setObject:_password.text forKey:KEY_PASSWORD];
+        [TTKeyChainTool save:KEY_USERNAME_PASSWORD data:usernamepasswordKVPairs];
+    }else{
+        [TTKeyChainTool delete:KEY_USERNAME_PASSWORD];
+    }
+
 }
 
 #pragma mark 记住密码
