@@ -16,6 +16,7 @@
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
 #define TTHeaderWithRatio 44.f/320.f
+#define TTLeftHeaderWidthRatio 30.f/320.f
 #define TTBlogTableBorder 8
 #define TTBlogMaintitleFont [UIFont systemFontOfSize:16.f]
 #define TTBlogSubtitleFont [UIFont systemFontOfSize:14.f]

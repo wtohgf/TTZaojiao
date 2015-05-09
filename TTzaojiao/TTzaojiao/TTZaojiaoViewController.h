@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
+#import "TTZaojiaoHeaderLeftItem.h"
+#import "TTZaojiaoHeaderRightItem.h"
+#import "TTWoVipViewController.h"
 
 @interface TTZaojiaoViewController : TTBaseViewController
-
+@property (weak, nonatomic) TTZaojiaoHeaderLeftItem* leftView;
+@property (weak, nonatomic) TTZaojiaoHeaderRightItem* rightView;
 @end
