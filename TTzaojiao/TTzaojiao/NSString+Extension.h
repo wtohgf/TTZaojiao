@@ -15,4 +15,5 @@
 +(NSString *) getMounthOfDate:(NSDate*) compareDate;
 //yyyy－MM-HH
 +(NSString *) getMounthOfDateString:(NSString*) dateString;
++(NSTimeInterval)getTimeIntervalOfDateString:(NSString*) dateString;
 @end

@@ -8,6 +8,9 @@
 
 #import "TTUserModelTool.h"
 #import "NSString+Extension.h"
+#import "AFAppDotNetAPIClient.h"
+#import "UIAlertView+MoreAttribute.h"
+#import "TTWebServerAPI.h"
 
 static TTUserModelTool* tool;
 
@@ -54,5 +57,37 @@ static TTUserModelTool* tool;
 }
 
 
++(void)getUserInfo:(NSString *)uid Result:(DynamicUserGet)block{
+    NSDictionary* parameters = @{
+                                 @"i_uid": uid,
+                                 };
+    [[AFAppDotNetAPIClient sharedClient]apiGet:USER_INFO Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray *modes = result_data;
+                if (modes.count == 2) {
+                    DynamicUserModel* ret = result_data[0];
+                    if ([ret.msg isEqualToString:@"Get_List_User_Info"]) {
+                        if (block!= nil) {
+                            block(result_data[1]);
+                        }else{
+                            block(nil);
+                        }
+                    }else{
+                        block(nil);
+                    }
+                    
+                }else{
+                    block(nil);
+                }
+            }else{
+                if (result_status != ApiStatusNetworkNotReachable) {
+                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+                }
+                block(nil);
+            }
+        }
+    }];
+}
 
 @end

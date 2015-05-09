@@ -112,4 +112,15 @@
     return mouth;
 }
 
++(NSTimeInterval)getTimeIntervalOfDateString:(NSString *)dateString{
+    NSDateFormatter* formater = [[NSDateFormatter alloc]init];
+    [formater setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+     NSDate* date = [formater dateFromString:dateString];
+    if (date == nil) {
+        [formater setDateFormat:@"yyyy-mm-dd"];
+        date = [formater dateFromString:dateString];
+    }
+    return [date timeIntervalSinceNow];
+}
+
 @end

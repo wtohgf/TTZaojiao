@@ -18,7 +18,7 @@
         [tmpdict removeObjectForKey:@"id"];
         [mode setValuesForKeysWithDictionary:tmpdict];
     }else{
-        mode = nil;
+        [mode setValuesForKeysWithDictionary:dict];
     }
     return mode;
 }

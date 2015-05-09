@@ -10,6 +10,7 @@
 #import "NearByBabyModel.h"
 #import "UIImageView+MoreAttribute.h"
 #import "UIView+NKMoreAttribute.h"
+#import "TTUserModelTool.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -35,7 +36,7 @@
 //月龄
 @property (weak, nonatomic) UILabel* age;
 //vip
-@property (weak, nonatomic) UILabel* vip;
+@property (weak, nonatomic) UIView* vip;
 //距离
 @property (weak, nonatomic) UILabel* distance;
 

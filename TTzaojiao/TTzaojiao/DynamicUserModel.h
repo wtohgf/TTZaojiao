@@ -28,7 +28,7 @@
 @property (nonatomic, copy) NSString * p_0;
 @property (nonatomic, copy) NSString * p_1;
 @property (nonatomic, copy) NSString * p_2;
-
+@property (copy, nonatomic) NSString * msg_word;
 @property (copy, nonatomic) NSString * baby_jifen;
 @property (copy, nonatomic) NSString * birthday;
 @property (copy, nonatomic) NSString * gender;

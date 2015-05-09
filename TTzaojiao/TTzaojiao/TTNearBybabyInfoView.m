@@ -69,22 +69,29 @@
         
         [self addSubview:genderAgeView];
 
-        UILabel* vip = [[UILabel alloc]init];
-        vip.layer.cornerRadius = 8.0f;
+        UIView* vipView = [[UIView alloc]init];
+        vipView.backgroundColor = [UIColor redColor];
+        vipView.layer.cornerRadius = 4.f;
+
         CGFloat vipx = genderAgeView.right+TTBlogTableBorder;
         CGFloat vipy = genderAgeView.up;
         CGFloat vipw = 24.f;
         CGFloat viph = 14.f;
-        vip.backgroundColor = [UIColor redColor];
+        vipView.frame = CGRectMake(vipx, vipy, vipw, viph);
+        
+        UILabel* vip = [[UILabel alloc]init];
         [vip setText:@"VIP"];
         vip.textAlignment = NSTextAlignmentCenter;
         vip.textColor = [UIColor whiteColor];
         [vip setFont:[UIFont systemFontOfSize:14.f]];
-        vip.frame = CGRectMake(vipx, vipy, vipw, viph);
-        [self addSubview:vip];
-        vip.hidden = YES;
-        
-        _vip = vip;
+    
+        [vipView addSubview:vip];
+        [vipView bringSubviewToFront:vip];
+
+        vip.frame = CGRectMake(0, 0, vipw, viph);
+        [self addSubview:vipView];
+        //vip.adjustsFontSizeToFitWidth = YES;
+        _vip = vipView;
         //距离
         UILabel* distance = [[UILabel alloc]init];
         distance.numberOfLines = 0;
@@ -130,8 +137,12 @@
     }else{
         _age.text = @"未知";
     }
-  
-    _vip.hidden = YES;
+    NSTimeInterval timeval = [NSString getTimeIntervalOfDateString:nearByBaby.sort_end_time];
+    if (timeval > 0) {
+        _vip.hidden = NO;
+    }else{
+        _vip.hidden = YES;
+    }
     
     _distance.text = [NSString stringWithFormat:@"%@km", nearByBaby.i_distance];
     _nearByBaby = nearByBaby;

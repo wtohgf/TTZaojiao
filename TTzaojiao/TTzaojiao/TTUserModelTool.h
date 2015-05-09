@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "UserModel.h"
+#import "DynamicUserModel.h"
+
+typedef void (^DynamicUserGet)(DynamicUserModel* user);
 
 @interface TTUserModelTool : NSObject
 +(instancetype)sharedUserModelTool;
@@ -18,5 +21,7 @@
 
 -(NSString*)group;
 -(NSString*)mouth;
+
++(void)getUserInfo:(NSString*)uid Result:(DynamicUserGet)block;
 
 @end
