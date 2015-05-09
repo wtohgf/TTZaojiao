@@ -13,8 +13,13 @@
 #import "TTUserBlogFrame.h"
 #import "TTDynamicUserBlogCell.h"
 #import "TTCommentListViewController.h"
+#import "NSString+Extension.h"
+#import <JSImagePickerViewController.h>
+#import "UIImage+MoreAttribute.h"
+#import "UIImageView+MoreAttribute.h"
 
-@interface TTUserDongtaiViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTDynamicUserStatusHeaderViewDelegate, TTDynamicUserBlogCellDelegate>
+@interface TTUserDongtaiViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTDynamicUserStatusHeaderViewDelegate, TTDynamicUserBlogCellDelegate,
+    JSImagePickerViewControllerDelegate>
 @property (copy, nonatomic) NSString * i_uid;
 
 @end

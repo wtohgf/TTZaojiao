@@ -17,6 +17,9 @@
     NSString* _pageIndex;
     BOOL _isGetMoreList;
     BOOL _isMyFriend;
+    NSString* _iconPath;
+    BOOL _isChangCover;
+    BOOL _isChangIcon;
 }
 @property (weak, nonatomic) IBOutlet UIButton *addCancelFriend;
 
@@ -52,7 +55,8 @@
     _isGetMoreList = NO;
     _pageIndex = @"1";
     _isMyFriend = NO;
-    
+    _isChangCover = NO;
+    _isChangIcon = NO;
     [self updateDynamicBlog];
     
     [self setupRefresh];
@@ -173,9 +177,16 @@
     if (_curUser.icon.length != 0) {
          [_headerView.iconView setImageIcon:_curUser.icon];
     }
-   
     _headerView.babyName.text = _curUser.name;
-    _headerView.genderMounth.text = _curUser.birthday;
+    
+    NSString* genderMouth = @"";
+    if ([_curUser.gender isEqualToString:@"1"]) {
+        genderMouth = [genderMouth stringByAppendingString:@"男 "];
+    }else{
+        genderMouth = [genderMouth stringByAppendingString:@"女 "];
+    }
+    genderMouth = [genderMouth stringByAppendingString:[NSString getMounthOfDateString:_curUser.birthday]];
+    _headerView.genderMounth.text = genderMouth;
     _headerView.sepintr.text = _curUser.i_intr;
     
 }
@@ -236,10 +247,10 @@
 -(void)dynamicHeaderView:(TTDynamicUserStatusHeaderView *)headerView didActionType:(ActionType)type{
     switch (type) {
         case kChangeCover:
-            ;
+            [self changCover];
             break;
         case kChangeIcon:
-            ;
+            [self changIcon];
             break;
         case kzanCover:
             ;
@@ -251,6 +262,95 @@
             break;
     }
 }
+
+- (void)changCover {
+    _isChangCover = YES;
+    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+    imagePicker.delegate = self;
+    [imagePicker showImagePickerInController:self animated:YES];
+}
+
+- (void)updateCover {
+    [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_COVER
+                                     Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],
+                                                  @"i_psd":[[TTUserModelTool sharedUserModelTool] password],
+                                                  @"Cover":_iconPath,
+                                                  }
+                                         Result:^(id result_data, ApiStatus result_status, NSString *api) {
+                                             if (result_status == ApiStatusSuccess) {
+                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+                                                 
+                                                 [self getUserinfo:_i_uid];
+                                             }
+                                             else {
+                                                 [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+                                             }
+                                         }];
+    _isChangCover = NO;
+}
+
+- (void)changIcon {
+    _isChangIcon = YES;
+    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+    imagePicker.delegate = self;
+    [imagePicker showImagePickerInController:self animated:YES];
+}
+
+- (void)updateIcon {
+    [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_ICON
+                                     Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],
+                                                  @"i_psd":[[TTUserModelTool sharedUserModelTool] password],
+                                                  @"icon":_iconPath}
+                                         Result:^(id result_data, ApiStatus result_status, NSString *api) {
+                                             if (result_status == ApiStatusSuccess) {
+                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+
+                                                 [self getUserinfo:_i_uid];
+                                                 _isGetMoreList = NO;
+                                                 _pageIndex = @"1";
+                                                 [self updateDynamicBlog];
+                                             }
+                                             else {
+                                                 [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+                                             }
+                                         }];
+    _isChangIcon = NO;
+}
+
+-(void)imagePickerDidSelectImage:(UIImage *)image{
+    
+    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
+    
+    NSMutableArray* images = [NSMutableArray array];
+    [images addObject:image];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
+        if ([result_data isKindOfClass:[NSMutableArray class]]) {
+            if (((NSMutableArray*)result_data).count!=0) {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                NSDictionary* dict = (NSDictionary*)result_data[0];
+                if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
+                    NSString* filePath = dict[@"msg_word_1"];
+                    _iconPath = filePath;
+                    if (_isChangIcon) {
+                        [self updateIcon];
+                    }else if(_isChangCover){
+                        [self updateCover];
+                    }
+                }else{
+                    _iconPath = @"";
+                }
+            }
+        }
+    } Progress:^(CGFloat progress) {
+        _iconPath = @"";
+        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }];
+    
+    
+}
+
 
 -(void)backToPrePaeg{
     [self.navigationController popViewControllerAnimated:YES];

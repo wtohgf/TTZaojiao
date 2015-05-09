@@ -13,10 +13,10 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    
+    _iconView.userInteractionEnabled = YES;
     [_iconView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeIcon:)]];
-    
-    [_coverImage addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeCover:)]];
+    //_coverView.userInteractionEnabled = YES;
+//    [_coverView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changeCover:)]];
 }
 
 - (IBAction)zanCover:(UIButton *)sender {
@@ -31,11 +31,11 @@
     }
 }
 
--(void)changeCover:(UITapGestureRecognizer*)sender{
-    if ([_delegate respondsToSelector:@selector(dynamicHeaderView:didActionType:)]) {
-        [_delegate dynamicHeaderView:self didActionType:kChangeCover];
-    }
-}
+//-(void)changeCover:(UITapGestureRecognizer*)sender{
+//    if ([_delegate respondsToSelector:@selector(dynamicHeaderView:didActionType:)]) {
+//        [_delegate dynamicHeaderView:self didActionType:kChangeCover];
+//    }
+//}
 
 - (IBAction)back:(UIButton *)sender {
     if ([_delegate respondsToSelector:@selector(dynamicHeaderView:didActionType:)]) {

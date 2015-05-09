@@ -96,8 +96,12 @@
     _iconView.frame = userblogFrame.iconViewF;
     
     _name.frame = userblogFrame.nameLabelF;
+
+    NSDateFormatter* formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate* date = [formatter dateFromString:blog.i_distance_time];
     
-    _distancetime.text = blog.i_distance_time;
+    _distancetime.text = [NSString compareCurrentTime:date];
     _distancetime.frame = userblogFrame.timeLabelF;
     
     NSAttributedString* attrString = [NSAttributedString replaceEmojs:blog.i_content];
