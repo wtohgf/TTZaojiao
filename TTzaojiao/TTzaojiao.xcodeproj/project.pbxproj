@@ -188,6 +188,7 @@
 		1D651CE21AFDBFB6005093BF /* TTGenderAgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CE11AFDBFB6005093BF /* TTGenderAgeView.m */; };
 		1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CE41AFDC0B6005093BF /* TTVipView.m */; };
 		1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CE71AFDC5D1005093BF /* TTVipPayView.m */; };
+		1D651CEB1AFDE177005093BF /* TTZaojiaoIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */; };
 		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
 		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
 		1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5D11AE6331700346732 /* RegMsgSecond.m */; };
@@ -594,6 +595,8 @@
 		1D651CE41AFDC0B6005093BF /* TTVipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTVipView.m; sourceTree = "<group>"; };
 		1D651CE61AFDC5D1005093BF /* TTVipPayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTVipPayView.h; sourceTree = "<group>"; };
 		1D651CE71AFDC5D1005093BF /* TTVipPayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTVipPayView.m; sourceTree = "<group>"; };
+		1D651CE91AFDE177005093BF /* TTZaojiaoIntroduceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoIntroduceCell.h; sourceTree = "<group>"; };
+		1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoIntroduceCell.m; sourceTree = "<group>"; };
 		1DC7C5C91AE4B36300346732 /* RegMsgFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgFirst.h; sourceTree = "<group>"; };
 		1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgFirst.m; sourceTree = "<group>"; };
 		1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -1452,6 +1455,8 @@
 				1D651CE41AFDC0B6005093BF /* TTVipView.m */,
 				1D651CE61AFDC5D1005093BF /* TTVipPayView.h */,
 				1D651CE71AFDC5D1005093BF /* TTVipPayView.m */,
+				1D651CE91AFDE177005093BF /* TTZaojiaoIntroduceCell.h */,
+				1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1815,6 +1820,7 @@
 				02041B7F1AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D018E341AE20E0F00696F25 /* TTBaseTableViewController.m in Sources */,
 				02BFC55F1ADF7A3700D0DF30 /* Order.m in Sources */,
+				1D651CEB1AFDE177005093BF /* TTZaojiaoIntroduceCell.m in Sources */,
 				1D370B4E1AF2345100DF99CE /* UIImageView+MJWebCache.m in Sources */,
 				1D44C89C1AEF3D9D00D2FC93 /* TTDynamicCommentView.m in Sources */,
 				1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */,

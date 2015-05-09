@@ -123,4 +123,11 @@
     return [date timeIntervalSinceNow];
 }
 
+-(CGRect)boundByFont:(UIFont *)font andWidth:(CGFloat)width{
+    CGSize rect = {width, MAXFLOAT};
+    NSDictionary* attr = @{NSFontAttributeName:font};
+    CGRect bound = [self boundingRectWithSize:rect options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil];
+    return bound;
+}
+
 @end

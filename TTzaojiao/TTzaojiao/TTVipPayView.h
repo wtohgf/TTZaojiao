@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTBlogFrame.h"
+#import "NSString+Extension.h"
 
 @interface TTVipPayView : UIView
 @property (weak, nonatomic) UIButton* vipPay;

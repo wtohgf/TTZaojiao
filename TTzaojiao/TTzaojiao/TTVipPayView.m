@@ -31,9 +31,7 @@
     [self addSubview:vipPay];
     
     NSString* title = @"立即充值";
-    CGSize rect = {ScreenWidth, MAXFLOAT};
-    NSDictionary* attr = @{NSFontAttributeName:TTBlogSubtitleFont};
-    CGRect bound = [title boundingRectWithSize:rect options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil];
+    CGRect bound = [title boundByFont:TTBlogSubtitleFont andWidth:ScreenWidth];
     
     [vipPay setTitle:title forState:UIControlStateNormal];
     [vipPay setTitleColor:[UIColor purpleColor] forState:UIControlStateHighlighted];
