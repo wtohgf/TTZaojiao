@@ -16,6 +16,7 @@
 #import "TTDyanmicUserStautsCell.h"
 #import "TTNearBybabyTableViewCell.h"
 
+
 @interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDyanmicUserStautsCellDelegate, TTDynamicSidebarViewControllerDelegate,TTNearBybabyTableViewCellDelegate>
 @property (strong, nonatomic) CLLocation* location;
 @end

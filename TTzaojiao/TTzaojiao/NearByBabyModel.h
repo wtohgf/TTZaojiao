@@ -30,6 +30,7 @@
  */
 @interface NearByBabyModel : NSObject
 @property (copy, nonatomic) NSString * msg;
+@property (copy, nonatomic) NSString * msg_word;
 @property (copy, nonatomic) NSString * p_0;
 @property (copy, nonatomic) NSString * p_1;
 @property (copy, nonatomic) NSString * p_2;

@@ -11,6 +11,7 @@
 #import "BlogModel.h"
 #import "BlogUserDynamicModel.h"
 #import "TTUserBlogFrame.h"
+#import "TTUserModelTool.h"
 
 @interface TTDaynamicUserStatusZancountView : UIView
 @property (strong, nonatomic) TTBlogFrame* blogFrame;

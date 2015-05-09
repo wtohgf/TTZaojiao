@@ -66,9 +66,10 @@
     
     _zanBtn.frame = userblogFrame.delBtnF;
    // [_zanBtn setImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
-    NSAttributedString* zan = [[NSAttributedString alloc]initWithString:blog.i_zan attributes:atrr];
-    [_zanBtn setAttributedTitle:zan forState:UIControlStateNormal];
-    
+    if (![_userblogFrame.userblog.i_uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
+        NSAttributedString* zan = [[NSAttributedString alloc]initWithString:blog.i_zan attributes:atrr];
+        [_zanBtn setAttributedTitle:zan forState:UIControlStateNormal];
+    }
     self.frame = userblogFrame.zanCountViewF;
 }
 

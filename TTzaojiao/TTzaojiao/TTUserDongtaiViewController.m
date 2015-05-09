@@ -16,7 +16,9 @@
     NSMutableArray* _blogList;
     NSString* _pageIndex;
     BOOL _isGetMoreList;
+    BOOL _isMyFriend;
 }
+@property (weak, nonatomic) IBOutlet UIButton *addCancelFriend;
 
 @property (strong, nonatomic) DynamicUserModel* curUser;
 @property (weak, nonatomic) IBOutlet UITableView *userDynamicTableView;
@@ -49,6 +51,8 @@
     _blogList = [NSMutableArray array];
     _isGetMoreList = NO;
     _pageIndex = @"1";
+    _isMyFriend = NO;
+    
     [self updateDynamicBlog];
     
     [self setupRefresh];
@@ -62,6 +66,9 @@
     if (_i_uid.length != 0) {
         [self getUserinfo:_i_uid];
     }
+    //判断是否为好友
+    [self checkFriend:_i_uid];
+
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarHidden = YES;
 }
@@ -99,9 +106,9 @@
                                  @"p_1": _pageIndex,
                                  @"p_2": @"15"
                                  };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:USER_BLOG Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         [_userDynamicTableView.header endRefreshing];
         [_userDynamicTableView.footer endRefreshing];
         
@@ -191,6 +198,12 @@
     cell.topView.name.text = _curUser.name;
     cell.blogFrame = frame;
     cell.delegate = self;
+    
+    if ([_i_uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
+        [cell.zanCountView.zanBtn setImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
+        [cell.zanCountView.zanBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+    
     return cell;
 }
 
@@ -257,7 +270,47 @@
 
 //点赞
 -(void)daynamicUserStatusZanClicked:blogid{
-    
+    //是自己则删除动态 否则是点赞
+    if ([_i_uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
+        [self delBlog:blogid];
+    }else{
+        [self dianZan:blogid];
+    }
+}
+
+-(void)delBlog:(NSString*)blogid{
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"i_id": blogid,
+                                 };
+    //[MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:DELETE_DYNAMIC_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                if (((NSMutableArray*)result_data).count!=0) {
+                    NSDictionary* result = [result_data firstObject];
+                    if ([[result objectForKey:@"msg"] isEqualToString:@"Blog_Del"]) {
+                        [MBProgressHUD TTDelayHudWithMassage:@"动态删除成功" View:self.navigationController.view];
+                        _isGetMoreList = NO;
+                        _pageIndex = @"1";
+                        [self updateDynamicBlog];
+                    }else{
+                        [MBProgressHUD TTDelayHudWithMassage:@"动态删除失败" View:self.navigationController.view];
+                    }
+                }
+            }
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+        
+    }];
+}
+
+-(void)dianZan:(NSString*)blogid{
     NSDictionary* parameters = @{
                                  @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
@@ -276,12 +329,88 @@
         };
         
     }];
-    
 }
 
 //消息查看
 -(void)daynamicUserStatusRemsgClicked:(NSString *)blogid{
     [self performSegueWithIdentifier:@"toCommentList" sender:blogid];
+}
+
+- (IBAction)addorCancelFreind:(UIButton *)sender {
+    if ([_i_uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
+        [MBProgressHUD TTDelayHudWithMassage:@"不能关注自己" View:self.navigationController.view];
+        return;
+    }
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"i_uid_you":_i_uid
+                                 };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:_isMyFriend?DELETE_ATTENTION:ADD_ATTENTION Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                if (((NSMutableArray*)result_data).count!=0) {
+                    NSDictionary* result = [result_data firstObject];
+                    if (_isMyFriend) {
+                        if ([[result objectForKey:@"msg"] isEqualToString:@"1"]) {
+                            _isMyFriend = NO;
+                            [sender setTitle:@"关注" forState:UIControlStateNormal];
+                            [MBProgressHUD TTDelayHudWithMassage:@"取消关注成功" View:self.navigationController.view];
+                        }else{
+                            [MBProgressHUD TTDelayHudWithMassage:@"取消关注失败" View:self.navigationController.view];
+                        }
+                    }else{
+                        if ([[result objectForKey:@"msg"] isEqualToString:@"Friend_Add"]) {
+                            _isMyFriend = YES;
+                            [MBProgressHUD TTDelayHudWithMassage:@"关注成功" View:self.navigationController.view];
+                            [sender setTitle:@"取消关注" forState:UIControlStateNormal];
+                        }else{
+                            [MBProgressHUD TTDelayHudWithMassage:@"关注失败" View:self.navigationController.view];
+                        }
+                    }
+                }
+            }
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+        
+    }];
+
+}
+
+-(void)checkFriend:(NSString*)i_uid{
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"i_uid_you":_i_uid
+                                 };
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:IS_FRIEND Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                if (((NSMutableArray*)result_data).count!=0) {
+                    NSDictionary* result = [result_data firstObject];
+                    if ([[result objectForKey:@"msg"] isEqualToString:@"1"]) {
+                        _isMyFriend = YES;
+                        [_addCancelFriend setTitle:@"取消关注" forState:UIControlStateNormal];
+                    }else{
+                        _isMyFriend = NO;
+                        [_addCancelFriend setTitle:@"关注" forState:UIControlStateNormal];
+                    }
+                }
+            }
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+        
+    }];
 }
 
 @end

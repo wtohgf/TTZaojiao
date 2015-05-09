@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -160,6 +160,9 @@
                                     <color key="titleColor" red="0.15279862567784316" green="0.72285554846938771" blue="0.31134825627153134" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addorCancelFreind:" destination="u2F-kZ-jzI" eventType="touchUpInside" id="t3N-1b-Duj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -207,6 +210,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addCancelFriend" destination="NNd-SQ-8KQ" id="0mE-HK-ZGu"/>
                         <outlet property="userDynamicTableView" destination="T7g-GF-PLv" id="yjF-qb-BHK"/>
                         <segue destination="vJn-Ds-I7w" kind="show" identifier="toCommentList" id="3n7-7S-nGk"/>
                     </connections>

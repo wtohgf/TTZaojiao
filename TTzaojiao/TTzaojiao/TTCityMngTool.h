@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "TTUserModelTool.h"
+#import "MBProgressHUD+TTHud.h"
+#import "UIAlertView+MoreAttribute.h"
 
 typedef void(^actionLocationBlock)(CLLocation* location, NSError* error);
 

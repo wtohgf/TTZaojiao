@@ -79,7 +79,7 @@
 -(void)release:(UIBarButtonItem*)item{
 
     if (_textView.text.length == 0) {
-        [[UIAlertView alloc]showAlert:@"评论内容不能为空" byTime:2.f];
+        [MBProgressHUD TTDelayHudWithMassage:@"评论内容不能为空" View:self.navigationController.view];
         return;
     }
     
@@ -125,8 +125,8 @@
         }
     } Progress:^(CGFloat progress) {
         _picsPath = @"";
-        [[[UIAlertView alloc]init]showAlert:@"图片上传失败" byTime:3.0];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD TTDelayHudWithMassage:@"图片上传失败" View:self.navigationController.view];
     }];
 }
 
@@ -171,12 +171,13 @@
                                  @"i_item":[TTUserModelTool sharedUserModelTool].group,
                                  };
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:PUBLISH_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
         if (result_status == ApiStatusSuccess) {
-            [[[UIAlertView alloc]init] showAlert:@"发布成功" byTime:2.f];
-            [self.navigationController popViewControllerAnimated:YES];
+            [MBProgressHUD TTDelayHudWithMassage:@"发布成功" View:self.navigationController.view];
+            
+            [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(cancel:) userInfo:nil repeats:NO];
+            
         }else{
             if (result_status != ApiStatusNetworkNotReachable) {
                 [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];

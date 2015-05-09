@@ -67,6 +67,7 @@
     _pageIndexInt = 1;
     _group = @"0";//全部月龄
     _i_sort = @"1"; //早教自拍
+    _isGetMoreBlog = NO;
     [self updateBlog];
 }
 
@@ -85,10 +86,10 @@
 }
 
 -(void)setupRefresh{
-    _isGetMoreBlog = NO;
     [_dongtaiTable addLegendHeaderWithRefreshingBlock:^{
         [_dongtaiTable.header beginRefreshing];
         _pageIndexInt = 1;
+        _isGetMoreBlog = NO;
         if (_sortSeg.selectedSegmentIndex == 3) {
             [self showNearByBaby];
         }else{
@@ -136,6 +137,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _pageIndexInt = 1;
+    _isGetMoreBlog = NO;
+    if (_sortSeg.selectedSegmentIndex == 3) {
+        [self showNearByBaby];
+    }else{
+        [self updateBlog];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -159,9 +167,9 @@
                                  @"i_sort": _i_sort,
                                  @"i_group": _group
                                  };
-    [MBProgressHUD showHUDAddedTo:_dongtaiTable animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_BLOG_GROUP Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideAllHUDsForView:_dongtaiTable animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
         if (_blogs == nil) {
             _blogs = [NSMutableArray array];
         }
@@ -172,6 +180,7 @@
             }else{
                 [_dongtaiTable.header endRefreshing];
                 [_blogs removeAllObjects];
+                [_dongtaiTable reloadData];
             }
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -250,9 +259,9 @@
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
                                  @"id": blogid,
                                  };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:PRAISE_NEW Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         if (result_status == ApiStatusSuccess) {
             
             [self updateBlog];
@@ -301,15 +310,9 @@
                 _location = nil;
             }
             [self showNearByBaby];
-            //回到顶部
-            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [_dongtaiTable scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
         }];
     }else{
         [self updateBlog];
-        //回到顶部
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [_dongtaiTable scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }
     
 
@@ -373,6 +376,7 @@
             }else{
                 [_dongtaiTable.header endRefreshing];
                 [_nearByBabys removeAllObjects];
+                [_dongtaiTable reloadData];
             }
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 NSMutableArray* array = result_data;
@@ -389,7 +393,7 @@
                         
                         [_dongtaiTable reloadData];
                     }else{
-                        [[UIAlertView alloc]showAlert:msg.msg byTime:2.f];
+                        [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
                     }
 
                 }

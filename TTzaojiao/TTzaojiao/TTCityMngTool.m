@@ -146,7 +146,27 @@ static TTCityMngTool* tool;
     [_locationManager stopUpdatingLocation];
     
     CLLocation *newLocation = [locations lastObject];
-    _locationBlock(newLocation, nil);
+    NSString* lat = @"0";
+    NSString* lon = @"0";
+    if (newLocation != nil) {
+        lat = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
+        lon = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
+    }
+    
+    NSDictionary* parameters = @{
+                                 @"i_x": lat,
+                                 @"i_y": lon,
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password
+                                 };
+    [[AFAppDotNetAPIClient sharedClient]apiGet:UPDATE_LOCATION Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            _locationBlock(newLocation, nil);
+        }else{
+            _locationBlock(nil, nil);
+        };
+        
+    }];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
