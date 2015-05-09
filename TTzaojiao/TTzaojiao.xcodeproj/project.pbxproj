@@ -189,6 +189,10 @@
 		1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CE41AFDC0B6005093BF /* TTVipView.m */; };
 		1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CE71AFDC5D1005093BF /* TTVipPayView.m */; };
 		1D651CEB1AFDE177005093BF /* TTZaojiaoIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */; };
+		1D651CED1AFDF727005093BF /* TTZaojiaoLessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D651CEC1AFDF727005093BF /* TTZaojiaoLessionCell.xib */; };
+		1D651CF01AFE0547005093BF /* TTZaojiaoLessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */; };
+		1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CF21AFE0D89005093BF /* TTLessionMngTool.m */; };
+		1D651CF71AFE115E005093BF /* LessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CF61AFE115E005093BF /* LessionModel.m */; };
 		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
 		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
 		1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5D11AE6331700346732 /* RegMsgSecond.m */; };
@@ -597,6 +601,13 @@
 		1D651CE71AFDC5D1005093BF /* TTVipPayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTVipPayView.m; sourceTree = "<group>"; };
 		1D651CE91AFDE177005093BF /* TTZaojiaoIntroduceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoIntroduceCell.h; sourceTree = "<group>"; };
 		1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoIntroduceCell.m; sourceTree = "<group>"; };
+		1D651CEC1AFDF727005093BF /* TTZaojiaoLessionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTZaojiaoLessionCell.xib; sourceTree = "<group>"; };
+		1D651CEE1AFE0547005093BF /* TTZaojiaoLessionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoLessionCell.h; sourceTree = "<group>"; };
+		1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoLessionCell.m; sourceTree = "<group>"; };
+		1D651CF11AFE0D89005093BF /* TTLessionMngTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLessionMngTool.h; sourceTree = "<group>"; };
+		1D651CF21AFE0D89005093BF /* TTLessionMngTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLessionMngTool.m; sourceTree = "<group>"; };
+		1D651CF51AFE115E005093BF /* LessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessionModel.h; sourceTree = "<group>"; };
+		1D651CF61AFE115E005093BF /* LessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessionModel.m; sourceTree = "<group>"; };
 		1DC7C5C91AE4B36300346732 /* RegMsgFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgFirst.h; sourceTree = "<group>"; };
 		1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgFirst.m; sourceTree = "<group>"; };
 		1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -987,6 +998,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1D651CF41AFE1145005093BF /* LessionModel */,
 				1D3FD9161AFC5AB800B9CA6B /* NearByBabyModel */,
 				02FBF1221AFA3EB30009425A /* WoModel */,
 				0FAD38F21AEDDB9100644273 /* LamaModel */,
@@ -1045,6 +1057,8 @@
 				1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */,
 				1DF097E51AFA618E00033B7D /* TTKeyChainTool.h */,
 				1DF097E61AFA618E00033B7D /* TTKeyChainTool.m */,
+				1D651CF11AFE0D89005093BF /* TTLessionMngTool.h */,
+				1D651CF21AFE0D89005093BF /* TTLessionMngTool.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -1457,8 +1471,20 @@
 				1D651CE71AFDC5D1005093BF /* TTVipPayView.m */,
 				1D651CE91AFDE177005093BF /* TTZaojiaoIntroduceCell.h */,
 				1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */,
+				1D651CEC1AFDF727005093BF /* TTZaojiaoLessionCell.xib */,
+				1D651CEE1AFE0547005093BF /* TTZaojiaoLessionCell.h */,
+				1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		1D651CF41AFE1145005093BF /* LessionModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D651CF51AFE115E005093BF /* LessionModel.h */,
+				1D651CF61AFE115E005093BF /* LessionModel.m */,
+			);
+			name = LessionModel;
 			sourceTree = "<group>";
 		};
 		1DC7C5C81AE4B32E00346732 /* RegMsg */ = {
@@ -1624,6 +1650,7 @@
 				1D3BC0A71AF8A1BD00E8BE72 /* applaud.png in Resources */,
 				1D3BC0AB1AF8A1BD00E8BE72 /* weico.png in Resources */,
 				1D3BC0AA1AF8A1BD00E8BE72 /* love@2x.png in Resources */,
+				1D651CED1AFDF727005093BF /* TTZaojiaoLessionCell.xib in Resources */,
 				1D3BC0AE1AF8A1BD00E8BE72 /* keyboard_bg.png in Resources */,
 				02240C971AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard in Resources */,
 				1D3BC0B21AF8A1BD00E8BE72 /* keyboard_del_pressed.png in Resources */,
@@ -1796,8 +1823,10 @@
 				02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */,
 				1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
+				1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */,
 				1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */,
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
+				1D651CF01AFE0547005093BF /* TTZaojiaoLessionCell.m in Sources */,
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1D370AEF1AF1DACF00DF99CE /* BlogUserDynamicModel.m in Sources */,
 				02D144FB1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */,
@@ -1820,6 +1849,7 @@
 				02041B7F1AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D018E341AE20E0F00696F25 /* TTBaseTableViewController.m in Sources */,
 				02BFC55F1ADF7A3700D0DF30 /* Order.m in Sources */,
+				1D651CF71AFE115E005093BF /* LessionModel.m in Sources */,
 				1D651CEB1AFDE177005093BF /* TTZaojiaoIntroduceCell.m in Sources */,
 				1D370B4E1AF2345100DF99CE /* UIImageView+MJWebCache.m in Sources */,
 				1D44C89C1AEF3D9D00D2FC93 /* TTDynamicCommentView.m in Sources */,

@@ -89,6 +89,13 @@
             }
         }
             break;
+        case ApiEnumGet_Me_Class_Info:{
+            id tmpModel = [LessionModel lessionModelWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
+        }
+            break;
         default:
         {
             

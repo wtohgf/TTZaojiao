@@ -9,11 +9,15 @@
 #import "TTZaojiaoViewController.h"
 #import <MJRefresh.h>
 
+#define kSectionMargin 8.f
+
 @interface TTZaojiaoViewController ()
 @property (weak, nonatomic) UITableView* zaoJiaoTableView;
 @property (weak, nonatomic) UIView* customHeaderView;
 @property (weak, nonatomic) UISegmentedControl* sortSeg;
 @property (copy, nonatomic) NSString* i_sort;
+@property (copy, nonatomic) NSString* lessionID;
+@property (strong, nonatomic) NSMutableArray* lessList;
 @end
 
 @implementation TTZaojiaoViewController
@@ -26,9 +30,6 @@
     
     //添加TableView
     [self addTableView];
-    
-    //添加上下拉刷新
-    [self setupRefresh];
     
 }
 
@@ -56,29 +57,39 @@
 -(void)addTableView{
     UITableView * tableView = [[UITableView alloc]init];
     _zaoJiaoTableView = tableView;
-    tableView.frame = self.view.frame;
     
-    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars
-        = NO;
-        self.modalPresentationCapturesStatusBarAppearance
-        = NO;
-    }
+    CGFloat w=self.view.frame.size.width;
+    CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
+    tableView.frame = CGRectMake(0, 0, w, h);
+    
+//    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars
+//        = NO;
+//        self.modalPresentationCapturesStatusBarAppearance
+//        = NO;
+//    }
+    
     tableView.dataSource = self;
     tableView.delegate = self;
     
+    UIView* footView = [[UIView alloc]initWithFrame:CGRectZero];
+    tableView.tableFooterView = footView;
+
     [self.view addSubview:tableView];
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     id cell = nil;
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         TTZaojiaoIntroduceCell* tmpcell = [TTZaojiaoIntroduceCell zaojiaoIntroduceCellWithTableView:tableView];
         tmpcell.logonUser = [TTUserModelTool sharedUserModelTool].logonUser;
         cell = tmpcell;
     }else{
-   
+        TTZaojiaoLessionCell* tmpcell = [TTZaojiaoLessionCell zaojiaoLessionCellWithTableView:tableView];
+        tmpcell.lession = _lessList[indexPath.section-1];
+        cell = tmpcell;
     }
     return cell;
 }
@@ -87,27 +98,16 @@
     return 1;
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return _lessList.count+1;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         return [TTZaojiaoIntroduceCell cellHeightWithModel:[TTUserModelTool sharedUserModelTool].logonUser];
-    }
-    return 44.f;
-}
-
--(void)setupRefresh{
-    [_zaoJiaoTableView addLegendHeaderWithRefreshingBlock:^{
-        [_zaoJiaoTableView.header beginRefreshing];
-        [self updateModel];
-    }];
-    
-    [_zaoJiaoTableView  addLegendFooterWithRefreshingBlock:^{
-        [_zaoJiaoTableView.footer beginRefreshing];
-        [self updateModel];
-    }];
-}
-
--(void)updateModel{
-    
+    }else{
+        return [TTZaojiaoLessionCell cellHeight];
+    };
 }
 
 -(UIView*)tableViewHeader{
@@ -141,14 +141,53 @@
     
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
     
+    [self getLessionID];
+    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return [self tableViewHeader];
+    if (section == 0) {
+        return [self tableViewHeader];
+    }else{
+        UIView* view = [[UIView alloc]initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, kSectionMargin)];
+        view.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0];
+        return view;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44.f;
+    if (section == 0) {
+        return 44.f;
+    }else{
+        return kSectionMargin;
+    }
+}
+
+-(void)getLessionID{
+    [TTLessionMngTool getLessionID:^(NSString *lessionID) {
+        _lessionID = lessionID;
+        if (lessionID != nil) {
+            [self getWeekLession:(lessionID)];
+        }else{
+            [MBProgressHUD TTDelayHudWithMassage:@"账号信息不正确\n请重新登录" View:self.navigationController.view];
+        }
+    }];
+}
+
+-(void)getWeekLession:(NSString*)lessionID{
+
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
+
+    [TTLessionMngTool getWeekLessions:lessionID Result:^(NSMutableArray *lessions) {
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        if (lessions != nil) {
+            _lessList = lessions;
+            [_zaoJiaoTableView reloadData];
+        }else{
+            [MBProgressHUD TTDelayHudWithMassage:@"获取课程失败" View:self.navigationController.view];
+        }
+    }];
+
 }
 
 @end

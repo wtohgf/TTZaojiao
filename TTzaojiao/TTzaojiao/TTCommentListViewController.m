@@ -149,8 +149,7 @@
     _replayView = commentView;
    
     _replayView.delegate = self;
-    CGFloat h = [UIScreen mainScreen].bounds.size.height*44.f/600.f;
-
+    CGFloat h = kBottomBarHeight;
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat y = [UIScreen mainScreen].bounds.size.height - self.navigationController.navigationBar.height - h;
     CGFloat x = 0;

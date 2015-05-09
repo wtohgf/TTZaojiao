@@ -42,7 +42,7 @@
 
 -(void)setLogonUser:(UserModel *)logonUser{
     _logonUser = logonUser;
-    NSString* introduce = [NSString stringWithFormat:INTRODUCETEXT, logonUser.birthday, [NSString getMounthOfDateString:logonUser.birthday]];
+    NSString* introduce = [NSString stringWithFormat:INTRODUCETEXT,logonUser.name, logonUser.birthday, [NSString getMounthOfDateString:logonUser.birthday]];
     
     NSDictionary* textAttr = @{
                                 NSForegroundColorAttributeName:[UIColor colorWithRed:152.0/255.0 green:82.0/255.0 blue:146.0/255.0 alpha:1.0f],
@@ -63,7 +63,7 @@
 }
 
 +(CGFloat)cellHeightWithModel:(UserModel*)logonUser{
-    NSString* introduce = [NSString stringWithFormat:INTRODUCETEXT, logonUser.birthday, [NSString getMounthOfDateString:logonUser.birthday]];
+    NSString* introduce = [NSString stringWithFormat:INTRODUCETEXT, logonUser.name, logonUser.birthday, [NSString getMounthOfDateString:logonUser.birthday]];
     CGRect bound = [introduce boundByFont:[UIFont systemFontOfSize:14.f] andWidth:ScreenWidth-2*TTBlogTableBorder];
     return bound.size.height + 4*TTBlogTableBorder;
 }

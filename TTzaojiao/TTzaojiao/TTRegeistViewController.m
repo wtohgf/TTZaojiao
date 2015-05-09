@@ -48,7 +48,7 @@
 
 #pragma mark 添加低栏
 -(void)addBottomBar{
-    CGFloat h = self.view.frame.size.height*44/600;
+    CGFloat h = kBottomBarHeight;
     CGFloat w = self.view.frame.size.width;
     CGFloat y = self.view.frame.size.height -  h;
     CGFloat x = 0;

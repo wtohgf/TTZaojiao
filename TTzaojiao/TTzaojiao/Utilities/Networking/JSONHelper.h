@@ -19,6 +19,7 @@
 #import "BlogUserDynamicModel.h"
 #import "WoVipModel.h"
 #import "NearByBabyModel.h"
+#import "LessionModel.h"
 
 //Api Name
 typedef enum : NSUInteger {
@@ -35,6 +36,7 @@ typedef enum : NSUInteger {
     ApiEnumGet_VIP_PRICE,
     ApiEnumGet_PAY_BY_CARD,
     ApiEnumGet_Test_User_List_Distance,
+    ApiEnumGet_Me_Class_Info,
 } ApiEnum;
 
 @interface JSONHelper : NSObject

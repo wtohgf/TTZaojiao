@@ -12,6 +12,8 @@
 #import "TTZaojiaoHeaderRightItem.h"
 #import "TTWoVipViewController.h"
 #import "TTZaojiaoIntroduceCell.h"
+#import "TTLessionMngTool.h"
+#import "TTZaojiaoLessionCell.h"
 
 @interface TTZaojiaoViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) TTZaojiaoHeaderLeftItem* leftView;

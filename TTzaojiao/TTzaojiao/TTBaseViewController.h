@@ -17,6 +17,8 @@
 #import "UIBarButtonItem+MoreAttribute.h"
 #import "MBProgressHUD+TTHud.h"
 
+#define kBottomBarHeight 49.f
+
 @interface TTBaseViewController : UIViewController
 
 @end

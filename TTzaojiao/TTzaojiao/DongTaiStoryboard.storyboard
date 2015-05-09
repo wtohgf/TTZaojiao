@@ -4,7 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -155,11 +154,24 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-SQ-8KQ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.89302381289999999" blue="0.95587769209999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="e5h-gA-Biw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="关注" image="bottom_btn3_unchecked">
                                     <color key="titleColor" red="0.15279862567784316" green="0.72285554846938771" blue="0.31134825627153134" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="e5h-gA-Biw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="e5h-gA-Biw"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="addorCancelFreind:" destination="u2F-kZ-jzI" eventType="touchUpInside" id="t3N-1b-Duj"/>
                                 </connections>
@@ -171,7 +183,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="T7g-GF-PLv" secondAttribute="trailing" constant="-16" id="LNu-PH-Em4"/>
                             <constraint firstItem="NNd-SQ-8KQ" firstAttribute="top" secondItem="T7g-GF-PLv" secondAttribute="bottom" constant="-1" id="boQ-pK-j1Z"/>
                             <constraint firstItem="5lj-w5-2uc" firstAttribute="top" secondItem="NNd-SQ-8KQ" secondAttribute="bottom" id="ejL-He-NcJ"/>
-                            <constraint firstAttribute="height" secondItem="NNd-SQ-8KQ" secondAttribute="height" multiplier="600:44" id="g82-z9-4DF"/>
                             <constraint firstItem="T7g-GF-PLv" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="gLC-Bq-SgM"/>
                             <constraint firstItem="NNd-SQ-8KQ" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="lOV-8p-Mkw"/>
                             <constraint firstItem="T7g-GF-PLv" firstAttribute="top" secondItem="Ttf-yV-IxW" secondAttribute="topMargin" id="vFI-55-Di9"/>
@@ -185,7 +196,6 @@
                                 <exclude reference="ejL-He-NcJ"/>
                                 <exclude reference="ALn-YC-6n1"/>
                                 <exclude reference="boQ-pK-j1Z"/>
-                                <exclude reference="g82-z9-4DF"/>
                                 <exclude reference="lOV-8p-Mkw"/>
                                 <exclude reference="LNu-PH-Em4"/>
                                 <exclude reference="gLC-Bq-SgM"/>
@@ -201,7 +211,6 @@
                                 <include reference="ejL-He-NcJ"/>
                                 <include reference="ALn-YC-6n1"/>
                                 <include reference="boQ-pK-j1Z"/>
-                                <include reference="g82-z9-4DF"/>
                                 <include reference="lOV-8p-Mkw"/>
                                 <include reference="LNu-PH-Em4"/>
                                 <include reference="gLC-Bq-SgM"/>
