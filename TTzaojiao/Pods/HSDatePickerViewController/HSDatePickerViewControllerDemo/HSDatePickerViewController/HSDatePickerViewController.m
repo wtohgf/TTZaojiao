@@ -289,12 +289,12 @@ static NSInteger kBufforRows = 30; //Number of rows that are prevent by scroll p
             [paragraphStyle setAlignment:NSTextAlignmentRight];
             break;
         case HourPicker:
-            title = [NSString stringWithFormat:@"%02ld", row % [self realNumberOfRowsInComponent:component]];
+            title = [NSString stringWithFormat:@"%ld", row % [self realNumberOfRowsInComponent:component]];
             [paragraphStyle setAlignment:NSTextAlignmentCenter];
 
             break;
         case MinutePicker:
-            title = [NSString stringWithFormat:@"%02lu", row % [self realNumberOfRowsInComponent:component] * self.minuteStep];
+            title = [NSString stringWithFormat:@"%lu", row % [self realNumberOfRowsInComponent:component] * self.minuteStep];
             [paragraphStyle setAlignment:NSTextAlignmentLeft];
 
             break;

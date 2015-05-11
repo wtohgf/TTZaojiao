@@ -31,6 +31,8 @@
 		02442BC51AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02442BC31AF8723E00AF8DDC /* TTDynamicSidebarViewController.m */; };
 		025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */; };
 		025A78541AFC99D1006581A7 /* TTWoIconModiyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */; };
+		028E08C91B004BF700966866 /* TTWoScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 028E08C81B004BF700966866 /* TTWoScoreViewController.m */; };
+		028E08CB1B004C0700966866 /* jfsm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 028E08CA1B004C0700966866 /* jfsm.pdf */; };
 		02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */; };
 		02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E51ADF662500D0DF30 /* AFNetworkActivityLogger.m */; };
 		02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BFC4E91ADF668100D0DF30 /* JSONHelper.m */; };
@@ -256,6 +258,9 @@
 		025A784C1AFC8A86006581A7 /* MBProgressHUD+TTHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TTHud.m"; sourceTree = "<group>"; };
 		025A78521AFC99D1006581A7 /* TTWoIconModiyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoIconModiyViewController.h; sourceTree = "<group>"; };
 		025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoIconModiyViewController.m; sourceTree = "<group>"; };
+		028E08C71B004BF700966866 /* TTWoScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoScoreViewController.h; sourceTree = "<group>"; };
+		028E08C81B004BF700966866 /* TTWoScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoScoreViewController.m; sourceTree = "<group>"; };
+		028E08CA1B004C0700966866 /* jfsm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = jfsm.pdf; sourceTree = SOURCE_ROOT; };
 		02BFC4E21ADF662500D0DF30 /* AFAppDotNetAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAppDotNetAPIClient.h; sourceTree = "<group>"; };
 		02BFC4E31ADF662500D0DF30 /* AFAppDotNetAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAppDotNetAPIClient.m; sourceTree = "<group>"; };
 		02BFC4E41ADF662500D0DF30 /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
@@ -682,6 +687,9 @@
 		02240C931AE6394700EEB7AF /* wo */ = {
 			isa = PBXGroup;
 			children = (
+				028E08CA1B004C0700966866 /* jfsm.pdf */,
+				028E08C71B004BF700966866 /* TTWoScoreViewController.h */,
+				028E08C81B004BF700966866 /* TTWoScoreViewController.m */,
 				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
 				02240CA71AE63A1900EEB7AF /* TTWoViewController.h */,
 				02240CA81AE63A1900EEB7AF /* TTWoViewController.m */,
@@ -1661,6 +1669,7 @@
 				1DDF4EB91AE3B712004661EB /* bg_023@2x.png in Resources */,
 				1D3BC0B11AF8A1BD00E8BE72 /* keyboard_del@2x.png in Resources */,
 				1D3BC0B31AF8A1BD00E8BE72 /* keyboard_del_pressed@2x.png in Resources */,
+				028E08CB1B004C0700966866 /* jfsm.pdf in Resources */,
 				1D3BC0C31AF8A1BD00E8BE72 /* keyboard_segment_selected_normal@2x.png in Resources */,
 				1D370B391AF2345100DF99CE /* MJPhotoBrowser.bundle in Resources */,
 				1D3BC0B41AF8A1BD00E8BE72 /* keyboard_emotion.png in Resources */,
@@ -1823,6 +1832,7 @@
 				02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */,
 				1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
+				028E08C91B004BF700966866 /* TTWoScoreViewController.m in Sources */,
 				1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */,
 				1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */,
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
