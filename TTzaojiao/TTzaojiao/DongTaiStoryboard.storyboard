@@ -98,7 +98,7 @@
         <!--Dynamic Release View Controller-->
         <scene sceneID="UjI-P8-liQ">
             <objects>
-                <viewController id="gwV-g3-dvN" customClass="TTDynamicReleaseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DynamicReleaseViewController" id="gwV-g3-dvN" customClass="TTDynamicReleaseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n40-qH-82a"/>
                         <viewControllerLayoutGuide type="bottom" id="uhb-de-CBi"/>

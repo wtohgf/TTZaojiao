@@ -34,10 +34,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="早教" id="qme-pd-e8G"/>
+                    <connections>
+                        <segue destination="jiF-MK-wOd" kind="show" identifier="toPlayLession" id="NDJ-8F-Goa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5M4-YO-nUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856" y="697"/>
+        </scene>
+        <!--Zaojiao Play Lession Controller-->
+        <scene sceneID="bkC-Ls-Fmk">
+            <objects>
+                <viewController id="jiF-MK-wOd" customClass="TTZaojiaoPlayLessionController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iJv-Vh-Kdi"/>
+                        <viewControllerLayoutGuide type="bottom" id="a5h-jK-25y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z9j-RG-3Lm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CaM-xP-5R8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1497" y="698"/>
         </scene>
     </scenes>
 </document>

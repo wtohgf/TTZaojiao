@@ -1,28 +1,29 @@
 //
-//  TTZaojiaoLessionCell.m
+//  TTPlayLessionHeaderCell.m
 //  TTzaojiao
 //
-//  Created by hegf on 15-5-9.
+//  Created by hegf on 15-5-11.
 //  Copyright (c) 2015年 hegf. All rights reserved.
 //
 
-#import "TTZaojiaoLessionCell.h"
+#import "TTPlayLessionHeaderCell.h"
 
-@implementation TTZaojiaoLessionCell
+@implementation TTPlayLessionHeaderCell
 
-+(instancetype)zaojiaoLessionCellWithTableView:(UITableView *)tableView{
++(instancetype)playLessionHeaderCellWithTableView:(UITableView *)tableView{
 
-        static NSString* ID = @"IntroduceCell";
+        static NSString* ID = @"PlayCell";
         
-        TTZaojiaoLessionCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        TTPlayLessionHeaderCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
         if (cell == nil) {
             NSArray* views = [[NSBundle mainBundle]loadNibNamed:@"TTZaojiaoLessionCell" owner:self options:nil];
-            if (views != nil && views.count>0) {
-                cell = [views firstObject];
+            if (views != nil && views.count>1) {
+                cell = views[1];
             }
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
 }
 
@@ -35,7 +36,7 @@
     _lession = lession;
     [_lessionImage setImageIcon:lession.i_pic];
     _lessionTitle.text = lession.active_name;
-    _lessionIntroduce.text = lession.active_intr;
+ 
     NSString* lessionnum = [NSString stringWithFormat:@"%@宝宝在上课", lession.active_num_person];
     _commentCount.text = lessionnum;
     NSString* blognum = [NSString stringWithFormat:@"%@讨论话题", lession.active_num_blog];
@@ -71,6 +72,9 @@
 
 +(CGFloat)cellHeight{
     return [UIScreen mainScreen].bounds.size.width*kWidthHeightRatio;
+}
+
+- (IBAction)playLession:(UIButton *)sender {
 }
 
 

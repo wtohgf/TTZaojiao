@@ -164,6 +164,8 @@
 		1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BB1AEE8712006D66FC /* TTDynamicUserStatusTopView.m */; };
 		1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */; };
 		1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */; };
+		1D4253A51B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253A41B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m */; };
+		1D4253A81B005AB000BBCB4A /* TTPlayLessionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253A71B005AB000BBCB4A /* TTPlayLessionHeaderCell.m */; };
 		1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */; };
 		1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8921AEF210700D2FC93 /* TTDynamicPhotosView.m */; };
 		1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8981AEF3AD200D2FC93 /* TTCommentFrame.m */; };
@@ -555,6 +557,10 @@
 		1D3FE2BE1AEE8718006D66FC /* TTDyanmicUserStautsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDyanmicUserStautsCell.m; sourceTree = "<group>"; };
 		1D3FE2C01AEE8818006D66FC /* UIImageView+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MoreAttribute.h"; sourceTree = "<group>"; };
 		1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MoreAttribute.m"; sourceTree = "<group>"; };
+		1D4253A31B004D1900BBCB4A /* TTZaojiaoPlayLessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoPlayLessionController.h; sourceTree = "<group>"; };
+		1D4253A41B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoPlayLessionController.m; sourceTree = "<group>"; };
+		1D4253A61B005AB000BBCB4A /* TTPlayLessionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayLessionHeaderCell.h; sourceTree = "<group>"; };
+		1D4253A71B005AB000BBCB4A /* TTPlayLessionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayLessionHeaderCell.m; sourceTree = "<group>"; };
 		1D44C88E1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDaynamicUserStatusZancountView.h; sourceTree = "<group>"; };
 		1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDaynamicUserStatusZancountView.m; sourceTree = "<group>"; };
 		1D44C8911AEF210700D2FC93 /* TTDynamicPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicPhotosView.h; sourceTree = "<group>"; };
@@ -675,6 +681,8 @@
 				02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */,
 				02240C9E1AE639DC00EEB7AF /* TTZaojiaoViewController.h */,
 				02240C9F1AE639DC00EEB7AF /* TTZaojiaoViewController.m */,
+				1D4253A31B004D1900BBCB4A /* TTZaojiaoPlayLessionController.h */,
+				1D4253A41B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m */,
 			);
 			name = zaojiao;
 			sourceTree = "<group>";
@@ -1474,6 +1482,8 @@
 				1D651CEC1AFDF727005093BF /* TTZaojiaoLessionCell.xib */,
 				1D651CEE1AFE0547005093BF /* TTZaojiaoLessionCell.h */,
 				1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */,
+				1D4253A61B005AB000BBCB4A /* TTPlayLessionHeaderCell.h */,
+				1D4253A71B005AB000BBCB4A /* TTPlayLessionHeaderCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1818,7 +1828,9 @@
 				1D018E311AE20DE300696F25 /* TTBaseNavgationController.m in Sources */,
 				1D370B361AF2345100DF99CE /* MBProgressHUD+Add.m in Sources */,
 				1D3BC0D71AF8BA0E00E8BE72 /* EmojiTextAttachment.m in Sources */,
+				1D4253A51B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m in Sources */,
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
+				1D4253A81B005AB000BBCB4A /* TTPlayLessionHeaderCell.m in Sources */,
 				1D3FD9191AFC5AD800B9CA6B /* NearByBabyModel.m in Sources */,
 				02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */,
 				1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */,
