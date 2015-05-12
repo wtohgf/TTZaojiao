@@ -1,9 +1,5 @@
 ## MJRefresh
-* The easiest way to use pull-to-refresh
-* 用法最简单的下拉刷新框架：一行代码搞定
-
-## 支持哪些控件的刷新
-* `UIScrollView`、`UITableView`、`UICollectionView`、`UIWebView`
+The easiest way to use pull-to-refresh
 
 ## 如何使用MJRefresh
 * cocoapods导入：`pod 'MJRefresh'`
@@ -25,12 +21,6 @@ UIScrollView+MJExtension.h  UIScrollView+MJExtension.m
 UIScrollView+MJRefresh.h    UIScrollView+MJRefresh.m
 UIView+MJExtension.h        UIView+MJExtension.m
 ```
-
-## 有哪些App正在使用MJRefresh
-![(App01)](http://images.cnitblog.com/blog2015/497279/201504/091535245558276.png)
-![(App02)](http://images.cnitblog.com/blog2015/497279/201504/091535380555952.png)
-![(App03)](http://images.cnitblog.com/blog2015/497279/201504/091535439466718.png)
-* 其他可以关注：[M了个J-博客园](http://www.cnblogs.com/mjios/p/4409853.html)
 
 ## 具体用法
 ```objc
@@ -185,29 +175,11 @@ self.tableView.footer.hidden = YES;
 }];
 ```
 
-## UIWebView01-下拉刷新
-![(UIWebView01-下拉刷新)](http://ww1.sinaimg.cn/mw1024/800cdf9cjw1eq2zjzu78ng208w0fy4qp.gif)
-```objc
-// 添加下拉刷新控件
-[self.webView.scrollView addLegendHeaderWithRefreshingBlock:^{
-    // 进入刷新状态后会自动调用这个block
-}];
-```
-
 ## 提醒
-* 本框架纯ARC，兼容的系统>=iOS6.0、iPhone\iPad横竖屏
+* 本框架兼容的系统>=iOS6.0，iPhone\iPad横竖屏
 
 ## 期待
 * 如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的框架代码看看BUG修复没有）
 * 如果在使用过程中发现功能不够用，希望你能Issues我，我非常想为这个框架增加更多好用的功能，谢谢
 * 如果你想为MJRefresh输出代码，请拼命Pull Requests我
 * 一起携手打造天朝乃至世界最好用的刷新框架，做天朝程序员的骄傲
-* 如果你开发的应用中用到了MJRefresh，希望你能到[CocoaControls](https://www.cocoacontrols.com/controls/mjrefresh)添加你应用的iTunes路径，我将会安装使用你的应用，并且根据众多应用的使用情况，对MJRefresh进行一个更好的设计和完善，提供更多好用的功能，谢谢
-   * 步骤01（微信是举个例子，百度“你的应用名称 itunes”）
-![(step01)](http://ww4.sinaimg.cn/mw1024/800cdf9ctw1eq0viiv5rsj20sm0ea41t.jpg)
-   * 步骤02
-![(step02)](http://ww2.sinaimg.cn/mw1024/800cdf9ctw1eq0vilejxlj20tu0me7a0.jpg)
-   * 步骤03
-![(step03)](http://ww1.sinaimg.cn/mw1024/800cdf9ctw1eq0viocpo5j20wc0dc0un.jpg)
-   * 步骤04
-![(step04)](http://ww3.sinaimg.cn/mw1024/800cdf9ctw1eq0vir137xj20si0gewgu.jpg)

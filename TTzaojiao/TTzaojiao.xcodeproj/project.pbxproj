@@ -166,6 +166,12 @@
 		1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FE2C11AEE8818006D66FC /* UIImageView+MoreAttribute.m */; };
 		1D4253A51B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253A41B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m */; };
 		1D4253A81B005AB000BBCB4A /* TTPlayLessionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253A71B005AB000BBCB4A /* TTPlayLessionHeaderCell.m */; };
+		1D4253AB1B00626C00BBCB4A /* TTPlayLessionIntroduceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253AA1B00626C00BBCB4A /* TTPlayLessionIntroduceView.m */; };
+		1D4253AE1B006A0D00BBCB4A /* TTPlayLessionIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253AD1B006A0D00BBCB4A /* TTPlayLessionIntroduceCell.m */; };
+		1D4253B11B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253B01B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.m */; };
+		1D4253B81B00A01800BBCB4A /* DetailLessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253B71B00A01800BBCB4A /* DetailLessionModel.m */; };
+		1D4253CA1B01572000BBCB4A /* AppMvPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253C91B01572000BBCB4A /* AppMvPlayViewController.m */; };
+		1D4253D11B019DB000BBCB4A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4253D01B019DB000BBCB4A /* MediaPlayer.framework */; };
 		1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */; };
 		1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8921AEF210700D2FC93 /* TTDynamicPhotosView.m */; };
 		1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8981AEF3AD200D2FC93 /* TTCommentFrame.m */; };
@@ -561,6 +567,17 @@
 		1D4253A41B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoPlayLessionController.m; sourceTree = "<group>"; };
 		1D4253A61B005AB000BBCB4A /* TTPlayLessionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayLessionHeaderCell.h; sourceTree = "<group>"; };
 		1D4253A71B005AB000BBCB4A /* TTPlayLessionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayLessionHeaderCell.m; sourceTree = "<group>"; };
+		1D4253A91B00626C00BBCB4A /* TTPlayLessionIntroduceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayLessionIntroduceView.h; sourceTree = "<group>"; };
+		1D4253AA1B00626C00BBCB4A /* TTPlayLessionIntroduceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayLessionIntroduceView.m; sourceTree = "<group>"; };
+		1D4253AC1B006A0D00BBCB4A /* TTPlayLessionIntroduceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayLessionIntroduceCell.h; sourceTree = "<group>"; };
+		1D4253AD1B006A0D00BBCB4A /* TTPlayLessionIntroduceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayLessionIntroduceCell.m; sourceTree = "<group>"; };
+		1D4253AF1B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayLessionIntroducePicsView.h; sourceTree = "<group>"; };
+		1D4253B01B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayLessionIntroducePicsView.m; sourceTree = "<group>"; };
+		1D4253B61B00A01800BBCB4A /* DetailLessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLessionModel.h; sourceTree = "<group>"; };
+		1D4253B71B00A01800BBCB4A /* DetailLessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLessionModel.m; sourceTree = "<group>"; };
+		1D4253C81B01572000BBCB4A /* AppMvPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMvPlayViewController.h; sourceTree = "<group>"; };
+		1D4253C91B01572000BBCB4A /* AppMvPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppMvPlayViewController.m; sourceTree = "<group>"; };
+		1D4253D01B019DB000BBCB4A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1D44C88E1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDaynamicUserStatusZancountView.h; sourceTree = "<group>"; };
 		1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDaynamicUserStatusZancountView.m; sourceTree = "<group>"; };
 		1D44C8911AEF210700D2FC93 /* TTDynamicPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicPhotosView.h; sourceTree = "<group>"; };
@@ -655,6 +672,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D4253D11B019DB000BBCB4A /* MediaPlayer.framework in Frameworks */,
 				02041B8F1AE8D9C800B09561 /* CoreLocation.framework in Frameworks */,
 				02BFC56D1ADF7B1E00D0DF30 /* SystemConfiguration.framework in Frameworks */,
 				02BFC56B1ADF7A3700D0DF30 /* libssl.a in Frameworks */,
@@ -763,6 +781,7 @@
 		02BFC4E01ADF662500D0DF30 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1D4253C11B014CC900BBCB4A /* PlayVideo */,
 				1D3BC0681AF89F6100E8BE72 /* WUEmoticonsKeyboard */,
 				02442BBD1AF871FE00AF8DDC /* LLBlurSidebar */,
 				1D370AFC1AF2345100DF99CE /* lib */,
@@ -1006,6 +1025,7 @@
 		1D018E101AE1602E00696F25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1D4253B51B009FEF00BBCB4A /* DetailLessionModel */,
 				1D651CF41AFE1145005093BF /* LessionModel */,
 				1D3FD9161AFC5AB800B9CA6B /* NearByBabyModel */,
 				02FBF1221AFA3EB30009425A /* WoModel */,
@@ -1382,6 +1402,24 @@
 			name = DynamicCell;
 			sourceTree = "<group>";
 		};
+		1D4253B51B009FEF00BBCB4A /* DetailLessionModel */ = {
+			isa = PBXGroup;
+			children = (
+				1D4253B61B00A01800BBCB4A /* DetailLessionModel.h */,
+				1D4253B71B00A01800BBCB4A /* DetailLessionModel.m */,
+			);
+			name = DetailLessionModel;
+			sourceTree = "<group>";
+		};
+		1D4253C11B014CC900BBCB4A /* PlayVideo */ = {
+			isa = PBXGroup;
+			children = (
+				1D4253C81B01572000BBCB4A /* AppMvPlayViewController.h */,
+				1D4253C91B01572000BBCB4A /* AppMvPlayViewController.m */,
+			);
+			path = PlayVideo;
+			sourceTree = "<group>";
+		};
 		1D47550B1AEB3140004EDEED /* BlogModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1484,6 +1522,12 @@
 				1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */,
 				1D4253A61B005AB000BBCB4A /* TTPlayLessionHeaderCell.h */,
 				1D4253A71B005AB000BBCB4A /* TTPlayLessionHeaderCell.m */,
+				1D4253A91B00626C00BBCB4A /* TTPlayLessionIntroduceView.h */,
+				1D4253AA1B00626C00BBCB4A /* TTPlayLessionIntroduceView.m */,
+				1D4253AC1B006A0D00BBCB4A /* TTPlayLessionIntroduceCell.h */,
+				1D4253AD1B006A0D00BBCB4A /* TTPlayLessionIntroduceCell.m */,
+				1D4253AF1B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.h */,
+				1D4253B01B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1564,6 +1608,7 @@
 		BEEBD2BE5CF12C4233149FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D4253D01B019DB000BBCB4A /* MediaPlayer.framework */,
 				02041B8E1AE8D9C800B09561 /* CoreLocation.framework */,
 				02BFC56C1ADF7B1E00D0DF30 /* SystemConfiguration.framework */,
 				6A3C53EDF178EBFF1A8B6D88 /* libPods.a */,
@@ -1765,6 +1810,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF097E11AF8CBBE00033B7D /* NSAttributedString+EmojiExtension.m in Sources */,
+				1D4253B11B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.m in Sources */,
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
@@ -1795,6 +1841,7 @@
 				0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */,
 				025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */,
 				1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */,
+				1D4253AE1B006A0D00BBCB4A /* TTPlayLessionIntroduceCell.m in Sources */,
 				1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */,
 				1D3762881AF038BD00CAAA05 /* TTCommentListViewController.m in Sources */,
 				02BFC5651ADF7A3700D0DF30 /* openssl_wrapper.m in Sources */,
@@ -1806,10 +1853,12 @@
 				02442BC41AF8723E00AF8DDC /* TTDynamicSidebarViewController.m in Sources */,
 				1D3FD90E1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m in Sources */,
 				1D018E1C1AE1C91A00696F25 /* TTUserModelTool.m in Sources */,
+				1D4253CA1B01572000BBCB4A /* AppMvPlayViewController.m in Sources */,
 				0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */,
 				1D370B4D1AF2345100DF99CE /* SDWebImageManager+MJ.m in Sources */,
 				1D018E0F1AE15F8900696F25 /* TTBaseViewController.m in Sources */,
 				02240CA91AE63A1900EEB7AF /* TTWoViewController.m in Sources */,
+				1D4253B81B00A01800BBCB4A /* DetailLessionModel.m in Sources */,
 				1D018E381AE20EC500696F25 /* TTNavigationController.m in Sources */,
 				0FE830A21AF85DE800A15860 /* LamaTableViewCellPicList.m in Sources */,
 				0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */,
@@ -1835,6 +1884,7 @@
 				02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */,
 				1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
+				1D4253AB1B00626C00BBCB4A /* TTPlayLessionIntroduceView.m in Sources */,
 				1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */,
 				1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */,
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,

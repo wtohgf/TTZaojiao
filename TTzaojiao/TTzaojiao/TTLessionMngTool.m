@@ -11,6 +11,9 @@
 @implementation TTLessionMngTool
 
 +(void)getLessionID:(LessionIDBlock)block{
+    if (block == nil) {
+        return;
+    }
     NSDictionary* parameters = @{
                                  @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
@@ -23,11 +26,7 @@
                     NSDictionary* dict = [result_data firstObject];
                     if (dict!=nil) {
                         NSString* lessionID = [dict objectForKey:@"Get_Me_Class_Now"];
-                        if (block != nil) {
                             block(lessionID);
-                        }else{
-                            block(nil);
-                        }
                     }
                     else{
                         block(nil);
@@ -48,6 +47,9 @@
 }
 
 +(void)getWeekLessions:(NSString *)lessionID Result:(WeekLessionBlock)block{
+    if (block == nil) {
+        return;
+    }
     NSDictionary* parameters = @{
                                  @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
@@ -84,4 +86,79 @@
         
     }];
 }
+
++(void)getDetailLessionInfo:(NSString*)activeID Result:(DetailLessionBlock)block{
+    if (block == nil) {
+        return;
+    }
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"id": activeID,
+                                 };
+    
+    [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LESSON_DETAIL_INFO Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* retList = (NSMutableArray*)result_data;
+                if (retList.count > 0) {
+                    DetailLessionModel* detailLession = [retList firstObject];
+                    block(detailLession);
+                }else{
+                    block(nil);
+                }
+            }else{
+                block(nil);
+            }
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+            block(nil);
+        };
+        
+    }];
+}
+
++(void)getLessionVideoPath:(NSString *)activeID Result:(LessionVideoPathBlock)block{
+    if (block == nil) {
+        return;
+    }
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"id": activeID,
+                                 };
+    
+    [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LESSON_VIDEO_PATH Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* retList = (NSMutableArray*)result_data;
+                if (retList.count > 0) {
+                    NSDictionary* ret = [retList firstObject];
+                    if ([[ret objectForKey:@"msg"] isEqualToString:@"1"]) {
+                        NSString* videoPath = [ret objectForKey:@"msg_word"];
+                        block(videoPath);
+                    }else{
+                        block(nil);
+                    }
+                }else{
+                    block(nil);
+                }
+            }else{
+                block(nil);
+            }
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+            block(nil);
+        };
+        
+    }];
+}
+
+
 @end

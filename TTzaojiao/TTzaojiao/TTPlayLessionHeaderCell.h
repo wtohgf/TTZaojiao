@@ -14,6 +14,9 @@
 //Cell宽高比 确保显示协调
 #define kWidthHeightRatio 188/640
 
+@protocol TTPlayLessionHeaderCellDelegate<NSObject>
+- (void)didPlayLession;
+@end
 
 @interface TTPlayLessionHeaderCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *lessionImage;
@@ -28,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *baby0Icon;
 
 @property (weak, nonatomic) IBOutlet UIButton *playLessionBtn;
-
+@property (weak, nonatomic) id<TTPlayLessionHeaderCellDelegate> delegate;
 
 @property (strong, nonatomic) LessionModel* lession;
 

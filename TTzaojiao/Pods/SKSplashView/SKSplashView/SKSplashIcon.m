@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) SKIconAnimationType animationType;
 @property (strong, nonatomic) CAAnimation *customAnimation;
-//@property (nonatomic) CGFloat animationDuration;
+@property (nonatomic) CGFloat animationDuration;
 @property (strong, nonatomic) UIImage *iconImage;
 
 @end

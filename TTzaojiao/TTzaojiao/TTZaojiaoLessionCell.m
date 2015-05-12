@@ -37,9 +37,9 @@
     _lessionTitle.text = lession.active_name;
     _lessionIntroduce.text = lession.active_intr;
     NSString* lessionnum = [NSString stringWithFormat:@"%@宝宝在上课", lession.active_num_person];
-    _commentCount.text = lessionnum;
+    _babyCount.text = lessionnum;
     NSString* blognum = [NSString stringWithFormat:@"%@讨论话题", lession.active_num_blog];
-    _babyCount.text = blognum;
+    _commentCount.text = blognum;
     
     NSArray* users = [lession.active_user componentsSeparatedByString:@"|"];
     NSMutableArray* icons = [NSMutableArray array];

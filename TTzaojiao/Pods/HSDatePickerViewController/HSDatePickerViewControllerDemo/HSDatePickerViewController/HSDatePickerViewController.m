@@ -261,17 +261,11 @@ static NSInteger kBufforRows = 30; //Number of rows that are prevent by scroll p
         case DayPicker:
             width = 140;
             break;
-//        case HourPicker:
-//            width = 40;
-//            break;
-//        case MinutePicker:
-//            width = 40;
-//            break;
         case HourPicker:
-            width = 0;
+            width = 40;
             break;
         case MinutePicker:
-            width = 0;
+            width = 40;
             break;
     }
     

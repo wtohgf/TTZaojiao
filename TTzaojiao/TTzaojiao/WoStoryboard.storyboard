@@ -273,7 +273,8 @@
                                                             <exclude reference="Ug5-QV-DHs"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="118" y="0.0" width="187" height="44"/>
                                                         <mask key="subviews">
                                                             <include reference="uqA-jf-Trw"/>
                                                         </mask>

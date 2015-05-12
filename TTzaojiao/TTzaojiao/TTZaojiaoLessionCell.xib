@@ -179,8 +179,8 @@
                 <outlet property="baby2Icon" destination="TRW-h5-1MO" id="6hA-31-00N"/>
                 <outlet property="baby3Icon" destination="rmZ-Dm-2M0" id="QOQ-Q5-dtf"/>
                 <outlet property="baby4Icon" destination="rNw-He-CyL" id="5r4-bq-f3d"/>
-                <outlet property="babyCount" destination="ckt-vr-Mh7" id="fge-sf-5Fh"/>
-                <outlet property="commentCount" destination="BIz-c6-Jl4" id="wrD-Mq-4pL"/>
+                <outlet property="babyCount" destination="BIz-c6-Jl4" id="0Dc-uU-7fu"/>
+                <outlet property="commentCount" destination="ckt-vr-Mh7" id="7PO-Ms-u3c"/>
                 <outlet property="lessionImage" destination="xIo-Jt-Gz6" id="CvA-XW-M7D"/>
                 <outlet property="lessionIntroduce" destination="ZB8-Jh-DJr" id="FRR-iv-xXA"/>
                 <outlet property="lessionTitle" destination="356-SP-Ein" id="dDz-1p-Coy"/>

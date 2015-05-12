@@ -26,9 +26,6 @@ CGFloat const distance_W_LabelHeader = 35.0;
     return self;
 }
 
--(void)dealloc{
-    [self.tableView removeObserver:self forKeyPath:@"contentOffset"];
-}
 
 - (MBTwitterScroll *)initTableViewWithBackgound:(UIImage*)backgroundImage avatarImage:(UIImage *)avatarImage titleString:(NSString *)titleString subtitleString:(NSString *)subtitleString buttonTitle:(NSString *)buttonTitle {
     
