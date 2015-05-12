@@ -233,6 +233,7 @@
     }
     else if (1 == indexPath.section) {
         if (0 == indexPath.row) {
+            [self performSegueWithIdentifier:@"scoreSegue" sender:self];
         }
         else if (1 == indexPath.row) {
         }

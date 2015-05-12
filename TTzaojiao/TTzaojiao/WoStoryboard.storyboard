@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -457,11 +457,67 @@
                         <segue destination="ZIu-qy-9vk" kind="show" identifier="personalSegue" id="Xdm-cs-mCj"/>
                         <segue destination="zpY-rq-M5l" kind="show" identifier="passwordSegue" id="o9n-T0-hGr"/>
                         <segue destination="cAl-Cd-6Ss" kind="show" identifier="iconSegue" id="hNf-b9-fN0"/>
+                        <segue destination="1WS-TC-9YM" kind="show" identifier="scoreSegue" id="ca3-BH-93b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MS1-39-sib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="718.5" y="450.75"/>
+        </scene>
+        <!--积分说明-->
+        <scene sceneID="knA-d4-Gao">
+            <objects>
+                <viewController title="积分说明" id="1WS-TC-9YM" customClass="TTWoScoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cNk-66-l9M"/>
+                        <viewControllerLayoutGuide type="bottom" id="SF2-YN-hyf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uDd-U8-ctV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9O4-0g-1SB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9O4-0g-1SB" firstAttribute="top" secondItem="cNk-66-l9M" secondAttribute="bottom" constant="1" id="0e5-ca-2lz"/>
+                            <constraint firstAttribute="trailing" secondItem="9O4-0g-1SB" secondAttribute="trailing" id="4hq-DD-0JT"/>
+                            <constraint firstItem="9O4-0g-1SB" firstAttribute="leading" secondItem="uDd-U8-ctV" secondAttribute="leading" id="VdR-Af-4f2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="9O4-0g-1SB" secondAttribute="bottom" constant="-65" id="hWv-pi-72f"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="9O4-0g-1SB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0e5-ca-2lz"/>
+                                <exclude reference="4hq-DD-0JT"/>
+                                <exclude reference="VdR-Af-4f2"/>
+                                <exclude reference="hWv-pi-72f"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="9O4-0g-1SB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0e5-ca-2lz"/>
+                                <include reference="4hq-DD-0JT"/>
+                                <include reference="VdR-Af-4f2"/>
+                                <include reference="hWv-pi-72f"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="mWebView" destination="9O4-0g-1SB" id="6qj-OX-WU2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AY4-Ya-CRV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589.5" y="-377.25"/>
         </scene>
         <!--修改头像-->
         <scene sceneID="pkW-ry-mS6">
@@ -704,7 +760,7 @@
         <!--成为VIP家长-->
         <scene sceneID="LMb-HQ-AH3">
             <objects>
-                <viewController storyboardIdentifier="VIPPAY" title="成为VIP家长" id="lkY-Qn-w4A" customClass="TTWoVipViewController" sceneMemberID="viewController">
+                <viewController title="成为VIP家长" id="lkY-Qn-w4A" customClass="TTWoVipViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AdJ-Xj-EPy"/>
                         <viewControllerLayoutGuide type="bottom" id="xKg-zZ-yhI"/>
