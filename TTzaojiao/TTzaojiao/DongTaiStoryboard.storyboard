@@ -25,7 +25,7 @@
         <!--动态-->
         <scene sceneID="rmF-aI-jAp">
             <objects>
-                <viewController id="bFt-7y-de5" customClass="TTDongTaiViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TTDongTaiViewController" id="bFt-7y-de5" customClass="TTDongTaiViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q3d-0Y-QiJ"/>
                         <viewControllerLayoutGuide type="bottom" id="0G3-z6-V9o"/>
@@ -233,6 +233,6 @@
         <image name="bottom_btn3_unchecked" width="29" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3n7-7S-nGk"/>
+        <segue reference="hzc-tP-phY"/>
     </inferredMetricsTieBreakers>
 </document>

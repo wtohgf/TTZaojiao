@@ -140,7 +140,10 @@
 }
 
 -(void)lessionDiscuss:(UIButton*)sender{
-
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+    TTDongTaiViewController *dongTaiController = (TTDongTaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"TTDongTaiViewController"];
+    dongTaiController.lession = _lession;
+    [self.navigationController pushViewController:dongTaiController animated:YES];
 }
 
 -(void)getDetailLessionInfo{
@@ -173,12 +176,28 @@
             [self presentViewController:moviePlayer animated:YES completion:nil];
   
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"课程视频获取失败" View:self.navigationController.view];
+            UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"只有VIP会员才能上此课程" delegate:self cancelButtonTitle:@"不上了" otherButtonTitles:@"立即充值",nil];
+            [alertView show];
         }
     }];
     
 
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            break;
+        case 1:
+        {
+            UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
+            TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
+            [self.navigationController pushViewController:vipPayController animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 @end

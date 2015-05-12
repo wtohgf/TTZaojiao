@@ -166,7 +166,7 @@
                                  @"i_x":lat,
                                  @"i_y":lon,
                                  @"i_sort":_sort,
-                                 @"i_type":@"1",
+                                 @"i_type":((_activeID == nil)?@"1":_activeID),
                                  @"i_month":[TTUserModelTool sharedUserModelTool].mouth,
                                  @"i_item":[TTUserModelTool sharedUserModelTool].group,
                                  };

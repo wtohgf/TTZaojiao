@@ -14,8 +14,10 @@
 #import "DetailLessionModel.h"
 #import "TTPlayLessionHeaderCell.h"
 #import "AppMvPlayViewController.h"
+#import "TTWoVipViewController.h"
+#import "TTDongTaiViewController.h"
 
-@interface TTZaojiaoPlayLessionController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTPlayLessionHeaderCellDelegate>
+@interface TTZaojiaoPlayLessionController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTPlayLessionHeaderCellDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) LessionModel* lession;
 @property (strong, nonatomic) DetailLessionModel* detailLession;
 

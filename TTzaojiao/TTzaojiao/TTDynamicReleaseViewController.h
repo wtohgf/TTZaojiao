@@ -18,5 +18,5 @@
 @property (weak, nonatomic) UITextView *textView;
 @property (weak, nonatomic) TTPublichPicsView* publichPicsView;
 @property (strong, nonatomic) CLLocation* location;
-
+@property (copy, nonatomic) NSString * activeID;
 @end

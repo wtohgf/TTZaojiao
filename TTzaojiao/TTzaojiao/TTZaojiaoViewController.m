@@ -190,6 +190,10 @@
         {
             NSInteger tmdID = [_lessionID integerValue];
             tmdID = tmdID + 1;
+            if (tmdID > 100) {
+                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.navigationController.view];
+                return;
+            }
             _lessionID = [NSString stringWithFormat:@"%ld", tmdID];
         }
         

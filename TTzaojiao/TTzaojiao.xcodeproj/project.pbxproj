@@ -1894,6 +1894,7 @@
 				1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */,
 				02BFC4E71ADF662500D0DF30 /* AFNetworkActivityLogger.m in Sources */,
 				1D4253AB1B00626C00BBCB4A /* TTPlayLessionIntroduceView.m in Sources */,
+                028E08C91B004BF700966866 /* TTWoScoreViewController.m in Sources */,
 				1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */,
 				1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */,
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,

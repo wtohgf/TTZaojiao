@@ -15,8 +15,13 @@
 #import "TTDaynamicUserStatusZancountView.h"
 #import "TTDyanmicUserStautsCell.h"
 #import "TTNearBybabyTableViewCell.h"
+#import "LessionModel.h"
+#import "TTDynamicReleaseViewController.h"
 
 
 @interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDyanmicUserStautsCellDelegate, TTDynamicSidebarViewControllerDelegate,TTNearBybabyTableViewCellDelegate>
 @property (strong, nonatomic) CLLocation* location;
+
+@property (strong, nonatomic) LessionModel * lession;//上课ID
+
 @end

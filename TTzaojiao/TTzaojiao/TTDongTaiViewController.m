@@ -48,21 +48,23 @@
     UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state" target:self action:@selector(dynamic_state:)];
     self.navigationItem.rightBarButtonItem = itemright;
     
-    
-    UIBarButtonItem* itemleft = [UIBarButtonItem barButtonItemWithImage:@"icon_menu" target:self action:@selector(selAgeRange:)];
-    self.navigationItem.leftBarButtonItem = itemleft;
-    
-    // 左侧边栏开始
-    UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
-    [panGesture delaysTouchesBegan];
-    [self.tabBarController.view addGestureRecognizer:panGesture];
-    
-    self.siderbar = [[TTDynamicSidebarViewController alloc] init];
-    self.siderbar.delegate = self;
-    [self.siderbar setBgRGB:0xF09EB1];
-    [self.rdv_tabBarController.view addSubview:self.siderbar.view];
-    self.siderbar.view.frame  = self.view.bounds;
-    // 左侧边栏结束
+    if (_lession == nil) {
+        UIBarButtonItem* itemleft = [UIBarButtonItem barButtonItemWithImage:@"icon_menu" target:self action:@selector(selAgeRange:)];
+        self.navigationItem.leftBarButtonItem = itemleft;
+        // 左侧边栏开始
+        UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+        [panGesture delaysTouchesBegan];
+        [self.tabBarController.view addGestureRecognizer:panGesture];
+        
+        self.siderbar = [[TTDynamicSidebarViewController alloc] init];
+        self.siderbar.delegate = self;
+        [self.siderbar setBgRGB:0xF09EB1];
+        [self.rdv_tabBarController.view addSubview:self.siderbar.view];
+        self.siderbar.view.frame  = self.view.bounds;
+        // 左侧边栏结束
+    }else{
+        self.title = _lession.active_name;
+    }
     
     _pageIndexInt = 1;
     _group = @"0";//全部月龄
@@ -72,7 +74,7 @@
 }
 
 -(void)dynamic_state:(UIBarButtonItem*)item{
-    [self performSegueWithIdentifier:@"toRelease" sender:nil];
+    [self performSegueWithIdentifier:@"toRelease" sender:item];
 }
 
 -(void)selAgeRange:(UIBarButtonItem*)item{
@@ -137,6 +139,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    if (_lession != nil) {
+        [[self rdv_tabBarController] setTabBarHidden:YES animated:NO];
+    }
     _pageIndexInt = 1;
     _isGetMoreBlog = NO;
     if (_sortSeg.selectedSegmentIndex == 3) {
@@ -144,11 +149,14 @@
     }else{
         [self updateBlog];
     }
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-
+    if (_lession != nil) {
+        [[self rdv_tabBarController] setTabBarHidden:NO animated:NO];
+    }
 }
 
 - (void)panDetected:(UIPanGestureRecognizer*)recoginzer
@@ -157,7 +165,64 @@
 }
 
 -(void)updateBlog{
-   
+    if (_lession != nil) {
+        [self updateWeekLessionBlog];
+    }else{
+        [self updateAllBlog];
+    }
+}
+
+-(void)updateWeekLessionBlog{
+    NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
+    NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
+    NSDictionary* parameters = @{
+                                 @"i_uid": i_uid,
+                                 @"p_1": pageIndex,
+                                 @"p_2": @"15",
+                                 @"i_sort": _i_sort,
+                                 @"id": _lession.active_id
+                                 };
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_BLOG Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        if (_blogs == nil) {
+            _blogs = [NSMutableArray array];
+        }
+        if (result_status == ApiStatusSuccess) {
+            if (_isGetMoreBlog) {
+                [_dongtaiTable.footer endRefreshing];
+                _isGetMoreBlog = NO;
+            }else{
+                [_dongtaiTable.header endRefreshing];
+                [_blogs removeAllObjects];
+                [_dongtaiTable reloadData];
+            }
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    if ([obj isKindOfClass:[BlogModel class]]) {
+                        [_blogs addObject:obj];
+                    }
+                }];
+                
+                [_dongtaiTable reloadData];
+            }
+            
+        }else{
+            if (_isGetMoreBlog) {
+                [_dongtaiTable.footer endRefreshing];
+                _isGetMoreBlog = NO;
+            }else{
+                [_dongtaiTable.header endRefreshing];
+            }
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+    }];
+
+}
+
+-(void)updateAllBlog{
     NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
     NSDictionary* parameters = @{
@@ -188,7 +253,7 @@
                         [_blogs addObject:obj];
                     }
                 }];
-
+                
                 [_dongtaiTable reloadData];
             }
             
@@ -204,7 +269,6 @@
             }
         };
     }];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -338,6 +402,14 @@
         TTUserDongtaiViewController* uvc = (TTUserDongtaiViewController*)segue.destinationViewController;
         uvc.i_uid = sender;
     }
+    
+    if ([segue.destinationViewController isKindOfClass:[TTDynamicReleaseViewController class]]) {
+        TTDynamicReleaseViewController* rv = segue.destinationViewController;
+        if (_lession != nil) {
+            rv.activeID = _lession.active_id;
+        }
+    }
+    
 }
 
 -(void)showNearByBaby{
