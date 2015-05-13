@@ -9,6 +9,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
+#import "UserModel.h"
+#import "TTUserModelTool.h"
 
 @interface TTMainPageViewController : TTBaseViewController<UIActionSheetDelegate>
 

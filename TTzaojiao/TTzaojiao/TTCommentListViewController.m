@@ -215,16 +215,24 @@
 }
 
 -(void)didReplayButtonClick{
-    if (_replayView.commentTextField.text.length != 0) {
-        [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError* error) {
-            _location = location;
-            [self replayComment];
-        }];
-        
+    if (![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        if (_replayView.commentTextField.text.length != 0) {
+            [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError* error) {
+                _location = location;
+                [self replayComment];
+            }];
+            
+        }else{
+            [MBProgressHUD TTDelayHudWithMassage:@"评论不能为空" View:self.navigationController.view];
+        }
+    }    else{
+        UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以给好友发消息哦" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
+        [alertView show];
     }
 }
 
 -(void)replayComment{
+    
     UserModel* user = [TTUserModelTool sharedUserModelTool].logonUser;
     NSString* lat = @"0";
     NSString* lon = @"0";
@@ -255,6 +263,22 @@
         
     }];
     [_replayView.commentTextField resignFirstResponder];
+    
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            break;
+        case 1:
+        {
+            [self.rdv_tabBarController.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 
 @end

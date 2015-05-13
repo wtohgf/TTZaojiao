@@ -8,6 +8,7 @@
 
 #import "TTRegeistViewController.h"
 #import "TTRealRegisitViewController.h"
+#import "MBProgressHUD+TTHud.h"
 
 @interface TTRegeistViewController ()
 {
@@ -31,6 +32,7 @@
 
 }
 
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
@@ -38,12 +40,14 @@
     //self.navigationController.navigationBarHidden = NO;
     //注册键盘通知
     [self addKeyNotification];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
+
 }
 
 #pragma mark 添加低栏
@@ -113,25 +117,26 @@
     
     //对手机号合理性判断
     if (_phoneNumber.text.length != 11 || ![_phoneNumber.text hasPrefix:@"1"]) {
-        [[[UIAlertView alloc]init]showAlert:@"您输入的手机号无效" byTime:kALertTiem];
+//        [[[UIAlertView alloc]init]showAlert:@"您输入的手机号无效" byTime:kALertTiem];
+        [MBProgressHUD TTDelayHudWithMassage:@"您输入的手机号无效" View:self.navigationController.view];
         _phoneNumber.text = @"";
         return;
     }
     //对密码长度进行判断
     if (_firstPassword.text.length < 6 || _firstPassword.text.length>14) {
-        [[[UIAlertView alloc]init]showAlert:@"请您输入6~14位密码" byTime:kALertTiem];
+//        [[[UIAlertView alloc]init]showAlert:@"请您输入6~14位密码" byTime:kALertTiem];
+        [MBProgressHUD TTDelayHudWithMassage:@"请您输入6~14位密码" View:self.navigationController.view];
         _firstPassword.text = @"";
         return;
     }
     
     //对确认密码和首次密码一致性判断
     if (![_sencondPassword.text isEqualToString:_firstPassword.text]) {
-        [[[UIAlertView alloc]init]showAlert:@"两次密码不一致" byTime:kALertTiem];
+//        [[[UIAlertView alloc]init]showAlert:@"两次密码不一致" byTime:kALertTiem];
+        [MBProgressHUD TTDelayHudWithMassage:@"两次密码不一致" View:self.navigationController.view];
         _sencondPassword.text = @"";
         return;
     }
-    
-    [self performSegueWithIdentifier:@"nextStep" sender: nil];
     
     //验证用户是否已注册
     NSDictionary* parameters = @{
@@ -150,7 +155,7 @@
                         NSString* segTag = @"nextStep";
                         [self performSegueWithIdentifier:@"nextStep" sender: segTag];
                     }else{
-                        [[[UIAlertView alloc]init] showAlert:msgFirst.msg_word byTime:1.5];
+                        [MBProgressHUD TTDelayHudWithMassage:msgFirst.msg_word View:self.navigationController.view];
                     }
                 }
            }

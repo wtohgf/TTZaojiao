@@ -293,7 +293,7 @@
 #ifdef DEBUG
             NSLog(@"Logout!!!");
 #endif
-            [self.rdv_tabBarController.navigationController popViewControllerAnimated:YES];
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLongon];
         }
         else {
             return;

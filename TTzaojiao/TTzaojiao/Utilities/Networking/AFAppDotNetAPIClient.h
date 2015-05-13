@@ -45,8 +45,10 @@ typedef enum : NSUInteger {
     ApiStatusError,
     ApiStatusException,
     ApiStatusNetworkNotReachable,
-    ApiStatusAppNoUse
+    ApiStatusAppNoUse,
 } ApiStatus;
+
+typedef void(^WifiAvaliableBlock)(BOOL wifiAvaliable);
 
 #define JsonErrorDomain @"com.Houses.json"
 #define kUserdefaultUserName @"com.Houses.username"

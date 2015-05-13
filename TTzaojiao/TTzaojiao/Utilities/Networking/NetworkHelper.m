@@ -33,7 +33,7 @@
     
     AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
     if (afNetworkReachabilityManager.isReachable == NO) {
-        [[[UIAlertView alloc]init] showAlert:@"网络信号不好" byTime:3.0];
+       [[[UIAlertView alloc]init] showAlert:@"网络连接不可用" byTime:2.f];
     }
     return afNetworkReachabilityManager.isReachable;
  
@@ -59,7 +59,6 @@
         
         switch (status) {
             case AFNetworkReachabilityStatusNotReachable:{
-                [[[UIAlertView alloc]init] showAlert:@"网络信号不好" byTime:3.0];
                 break;
             }
             case AFNetworkReachabilityStatusReachableViaWiFi:{
@@ -69,9 +68,6 @@
                 break;
             }
             default:
-            {
-                [[[UIAlertView alloc]init] showAlert:@"网络信号不好" byTime:3.0];
-            }
                 break;
         }
     }];

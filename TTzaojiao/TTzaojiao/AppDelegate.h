@@ -20,6 +20,6 @@
 //- (void)saveContext;
 //- (NSURL *)applicationDocumentsDirectory;
 
-
+//@property (assign, nonatomic) BOOL allowRotation;
 @end
 

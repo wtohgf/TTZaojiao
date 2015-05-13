@@ -16,9 +16,13 @@
 #import <UIImageView+AFNetworking.h>
 #import "UIBarButtonItem+MoreAttribute.h"
 #import "MBProgressHUD+TTHud.h"
+#import "UIView+NKMoreAttribute.h"
+#import "TTTabBarController.h"
+#import "TTUserModelTool.h"
+#import "TTUIChangeTool.h"
 
 #define kBottomBarHeight 49.f
 
 @interface TTBaseViewController : UIViewController
-
+@property (weak, nonatomic) UIButton* logonRegButton;
 @end

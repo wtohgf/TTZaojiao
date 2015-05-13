@@ -440,7 +440,7 @@
         <!--Log Reg View Controller-->
         <scene sceneID="GtS-Vg-s80">
             <objects>
-                <viewController id="sUl-hg-hCT" customClass="TTLogRegViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOGONREG" id="sUl-hg-hCT" customClass="TTLogRegViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k8R-DF-rMq"/>
                         <viewControllerLayoutGuide type="bottom" id="DxE-V1-6PJ"/>
@@ -494,7 +494,9 @@
                                     <constraint firstItem="wHU-2L-7Tl" firstAttribute="leading" secondItem="vYr-0j-Zg5" secondAttribute="trailing" id="3dx-7c-2W0"/>
                                     <constraint firstAttribute="bottom" secondItem="vYr-0j-Zg5" secondAttribute="bottom" id="4q5-Fq-7rQ"/>
                                     <constraint firstItem="Cmd-bs-6Dn" firstAttribute="leading" secondItem="vPI-hc-P3r" secondAttribute="leading" id="69u-N0-SJc"/>
-                                    <constraint firstItem="vYr-0j-Zg5" firstAttribute="width" secondItem="vPI-hc-P3r" secondAttribute="width" multiplier="1:3" id="Bxu-2g-8Sa"/>
+                                    <constraint firstItem="vYr-0j-Zg5" firstAttribute="width" secondItem="vPI-hc-P3r" secondAttribute="width" multiplier="1:3" id="Bxu-2g-8Sa">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
+                                    </constraint>
                                     <constraint firstItem="wHU-2L-7Tl" firstAttribute="top" secondItem="vPI-hc-P3r" secondAttribute="top" id="JeL-tQ-IxS"/>
                                     <constraint firstItem="Cmd-bs-6Dn" firstAttribute="top" secondItem="vPI-hc-P3r" secondAttribute="top" id="M2a-E1-3Dk"/>
                                     <constraint firstItem="Cmd-bs-6Dn" firstAttribute="width" secondItem="vPI-hc-P3r" secondAttribute="width" multiplier="1:3" id="MNy-HQ-Jjz"/>
@@ -590,7 +592,7 @@
         <!--Logon View Controller-->
         <scene sceneID="qw7-5h-AhW">
             <objects>
-                <viewController id="Yae-US-II8" customClass="TTLogonViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOGON" id="Yae-US-II8" customClass="TTLogonViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fbn-Ue-PEy"/>
                         <viewControllerLayoutGuide type="bottom" id="J5H-1u-Kiu"/>
@@ -1840,8 +1842,8 @@
         <!--Navigation Controller-->
         <scene sceneID="kgc-tA-LtC">
             <objects>
-                <navigationController id="ip3-r2-9rg" customClass="TTNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b4A-jL-iX1">
+                <navigationController storyboardIdentifier="MAINNAV" id="ip3-r2-9rg" customClass="TTNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="b4A-jL-iX1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -74,7 +74,12 @@
 }
 
 -(void)dynamic_state:(UIBarButtonItem*)item{
-    [self performSegueWithIdentifier:@"toRelease" sender:item];
+    if (![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        [self performSegueWithIdentifier:@"toRelease" sender:item];
+    }else{
+        UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以发布自己的动态" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
+        [alertView show];
+    }
 }
 
 -(void)selAgeRange:(UIBarButtonItem*)item{
@@ -341,8 +346,28 @@
 
 //消息查看
 -(void)daynamicUserStatusRemsgClicked:(NSString *)blogid{
-    [self performSegueWithIdentifier:@"toCommentList" sender:blogid];
+    if (![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        [self performSegueWithIdentifier:@"toCommentList" sender:blogid];
+    }else{
+        UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以给好友发评论哦" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
+        [alertView show];
+    }
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            break;
+        case 1:
+        {
+            [self.rdv_tabBarController.navigationController popViewControllerAnimated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (_sortSeg.selectedSegmentIndex == 3) {

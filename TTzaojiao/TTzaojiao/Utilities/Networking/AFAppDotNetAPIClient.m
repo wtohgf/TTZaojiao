@@ -443,7 +443,7 @@
                         if ([function rangeOfString:@"Get_Test_User_List_Distance"].length) {
                             api = ApiEnumGet_Test_User_List_Distance;
                         }
-                        if ([function rangeOfString:@"Get_Me_Class_Info"].length) {
+                        if ([function rangeOfString:@"Get_Me_Class_Info"].length || [function rangeOfString:@"Get_Me_Class_Info_Experience"].length) {
                             api = ApiEnumGet_Me_Class_Info;
                         }
                         if ([function rangeOfString:@"Get_Me_ClassPart_Info"].length) {

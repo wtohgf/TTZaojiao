@@ -60,6 +60,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
@@ -251,7 +252,9 @@
         }
     } Progress:^(CGFloat progress) {
         _iconPath = @"";
-        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+//        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+        
+        [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
@@ -296,19 +299,23 @@
 - (IBAction)regist:(UIButton *)sender {
     
     if (_iconPath.length == 0) {
-        [[[UIAlertView alloc]init]showAlert:@"请设置宝宝头像" byTime:2.0];
+       // [[[UIAlertView alloc]init]showAlert:@"请设置宝宝头像" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请设置宝宝头像" View:self.navigationController.view];
         return;
     }
     if (_genderType.length == 0){
-        [[[UIAlertView alloc]init]showAlert:@"请选择性别" byTime:2.0];
+       // [[[UIAlertView alloc]init]showAlert:@"请选择性别" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请选择性别" View:self.navigationController.view];
         return;
     }
     if (_birthdayString.length == 0){
-        [[[UIAlertView alloc]init]showAlert:@"请选择生日" byTime:2.0];
+       // [[[UIAlertView alloc]init]showAlert:@"请选择生日" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请选择生日" View:self.navigationController.view];
         return;
     }
     if (_babyName.text.length == 0) {
-        [[[UIAlertView alloc]init]showAlert:@"请填写宝宝姓名" byTime:2.0];
+        //[[[UIAlertView alloc]init]showAlert:@"请填写宝宝姓名" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请填写宝宝姓名" View:self.navigationController.view];
         return;
     }
     
@@ -333,7 +340,8 @@
                     if ([msgSecond.msg isEqualToString:@"Get_Reg_2"]) {
                         NSLog(@"注册成功");
                     }else{
-                        [[[UIAlertView alloc]init]showAlert:msgSecond.msg_word byTime:3.0];
+//                        [[[UIAlertView alloc]init]showAlert:msgSecond.msg_word byTime:3.0];
+                        [MBProgressHUD TTDelayHudWithMassage:msgSecond.msg_word View:self.navigationController.view];
                     }
                 }
             }

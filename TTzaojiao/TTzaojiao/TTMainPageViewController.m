@@ -8,12 +8,16 @@
 
 #import "TTMainPageViewController.h"
 #import "CustomDatePicker.h"
+#import "TTTabBarController.h"
 
 @interface TTMainPageViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *logregButton;
 @property (weak, nonatomic) IBOutlet UILabel *year;
 @property (weak, nonatomic) IBOutlet UILabel *mouth;
 @property (weak, nonatomic) IBOutlet UILabel *day;
+
+
+@property (strong, nonatomic) UIViewController *mainViewController;
 
 - (IBAction)startTryTeach:(UIButton *)sender;
 - (IBAction)dateChoice:(UIButton *)sender;
@@ -30,9 +34,45 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+
 #pragma mark 开始体验
 - (IBAction)startTryTeach:(UIButton *)sender {
-    NSLog(@"startTryTeach");
+    NSString* birthDay = [NSString stringWithFormat:@"%@-%@-%@",_year.text, _mouth.text, _day.text];
+    NSDictionary* dict = @{
+                           @"id": @"1977",
+                           @"name": @"未登录",
+                           @"icon": @"/App/Code/TempFace/1.jpg",
+                           @"gender": @"1",
+                           @"vip": @"0",
+                           @"vip_time": @"2010-01-01 01:01:01",
+                           @"type": @"0",
+                           @"birthday":birthDay,
+                           };
+    
+    UserModel* tryUser = [UserModel userModelWithDict:dict];
+    [TTUserModelTool sharedUserModelTool].logonUser = tryUser;
+    [TTUserModelTool sharedUserModelTool].password = @"3e9fe397381d3e595979a716ebf32c21";
+    [self Trylongon:tryUser];
+}
+
+-(void)Trylongon:(UserModel*) user{
+    
+    
+    //装载tabbar
+    TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
+
+    [UINavigationBar appearance].hidden = NO;
+    
+    self.mainViewController = tabBarController;
+    
+    [self.navigationController pushViewController:_mainViewController animated:YES];
+    
 }
 
 #pragma mark 生日选择

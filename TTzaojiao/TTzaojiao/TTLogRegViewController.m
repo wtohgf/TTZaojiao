@@ -20,6 +20,16 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+}
+
 #pragma mark 返回主页
 - (IBAction)backtoMain:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];

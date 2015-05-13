@@ -56,9 +56,14 @@
 }
 
 -(void)vipPay:(TTZaojiaoHeaderRightItem*)sender{
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
-    TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
-    [self.navigationController pushViewController:vipPayController animated:YES];
+    
+    if ( [[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg];
+    }else{
+        UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
+        TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
+        [self.navigationController pushViewController:vipPayController animated:YES];
+    }
 }
 
 -(void)addTableView{
@@ -68,14 +73,7 @@
     CGFloat w=self.view.frame.size.width;
     CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
     tableView.frame = CGRectMake(0, 0, w, h);
-    
-//    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-//        self.edgesForExtendedLayout = UIRectEdgeNone;
-//        self.extendedLayoutIncludesOpaqueBars
-//        = NO;
-//        self.modalPresentationCapturesStatusBarAppearance
-//        = NO;
-//    }
+
     
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -227,7 +225,11 @@
             _lessList = lessions;
             [_zaoJiaoTableView reloadData];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"获取课程失败" View:self.navigationController.view];
+            if (_sortSeg.selectedSegmentIndex == 0) {
+                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:self.navigationController.view];
+            }else            if (_sortSeg.selectedSegmentIndex == 2) {
+                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.navigationController.view];
+            }
         }
     }];
 

@@ -8,6 +8,7 @@
 
 #import "TTZaojiaoPlayLessionController.h"
 #import "TTDynamicReleaseViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define kSectionMargin 8.f
 
@@ -30,21 +31,20 @@
     [self getDetailLessionInfo];
 }
 
+//-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    AppDelegate* delegate = [UIApplication sharedApplication].delegate;
+////    delegate.allowRotation = NO;
+////    [TTForceScreenOretationTool setScreenOretation:UIInterfaceOrientationPortrait view:[self rdv_tabBarController].view];
+//}
+//
+//-(void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:animated];
+//}
 
 - (void)addNavItems{
     self.title = @"早教课堂";
-    
-//    UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state" target:self action:@selector(dynamic_state:)];
-//    self.navigationItem.rightBarButtonItem = itemright;
-    
 }
-
-//-(void)dynamic_state:(UIBarButtonItem*)item{
-//    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-//    TTDynamicReleaseViewController* rv = [storyBoard instantiateViewControllerWithIdentifier:@"DynamicReleaseViewController"];
-//    
-//    [self.navigationController pushViewController:rv animated:YES];
-//}
 
 -(void)addTableView{
     UITableView * tableView = [[UITableView alloc]init];
@@ -53,14 +53,7 @@
     CGFloat w=self.view.frame.size.width;
     CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
     tableView.frame = CGRectMake(0, 0, w, h);
-    
-    //    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-    //        self.edgesForExtendedLayout = UIRectEdgeNone;
-    //        self.extendedLayoutIncludesOpaqueBars
-    //        = NO;
-    //        self.modalPresentationCapturesStatusBarAppearance
-    //        = NO;
-    //    }
+
     
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -161,7 +154,10 @@
 }
 #pragma mark 理解上课
 -(void)didPlayLession{
-    
+    [self playLessionVideo];
+}
+
+-(void)playLessionVideo{
     [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
     
     [TTLessionMngTool getLessionVideoPath:_lession.active_id Result:^(NSString *videoPath) {
@@ -169,19 +165,20 @@
         if (videoPath != nil) {
             
             NSString* fullPath = [NSString stringWithFormat:@"%@%@", TTBASE_URL, videoPath];
+            MPMoviePlayerViewController* movieViewPlayer = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:fullPath]];
+            [self presentMoviePlayerViewControllerAnimated:movieViewPlayer];
             
-            AppMvPlayViewController* moviePlayer =[[AppMvPlayViewController alloc]init];
-            
-            moviePlayer.playurl = fullPath;
-            [self presentViewController:moviePlayer animated:YES completion:nil];
-  
         }else{
-            UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"只有VIP会员才能上此课程" delegate:self cancelButtonTitle:@"不上了" otherButtonTitles:@"立即充值",nil];
-            [alertView show];
+            if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+                UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后体验课程" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
+                [alertView show];
+            }else{
+                UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"只有VIP会员才能上此课程" delegate:self cancelButtonTitle:@"不上了" otherButtonTitles:@"立即充值",nil];
+                [alertView show];
+            }
         }
     }];
     
-
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -190,9 +187,14 @@
             break;
         case 1:
         {
-            UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
-            TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
-            [self.navigationController pushViewController:vipPayController animated:YES];
+            
+            if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+                [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg];
+            }else{
+                UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
+                TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
+                [self.navigationController pushViewController:vipPayController animated:YES];
+            }
         }
             break;
         default:

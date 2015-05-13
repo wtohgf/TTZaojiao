@@ -44,6 +44,7 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.view bringSubviewToFront:_bottomBar];
+    
 }
 
 #pragma mark 设置记住的用户名密码
@@ -190,7 +191,8 @@
     
     self.mainViewController = tabBarController;
     
-    [self.navigationController pushViewController:_mainViewController animated:YES];
+//    [self.navigationController pushViewController:_mainViewController animated:YES];
+    [UIApplication sharedApplication].keyWindow.rootViewController = _mainViewController;
     
     //保存用户名和密码
     if(_savePassworkCheckButton.selected == YES)
@@ -225,6 +227,11 @@
     [super touchesBegan:touches withEvent:event];
     [_password resignFirstResponder];
     [_account resignFirstResponder];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 

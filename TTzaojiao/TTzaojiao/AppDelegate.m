@@ -25,7 +25,7 @@
     [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
     [[AFNetworkActivityLogger sharedLogger] startLogging];
 #endif
-    
+//    self.allowRotation = NO;
     return YES;
 }
 
@@ -146,6 +146,13 @@
 //            abort();
 //        }
 //    }
+//}
+
+//-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+//    if (self.allowRotation) {
+//        return UIInterfaceOrientationMaskAll;
+//    }
+//    return UIInterfaceOrientationMaskPortrait;
 //}
 
 @end

@@ -249,10 +249,14 @@
 }
 
 - (void)changCover {
-    _isChangCover = YES;
-    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
-    imagePicker.delegate = self;
-    [imagePicker showImagePickerInController:self animated:YES];
+    
+    if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:_i_uid]) {
+        _isChangCover = YES;
+        JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+        imagePicker.delegate = self;
+        [imagePicker showImagePickerInController:self animated:YES];
+    }
+
 }
 
 - (void)updateCover {
@@ -275,10 +279,14 @@
 }
 
 - (void)changIcon {
-    _isChangIcon = YES;
-    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
-    imagePicker.delegate = self;
-    [imagePicker showImagePickerInController:self animated:YES];
+    
+    if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:_i_uid]){
+        
+        _isChangIcon = YES;
+        JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+        imagePicker.delegate = self;
+        [imagePicker showImagePickerInController:self animated:YES];
+    }
 }
 
 - (void)updateIcon {
@@ -329,7 +337,9 @@
         }
     } Progress:^(CGFloat progress) {
         _iconPath = @"";
-        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+//        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+        
+        [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     
@@ -426,46 +436,69 @@
         [MBProgressHUD TTDelayHudWithMassage:@"不能关注自己" View:self.navigationController.view];
         return;
     }
-    NSDictionary* parameters = @{
-                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
-                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
-                                 @"i_uid_you":_i_uid
-                                 };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[AFAppDotNetAPIClient sharedClient]apiGet:_isMyFriend?DELETE_ATTENTION:ADD_ATTENTION Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (result_status == ApiStatusSuccess) {
-            if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                if (((NSMutableArray*)result_data).count!=0) {
-                    NSDictionary* result = [result_data firstObject];
-                    if (_isMyFriend) {
-                        if ([[result objectForKey:@"msg"] isEqualToString:@"1"]) {
-                            _isMyFriend = NO;
-                            [sender setTitle:@"关注" forState:UIControlStateNormal];
-                            [MBProgressHUD TTDelayHudWithMassage:@"取消关注成功" View:self.navigationController.view];
+    
+    if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以给好友发消息哦" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
+        [alertView show];
+    }else{
+        
+        NSDictionary* parameters = @{
+                                     @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                     @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                     @"i_uid_you":_i_uid
+                                     };
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[AFAppDotNetAPIClient sharedClient]apiGet:_isMyFriend?DELETE_ATTENTION:ADD_ATTENTION Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (result_status == ApiStatusSuccess) {
+                if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                    if (((NSMutableArray*)result_data).count!=0) {
+                        NSDictionary* result = [result_data firstObject];
+                        if (_isMyFriend) {
+                            if ([[result objectForKey:@"msg"] isEqualToString:@"1"]) {
+                                _isMyFriend = NO;
+                                [sender setTitle:@"关注" forState:UIControlStateNormal];
+                                [MBProgressHUD TTDelayHudWithMassage:@"取消关注成功" View:self.navigationController.view];
+                            }else{
+                                [MBProgressHUD TTDelayHudWithMassage:@"取消关注失败" View:self.navigationController.view];
+                            }
                         }else{
-                            [MBProgressHUD TTDelayHudWithMassage:@"取消关注失败" View:self.navigationController.view];
-                        }
-                    }else{
-                        if ([[result objectForKey:@"msg"] isEqualToString:@"Friend_Add"]) {
-                            _isMyFriend = YES;
-                            [MBProgressHUD TTDelayHudWithMassage:@"关注成功" View:self.navigationController.view];
-                            [sender setTitle:@"取消关注" forState:UIControlStateNormal];
-                        }else{
-                            [MBProgressHUD TTDelayHudWithMassage:@"关注失败" View:self.navigationController.view];
+                            if ([[result objectForKey:@"msg"] isEqualToString:@"Friend_Add"]) {
+                                _isMyFriend = YES;
+                                [MBProgressHUD TTDelayHudWithMassage:@"关注成功" View:self.navigationController.view];
+                                [sender setTitle:@"取消关注" forState:UIControlStateNormal];
+                            }else{
+                                [MBProgressHUD TTDelayHudWithMassage:@"关注失败" View:self.navigationController.view];
+                            }
                         }
                     }
                 }
-            }
-        }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
-        };
-        
-    }];
+            }else{
+                if (result_status != ApiStatusNetworkNotReachable) {
+                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+                }
+            };
+            
+        }];
 
+    }
+  
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            break;
+        case 1:
+        {
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 
 -(void)checkFriend:(NSString*)i_uid{
     NSDictionary* parameters = @{
