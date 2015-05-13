@@ -175,4 +175,28 @@ static TTCityMngTool* tool;
     _locationBlock(nil, error);
 }
 
+//经纬度转cityCode
+- (void) getReverseGeocode:(CLLocation *)location
+{
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        for (CLPlacemark * placemark in placemarks) {
+            
+            NSDictionary *test = [placemark addressDictionary];
+            
+            NSLog(@"city is %@",[test objectForKey:@"City"]) ;
+            
+            //  Country(国家)  State(城市)  SubLocality(区)
+            
+            NSLog(@"\n国家:%@\n省:%@\n城市:%@\n街道:%@", [test objectForKey:@"Country"],[test objectForKey:@"State"],[test objectForKey:@"City"],[test objectForKey:@"Street"]);
+            NSString* cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:[test objectForKey:@"City"]];
+            _cityCode = cityCode;
+        }
+    }];
+    
+    
+    
+}
+
 @end

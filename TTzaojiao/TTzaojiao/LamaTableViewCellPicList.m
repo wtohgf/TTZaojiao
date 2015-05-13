@@ -20,7 +20,7 @@
     if (nil == cell) {
         cell = [[LamaTableViewCellPicList alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-
+    
     return cell;
 }
 
@@ -36,12 +36,12 @@
         _picListView = imgView;
         
         
-//        //content
-//        UILabel *name  = [[UILabel alloc]init];
-//        [self.contentView addSubview:name];
-////        _contentLabel = name;
-////        _contentLabel.numberOfLines = 0;
-//        name.font = kTextFont;
+        //        //content
+        //        UILabel *name  = [[UILabel alloc]init];
+        //        [self.contentView addSubview:name];
+        ////        _contentLabel = name;
+        ////        _contentLabel.numberOfLines = 0;
+        //        name.font = kTextFont;
         
     }
     
@@ -54,10 +54,10 @@
     }
     else
     {
-    _picListView.frame = _modelFrame.i_PicListFrame;
+        _picListView.frame = _modelFrame.i_PicListFrame;
     }
     
-
+    
 }
 
 - (void)setModelFrame:(LamaTableViewCellModelFrame *)modelFrame
@@ -67,6 +67,6 @@
     //图片数目不定，要计算每个图片的尺寸，以及获得每个图片的url进行显示
     //每张图片的url
     //modelFrame.model.i_pic_list;
-
+    
 }
 @end

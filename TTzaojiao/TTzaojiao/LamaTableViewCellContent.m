@@ -29,7 +29,7 @@
 - (void)layoutSubviews{
     
     [super layoutSubviews];
-
+    
     [_contentLabel setFrame:_modelFrame.i_contentFrame];
     
 }
@@ -53,7 +53,7 @@
 
 
 - (void)setModelFrame:(LamaTableViewCellModelFrame *)modelFrame
-{    
+{
     _modelFrame = modelFrame;
     _contentLabel.text = modelFrame.model.i_content;
     

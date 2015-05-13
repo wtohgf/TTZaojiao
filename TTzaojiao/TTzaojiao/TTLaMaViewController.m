@@ -15,23 +15,65 @@
 #import "TTBaseViewController.h"
 #import "LamaTableViewCell.h"
 #import "LaMaDetailViewController.h"
+#import "TTUserDongtaiViewController.h"
+#import "LaMaAddRegCompayViewController.h"
+#import "TSLocateView.h"
+#import "CustomDatePicker.h"
+#import <MapKit/MapKit.h>
 @interface TTLaMaViewController () <CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>
+{
+    NSUInteger _pageIndexInt;
+}
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *locationCity;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *models;
+@property (copy, nonatomic) NSString* cityCode; //110000
+@property (weak, nonatomic) IBOutlet UILabel *location;
+
 @end
 
 @implementation TTLaMaViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+#pragma mark
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.rowHeight = 150;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    _pageIndexInt = 1;
+    
+    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars
+        = NO;
+        self.modalPresentationCapturesStatusBarAppearance
+        = NO;
+    }
+    
+    
+    [self setting];
+    
+}
+
+- (void)loadData
+{
+    NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
+    NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
+    NSDictionary* parameters = @{
+                                 @"i_uid":i_uid,
+                                 @"p_1":pageIndex,
+                                 @"p_2":@"10",
+                                 @"i_city":_cityCode
+                                 };
     //加载网络数据
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_ACTIVE Parameters:nil Result:^(id result_data, ApiStatus result_status, NSString *api) {
+    [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_ACTIVE Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
             //
@@ -44,25 +86,20 @@
                 NSMutableArray *tempArray = [NSMutableArray array];
                 
                 
-                    [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                        if ([obj isKindOfClass:[LamaModel class]]) {
-                            [tempArray addObject:obj];
-                        }
-                    }];
-                    
-                    _models = tempArray;
-                    //NSLog(@"count is %zi",_models.count);
-
-                    [_tableView reloadData];
-                    
-                   
-               
-
+                [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    if ([obj isKindOfClass:[LamaModel class]]) {
+                        [tempArray addObject:obj];
+                    }
+                }];
+                
+                _models = tempArray;
+                //NSLog(@"count is %zi",_models.count);
+                [_tableView reloadData];
                 
                 //当前用户信息
                 //UserModel *user = [TTUserModelTool sharedUserModelTool].logonUser;
                 // NSLog(@"%@ %@", user.name, user.icon);
-            
+                
             }
             
             
@@ -72,54 +109,94 @@
             }
         };
     }];
-    
-
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //定位获得城市码
+    [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
+        //NSLog(@"latitude is %f",location.coordinate.latitude);
+        [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location];
+        _cityCode = [TTCityMngTool sharedCityMngTool].cityCode;
+    }];
+    //假数据 macmini定位不好用
+    _cityCode = @"210200";
+    //加载异步网络数据
+    [self loadData];
+    
+}
+
+#pragma mark
+//ADD_REG_COMPAY
+-(void) leftBtnClick
+{
+    
+    LaMaAddRegCompayViewController *addRegCompayController = [[LaMaAddRegCompayViewController alloc]init];
+    // [addRegCompayController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
+    [self.navigationController pushViewController:addRegCompayController animated:YES];
+    
+}
+
+#pragma mark 显示个人信息
 - (void) rightBtnClick:(UIBarButtonItem*)btn
 {
-    NSLog(@"right");
+    
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
+    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
+    [self.navigationController pushViewController:userViewController animated:YES];
     //导航
 }
-- (void) test
+
+- (UIImage *) loadWebImage
 {
-    UIBarButtonItem *left = [[UIBarButtonItem alloc]init];
-   left.title = @"入住辣妈街";
+    UIImage* image=nil;
+    NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,[[[TTUserModelTool sharedUserModelTool] logonUser] icon]];
+    
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];//获取网咯图片数据
+    if(data!=nil)
+    {
+        image = [[UIImage alloc] initWithData:data];//根据图片数据流构造image
+    }
+    return image;
+}
+
+#pragma mark 导航条布局
+- (void) setting
+{
+    
+    
+    //left
+    UIButton *leftbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftbutton setImage:[UIImage imageNamed:@"icon_apply_join"]  forState:UIControlStateNormal];
+    [leftbutton addTarget:self action:@selector(leftBtnClick)
+         forControlEvents:UIControlEventTouchUpInside];
+    leftbutton.frame = CGRectMake(50, 5, 100, 30);
+    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithCustomView:leftbutton];
     self.navigationItem.leftBarButtonItem= left;
     
-    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"pic" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick:)];
+    
+    //right
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[self loadWebImage] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(rightBtnClick:)
+     forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];
     self.navigationItem.rightBarButtonItem= right;
-}
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self startLocation];
-    
-    
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.rowHeight = 150;
-    
-    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars
-        = NO;
-        self.modalPresentationCapturesStatusBarAppearance
-        = NO;
-    }
-    
-   
-    [self test];
     
 }
 
 
+#pragma mark
 //懒加载模型
 - (NSMutableArray *)models
 {
     
     
     return _models;
-
+    
 }
 
 
@@ -133,16 +210,16 @@
     //create cell
     
     LamaTableViewCell *cell = [LamaTableViewCell lamaCellWithTabelView:tableView];
-
+    
     //data
-   LamaModel * model=
+    LamaModel * model=
     _models[indexPath.row];
     
     //set cell
     cell.lamaModel = model;
     
     return cell;
-
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -172,63 +249,53 @@
     self.navigationController.title = @"详情";
     [self.navigationController pushViewController:detailController animated:YES];
 }
-//- (NSIndexPath *)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//
-//    return indexPath;
+
+
+
+//- (IBAction)locationAction:(id)sender {
+//    [self performSegueWithIdentifier:@"cityListSegue" sender:self];
 //}
 
 
-- (IBAction)locationAction:(id)sender {
-    [self performSegueWithIdentifier:@"cityListSegue" sender:self];
+
+#pragma mark 更改位置
+- (IBAction)changLocation:(UIButton *)sender {
+    //[_babyName resignFirstResponder];
+    
+    TSLocateView *locateView = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
+    locateView.titleLabel.text = @"定位城市";
+    locateView.delegate = self;
+    //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
+    [locateView showInView:self.view];
+    
+    
+    
+    
 }
 
-//开始定位
--(void)startLocation{
-    
-    if ([CLLocationManager locationServicesEnabled])
-    {
-        if (!self.locationManager)
-        {
-            self.locationManager = [[CLLocationManager alloc] init];
-        }
-        self.locationManager.delegate = self;
-        self.locationManager.distanceFilter=1.0;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([actionSheet isKindOfClass:[TSLocateView class]]) {
+        TSLocateView *locateView = (TSLocateView *)actionSheet;
+        TSLocation *location = locateView.locate;
+        NSLog(@"provice%@ city:%@", location.state, location.city);
+        //You can uses location to your application.
         
-        if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
-        {
-            [self.locationManager requestAlwaysAuthorization]; // 永久授权
-            [self.locationManager requestWhenInUseAuthorization]; //使用中授权
+        if(buttonIndex == 0) {
+            _cityCode = @"";
+        }else {
+            NSString* cityName = [NSString stringWithFormat:@"%@市", location.city];
+            _locationCity.text = cityName;
+            _cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:cityName];
+            NSLog(@"code %@", _cityCode);
+            NSString* cityString = [NSString stringWithFormat:@"%@ %@",location.state, location.city];
+            [_location setText:cityString];
+            //重新加载网络数据
+            [self loadData];
         }
         
-        [self.locationManager startUpdatingLocation];//开启位置更新
     }
 }
 
-//定位代理经纬度回调
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    [_locationManager stopUpdatingLocation];
-    
-    CLLocation *newLocation = [locations lastObject];
-    NSLog(@"%@",[NSString stringWithFormat:@"经度:%3.5f\n纬度:%3.5f",newLocation.coordinate.latitude,newLocation.coordinate.longitude]);
-    
-    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
-    
-    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        
-        for (CLPlacemark * placemark in placemarks) {
-            
-            NSDictionary *test = [placemark addressDictionary];
-            
-            _locationCity.text = [test objectForKey:@"City"];
-    
-            //  Country(国家)  State(城市)  SubLocality(区)
-            
-            NSLog(@"\n国家:%@\n省:%@\n城市:%@\n街道:%@", [test objectForKey:@"Country"],[test objectForKey:@"State"],[test objectForKey:@"City"],[test objectForKey:@"Street"]);
-            
-        }
-    }];
-}
 
 @end

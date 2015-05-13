@@ -20,7 +20,7 @@
 @property (nonatomic,strong) LamaTableViewCellModelFrame *modelFrame;
 @end
 @implementation LaMaDetailViewController
-
+#pragma mark 模型初始化
 - (LamaTableViewCellModelFrame *)modelFrame
 {
     if (_modelFrame == nil) {
@@ -34,18 +34,21 @@
     }
     return _modelFrame;
 }
+#pragma mark
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     UITableView * tableView = [[UITableView alloc]init];
     tableView.frame = self.view.frame;
     _tableView = tableView;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:tableView];
     tableView.dataSource = self;
     tableView.delegate = self;
     
 }
 
+#pragma mark
 - (void)viewWillAppear:(BOOL)animated
 {
     
@@ -101,13 +104,16 @@
         cell.modelFrame = _modelFrame;
         return cell;
     }
+    //创建相应cell－－活动详情
     else if (indexPath.row == 1)
     {
         LamaTableViewCellLabel *cell = [LamaTableViewCellLabel LamaTableViewCellContactWithTabelView:_tableView];
         cell.label.text = @"活动详情";
+        cell.backgroundColor =  [UIColor colorWithRed:(233/255.0) green:(233/255.0) blue:(233/255.0) alpha:(233/255.0)];
         return cell;
         
     }
+    //创建相应cell－－联系人
     else if(indexPath.row == (self.modelFrame.model.count - 1))
     {
         
@@ -118,12 +124,14 @@
         return cell;
         
     }
+    //创建相应cell－－商家信息
     else if (indexPath.row == self.modelFrame.model.count - 2)
     {
         LamaTableViewCellLabel *cell = [LamaTableViewCellLabel LamaTableViewCellContactWithTabelView:_tableView ];
         cell.label.text = @"商家信息";
         return cell;
     }
+    //创建相应cell－－图片list
     else if (indexPath.row == (self.modelFrame.model.count - 3))
     {
         

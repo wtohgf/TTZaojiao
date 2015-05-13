@@ -28,10 +28,10 @@
 }
 
 - (void)layoutSubviews{
-   
+    
     [_picView setFrame:_modelFrame.i_picFrame];
     [_nameLabel setFrame:_modelFrame.i_nameFrame];
-   
+    
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -47,29 +47,30 @@
         //name
         UILabel *nameLabel  = [[UILabel alloc]init];
         [self.contentView addSubview:nameLabel];
+        
         _nameLabel = nameLabel;
         _nameLabel.numberOfLines = 0;
-
         
-
+        
+        
     }
-
+    
     return self;
 }
 
 
 - (void)setModelFrame:(LamaTableViewCellModelFrame *)modelFrame
 {
-
+    
     _modelFrame = modelFrame;
     
     _nameLabel.text = modelFrame.model.i_name;
-        
+    
     NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,modelFrame.model.i_pic];
     NSArray * tempArray =  [url componentsSeparatedByString:@"|"];
     [_picView setImageWithURL:[NSURL URLWithString: [tempArray firstObject]]];
-
-
+    
+    
 }
 
 @end

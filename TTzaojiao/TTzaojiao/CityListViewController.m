@@ -35,7 +35,7 @@
         self.keys = [NSMutableArray array];
         self.arrayCitys = [NSMutableArray array];
     }
-
+    
     return self;
 }
 
@@ -45,7 +45,7 @@
     
     [self getCityData];
     
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
     _tableView.backgroundColor = [UIColor clearColor];

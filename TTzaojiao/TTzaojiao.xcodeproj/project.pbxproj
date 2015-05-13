@@ -63,6 +63,7 @@
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
 		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
 		0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */; };
+		0FBED4721B0343CD002D4628 /* LaMaAddRegCompayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBED4711B0343CD002D4628 /* LaMaAddRegCompayViewController.m */; };
 		0FCB300C1AFC907D005F00C7 /* LamaTableViewCellLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */; };
 		0FCB300F1AFC90A2005F00C7 /* LamaTableViewCellContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */; };
 		0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */; };
@@ -401,6 +402,8 @@
 		0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTotalModel.m; sourceTree = "<group>"; };
 		0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCell.h; sourceTree = "<group>"; };
 		0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCell.m; sourceTree = "<group>"; };
+		0FBED4701B0343C1002D4628 /* LaMaAddRegCompayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaMaAddRegCompayViewController.h; sourceTree = "<group>"; };
+		0FBED4711B0343CD002D4628 /* LaMaAddRegCompayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaMaAddRegCompayViewController.m; sourceTree = "<group>"; };
 		0FCB300A1AFC907D005F00C7 /* LamaTableViewCellLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellLabel.h; sourceTree = "<group>"; };
 		0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCellLabel.m; sourceTree = "<group>"; };
 		0FCB300D1AFC90A2005F00C7 /* LamaTableViewCellContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCellContact.h; sourceTree = "<group>"; };
@@ -747,6 +750,8 @@
 		02240C941AE6394B00EEB7AF /* lamajie */ = {
 			isa = PBXGroup;
 			children = (
+				0FBED4701B0343C1002D4628 /* LaMaAddRegCompayViewController.h */,
+				0FBED4711B0343CD002D4628 /* LaMaAddRegCompayViewController.m */,
 				0FE830A61AF85EA100A15860 /* LaMaDetailViewController.h */,
 				0FE830AA1AF85ECA00A15860 /* LaMaDetailViewController.m */,
 				0FE830AE1AF8619300A15860 /* TTLaMaViewController.h */,
@@ -1948,6 +1953,7 @@
 				0FCB300F1AFC90A2005F00C7 /* LamaTableViewCellContact.m in Sources */,
 				1D37628F1AF07FA600CAAA05 /* TTCommentRelaseView.m in Sources */,
 				1DF097E41AF9FEE400033B7D /* AlipayRequestConfig.m in Sources */,
+				0FBED4721B0343CD002D4628 /* LaMaAddRegCompayViewController.m in Sources */,
 				1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */,
 				1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */,
 				1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */,

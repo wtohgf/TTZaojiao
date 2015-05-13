@@ -14,7 +14,7 @@
 @implementation LamaTableViewCellLabel
 
 
-+ (instancetype)LamaTableViewCellContactWithTabelView:(UITableView *)tableView 
++ (instancetype)LamaTableViewCellContactWithTabelView:(UITableView *)tableView
 {
     static NSString * ID = @"lamaCellLabel";
     
@@ -31,7 +31,7 @@
 - (void)layoutSubviews{
     
     [super layoutSubviews];
-    [_label setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 30)];
+    [_label setFrame:CGRectMake(8, 0, [UIScreen mainScreen].bounds.size.width, 30)];
     
 }
 
@@ -43,7 +43,8 @@
         [self.contentView addSubview:label];
         _label = label;
         _label.font = kTextFont;
-       // _label.text = @"活动详情";
+        
+        // _label.text = @"活动详情";
     }
     
     return self;
@@ -52,9 +53,9 @@
 
 //- (void)setModelFrame:(LamaTableViewCellModelFrame *)modelFrame
 //{
-//    
-//    
-//    
-//    
+//
+//
+//
+//
 //}
 @end

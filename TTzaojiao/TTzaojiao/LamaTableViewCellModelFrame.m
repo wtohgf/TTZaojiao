@@ -27,7 +27,7 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = (CGFloat)((width * h)/w) ;
     _i_picFrame = CGRectMake(0, 0, width, height);
-    _i_nameFrame = CGRectMake(0, height, width, 30);
+    _i_nameFrame = CGRectMake(8, height, width, 30);
     _NameAndPicCellHeight = CGRectGetMaxY(_i_nameFrame);
     
     
@@ -48,16 +48,16 @@
         lastHeight += height;
         
     }
-    _i_PicListFrame = CGRectMake(0, 0, width, height);
+    _i_PicListFrame = CGRectMake(0, 0, width, height+8);
     _picListArray = picListArray;
     _model.count =  (int)heightArray.count;
     _model.count += 3;
     
     
     //算公司描述
-    CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, MAXFLOAT);
+    CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width-8*2, MAXFLOAT);
     CGSize  textSize = [model.i_content  sizeWithMaxSize:maxSize andFont:kTextFont];
-    _i_contentFrame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, textSize.height);
+    _i_contentFrame = CGRectMake(8, 0, [UIScreen mainScreen].bounds.size.width-8*2, textSize.height);
     
     
     

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
 
-@interface TTLaMaViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate>
-
+@interface TTLaMaViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
+@property (copy, nonatomic) NSString * i_uid;
+@property (copy, nonatomic)    NSString* pageIndex;
 @end

@@ -14,6 +14,7 @@
 #define  kTextFont  [UIFont systemFontOfSize:13]
 
 @implementation LamaTableViewCellContact
+
 + (instancetype)LamaTableViewCellContactWithTabelView:(UITableView *)tableView
 {
     static NSString * ID = @"lamaCellContact";
@@ -31,11 +32,11 @@
 - (void)layoutSubviews{
     
     [super layoutSubviews];
-    [_companyLabel setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
-    [_addresssLabel setFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 20)];
-    [_telLabel setFrame:CGRectMake(0, 40, [UIScreen mainScreen].bounds.size.width, 20)];
+    [_companyLabel setFrame:CGRectMake(8, 0, [UIScreen mainScreen].bounds.size.width, 20)];
+    [_addresssLabel setFrame:CGRectMake(8, 20, [UIScreen mainScreen].bounds.size.width, 20)];
+    [_telLabel setFrame:CGRectMake(8, 40, [UIScreen mainScreen].bounds.size.width, 20)];
     [_telButton setFrame:CGRectMake(37, 60, 300, 47)];
-
+    
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -66,7 +67,7 @@
         [self.contentView addSubview:telButton];
         _telButton = telButton;
         [_telButton setImage:[UIImage imageNamed:@"street_call"] forState:UIControlStateNormal];
-       
+        [_telButton addTarget:self action:@selector(contactCompanyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     
@@ -82,5 +83,25 @@
     
     _telLabel.text = [NSString stringWithFormat:@"联系电话：%@",modelFrame.model.i_tel];
     
+}
+
+-(void) contactCompanyBtnClick:(UIButton*)button
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"致电商家" message:_telLabel.text delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
+    [alert show];
+    return;
+    
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        if (_webView == nil) {
+            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+            _webView = webView;
+        }
+        NSString *tel = [NSString stringWithFormat:@"tel://%@",_telLabel.text];
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:tel]]];
+    }
 }
 @end

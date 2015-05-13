@@ -22,8 +22,9 @@ typedef void(^actionLocationBlock)(CLLocation* location, NSError* error);
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 -(void)startLocation:(actionLocationBlock)locationBlock;
-
+//经纬度转cityCode
+- (void) getReverseGeocode:(CLLocation *)location;
 @property (strong, nonatomic) NSArray* cityCodeList;
 @property (strong, nonatomic) actionLocationBlock locationBlock ;
-
+@property (copy, nonatomic) NSString* cityCode; //110000
 @end

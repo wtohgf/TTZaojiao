@@ -241,7 +241,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大连市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-8S-shg">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-8S-shg">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="gcy-Z1-wKl"/>
@@ -287,7 +287,7 @@
                                 </mask>
                             </variation>
                             <connections>
-                                <action selector="locationAction:" destination="Pr1-HJ-Das" eventType="touchUpInside" id="fVo-9p-CDx"/>
+                                <action selector="changLocation:" destination="Pr1-HJ-Das" eventType="touchUpInside" id="1iW-Sp-1DP"/>
                             </connections>
                         </button>
                     </subviews>
