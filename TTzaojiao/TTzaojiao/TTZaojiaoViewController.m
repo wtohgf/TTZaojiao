@@ -94,9 +94,6 @@
     }else{
         TTZaojiaoLessionCell* tmpcell = [TTZaojiaoLessionCell zaojiaoLessionCellWithTableView:tableView];
         tmpcell.lession = _lessList[indexPath.section-1];
-//        tmpcell.rightPushBtn.hidden = NO;
-//        tmpcell.playLessionBtn.hidden = YES;
-//        tmpcell.lessionIntroduce.hidden = NO;
         cell = tmpcell;
     }
     return cell;

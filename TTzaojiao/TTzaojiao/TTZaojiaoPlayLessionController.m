@@ -12,8 +12,9 @@
 
 #define kSectionMargin 8.f
 
-@interface TTZaojiaoPlayLessionController ()
+@interface TTZaojiaoPlayLessionController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) UITableView* zaoJiaoPlayTableView;
+@property (copy, nonatomic) NSString* fullPath;
 @end
 
 @implementation TTZaojiaoPlayLessionController
@@ -31,16 +32,6 @@
     [self getDetailLessionInfo];
 }
 
-//-(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    AppDelegate* delegate = [UIApplication sharedApplication].delegate;
-////    delegate.allowRotation = NO;
-////    [TTForceScreenOretationTool setScreenOretation:UIInterfaceOrientationPortrait view:[self rdv_tabBarController].view];
-//}
-//
-//-(void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//}
 
 - (void)addNavItems{
     self.title = @"早教课堂";
@@ -86,10 +77,6 @@
         if (_lession != nil) {
             TTPlayLessionHeaderCell* tmpcell = [TTPlayLessionHeaderCell playLessionHeaderCellWithTableView:tableView];
             tmpcell.lession = _lession;
-//            tmpcell.lession = _lession;
-//            tmpcell.rightPushBtn.hidden = YES;
-//            tmpcell.lessionIntroduce.hidden = YES;
-//            tmpcell.playLessionBtn.hidden = NO;
             tmpcell.delegate = self;
             cell = tmpcell;
         }else{
@@ -152,9 +139,13 @@
         }
     }];
 }
-#pragma mark 理解上课
+#pragma mark 立即上课
 -(void)didPlayLession{
-    [self playLessionVideo];
+    if ([AFNetworkReachabilityManager sharedManager].reachable) {
+        [self playLessionVideo];
+    }else{
+        [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+    }
 }
 
 -(void)playLessionVideo{
@@ -163,11 +154,23 @@
     [TTLessionMngTool getLessionVideoPath:_lession.active_id Result:^(NSString *videoPath) {
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         if (videoPath != nil) {
-            
+            if ([videoPath isEqualToString:@"neterror"]) {
+                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+                return;
+            }
             NSString* fullPath = [NSString stringWithFormat:@"%@%@", TTBASE_URL, videoPath];
-            MPMoviePlayerViewController* movieViewPlayer = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:fullPath]];
-            [self presentMoviePlayerViewControllerAnimated:movieViewPlayer];
-            
+            _fullPath = fullPath;
+            if ([AFNetworkReachabilityManager sharedManager].reachableViaWiFi) {
+                MPMoviePlayerViewController* movieViewPlayer = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:_fullPath]];
+                [self presentMoviePlayerViewControllerAnimated:movieViewPlayer];
+            }else if( [AFNetworkReachabilityManager sharedManager].reachableViaWWAN){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前WIFI未连接 会耗费流量" delegate:self cancelButtonTitle:@"不看了" otherButtonTitles:@"继续看", nil];
+                alert.delegate = self;
+                alert.tag = 111;
+                [alert show];
+            }else{
+                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+            }
         }else{
             if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
                 UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后体验课程" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
@@ -187,13 +190,19 @@
             break;
         case 1:
         {
-            
-            if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
-                [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg];
+            //继续观看视频
+            if (alertView.tag == 111) {
+                MPMoviePlayerViewController* movieViewPlayer = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:_fullPath]];
+                [self presentMoviePlayerViewControllerAnimated:movieViewPlayer];
             }else{
-                UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
-                TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
-                [self.navigationController pushViewController:vipPayController animated:YES];
+                
+                if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+                    [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg];
+                }else{
+                    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
+                    TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
+                    [self.navigationController pushViewController:vipPayController animated:YES];
+                }
             }
         }
             break;
@@ -201,5 +210,6 @@
             break;
     }
 }
+
 
 @end

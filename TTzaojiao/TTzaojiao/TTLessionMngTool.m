@@ -240,10 +240,7 @@
                 block(nil);
             }
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
-            block(nil);
+            block(@"neterror");
         };
         
     }];

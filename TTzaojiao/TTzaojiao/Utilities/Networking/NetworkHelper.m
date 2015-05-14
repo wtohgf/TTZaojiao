@@ -32,9 +32,6 @@
 + (BOOL)isNetWorkReachable{
     
     AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
-    if (afNetworkReachabilityManager.isReachable == NO) {
-       [[[UIAlertView alloc]init] showAlert:@"网络连接不可用" byTime:2.f];
-    }
     return afNetworkReachabilityManager.isReachable;
  
 }
