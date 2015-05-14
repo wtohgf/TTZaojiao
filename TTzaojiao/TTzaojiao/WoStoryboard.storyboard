@@ -96,8 +96,7 @@
                                                                     <exclude reference="Scd-2g-X1Y"/>
                                                                 </mask>
                                                             </variation>
-                                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="57" y="11" width="42" height="21"/>
+                                                            <variation key="heightClass=regular-widthClass=compact">
                                                                 <mask key="constraints">
                                                                     <include reference="IWY-py-EWC"/>
                                                                     <include reference="Scd-2g-X1Y"/>
@@ -123,8 +122,7 @@
                                                             <exclude reference="mxk-Is-p38"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="180" y="0.0" width="107" height="44"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="subviews">
                                                             <include reference="d1f-y3-FBq"/>
                                                         </mask>
@@ -169,7 +167,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="countLable" destination="r6f-bG-oNF" id="NjM-hk-Veb"/>
+                                            <outlet property="countLable" destination="d1f-y3-FBq" id="U9h-xE-I6z"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ButtonCell" textLabel="iG4-wp-5ge" imageView="Mh0-I4-n1q" style="IBUITableViewCellStyleDefault" id="evx-6C-JNB" customClass="TTWoButtonTableViewCell">
@@ -204,7 +202,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="wNZ-WE-dka"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                    <state key="normal" title="立即签到">
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <state key="normal">
                                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
@@ -275,8 +274,7 @@
                                                             <exclude reference="Ug5-QV-DHs"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="118" y="0.0" width="187" height="44"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="subviews">
                                                             <include reference="uqA-jf-Trw"/>
                                                         </mask>
@@ -355,9 +353,6 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="8" width="304" height="43"/>
-                                                    </variation>
                                                     <connections>
                                                         <action selector="backAction:" destination="Xew-Ac-wqp" eventType="touchUpInside" id="pJ3-nE-2w8"/>
                                                     </connections>

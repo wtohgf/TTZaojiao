@@ -11,6 +11,8 @@
 #import "DynamicUserModel.h"
 
 typedef void (^DynamicUserGet)(DynamicUserModel* user);
+typedef void (^WoisSigned)(id isSigned);
+typedef void (^WoBlogSign)(id isSucsses, id baby_jifen);
 
 @interface TTUserModelTool : NSObject
 +(instancetype)sharedUserModelTool;
@@ -23,5 +25,6 @@ typedef void (^DynamicUserGet)(DynamicUserModel* user);
 -(NSString*)mouth;
 
 +(void)getUserInfo:(NSString*)uid Result:(DynamicUserGet)block;
-
++(void)getWoisSigned:(WoisSigned)block;
++(void)BlogSignResult:(WoBlogSign)block;
 @end

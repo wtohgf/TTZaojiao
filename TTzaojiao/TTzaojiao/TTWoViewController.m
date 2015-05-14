@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 @property (strong, nonatomic) UIImageView *myIconView;
+@property (strong, nonatomic) DynamicUserModel* Wo;
 @end
 
 @implementation TTWoViewController
@@ -27,11 +28,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    actionSginBlock = ^() {
-#ifdef DEBUG
-        NSLog(@"Sign");
-#endif
+    actionSginBlock = ^(id result, id baby_jifen) {
+        if ([result isEqualToString:@"isSigned"]) {
+            [MBProgressHUD TTDelayHudWithMassage:@"您今天已经签过到了" View:self.navigationController.view];
+        }else if([result isEqualToString:@"neterror"])
+        {
+            [MBProgressHUD TTDelayHudWithMassage:@"签到未成功" View:self.navigationController.view];
+        }else if([result isEqualToString:@"SingedOK"]){
+            //更新我的积分信息
+            [MBProgressHUD TTDelayHudWithMassage:@"签到成功" View:self.navigationController.view];
+            _Wo.baby_jifen = baby_jifen;
+            [self.tableview reloadData];
+        }
+
     };
+    
     actionBackBlock = ^() {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要退出么？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         alert.tag = LogoutAlertTag;
@@ -53,7 +64,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    [self.tableview reloadData];
+    //获取我的最新信息
+    [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
+        _Wo = user;
+        [self.tableview reloadData];
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -133,6 +148,7 @@
             TTWoLableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LableCell"];
             cell.textLabel.text = @"我的积分";
             cell.imageView.image = [UIImage imageNamed:@"icon_score"];
+            cell.countLable.text = _Wo.baby_jifen;
             return cell;
         }
         else if (1 == indexPath.row) {

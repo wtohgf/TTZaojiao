@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-void(^actionSginBlock)();
+#import "TTUserModelTool.h"
+
+void(^actionSginBlock)(id result, id baby_jifen);
 
 @interface TTWoButtonTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIButton *signButton;

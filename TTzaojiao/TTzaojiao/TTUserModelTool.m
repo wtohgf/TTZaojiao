@@ -81,13 +81,71 @@ static TTUserModelTool* tool;
                     block(nil);
                 }
             }else{
-                if (result_status != ApiStatusNetworkNotReachable) {
-                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-                }
                 block(nil);
             }
         }
     }];
 }
 
++(void)getWoisSigned:(WoisSigned)block{
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd":[TTUserModelTool sharedUserModelTool].password
+                                 };
+    [[AFAppDotNetAPIClient sharedClient]apiGet:BLOG_SIGN_YES Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray *modes = result_data;
+                if (modes!=nil && modes.count > 0) {
+                    NSDictionary* dict = modes[0];
+                    if ([[dict objectForKey:@"msg"] isEqualToString:@"Blog_Sign_Yes"]) {
+                        if ([[dict objectForKey:@"msg_word"] isEqualToString:@"1"]) {
+                            block(@"YES");
+                        }else{
+                            block(@"NO");
+                        }
+                    }else{
+                        block(@"Error");
+                    }
+                }else{
+                    block(@"Error");
+                }
+            }else{
+                block(@"Error");
+            }
+        }else{
+            block(@"Error");
+        }
+    }];
+}
+
+
++(void)BlogSignResult:(WoBlogSign)block{
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd":[TTUserModelTool sharedUserModelTool].password
+                                 };
+    [[AFAppDotNetAPIClient sharedClient]apiGet:BLOG_SIGN Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray *modes = result_data;
+                if (modes!=nil && modes.count > 0) {
+                    NSDictionary* dict = modes[0];
+                    if ([[dict objectForKey:@"msg"] isEqualToString:@"Blog_Sign"]) {
+                        block(@"YES", [dict objectForKey:@"baby_jifen"]);
+                    }else{
+                        block(@"NO", nil);
+                    }
+                }else{
+                    block(@"Error", nil);
+                }
+            }else{
+                block(@"Error", nil);
+            }
+        }else{
+            block(@"Error", nil);
+        }
+        
+    }];
+}
 @end

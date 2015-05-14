@@ -722,6 +722,7 @@
 		02240C931AE6394700EEB7AF /* wo */ = {
 			isa = PBXGroup;
 			children = (
+				1D48D1061B04832B002D48A8 /* Views */,
 				028E08CA1B004C0700966866 /* jfsm.pdf */,
 				028E08C71B004BF700966866 /* TTWoScoreViewController.h */,
 				028E08C81B004BF700966866 /* TTWoScoreViewController.m */,
@@ -730,10 +731,6 @@
 				02240CA81AE63A1900EEB7AF /* TTWoViewController.m */,
 				02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */,
 				02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */,
-				02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */,
-				02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */,
-				02041B811AE8BD1E00B09561 /* TTWoButtonTableViewCell.h */,
-				02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */,
 				02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */,
 				02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */,
 				023DEC711AFA103500DB082F /* TTWoVipViewController.h */,
@@ -1446,6 +1443,17 @@
 				1D370AEE1AF1DACF00DF99CE /* BlogUserDynamicModel.m */,
 			);
 			name = BlogModel;
+			sourceTree = "<group>";
+		};
+		1D48D1061B04832B002D48A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02041B811AE8BD1E00B09561 /* TTWoButtonTableViewCell.h */,
+				02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */,
+				02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */,
+				02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		1D60E5D81ADDB392003A632B = {
