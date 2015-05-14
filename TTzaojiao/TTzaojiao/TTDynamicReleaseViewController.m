@@ -200,7 +200,7 @@
 }
 
 -(void)publichViewdidPublicTo:(TTPublichView *)view{
-    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择发布到:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择发布到:" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     ac.view.backgroundColor = [UIColor whiteColor];
     

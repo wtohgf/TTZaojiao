@@ -71,9 +71,9 @@
     }];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [self.tableview reloadData];
-}
+//-(void)viewDidAppear:(BOOL)animated {
+//    [self.tableview reloadData];
+//}
 
 /*
 #pragma mark - Navigation
@@ -254,6 +254,7 @@
         else if (1 == indexPath.row) {
         }
         else {
+            [self performSegueWithIdentifier:@"TOSCORELESSIOM" sender:self];
         }
     }
     else if (2 == indexPath.section) {
@@ -306,9 +307,6 @@
             return;
         }
         else if (1 == buttonIndex) {
-#ifdef DEBUG
-            NSLog(@"Logout!!!");
-#endif
             [[TTUIChangeTool sharedTTUIChangeTool]backToLongon];
         }
         else {
@@ -317,6 +315,13 @@
     }
     else {
         return;
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[TTWoScoreLessionViewController class]]) {
+        TTWoScoreLessionViewController* slvc = (TTWoScoreLessionViewController*)segue.destinationViewController;
+        slvc.Wo = _Wo;
     }
 }
 

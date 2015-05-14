@@ -185,6 +185,7 @@
 		1D4754FA1AEB2450004EDEED /* DongTaiStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D4754F91AEB2450004EDEED /* DongTaiStoryboard.storyboard */; };
 		1D4755091AEB2493004EDEED /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755081AEB2493004EDEED /* BlogModel.m */; };
 		1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D47550D1AEB317D004EDEED /* BlogReplayModel.m */; };
+		1D48D10C1B0514DF002D48A8 /* TTWoScoreLessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D10B1B0514DF002D48A8 /* TTWoScoreLessionViewController.m */; };
 		1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */; };
 		1D57E1AA1AE74FED00EA3D35 /* CustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */; };
 		1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */; };
@@ -607,6 +608,8 @@
 		1D4755081AEB2493004EDEED /* BlogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogModel.m; sourceTree = "<group>"; };
 		1D47550C1AEB317D004EDEED /* BlogReplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogReplayModel.h; sourceTree = "<group>"; };
 		1D47550D1AEB317D004EDEED /* BlogReplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogReplayModel.m; sourceTree = "<group>"; };
+		1D48D10A1B0514DF002D48A8 /* TTWoScoreLessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoScoreLessionViewController.h; sourceTree = "<group>"; };
+		1D48D10B1B0514DF002D48A8 /* TTWoScoreLessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoScoreLessionViewController.m; sourceTree = "<group>"; };
 		1D57E1A61AE6E4A100EA3D35 /* TTCityMngTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCityMngTool.h; sourceTree = "<group>"; };
 		1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCityMngTool.m; sourceTree = "<group>"; };
 		1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePicker.xib; sourceTree = "<group>"; };
@@ -722,8 +725,10 @@
 		02240C931AE6394700EEB7AF /* wo */ = {
 			isa = PBXGroup;
 			children = (
-				1D48D1061B04832B002D48A8 /* Views */,
 				028E08CA1B004C0700966866 /* jfsm.pdf */,
+				1D48D1061B04832B002D48A8 /* Views */,
+				1D48D10A1B0514DF002D48A8 /* TTWoScoreLessionViewController.h */,
+				1D48D10B1B0514DF002D48A8 /* TTWoScoreLessionViewController.m */,
 				028E08C71B004BF700966866 /* TTWoScoreViewController.h */,
 				028E08C81B004BF700966866 /* TTWoScoreViewController.m */,
 				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
@@ -1899,6 +1904,7 @@
 				1D3BC0791AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyCell.m in Sources */,
 				1D3BC05C1AF7477100E8BE72 /* TTDynamicReleaseViewController.m in Sources */,
 				1D018E311AE20DE300696F25 /* TTBaseNavgationController.m in Sources */,
+				1D48D10C1B0514DF002D48A8 /* TTWoScoreLessionViewController.m in Sources */,
 				1D370B361AF2345100DF99CE /* MBProgressHUD+Add.m in Sources */,
 				1D3BC0D71AF8BA0E00E8BE72 /* EmojiTextAttachment.m in Sources */,
 				1D4253A51B004D1900BBCB4A /* TTZaojiaoPlayLessionController.m in Sources */,

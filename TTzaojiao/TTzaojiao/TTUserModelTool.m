@@ -148,4 +148,32 @@ static TTUserModelTool* tool;
         
     }];
 }
+
++(void)ScorePayLessionWithMouth:(NSString*)mounth UserAccount:(NSString*) account Result:(ScorePayLessio)block{
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd":[TTUserModelTool sharedUserModelTool].password,
+                                 @"i_user":account,
+                                 @"i_month":mounth
+                                 };
+    [[AFAppDotNetAPIClient sharedClient]apiGet:BLOG_JIFEN_CLASS Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray *modes = result_data;
+                if (modes!=nil && modes.count > 0) {
+                    NSDictionary* dict = modes[0];
+                    if ([[dict objectForKey:@"msg"] isEqualToString:@"Blog_Jifen_Class"]) {
+                            block(@"YES");
+                        }else{
+                            block(@"NO");
+                        }
+                    }
+                }else{
+                    block(@"Error");
+                }
+            }else{
+                block(@"Error");
+            }
+    }];
+}
 @end
