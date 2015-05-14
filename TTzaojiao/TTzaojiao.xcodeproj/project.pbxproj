@@ -176,6 +176,7 @@
 		1D4253D11B019DB000BBCB4A /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4253D01B019DB000BBCB4A /* MediaPlayer.framework */; };
 		1D4253D91B0321F700BBCB4A /* TTUIChangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253D81B0321F700BBCB4A /* TTUIChangeTool.m */; };
 		1D4253DC1B03421C00BBCB4A /* TTForceScreenOretationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253DB1B03421C00BBCB4A /* TTForceScreenOretationTool.m */; };
+		1D4253E21B03EF2400BBCB4A /* CustomBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4253E11B03EF2400BBCB4A /* CustomBottomBar.m */; };
 		1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */; };
 		1D44C8931AEF210700D2FC93 /* TTDynamicPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8921AEF210700D2FC93 /* TTDynamicPhotosView.m */; };
 		1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D44C8981AEF3AD200D2FC93 /* TTCommentFrame.m */; };
@@ -589,6 +590,8 @@
 		1D4253D81B0321F700BBCB4A /* TTUIChangeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUIChangeTool.m; sourceTree = "<group>"; };
 		1D4253DA1B03421C00BBCB4A /* TTForceScreenOretationTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTForceScreenOretationTool.h; sourceTree = "<group>"; };
 		1D4253DB1B03421C00BBCB4A /* TTForceScreenOretationTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTForceScreenOretationTool.m; sourceTree = "<group>"; };
+		1D4253E01B03EF2300BBCB4A /* CustomBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBottomBar.h; sourceTree = "<group>"; };
+		1D4253E11B03EF2400BBCB4A /* CustomBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBottomBar.m; sourceTree = "<group>"; };
 		1D44C88E1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDaynamicUserStatusZancountView.h; sourceTree = "<group>"; };
 		1D44C88F1AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDaynamicUserStatusZancountView.m; sourceTree = "<group>"; };
 		1D44C8911AEF210700D2FC93 /* TTDynamicPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDynamicPhotosView.h; sourceTree = "<group>"; };
@@ -1139,6 +1142,8 @@
 				0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */,
 				0FCB30101AFC90B9005F00C7 /* LamaTableViewCellContent.h */,
 				0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */,
+				1D4253E01B03EF2300BBCB4A /* CustomBottomBar.h */,
+				1D4253E11B03EF2400BBCB4A /* CustomBottomBar.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1880,6 +1885,7 @@
 				1D3762951AF0C76200CAAA05 /* TTUserDongtaiViewController.m in Sources */,
 				1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */,
 				1D3BC07C1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
+				1D4253E21B03EF2400BBCB4A /* CustomBottomBar.m in Sources */,
 				1D370B3B1AF2345100DF99CE /* MJPhotoLoadingView.m in Sources */,
 				1D3BC07E1AF89F6100E8BE72 /* WUEmoticonsKeyboardToolsView.m in Sources */,
 				1D3BC0791AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyCell.m in Sources */,

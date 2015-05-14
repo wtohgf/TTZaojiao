@@ -21,7 +21,7 @@
 #import "TTUserModelTool.h"
 #import "TTUIChangeTool.h"
 
-#define kBottomBarHeight 49.f
+#define kBottomBarHeight 44.f
 
 @interface TTBaseViewController : UIViewController
 @property (weak, nonatomic) UIButton* logonRegButton;

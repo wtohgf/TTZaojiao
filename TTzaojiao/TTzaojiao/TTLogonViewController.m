@@ -9,6 +9,7 @@
 #import "TTLogonViewController.h"
 #import "TTTabBarController.h"
 #import "TTKeyChainTool.h"
+#import "CustomBottomBar.h"
 
 @interface TTLogonViewController ()
 {
@@ -17,11 +18,12 @@
 
 @property (strong, nonatomic) UIViewController *mainViewController;
 @property (weak, nonatomic) IBOutlet UIButton *savePassworkCheckButton;
-@property (weak, nonatomic) IBOutlet UIView *bottomBar;
+@property (weak, nonatomic) IBOutlet UIView *siganBottomBar;
+//@property (weak, nonatomic) IBOutlet UIView *bottomBar;
+@property (weak, nonatomic) CustomBottomBar* bottomBar;
 @property (weak, nonatomic) IBOutlet UITextField *account;
 @property (weak, nonatomic) IBOutlet UITextField *password;
-- (IBAction)backLogRegPage:(UIButton *)sender;
-- (IBAction)Logon:(UIButton *)sender;
+
 - (IBAction)savePasswordCheck:(UIButton *)sender;
 
 @end
@@ -34,15 +36,17 @@
     
     //默认用户名密码
     [self userRecord];
-    //添加低栏
+//    //添加低栏
     [self addBottomBar];
+    
     //注册键盘通知
     [self addKeyNotification];
    
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
     [self.view bringSubviewToFront:_bottomBar];
     
 }
@@ -70,9 +74,33 @@
 #pragma mark 添加低栏
 -(void)addBottomBar{
     CGFloat h = kBottomBarHeight;
-    CGFloat w = self.view.frame.size.width;
-    CGFloat y = self.view.frame.size.height -  h;
+    CGFloat w = [UIApplication sharedApplication].keyWindow.frame.size.width;
+    CGFloat y = [UIApplication sharedApplication].keyWindow.frame.size.height -  h;
     CGFloat x = 0;
+    
+    CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
+        if ([title isEqualToString:@"返回"]) {
+            [self backLogRegPage];
+        }else{
+            if ([title isEqualToString:@"登录"]) {
+                [self Logon];
+            }
+        }
+        
+    }];
+    NSArray* items;
+    _bottomBar = bottomBar;
+    if ([TTUserModelTool sharedUserModelTool].logonUser == nil) {
+        items = @[@"返回", @"登录"];
+    }else{
+        if(![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]){
+            items = @[@"登录"];
+        }else{
+            items = @[@"返回", @"登录"];
+        }
+    }
+    
+    bottomBar.items = items;
     _bottomBar.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;
     [self.view addSubview:_bottomBar];
@@ -113,9 +141,10 @@
     }];
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,14 +153,12 @@
 }
 
 #pragma mark 返回登录注册页面
-- (IBAction)backLogRegPage:(UIButton *)sender {
+- (void)backLogRegPage{
     [self.navigationController popViewControllerAnimated:YES];
-    
-    
 }
 
 #pragma mark 登录
-- (IBAction)Logon:(UIButton *)sender {
+- (void)Logon{
     
     
     NSString* account = _account.text;
@@ -227,11 +254,6 @@
     [super touchesBegan:touches withEvent:event];
     [_password resignFirstResponder];
     [_account resignFirstResponder];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
 }
 
 

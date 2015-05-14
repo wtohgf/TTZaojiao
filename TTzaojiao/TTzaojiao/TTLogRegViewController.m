@@ -7,6 +7,11 @@
 //
 
 #import "TTLogRegViewController.h"
+#import "CustomBottomBar.h"
+
+@interface TTLogRegViewController()
+@property (weak, nonatomic) CustomBottomBar* bottomBar;
+@end
 
 @implementation TTLogRegViewController
 
@@ -15,9 +20,41 @@
     // Do any additional setup after loading the view, typically from a nib.
     //设置背景图片
     [self setBackGroundImages];
+    //    //添加低栏
+    [self addBottomBar];
     
     self.title = @"登录注册";
     
+}
+
+#pragma mark 添加低栏
+-(void)addBottomBar{
+    CGFloat h = kBottomBarHeight;
+    CGFloat w = [UIApplication sharedApplication].keyWindow.frame.size.width;
+    CGFloat y = [UIApplication sharedApplication].keyWindow.frame.size.height -  h;
+    CGFloat x = 0;
+    
+    CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
+        if ([title isEqualToString:@"返回"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }else if ([title isEqualToString:@"注册"]) {
+            [self performSegueWithIdentifier:@"LogRegToReg" sender:nil];
+        }else if([title isEqualToString:@"登录"]){
+            [self performSegueWithIdentifier:@"LogRegToLogon" sender:nil];
+        }
+        
+    }];
+    NSArray* items;
+    _bottomBar = bottomBar;
+    if ([TTUserModelTool sharedUserModelTool].logonUser == nil) {
+        items = @[@"返回", @"注册", @"登录"];
+    }else{
+        items = @[@"注册", @"登录"];
+    }
+    
+    bottomBar.items = items;
+    _bottomBar.frame = CGRectMake(x, y, w, h);
+    [self.view addSubview:_bottomBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -28,11 +65,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
-}
-
-#pragma mark 返回主页
-- (IBAction)backtoMain:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark 设置背景图片
