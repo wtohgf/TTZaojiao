@@ -61,6 +61,25 @@
 }
 
 - (IBAction)confirmAction:(UIButton *)sender {
+    if (_oldTextField.text.length < 4 || _oldTextField.text.length > 14) {
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入4到14密码" View:self.navigationController.view];
+        return;
+    }
+    
+    if (_nnewTextField.text.length < 4 || _nnewTextField.text.length > 14) {
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入4到14密码" View:self.navigationController.view];
+        return;
+    }
+    
+    if (_confirmTextField.text.length < 4 || _confirmTextField.text.length > 14) {
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入4到14密码" View:self.navigationController.view];
+        return;
+    }
+    
+    if (![_confirmTextField.text isEqualToString:_nnewTextField.text]) {
+        [MBProgressHUD TTDelayHudWithMassage:@"两次输入的密码不一致 请重新输入" View:self.navigationController.view];
+        return;
+    }
     [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_PASSWORD
                                      Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],
                                                   @"i_psd":[[TTUserModelTool sharedUserModelTool] password],
@@ -69,11 +88,23 @@
                                                   @"rpsd":_confirmTextField.text}
                                          Result:^(id result_data, ApiStatus result_status, NSString *api) {
                                              if (result_status == ApiStatusSuccess) {
-                                                 [[TTUserModelTool sharedUserModelTool] setPassword:_nnewTextField.text];
-                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+                                                 if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                                                     NSMutableArray* resultList = result_data;
+                                                     if (resultList.count > 0) {
+                                                         NSDictionary* dict = [resultList firstObject];
+                                                         if ([[dict objectForKey:@"msg"] isEqualToString:@"Err_Normal"]) {
+                                                             [MBProgressHUD TTDelayHudWithMassage:[dict objectForKey:@"msg_word"] View:self.navigationController.view];
+                                                         }else if([[dict objectForKey:@"msg"]isEqualToString:@"No_Login"]){
+                                                            [MBProgressHUD TTDelayHudWithMassage:@"原始密码错误" View:self.navigationController.view];
+                                                         }else if([[dict objectForKey:@"msg"]isEqualToString:@"Get_Mod_User_Psd"]){
+                                                             [[TTUserModelTool sharedUserModelTool]setPassword:[dict objectForKey:@"i_psd"]];
+                                                            [MBProgressHUD TTDelayHudWithMassage:@"密码修改成功" View:self.navigationController.view];
+                                                         }
+                                                     }
+                                                 }
                                              }
                                              else {
-                                                 [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+                                                 [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
                                              }
                                          }];
 }

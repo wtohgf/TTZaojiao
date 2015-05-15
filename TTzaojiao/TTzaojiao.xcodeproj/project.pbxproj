@@ -742,10 +742,6 @@
 				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
 				02240CA71AE63A1900EEB7AF /* TTWoViewController.h */,
 				02240CA81AE63A1900EEB7AF /* TTWoViewController.m */,
-				02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */,
-				02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */,
-				02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */,
-				02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */,
 				023DEC711AFA103500DB082F /* TTWoVipViewController.h */,
 				023DEC721AFA103500DB082F /* TTWoVipViewController.m */,
 				02FBF11F1AFA38AE0009425A /* TTWoVipPriceViewController.h */,
@@ -1463,6 +1459,10 @@
 		1D48D1061B04832B002D48A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */,
+				02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */,
+				02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */,
+				02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */,
 				02041B811AE8BD1E00B09561 /* TTWoButtonTableViewCell.h */,
 				02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */,
 				02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */,
