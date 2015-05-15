@@ -1375,7 +1375,7 @@
                                             <constraint firstAttribute="height" constant="30" id="gq9-bw-Vqm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="gq9-bw-Vqm"/>

@@ -64,6 +64,20 @@
 }
 
 - (IBAction)commitAction:(UIButton *)sender {
+    if (_accountTextFeild.text.length == 0) {
+        [MBProgressHUD TTDelayHudWithMassage:@"账号不能为空" View:self.navigationController.view];
+        return;
+    }
+    if (![_accountTextFeild.text hasPrefix:@"1"] || _accountTextFeild.text.length != 11) {
+        [MBProgressHUD TTDelayHudWithMassage:@"输入的手机号不合理" View:self.navigationController.view];
+        return;
+    }
+    
+    if (_nameTextFeild.text.length == 0) {
+        [MBProgressHUD TTDelayHudWithMassage:@"用户名不能为空" View:self.navigationController.view];
+        return;
+    }
+    
     [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_INFO
                                      Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],
                                                   @"i_psd":[[TTUserModelTool sharedUserModelTool] password],
@@ -78,7 +92,7 @@
             [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
         }
         else {
-            [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         }
     }];
 }
