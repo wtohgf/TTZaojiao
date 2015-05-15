@@ -14,10 +14,6 @@
 		02041B871AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
 		02041B881AE8BD2800B09561 /* TTWoBackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */; };
 		02041B8F1AE8D9C800B09561 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02041B8E1AE8D9C800B09561 /* CoreLocation.framework */; };
-		020999D81AE91DC800093608 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020999D51AE91DC800093608 /* citydict.plist */; };
-		020999D91AE91DC800093608 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020999D51AE91DC800093608 /* citydict.plist */; };
-		020999DA1AE91DC800093608 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020999D71AE91DC800093608 /* CityListViewController.m */; };
-		020999DB1AE91DC800093608 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 020999D71AE91DC800093608 /* CityListViewController.m */; };
 		02240C971AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */; };
 		02240C9B1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */; };
 		02240C9D1AE639C000EEB7AF /* WoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */; };
@@ -250,9 +246,6 @@
 		02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoBackTableViewCell.h; sourceTree = "<group>"; };
 		02041B861AE8BD2800B09561 /* TTWoBackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoBackTableViewCell.m; sourceTree = "<group>"; };
 		02041B8E1AE8D9C800B09561 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		020999D51AE91DC800093608 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
-		020999D61AE91DC800093608 /* CityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
-		020999D71AE91DC800093608 /* CityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
 		02240C961AE6398F00EEB7AF /* ZaoJiaoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZaoJiaoStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaMaJieStoryboard.storyboard; sourceTree = "<group>"; };
 		02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WoStoryboard.storyboard; sourceTree = "<group>"; };
@@ -768,9 +761,6 @@
 				0FE830AE1AF8619300A15860 /* TTLaMaViewController.h */,
 				0FE830AC1AF8618400A15860 /* TTLaMaViewController.m */,
 				02240C9A1AE639B500EEB7AF /* LaMaJieStoryboard.storyboard */,
-				020999D51AE91DC800093608 /* citydict.plist */,
-				020999D61AE91DC800093608 /* CityListViewController.h */,
-				020999D71AE91DC800093608 /* CityListViewController.m */,
 			);
 			name = lamajie;
 			sourceTree = "<group>";
@@ -1761,7 +1751,6 @@
 				1D60E5F31ADDB392003A632B /* Main.storyboard in Resources */,
 				1DDF4EBA1AE3B712004661EB /* btn_020.disable@2x.png in Resources */,
 				1D3BC0C41AF8A1BD00E8BE72 /* keyboard_switch.png in Resources */,
-				020999D81AE91DC800093608 /* citydict.plist in Resources */,
 				1DDF4EBE1AE3B712004661EB /* btn_021.press@2x.png in Resources */,
 				1D3BC0C11AF8A1BD00E8BE72 /* keyboard_segment_selected@2x.png in Resources */,
 				1D3BC0C71AF8A1BD00E8BE72 /* keyboard_switch_pressed@2x.png in Resources */,
@@ -1804,7 +1793,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				020999D91AE91DC800093608 /* citydict.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1875,7 +1863,6 @@
 				1D3BC0671AF76F5B00E8BE72 /* TTPublichPicsView.m in Sources */,
 				1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */,
 				1D370AF51AF1E0B500DF99CE /* TTDynamicUserBlogCell.m in Sources */,
-				020999DA1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02BFC4F31ADF689900D0DF30 /* FileManagerHelper.m in Sources */,
 				0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */,
 				025A784D1AFC8A86006581A7 /* MBProgressHUD+TTHud.m in Sources */,
@@ -2006,7 +1993,6 @@
 				02442BC11AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
 				02041B841AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				02D144FC1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */,
-				020999DB1AE91DC800093608 /* CityListViewController.m in Sources */,
 				02041B801AE8BD1100B09561 /* TTWoLableTableViewCell.m in Sources */,
 				1D60E6041ADDB392003A632B /* TTzaojiaoTests.m in Sources */,
 			);

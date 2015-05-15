@@ -296,6 +296,7 @@
         label.frame = CGRectMake(0, 0, bound.size.width, bound.size.height);
     
         CXAlertView* alertView = [[CXAlertView alloc]initWithTitle:@"关注天天早教公众号" contentView:label cancelButtonTitle:@"确定"];
+
         alertView.viewBackgroundColor = [UIColor colorWithRed:139.f/255.f green:185.f/255.f blue:79.f/255.f alpha:1.f];
         alertView.cancelButtonColor = [UIColor whiteColor];
         

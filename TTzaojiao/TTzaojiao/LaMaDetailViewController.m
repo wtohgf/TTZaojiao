@@ -46,6 +46,7 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     
+    self.title = @"详情";
 }
 
 #pragma mark
