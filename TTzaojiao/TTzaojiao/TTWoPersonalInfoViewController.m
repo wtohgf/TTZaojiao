@@ -74,7 +74,7 @@
     }
     
     if (_nameTextFeild.text.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"用户名不能为空" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"宝宝姓名不能为空" View:self.navigationController.view];
         return;
     }
     
