@@ -440,7 +440,7 @@
                         if ([function rangeOfString:@"Get_Pay_Card"].length) {
                             api = ApiEnumGet_PAY_BY_CARD;
                         }
-                        if ([function rangeOfString:@"Get_Test_User_List_Distance"].length) {
+                        if ([function rangeOfString:@"Get_Test_User_List_Distance"].length || [function rangeOfString:@"Get_User_Friend"].length || [function rangeOfString:@"Get_User_Fans"].length) {
                             api = ApiEnumGet_Test_User_List_Distance;
                         }
                         if ([function rangeOfString:@"Get_Me_Class_Info"].length || [function rangeOfString:@"Get_Me_Class_Info_Experience"].length) {

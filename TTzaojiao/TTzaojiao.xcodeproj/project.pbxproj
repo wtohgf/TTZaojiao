@@ -186,6 +186,8 @@
 		1D4755091AEB2493004EDEED /* BlogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4755081AEB2493004EDEED /* BlogModel.m */; };
 		1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D47550D1AEB317D004EDEED /* BlogReplayModel.m */; };
 		1D48D10C1B0514DF002D48A8 /* TTWoScoreLessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D10B1B0514DF002D48A8 /* TTWoScoreLessionViewController.m */; };
+		1D48D10F1B059312002D48A8 /* TTWoFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D10E1B059312002D48A8 /* TTWoFriendViewController.m */; };
+		1D48D1121B05A3AA002D48A8 /* TTWoFansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D48D1111B05A3AA002D48A8 /* TTWoFansViewController.m */; };
 		1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */; };
 		1D57E1AA1AE74FED00EA3D35 /* CustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */; };
 		1D57E1AD1AE7511E00EA3D35 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */; };
@@ -610,6 +612,10 @@
 		1D47550D1AEB317D004EDEED /* BlogReplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogReplayModel.m; sourceTree = "<group>"; };
 		1D48D10A1B0514DF002D48A8 /* TTWoScoreLessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoScoreLessionViewController.h; sourceTree = "<group>"; };
 		1D48D10B1B0514DF002D48A8 /* TTWoScoreLessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoScoreLessionViewController.m; sourceTree = "<group>"; };
+		1D48D10D1B059312002D48A8 /* TTWoFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoFriendViewController.h; sourceTree = "<group>"; };
+		1D48D10E1B059312002D48A8 /* TTWoFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoFriendViewController.m; sourceTree = "<group>"; };
+		1D48D1101B05A3AA002D48A8 /* TTWoFansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoFansViewController.h; sourceTree = "<group>"; };
+		1D48D1111B05A3AA002D48A8 /* TTWoFansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoFansViewController.m; sourceTree = "<group>"; };
 		1D57E1A61AE6E4A100EA3D35 /* TTCityMngTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCityMngTool.h; sourceTree = "<group>"; };
 		1D57E1A71AE6E4A100EA3D35 /* TTCityMngTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCityMngTool.m; sourceTree = "<group>"; };
 		1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePicker.xib; sourceTree = "<group>"; };
@@ -725,8 +731,10 @@
 		02240C931AE6394700EEB7AF /* wo */ = {
 			isa = PBXGroup;
 			children = (
-				028E08CA1B004C0700966866 /* jfsm.pdf */,
 				1D48D1061B04832B002D48A8 /* Views */,
+				028E08CA1B004C0700966866 /* jfsm.pdf */,
+				1D48D1101B05A3AA002D48A8 /* TTWoFansViewController.h */,
+				1D48D1111B05A3AA002D48A8 /* TTWoFansViewController.m */,
 				1D48D10A1B0514DF002D48A8 /* TTWoScoreLessionViewController.h */,
 				1D48D10B1B0514DF002D48A8 /* TTWoScoreLessionViewController.m */,
 				028E08C71B004BF700966866 /* TTWoScoreViewController.h */,
@@ -748,6 +756,8 @@
 				02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */,
 				025A78521AFC99D1006581A7 /* TTWoIconModiyViewController.h */,
 				025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */,
+				1D48D10D1B059312002D48A8 /* TTWoFriendViewController.h */,
+				1D48D10E1B059312002D48A8 /* TTWoFriendViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1889,6 +1899,7 @@
 				1D4253B81B00A01800BBCB4A /* DetailLessionModel.m in Sources */,
 				1D018E381AE20EC500696F25 /* TTNavigationController.m in Sources */,
 				0FE830A21AF85DE800A15860 /* LamaTableViewCellPicList.m in Sources */,
+				1D48D10F1B059312002D48A8 /* TTWoFriendViewController.m in Sources */,
 				0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
@@ -1979,6 +1990,7 @@
 				1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */,
 				0FCB300C1AFC907D005F00C7 /* LamaTableViewCellLabel.m in Sources */,
 				1D3BC0781AF89F6100E8BE72 /* WUEmoticonsKeyboard.m in Sources */,
+				1D48D1121B05A3AA002D48A8 /* TTWoFansViewController.m in Sources */,
 				1D4253DC1B03421C00BBCB4A /* TTForceScreenOretationTool.m in Sources */,
 				1D651CDF1AFDBEF4005093BF /* TTZaojiaoHeaderRightItem.m in Sources */,
 				0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */,

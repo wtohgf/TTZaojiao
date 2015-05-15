@@ -176,4 +176,80 @@ static TTUserModelTool* tool;
             }
     }];
 }
+
++(void)getWoFriendListResult:(WoFriendList)block{
+    NSMutableArray* friendList = [NSMutableArray array];
+    [friendList removeAllObjects];
+    
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd":[TTUserModelTool sharedUserModelTool].password
+                                 };
+    [[AFAppDotNetAPIClient sharedClient]apiGet:GET_FRIEND Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* array = result_data;
+                if ([result_data[0] isKindOfClass:[NearByBabyModel class]] && array.count > 0) {
+                    NearByBabyModel* msg = result_data[0];
+                    if ([msg.msg isEqualToString:@"Get_User_Friend"]) {
+                        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                            if (idx > 0) {
+                                if ([obj isKindOfClass:[NearByBabyModel class]]) {
+                                    [friendList addObject:obj];
+                                }
+                            }
+                        }];
+                        block(friendList);
+                    }else{
+                        block(@"Error");
+                    }
+                }else{
+                    block(@"Error");
+                }
+            }else{
+                block(@"Error");
+            }
+        }else{
+             block(@"neterror");
+        }
+    }];
+}
+
++(void)getWoFanListResult:(WoFriendList)block{
+    NSMutableArray* friendList = [NSMutableArray array];
+    [friendList removeAllObjects];
+    
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd":[TTUserModelTool sharedUserModelTool].password
+                                 };
+    [[AFAppDotNetAPIClient sharedClient]apiGet:GET_FAN Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* array = result_data;
+                if ([result_data[0] isKindOfClass:[NearByBabyModel class]] && array.count > 0) {
+                    NearByBabyModel* msg = result_data[0];
+                    if ([msg.msg isEqualToString:@"Get_User_Fans"]) {
+                        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                            if (idx > 0) {
+                                if ([obj isKindOfClass:[NearByBabyModel class]]) {
+                                    [friendList addObject:obj];
+                                }
+                            }
+                        }];
+                        block(friendList);
+                    }else{
+                        block(@"Error");
+                    }
+                }else{
+                    block(@"Error");
+                }
+            }else{
+                block(@"Error");
+            }
+        }else{
+            block(@"Error");
+        }
+    }];
+}
 @end

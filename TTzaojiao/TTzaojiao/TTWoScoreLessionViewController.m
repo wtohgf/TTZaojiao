@@ -51,6 +51,7 @@
     [TTUserModelTool ScorePayLessionWithMouth:[lessionMounthDict objectForKey:_playLessionType] UserAccount:_lessionAccount.text Result:^(id isSucsses) {
         if ([isSucsses isEqualToString:@"YES"]) {
             [MBProgressHUD TTDelayHudWithMassage:@"恭喜您！课程兑换成功" View:self.navigationController.view];
+            _scoreCount.text = [NSString stringWithFormat:@"%ld", [_scoreCount.text integerValue] - [[scoreLessionDict objectForKey:_playLessionType] integerValue]];
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"对不起！兑换未成功 请稍后重试" View:self.navigationController.view];
         }

@@ -459,6 +459,8 @@
                         <segue destination="cAl-Cd-6Ss" kind="show" identifier="iconSegue" id="hNf-b9-fN0"/>
                         <segue destination="1WS-TC-9YM" kind="show" identifier="scoreSegue" id="ca3-BH-93b"/>
                         <segue destination="N4h-2S-Wi7" kind="show" identifier="TOSCORELESSIOM" id="Cae-A6-jV7"/>
+                        <segue destination="Pcv-CJ-CnG" kind="show" identifier="TOMYFRIEND" id="Ejq-gd-j8O"/>
+                        <segue destination="BkL-zn-q6Y" kind="show" identifier="TOMYFANS" id="c3B-Xw-x8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MS1-39-sib" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2604,6 +2606,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRN-9a-h8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1380" y="2140"/>
+        </scene>
+        <!--我的好友-->
+        <scene sceneID="5yX-6J-a1e">
+            <objects>
+                <viewController title="我的好友" id="Pcv-CJ-CnG" customClass="TTWoFriendViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RUY-mV-7JB"/>
+                        <viewControllerLayoutGuide type="bottom" id="bpJ-Xn-Fe0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eJ0-YD-kR0">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的好友" id="ddr-a4-8gT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2B-rW-E0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2113.5" y="1967.25"/>
+        </scene>
+        <!--我的粉丝-->
+        <scene sceneID="RvN-mL-Gmm">
+            <objects>
+                <viewController title="我的粉丝" id="BkL-zn-q6Y" customClass="TTWoFansViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uef-6W-J7D"/>
+                        <viewControllerLayoutGuide type="bottom" id="bkj-1i-Irl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kxy-7P-Bhn">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="我的粉丝" id="c94-5P-H0e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEl-xQ-qim" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2767.5" y="1967.25"/>
         </scene>
     </scenes>
     <resources>

@@ -270,8 +270,10 @@
     }
     else if (4 == indexPath.section) {
         if (0 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOMYFRIEND" sender:self];
         }
         else if (1 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOMYFANS" sender:self];
         }
         else {
             UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
