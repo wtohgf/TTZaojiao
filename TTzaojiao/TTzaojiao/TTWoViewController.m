@@ -13,6 +13,8 @@
 #import "TTWoBackTableViewCell.h"
 #import "TTUserDongtaiViewController.h"
 #import "TTWoIconTableViewCell.h"
+#import <CXAlertView.h>
+#import "NSString+Extension.h"
 
 #define LogoutAlertTag 19001
 
@@ -283,11 +285,22 @@
         }
     }
     else if (5 == indexPath.section) {
-        //        if (0 == indexPath.row) {
-        //        }
-        //        else {
+        UILabel* label = [[UILabel alloc]init];
+        label.font = TTBlogSubtitleFont;
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor colorWithRed:112.f/255.f green:145.f/255.f blue:70.f/255.f alpha:1.f];
+        label.text = @"微信公众号: ttzaojiao2013 \n1.vip用户即时跟踪\n2.每周微信抽取获奖关注用户获得1-12个月早教课程\n3.每日发布各月龄系统性早教指导、育儿资讯；\n4.未来平台可以实现同城、同龄早教宝宝互动。";
+        CGRect bound = [label.text boundByFont:TTBlogSubtitleFont andWidth:self.view.frame.size.width*0.6];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.numberOfLines = 0;
+        label.frame = CGRectMake(0, 0, bound.size.width, bound.size.height);
+    
+        CXAlertView* alertView = [[CXAlertView alloc]initWithTitle:@"关注天天早教公众号" contentView:label cancelButtonTitle:@"确定"];
+        alertView.viewBackgroundColor = [UIColor colorWithRed:139.f/255.f green:185.f/255.f blue:79.f/255.f alpha:1.f];
+        alertView.cancelButtonColor = [UIColor whiteColor];
         
-        //        }
+        
+        [alertView show];
     }
     else {
         if (0 == indexPath.row) {

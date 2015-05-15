@@ -11,9 +11,7 @@
 @implementation TTLessionMngTool
 
 +(void)getLessionID:(LessionIDBlock)block{
-    if (block == nil) {
-        return;
-    }
+
     //uid为1977为体验用户
     if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
         
@@ -43,6 +41,8 @@
                     else{
                         block(nil);
                     }
+                }else{
+                    block(nil);
                 }
             }else{
                 if (result_status != ApiStatusNetworkNotReachable) {
@@ -76,6 +76,8 @@
                 else{
                     block(nil);
                 }
+            }else{
+                block(nil);
             }
         }else{
             if (result_status != ApiStatusNetworkNotReachable) {
@@ -89,9 +91,7 @@
 }
 
 +(void)getWeekLessions:(NSString *)lessionID Result:(WeekLessionBlock)block{
-    if (block == nil) {
-        return;
-    }
+ 
     //uid为1977为体验用户
     if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
         NSString* birthDay = [TTUserModelTool sharedUserModelTool].logonUser.birthday;
@@ -177,9 +177,7 @@
 }
 
 +(void)getDetailLessionInfo:(NSString*)activeID Result:(DetailLessionBlock)block{
-    if (block == nil) {
-        return;
-    }
+
     NSDictionary* parameters = @{
                                  @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
@@ -211,9 +209,7 @@
 }
 
 +(void)getLessionVideoPath:(NSString *)activeID Result:(LessionVideoPathBlock)block{
-    if (block == nil) {
-        return;
-    }
+
     NSDictionary* parameters = @{
                                  @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
