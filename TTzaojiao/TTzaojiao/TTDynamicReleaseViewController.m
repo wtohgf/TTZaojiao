@@ -101,12 +101,12 @@
 
 -(void)uploadPics{
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:_images Result:^(id result_data, ApiStatus result_status) {
         if ([result_data isKindOfClass:[NSMutableArray class]]) {
             NSMutableArray* list = (NSMutableArray*)result_data;
             if (list.count!=0) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                 
                 [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                     NSDictionary* dict = (NSDictionary*)obj;
@@ -125,7 +125,7 @@
         }
     } Progress:^(CGFloat progress) {
         _picsPath = @"";
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         [MBProgressHUD TTDelayHudWithMassage:@"图片上传失败" View:self.navigationController.view];
     }];
 }

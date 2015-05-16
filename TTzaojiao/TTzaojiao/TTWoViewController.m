@@ -264,6 +264,7 @@
     }
     else if (3 == indexPath.section) {
         if (0 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOMUYINGCAO" sender:self];
         }
         else if (1 == indexPath.row) {
         }

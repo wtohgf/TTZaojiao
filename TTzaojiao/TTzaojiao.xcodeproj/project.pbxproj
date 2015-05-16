@@ -205,6 +205,10 @@
 		1D651CF01AFE0547005093BF /* TTZaojiaoLessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */; };
 		1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CF21AFE0D89005093BF /* TTLessionMngTool.m */; };
 		1D651CF71AFE115E005093BF /* LessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CF61AFE115E005093BF /* LessionModel.m */; };
+		1DB7246B1B05E62C005C2584 /* TTWoyiziCaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7246A1B05E62C005C2584 /* TTWoyiziCaoViewController.m */; };
+		1DB7246E1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7246D1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m */; };
+		1DB724701B07235A005C2584 /* yiziCao.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DB7246F1B072359005C2584 /* yiziCao.plist */; };
+		1DB724731B072F9C005C2584 /* TTWoMuyingCaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB724721B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.m */; };
 		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
 		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
 		1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5D11AE6331700346732 /* RegMsgSecond.m */; };
@@ -647,6 +651,13 @@
 		1D651CF21AFE0D89005093BF /* TTLessionMngTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLessionMngTool.m; sourceTree = "<group>"; };
 		1D651CF51AFE115E005093BF /* LessionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessionModel.h; sourceTree = "<group>"; };
 		1D651CF61AFE115E005093BF /* LessionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessionModel.m; sourceTree = "<group>"; };
+		1DB724691B05E62C005C2584 /* TTWoyiziCaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoyiziCaoViewController.h; sourceTree = "<group>"; };
+		1DB7246A1B05E62C005C2584 /* TTWoyiziCaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoyiziCaoViewController.m; sourceTree = "<group>"; };
+		1DB7246C1B05E689005C2584 /* TTWoyiziCaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoyiziCaoTableViewCell.h; sourceTree = "<group>"; };
+		1DB7246D1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoyiziCaoTableViewCell.m; sourceTree = "<group>"; };
+		1DB7246F1B072359005C2584 /* yiziCao.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = yiziCao.plist; sourceTree = "<group>"; };
+		1DB724711B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoMuyingCaoTableViewCell.h; sourceTree = "<group>"; };
+		1DB724721B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoMuyingCaoTableViewCell.m; sourceTree = "<group>"; };
 		1DC7C5C91AE4B36300346732 /* RegMsgFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgFirst.h; sourceTree = "<group>"; };
 		1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgFirst.m; sourceTree = "<group>"; };
 		1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -726,6 +737,8 @@
 			children = (
 				1D48D1061B04832B002D48A8 /* Views */,
 				028E08CA1B004C0700966866 /* jfsm.pdf */,
+				1DB724691B05E62C005C2584 /* TTWoyiziCaoViewController.h */,
+				1DB7246A1B05E62C005C2584 /* TTWoyiziCaoViewController.m */,
 				1D48D1101B05A3AA002D48A8 /* TTWoFansViewController.h */,
 				1D48D1111B05A3AA002D48A8 /* TTWoFansViewController.m */,
 				1D48D10A1B0514DF002D48A8 /* TTWoScoreLessionViewController.h */,
@@ -747,6 +760,7 @@
 				025A78531AFC99D1006581A7 /* TTWoIconModiyViewController.m */,
 				1D48D10D1B059312002D48A8 /* TTWoFriendViewController.h */,
 				1D48D10E1B059312002D48A8 /* TTWoFriendViewController.m */,
+				1DB7246F1B072359005C2584 /* yiziCao.plist */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1457,6 +1471,10 @@
 				02041B821AE8BD1E00B09561 /* TTWoButtonTableViewCell.m */,
 				02041B7D1AE8BD1100B09561 /* TTWoLableTableViewCell.h */,
 				02041B7E1AE8BD1100B09561 /* TTWoLableTableViewCell.m */,
+				1DB7246C1B05E689005C2584 /* TTWoyiziCaoTableViewCell.h */,
+				1DB7246D1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m */,
+				1DB724711B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.h */,
+				1DB724721B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1752,6 +1770,7 @@
 				1DDF4EBA1AE3B712004661EB /* btn_020.disable@2x.png in Resources */,
 				1D3BC0C41AF8A1BD00E8BE72 /* keyboard_switch.png in Resources */,
 				1DDF4EBE1AE3B712004661EB /* btn_021.press@2x.png in Resources */,
+				1DB724701B07235A005C2584 /* yiziCao.plist in Resources */,
 				1D3BC0C11AF8A1BD00E8BE72 /* keyboard_segment_selected@2x.png in Resources */,
 				1D3BC0C71AF8A1BD00E8BE72 /* keyboard_switch_pressed@2x.png in Resources */,
 				1D3BC0A81AF8A1BD00E8BE72 /* applaud@2x.png in Resources */,
@@ -1841,6 +1860,7 @@
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
+				1DB7246B1B05E62C005C2584 /* TTWoyiziCaoViewController.m in Sources */,
 				02FBF1211AFA38AE0009425A /* TTWoVipPriceViewController.m in Sources */,
 				1D3FE2C21AEE8818006D66FC /* UIImageView+MoreAttribute.m in Sources */,
 				0FE830A41AF85E5B00A15860 /* LamaTableViewCellModelFrame.m in Sources */,
@@ -1955,6 +1975,7 @@
 				1DDF4EC11AE3B712004661EB /* TSLocateView.m in Sources */,
 				1D3FD9121AFC4C9600B9CA6B /* TTNearBybabyInfoView.m in Sources */,
 				1D57E1A81AE6E4A100EA3D35 /* TTCityMngTool.m in Sources */,
+				1DB7246E1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m in Sources */,
 				1D60E5E71ADDB392003A632B /* main.m in Sources */,
 				1D3BC07A1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItem.m in Sources */,
 				1D1F2C021AE09A66004F851D /* TTLogRegViewController.m in Sources */,
@@ -1974,6 +1995,7 @@
 				0FBED4721B0343CD002D4628 /* LaMaAddRegCompayViewController.m in Sources */,
 				1D3FE2BF1AEE8718006D66FC /* TTDyanmicUserStautsCell.m in Sources */,
 				1D3FE2B91AEE8708006D66FC /* TTBlogFrame.m in Sources */,
+				1DB724731B072F9C005C2584 /* TTWoMuyingCaoTableViewCell.m in Sources */,
 				1DDF4EC31AE3B712004661EB /* TSLocation.m in Sources */,
 				0FCB300C1AFC907D005F00C7 /* LamaTableViewCellLabel.m in Sources */,
 				1D3BC0781AF89F6100E8BE72 /* WUEmoticonsKeyboard.m in Sources */,
