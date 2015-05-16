@@ -46,11 +46,11 @@
     }];
     NSArray* items;
     _bottomBar = bottomBar;
-    if ([TTUserModelTool sharedUserModelTool].logonUser == nil) {
+//    if ([TTUserModelTool sharedUserModelTool].logonUser == nil) {
         items = @[@"返回", @"注册", @"登录"];
-    }else{
-        items = @[@"注册", @"登录"];
-    }
+//    }else{
+//        items = @[@"注册", @"登录"];
+//    }
     
     bottomBar.items = items;
     _bottomBar.frame = CGRectMake(x, y, w, h);
@@ -59,12 +59,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:YES];
     self.navigationController.navigationBar.hidden = YES;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
+     [[self rdv_tabBarController] setTabBarHidden:NO];
 }
 
 #pragma mark 设置背景图片

@@ -34,20 +34,22 @@ static TTUIChangeTool* tool;
     UIViewController *Controller = (UIViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"LOGON"];
     TTBaseNavgationController* nav = [[TTBaseNavgationController alloc]initWithRootViewController:Controller];
     
-        //在ViewController中切换keywindow的rootViewController需要用delegate 否则闪退
+    //在ViewController中切换keywindow的rootViewController需要用delegate 否则闪退
     [UIApplication sharedApplication].delegate.window.rootViewController = nav;
     [[UIApplication sharedApplication].delegate.window reloadInputViews];
     [UIApplication sharedApplication].keyWindow.rootViewController = nav;
 }
 
--(void)backToLogReg{
+-(void)backToLogReg:(UINavigationController*)nav{
     UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *logreg = (UIViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"LOGONREG"];
-    TTBaseNavgationController* nav = [[TTBaseNavgationController alloc]initWithRootViewController:logreg];
-    [UIApplication sharedApplication].delegate.window.rootViewController = nav;
-    [[UIApplication sharedApplication].delegate.window reloadInputViews];
-    [UIApplication sharedApplication].keyWindow.rootViewController = nav;
-    
+    [nav pushViewController:logreg animated:YES];
+}
+
+-(void)pushToLongon:(UINavigationController *)nav{
+    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *Controller = (UIViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"LOGON"];
+    [nav pushViewController:Controller animated:YES];
 }
 
 @end

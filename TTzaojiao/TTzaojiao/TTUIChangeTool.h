@@ -13,5 +13,6 @@
 +(instancetype)sharedTTUIChangeTool;
 
 -(void)backToLongon;
--(void)backToLogReg;
+-(void)pushToLongon:(UINavigationController*)nav;
+-(void)backToLogReg:(UINavigationController*)nav;
 @end

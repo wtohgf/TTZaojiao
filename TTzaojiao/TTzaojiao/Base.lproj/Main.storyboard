@@ -1182,8 +1182,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZo-mV-1LV">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="17" id="4bB-tv-tCx"/>
-                                            <constraint firstAttribute="height" constant="34" id="hgw-9R-bsa"/>
+                                            <constraint firstAttribute="width" constant="17" id="4bB-tv-tCx">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="9"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="34" id="hgw-9R-bsa">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                            </constraint>
                                         </constraints>
                                         <state key="normal" image="icon_more">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1218,7 +1222,9 @@
                                     <constraint firstItem="akg-TR-BQx" firstAttribute="leading" secondItem="0MK-Pf-kvz" secondAttribute="trailing" constant="8" id="ah1-G2-FdS"/>
                                     <constraint firstItem="wZo-mV-1LV" firstAttribute="leading" secondItem="akg-TR-BQx" secondAttribute="trailing" constant="8" id="aha-ao-wvs"/>
                                     <constraint firstAttribute="bottom" secondItem="akg-TR-BQx" secondAttribute="bottom" constant="2" id="f6R-Pq-zMo"/>
-                                    <constraint firstAttribute="trailing" secondItem="wZo-mV-1LV" secondAttribute="trailing" constant="33" id="g9t-As-iQL"/>
+                                    <constraint firstAttribute="trailing" secondItem="wZo-mV-1LV" secondAttribute="trailing" constant="33" id="g9t-As-iQL">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="33"/>
+                                    </constraint>
                                     <constraint firstItem="0MK-Pf-kvz" firstAttribute="leading" secondItem="02B-ZR-pc8" secondAttribute="leading" constant="8" id="prU-Kw-lQH"/>
                                     <constraint firstItem="akg-TR-BQx" firstAttribute="top" secondItem="02B-ZR-pc8" secondAttribute="top" constant="2" id="tje-tg-Vz6"/>
                                 </constraints>
@@ -1287,8 +1293,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhe-Uc-DVL">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="17" id="DmX-zB-tNN"/>
-                                            <constraint firstAttribute="height" constant="34" id="wC1-E5-oDz"/>
+                                            <constraint firstAttribute="width" constant="17" id="DmX-zB-tNN">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="9"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="34" id="wC1-E5-oDz">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                            </constraint>
                                         </constraints>
                                         <state key="normal" image="icon_more">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1392,8 +1402,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxH-7P-QPg">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="17" id="l9T-Gl-PNP"/>
-                                            <constraint firstAttribute="height" constant="34" id="xAM-rP-ThM"/>
+                                            <constraint firstAttribute="width" constant="17" id="l9T-Gl-PNP">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="9"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="34" id="xAM-rP-ThM">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                            </constraint>
                                         </constraints>
                                         <state key="normal" image="icon_more">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1423,7 +1437,9 @@
                                     <constraint firstAttribute="bottom" secondItem="e2B-Zz-Vta" secondAttribute="bottom" constant="8" id="L9d-n4-M3m"/>
                                     <constraint firstAttribute="centerY" secondItem="e2B-Zz-Vta" secondAttribute="centerY" id="RMG-gt-8Hh"/>
                                     <constraint firstAttribute="bottom" secondItem="OxH-7P-QPg" secondAttribute="bottom" constant="8" id="SSM-bs-tEW"/>
-                                    <constraint firstAttribute="trailing" secondItem="OxH-7P-QPg" secondAttribute="trailing" constant="33" id="TDL-vv-t2f"/>
+                                    <constraint firstAttribute="trailing" secondItem="OxH-7P-QPg" secondAttribute="trailing" constant="33" id="TDL-vv-t2f">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="33"/>
+                                    </constraint>
                                     <constraint firstItem="2m9-nW-3ty" firstAttribute="top" secondItem="eoI-8p-751" secondAttribute="top" constant="2" id="Z4R-HB-vmH"/>
                                     <constraint firstItem="e2B-Zz-Vta" firstAttribute="width" secondItem="eoI-8p-751" secondAttribute="width" multiplier="1:4" id="bKm-Ka-bIZ"/>
                                     <constraint firstAttribute="bottom" secondItem="2m9-nW-3ty" secondAttribute="bottom" constant="2" id="ezu-Yh-TR1"/>

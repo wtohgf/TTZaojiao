@@ -491,7 +491,7 @@
             break;
         case 1:
         {
-            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg];
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self.navigationController];
         }
             break;
         default:

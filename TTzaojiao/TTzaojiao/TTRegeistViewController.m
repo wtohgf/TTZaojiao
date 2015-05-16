@@ -41,6 +41,7 @@
     //self.navigationController.navigationBarHidden = NO;
     //注册键盘通知
     [self addKeyNotification];
+    [[self rdv_tabBarController] setTabBarHidden:YES];
 
 }
 
@@ -48,7 +49,7 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
-
+    [[self rdv_tabBarController]setTabBarHidden:NO];
 }
 
 #pragma mark 添加低栏

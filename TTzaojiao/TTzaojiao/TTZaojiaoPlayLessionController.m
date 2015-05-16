@@ -197,7 +197,7 @@
             }else{
                 
                 if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
-                    [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg];
+                    [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self.navigationController];
                 }else{
                     UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
                     TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];

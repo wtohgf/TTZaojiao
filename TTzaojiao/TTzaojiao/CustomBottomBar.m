@@ -33,7 +33,7 @@
     
     for (UIButton* view in self.subviews) {
         view.frame = CGRectMake(count*(buttonW+margin), 0, buttonW, buttonH);
-        view.backgroundColor = [UIColor colorWithRed:155.f/255.f green:80.f/255.f blue:217.f/255.f alpha:1.f];
+        view.backgroundColor = [UIColor colorWithRed:212.f/255.f green:132.f/255.f blue:177.f/255.f alpha:1.f];
         view.tintColor = [UIColor whiteColor];
         view.titleLabel.font = [UIFont systemFontOfSize:16.f];
         count++;

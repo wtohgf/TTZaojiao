@@ -48,6 +48,7 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [self.view bringSubviewToFront:_bottomBar];
+    [[self rdv_tabBarController]setTabBarHidden:YES];
     
 }
 
@@ -144,6 +145,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
+    [[self rdv_tabBarController]setTabBarHidden:NO];
 
 }
 
