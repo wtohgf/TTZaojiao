@@ -267,6 +267,7 @@
             [self performSegueWithIdentifier:@"TOMUYINGCAO" sender:self];
         }
         else if (1 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOCHENGZHANG" sender:self];
         }
         else {
         }

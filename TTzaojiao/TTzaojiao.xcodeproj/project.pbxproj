@@ -209,6 +209,9 @@
 		1DB7246E1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7246D1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m */; };
 		1DB724701B07235A005C2584 /* yiziCao.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DB7246F1B072359005C2584 /* yiziCao.plist */; };
 		1DB724731B072F9C005C2584 /* TTWoMuyingCaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB724721B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.m */; };
+		1DB724761B074650005C2584 /* TTWoChengZhangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB724751B074650005C2584 /* TTWoChengZhangViewController.m */; };
+		1DB724791B075549005C2584 /* TTWoChengzhangHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB724781B075549005C2584 /* TTWoChengzhangHistoryCell.m */; };
+		1DB7247C1B076118005C2584 /* TTGrowTemperTestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7247B1B076118005C2584 /* TTGrowTemperTestTool.m */; };
 		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
 		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
 		1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5D11AE6331700346732 /* RegMsgSecond.m */; };
@@ -658,6 +661,12 @@
 		1DB7246F1B072359005C2584 /* yiziCao.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = yiziCao.plist; sourceTree = "<group>"; };
 		1DB724711B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoMuyingCaoTableViewCell.h; sourceTree = "<group>"; };
 		1DB724721B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoMuyingCaoTableViewCell.m; sourceTree = "<group>"; };
+		1DB724741B074650005C2584 /* TTWoChengZhangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoChengZhangViewController.h; sourceTree = "<group>"; };
+		1DB724751B074650005C2584 /* TTWoChengZhangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoChengZhangViewController.m; sourceTree = "<group>"; };
+		1DB724771B075548005C2584 /* TTWoChengzhangHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoChengzhangHistoryCell.h; sourceTree = "<group>"; };
+		1DB724781B075549005C2584 /* TTWoChengzhangHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoChengzhangHistoryCell.m; sourceTree = "<group>"; };
+		1DB7247A1B076118005C2584 /* TTGrowTemperTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGrowTemperTestTool.h; sourceTree = "<group>"; };
+		1DB7247B1B076118005C2584 /* TTGrowTemperTestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGrowTemperTestTool.m; sourceTree = "<group>"; };
 		1DC7C5C91AE4B36300346732 /* RegMsgFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgFirst.h; sourceTree = "<group>"; };
 		1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgFirst.m; sourceTree = "<group>"; };
 		1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -761,6 +770,8 @@
 				1D48D10D1B059312002D48A8 /* TTWoFriendViewController.h */,
 				1D48D10E1B059312002D48A8 /* TTWoFriendViewController.m */,
 				1DB7246F1B072359005C2584 /* yiziCao.plist */,
+				1DB724741B074650005C2584 /* TTWoChengZhangViewController.h */,
+				1DB724751B074650005C2584 /* TTWoChengZhangViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1121,6 +1132,8 @@
 				1D4253D81B0321F700BBCB4A /* TTUIChangeTool.m */,
 				1D4253DA1B03421C00BBCB4A /* TTForceScreenOretationTool.h */,
 				1D4253DB1B03421C00BBCB4A /* TTForceScreenOretationTool.m */,
+				1DB7247A1B076118005C2584 /* TTGrowTemperTestTool.h */,
+				1DB7247B1B076118005C2584 /* TTGrowTemperTestTool.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -1475,6 +1488,8 @@
 				1DB7246D1B05E689005C2584 /* TTWoyiziCaoTableViewCell.m */,
 				1DB724711B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.h */,
 				1DB724721B072F9B005C2584 /* TTWoMuyingCaoTableViewCell.m */,
+				1DB724771B075548005C2584 /* TTWoChengzhangHistoryCell.h */,
+				1DB724781B075549005C2584 /* TTWoChengzhangHistoryCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1909,6 +1924,7 @@
 				1D48D10F1B059312002D48A8 /* TTWoFriendViewController.m in Sources */,
 				0FE8309F1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m in Sources */,
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
+				1DB7247C1B076118005C2584 /* TTGrowTemperTestTool.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
 				0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */,
 				1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */,
@@ -1954,6 +1970,7 @@
 				1DDF4EA91AE3AA7E004661EB /* JSImagePickerViewController.m in Sources */,
 				02FBF12C1AFB26B70009425A /* TTWoPersonalInfoViewController.m in Sources */,
 				1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */,
+				1DB724761B074650005C2584 /* TTWoChengZhangViewController.m in Sources */,
 				1D3BC07D1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeysPageFlowLayout.m in Sources */,
 				02BFC5631ADF7A3700D0DF30 /* MD5DataSigner.m in Sources */,
 				02BFC4EC1ADF668100D0DF30 /* JSONHelper.m in Sources */,
@@ -2003,6 +2020,7 @@
 				1D4253DC1B03421C00BBCB4A /* TTForceScreenOretationTool.m in Sources */,
 				1D651CDF1AFDBEF4005093BF /* TTZaojiaoHeaderRightItem.m in Sources */,
 				0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */,
+				1DB724791B075549005C2584 /* TTWoChengzhangHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
