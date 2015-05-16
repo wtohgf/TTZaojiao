@@ -212,6 +212,7 @@
 		1DB724761B074650005C2584 /* TTWoChengZhangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB724751B074650005C2584 /* TTWoChengZhangViewController.m */; };
 		1DB724791B075549005C2584 /* TTWoChengzhangHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB724781B075549005C2584 /* TTWoChengzhangHistoryCell.m */; };
 		1DB7247C1B076118005C2584 /* TTGrowTemperTestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7247B1B076118005C2584 /* TTGrowTemperTestTool.m */; };
+		1DB7247F1B0776A5005C2584 /* TTWoGrowTestReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB7247E1B0776A5005C2584 /* TTWoGrowTestReportViewController.m */; };
 		1DC7C5CB1AE4B36300346732 /* RegMsgFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */; };
 		1DC7C5CE1AE502DE00346732 /* UIImage+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5CD1AE502DE00346732 /* UIImage+MoreAttribute.m */; };
 		1DC7C5D21AE6331700346732 /* RegMsgSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C5D11AE6331700346732 /* RegMsgSecond.m */; };
@@ -667,6 +668,8 @@
 		1DB724781B075549005C2584 /* TTWoChengzhangHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoChengzhangHistoryCell.m; sourceTree = "<group>"; };
 		1DB7247A1B076118005C2584 /* TTGrowTemperTestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGrowTemperTestTool.h; sourceTree = "<group>"; };
 		1DB7247B1B076118005C2584 /* TTGrowTemperTestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGrowTemperTestTool.m; sourceTree = "<group>"; };
+		1DB7247D1B0776A5005C2584 /* TTWoGrowTestReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoGrowTestReportViewController.h; sourceTree = "<group>"; };
+		1DB7247E1B0776A5005C2584 /* TTWoGrowTestReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoGrowTestReportViewController.m; sourceTree = "<group>"; };
 		1DC7C5C91AE4B36300346732 /* RegMsgFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegMsgFirst.h; sourceTree = "<group>"; };
 		1DC7C5CA1AE4B36300346732 /* RegMsgFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegMsgFirst.m; sourceTree = "<group>"; };
 		1DC7C5CC1AE502DE00346732 /* UIImage+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -772,6 +775,8 @@
 				1DB7246F1B072359005C2584 /* yiziCao.plist */,
 				1DB724741B074650005C2584 /* TTWoChengZhangViewController.h */,
 				1DB724751B074650005C2584 /* TTWoChengZhangViewController.m */,
+				1DB7247D1B0776A5005C2584 /* TTWoGrowTestReportViewController.h */,
+				1DB7247E1B0776A5005C2584 /* TTWoGrowTestReportViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1887,6 +1892,7 @@
 				1D370B3A1AF2345100DF99CE /* MJPhotoBrowser.m in Sources */,
 				1D3762921AF081A500CAAA05 /* UIView+NKMoreAttribute.m in Sources */,
 				1DF097E71AFA618E00033B7D /* TTKeyChainTool.m in Sources */,
+				1DB7247F1B0776A5005C2584 /* TTWoGrowTestReportViewController.m in Sources */,
 				1D47550E1AEB317D004EDEED /* BlogReplayModel.m in Sources */,
 				1D370B381AF2345100DF99CE /* MJPhoto.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,

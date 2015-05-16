@@ -10,6 +10,7 @@
 #import "TTWoChengzhangHistoryCell.h"
 #import "TTGrowTemperTestTool.h"
 #import <MJRefresh.h>
+#import "TTWoGrowTestReportViewController.h"
 
 @interface TTWoChengZhangViewController (){
     NSString* _pageIndex;
@@ -144,6 +145,19 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 66.f;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary* testReportDict = _testHistoryList[indexPath.row];
+    NSString* resultID = [testReportDict objectForKey:@"id"];
+    [self performSegueWithIdentifier:@"TOGROWREPORT" sender:resultID];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[TTWoGrowTestReportViewController class]]) {
+        TTWoGrowTestReportViewController* vc = segue.destinationViewController;
+        vc.resultID = sender;
+    }
 }
 
 @end

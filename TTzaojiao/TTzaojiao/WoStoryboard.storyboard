@@ -1768,11 +1768,71 @@
                     <navigationItem key="navigationItem" title="成长发育测评" id="3dj-s9-MDU"/>
                     <connections>
                         <outlet property="chengzhangTableView" destination="bAq-3s-j1a" id="Nsp-6D-vuB"/>
+                        <segue destination="623-xu-J4x" kind="show" identifier="TOGROWREPORT" id="oz7-A6-HBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgu-Sm-t00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3445.5" y="502.5"/>
+        </scene>
+        <!--成长发育评测报告-->
+        <scene sceneID="QkV-S6-p8H">
+            <objects>
+                <viewController title="成长发育评测报告" id="623-xu-J4x" customClass="TTWoGrowTestReportViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1sU-Ts-ku1"/>
+                        <viewControllerLayoutGuide type="bottom" id="sTd-Pc-Wmi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hqv-T1-Amo">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-Sj-m4X">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="623-xu-J4x" id="eL0-2K-3Bf"/>
+                                    <outlet property="delegate" destination="623-xu-J4x" id="epL-GH-Fmf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qhO-Sj-m4X" firstAttribute="leading" secondItem="hqv-T1-Amo" secondAttribute="leadingMargin" constant="-16" id="F1B-hT-Mpv"/>
+                            <constraint firstItem="qhO-Sj-m4X" firstAttribute="top" secondItem="hqv-T1-Amo" secondAttribute="topMargin" id="UbE-ir-AiF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qhO-Sj-m4X" secondAttribute="trailing" constant="-16" id="XK0-w5-ld6"/>
+                            <constraint firstItem="sTd-Pc-Wmi" firstAttribute="top" secondItem="qhO-Sj-m4X" secondAttribute="bottom" id="vOk-0u-G5h"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="qhO-Sj-m4X"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="F1B-hT-Mpv"/>
+                                <exclude reference="UbE-ir-AiF"/>
+                                <exclude reference="XK0-w5-ld6"/>
+                                <exclude reference="vOk-0u-G5h"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="qhO-Sj-m4X"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="F1B-hT-Mpv"/>
+                                <include reference="UbE-ir-AiF"/>
+                                <include reference="XK0-w5-ld6"/>
+                                <include reference="vOk-0u-G5h"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="成长发育评测报告" id="Nmi-OI-Z1l"/>
+                    <connections>
+                        <outlet property="growReportTableView" destination="qhO-Sj-m4X" id="hmE-Ea-5DM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mkr-90-5M2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4183.5" y="502.5"/>
         </scene>
         <!--修改个人信息-->
         <scene sceneID="nZm-Qs-qNb">
