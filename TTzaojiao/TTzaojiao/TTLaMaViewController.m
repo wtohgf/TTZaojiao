@@ -125,10 +125,10 @@
             [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
                 //假数据 macmini定位不好用
                 _cityCode = cityCode;
-                //加载异步网络数据
-                [self loadData];
             }];
         }
+        //加载异步网络数据
+        [self loadData];
     }];
     
 }
