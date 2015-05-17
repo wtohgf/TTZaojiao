@@ -25,4 +25,5 @@
 
 @interface TTBaseViewController : UIViewController
 @property (weak, nonatomic) UIButton* logonRegButton;
+@property (weak, nonatomic) UIImageView* rightItemIcon;
 @end

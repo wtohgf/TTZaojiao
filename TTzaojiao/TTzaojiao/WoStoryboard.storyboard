@@ -8,10 +8,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Base Navgation Controller-->
+        <!--Wo Navigtaion View Controller-->
         <scene sceneID="nlC-rZ-Ivi">
             <objects>
-                <navigationController storyboardIdentifier="WoNav" id="urv-ti-AmP" customClass="TTBaseNavgationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WoNav" id="urv-ti-AmP" customClass="TTWoNavigtaionViewController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hC7-Ar-38u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2677,31 +2677,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="修改个人信息" id="ez3-r6-3gM">
-                        <barButtonItem key="rightBarButtonItem" id="x5q-hp-nd7">
-                            <view key="customView" contentMode="scaleToFill" id="xt5-Bb-oUt">
-                                <rect key="frame" x="0.0" y="0.0" width="133" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaz-FJ-ljc">
-                                        <rect key="frame" x="98" y="-1" width="35" height="35"/>
-                                        <state key="normal" image="baby_icon1">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="rightAction:" destination="ZIu-qy-9vk" eventType="touchUpInside" id="uVC-vE-IUw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="修改个人信息" id="ez3-r6-3gM"/>
                     <connections>
                         <outlet property="accountTextFeild" destination="sRP-55-hBe" id="D8X-6g-zjj"/>
                         <outlet property="commitButton" destination="fA8-Jo-USe" id="IAn-Jp-gcG"/>
                         <outlet property="nameTextFeild" destination="hL9-lx-NLE" id="iaV-YX-AXp"/>
-                        <outlet property="rightButtonItem" destination="uaz-FJ-ljc" id="TAJ-vU-7hB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHg-fY-hSs" userLabel="First Responder" sceneMemberID="firstResponder"/>

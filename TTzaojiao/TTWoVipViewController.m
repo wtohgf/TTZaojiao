@@ -18,7 +18,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (strong, nonatomic) IBOutlet UIButton *commitButton;
 @property (strong, nonatomic) IBOutlet UIButton *payButton;
-@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
 @end
 
@@ -54,12 +53,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)rightAction:(id)sender {
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:userViewController animated:YES];
-}
 - (IBAction)endEdit:(UITextField *)sender {
     [sender resignFirstResponder];
 }

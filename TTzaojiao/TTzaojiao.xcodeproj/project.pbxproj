@@ -110,6 +110,7 @@
 		1D3B04891B0826C400E2E41D /* GrowTestTitleContent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B04881B0826C400E2E41D /* GrowTestTitleContent.plist */; };
 		1D3B048C1B0837DC00E2E41D /* TTWoScoreIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B048B1B0837DC00E2E41D /* TTWoScoreIntroduceCell.m */; };
 		1D3B048E1B083A5C00E2E41D /* ScoreIntroduce.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B048D1B083A5C00E2E41D /* ScoreIntroduce.plist */; };
+		1D3B04911B0851E400E2E41D /* TTWoNavigtaionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04901B0851E300E2E41D /* TTWoNavigtaionViewController.m */; };
 		1D3BC0561AF72E1A00E8BE72 /* NSString+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */; };
 		1D3BC0591AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */; };
 		1D3BC05C1AF7477100E8BE72 /* TTDynamicReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */; };
@@ -513,6 +514,8 @@
 		1D3B048A1B0837DC00E2E41D /* TTWoScoreIntroduceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoScoreIntroduceCell.h; sourceTree = "<group>"; };
 		1D3B048B1B0837DC00E2E41D /* TTWoScoreIntroduceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoScoreIntroduceCell.m; sourceTree = "<group>"; };
 		1D3B048D1B083A5C00E2E41D /* ScoreIntroduce.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ScoreIntroduce.plist; sourceTree = "<group>"; };
+		1D3B048F1B0851E300E2E41D /* TTWoNavigtaionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoNavigtaionViewController.h; sourceTree = "<group>"; };
+		1D3B04901B0851E300E2E41D /* TTWoNavigtaionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoNavigtaionViewController.m; sourceTree = "<group>"; };
 		1D3BC0541AF72E1A00E8BE72 /* NSString+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MoreAttribute.h"; sourceTree = "<group>"; };
 		1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoreAttribute.m"; sourceTree = "<group>"; };
 		1D3BC0571AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -799,6 +802,8 @@
 				1D3B04791B07F51100E2E41D /* TTWoChengZhangSubmitController.h */,
 				1D3B047A1B07F51100E2E41D /* TTWoChengZhangSubmitController.m */,
 				1D3B04881B0826C400E2E41D /* GrowTestTitleContent.plist */,
+				1D3B048F1B0851E300E2E41D /* TTWoNavigtaionViewController.h */,
+				1D3B04901B0851E300E2E41D /* TTWoNavigtaionViewController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1912,6 +1917,7 @@
 				1DF097E11AF8CBBE00033B7D /* NSAttributedString+EmojiExtension.m in Sources */,
 				1D4253B11B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.m in Sources */,
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
+				1D3B04911B0851E400E2E41D /* TTWoNavigtaionViewController.m in Sources */,
 				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
 				1DB7246B1B05E62C005C2584 /* TTWoyiziCaoViewController.m in Sources */,

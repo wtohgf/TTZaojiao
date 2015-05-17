@@ -20,7 +20,7 @@
 
 @interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
-@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
+
 @property (strong, nonatomic) UIImageView *myIconView;
 @property (strong, nonatomic) DynamicUserModel* Wo;
 @end
@@ -50,7 +50,12 @@
         alert.tag = LogoutAlertTag;
         [alert show];
     };
-    [_myIconView setImageIcon:[[[TTUserModelTool sharedUserModelTool] logonUser] icon]];
+
+    if ([TTUserModelTool sharedUserModelTool].logonUser.icon.length == 0) {
+        [_myIconView setImage:[UIImage imageNamed:@"baby_icon1"]];
+    }else{
+        [_myIconView setImageIcon:[TTUserModelTool sharedUserModelTool].logonUser.icon];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,14 +63,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)rightButtonItem:(id)sender {
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:userViewController animated:YES];
-}
 
 -(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     //获取我的最新信息
     [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
         _Wo = user;

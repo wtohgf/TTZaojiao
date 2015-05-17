@@ -68,6 +68,9 @@
                                          Result:^(id result_data, ApiStatus result_status, NSString *api) {
                                              if (result_status == ApiStatusSuccess) {
                                                  [[[TTUserModelTool sharedUserModelTool] logonUser] setIcon:_iconPath];
+                                                 [_iconImageView setImageIcon:_iconPath];
+                                                 UIImageView* rightIconView =(UIImageView*)self.navigationItem.rightBarButtonItem.customView;
+                                                 [rightIconView setImageIcon:_iconPath];
                                                  [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
                                              }
                                              else {

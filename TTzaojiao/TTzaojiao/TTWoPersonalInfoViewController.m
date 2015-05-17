@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *accountTextFeild;
 @property (strong, nonatomic) IBOutlet UITextField *nameTextFeild;
 @property (strong, nonatomic) IBOutlet UIButton *commitButton;
-@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
 @end
 
@@ -56,12 +55,6 @@
 }
 */
 
-- (IBAction)rightAction:(id)sender {
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:userViewController animated:YES];
-}
 
 - (IBAction)commitAction:(UIButton *)sender {
     if (_accountTextFeild.text.length == 0) {

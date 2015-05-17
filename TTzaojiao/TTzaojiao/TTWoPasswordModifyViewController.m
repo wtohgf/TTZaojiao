@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *nnewTextField;
 @property (strong, nonatomic) IBOutlet UITextField *confirmTextField;
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
-@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
 
 @end
 
@@ -52,13 +51,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)rightAction:(id)sender {
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:userViewController animated:YES];
-}
 
 - (IBAction)confirmAction:(UIButton *)sender {
     if (_oldTextField.text.length < 4 || _oldTextField.text.length > 14) {

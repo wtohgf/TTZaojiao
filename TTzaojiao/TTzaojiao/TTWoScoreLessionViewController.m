@@ -16,12 +16,7 @@
 @end
 
 @implementation TTWoScoreLessionViewController
-- (IBAction)UserInfo:(UIButton *)sender {
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:userViewController animated:YES];
-}
+
 
 - (IBAction)scorePayLession:(UIButton *)sender {
     NSDictionary* scoreLessionDict = @{
