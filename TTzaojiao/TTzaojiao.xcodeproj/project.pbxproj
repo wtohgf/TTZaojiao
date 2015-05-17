@@ -111,6 +111,9 @@
 		1D3B048C1B0837DC00E2E41D /* TTWoScoreIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B048B1B0837DC00E2E41D /* TTWoScoreIntroduceCell.m */; };
 		1D3B048E1B083A5C00E2E41D /* ScoreIntroduce.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B048D1B083A5C00E2E41D /* ScoreIntroduce.plist */; };
 		1D3B04911B0851E400E2E41D /* TTWoNavigtaionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04901B0851E300E2E41D /* TTWoNavigtaionViewController.m */; };
+		1D3B04941B08614B00E2E41D /* TTWoTemperatureTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04931B08614B00E2E41D /* TTWoTemperatureTestController.m */; };
+		1D3B04971B08654C00E2E41D /* TTWoTempTestReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */; };
+		1D3B049A1B086D1500E2E41D /* TTWoTempTestSubmitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04991B086D1500E2E41D /* TTWoTempTestSubmitController.m */; };
 		1D3BC0561AF72E1A00E8BE72 /* NSString+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */; };
 		1D3BC0591AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */; };
 		1D3BC05C1AF7477100E8BE72 /* TTDynamicReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */; };
@@ -516,6 +519,12 @@
 		1D3B048D1B083A5C00E2E41D /* ScoreIntroduce.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ScoreIntroduce.plist; sourceTree = "<group>"; };
 		1D3B048F1B0851E300E2E41D /* TTWoNavigtaionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoNavigtaionViewController.h; sourceTree = "<group>"; };
 		1D3B04901B0851E300E2E41D /* TTWoNavigtaionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoNavigtaionViewController.m; sourceTree = "<group>"; };
+		1D3B04921B08614B00E2E41D /* TTWoTemperatureTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTemperatureTestController.h; sourceTree = "<group>"; };
+		1D3B04931B08614B00E2E41D /* TTWoTemperatureTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTemperatureTestController.m; sourceTree = "<group>"; };
+		1D3B04951B08654C00E2E41D /* TTWoTempTestReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTempTestReportViewController.h; sourceTree = "<group>"; };
+		1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTempTestReportViewController.m; sourceTree = "<group>"; };
+		1D3B04981B086D1500E2E41D /* TTWoTempTestSubmitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTempTestSubmitController.h; sourceTree = "<group>"; };
+		1D3B04991B086D1500E2E41D /* TTWoTempTestSubmitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTempTestSubmitController.m; sourceTree = "<group>"; };
 		1D3BC0541AF72E1A00E8BE72 /* NSString+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MoreAttribute.h"; sourceTree = "<group>"; };
 		1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoreAttribute.m"; sourceTree = "<group>"; };
 		1D3BC0571AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -771,6 +780,8 @@
 			isa = PBXGroup;
 			children = (
 				1D48D1061B04832B002D48A8 /* Views */,
+				1D3B04951B08654C00E2E41D /* TTWoTempTestReportViewController.h */,
+				1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */,
 				1DB724691B05E62C005C2584 /* TTWoyiziCaoViewController.h */,
 				1DB7246A1B05E62C005C2584 /* TTWoyiziCaoViewController.m */,
 				1D48D1101B05A3AA002D48A8 /* TTWoFansViewController.h */,
@@ -804,6 +815,10 @@
 				1D3B04881B0826C400E2E41D /* GrowTestTitleContent.plist */,
 				1D3B048F1B0851E300E2E41D /* TTWoNavigtaionViewController.h */,
 				1D3B04901B0851E300E2E41D /* TTWoNavigtaionViewController.m */,
+				1D3B04921B08614B00E2E41D /* TTWoTemperatureTestController.h */,
+				1D3B04931B08614B00E2E41D /* TTWoTemperatureTestController.m */,
+				1D3B04981B086D1500E2E41D /* TTWoTempTestSubmitController.h */,
+				1D3B04991B086D1500E2E41D /* TTWoTempTestSubmitController.m */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1937,6 +1952,7 @@
 				1D370B381AF2345100DF99CE /* MJPhoto.m in Sources */,
 				1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */,
 				1D370AEA1AF1179500DF99CE /* TTDynamicUserStatusHeaderView.m in Sources */,
+				1D3B04971B08654C00E2E41D /* TTWoTempTestReportViewController.m in Sources */,
 				1D44C8901AEEE10100D2FC93 /* TTDaynamicUserStatusZancountView.m in Sources */,
 				02FBF1331AFB2A130009425A /* TTWoPasswordModifyViewController.m in Sources */,
 				1D44C8991AEF3AD200D2FC93 /* TTCommentFrame.m in Sources */,
@@ -1972,6 +1988,7 @@
 				02BFC4E61ADF662500D0DF30 /* AFAppDotNetAPIClient.m in Sources */,
 				1DB7247C1B076118005C2584 /* TTGrowTemperTestTool.m in Sources */,
 				1D3B04811B07FBD200E2E41D /* TTWoGrowTestWeightCell.m in Sources */,
+				1D3B04941B08614B00E2E41D /* TTWoTemperatureTestController.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
 				0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */,
 				1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */,
@@ -2057,6 +2074,7 @@
 				1D1F2C061AE0AECB004F851D /* TTLogonViewController.m in Sources */,
 				1D3BC07B1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItemGroup.m in Sources */,
 				02BFC5621ADF7A3700D0DF30 /* DataVerifier.m in Sources */,
+				1D3B049A1B086D1500E2E41D /* TTWoTempTestSubmitController.m in Sources */,
 				0FCB300F1AFC90A2005F00C7 /* LamaTableViewCellContact.m in Sources */,
 				1D37628F1AF07FA600CAAA05 /* TTCommentRelaseView.m in Sources */,
 				1DF097E41AF9FEE400033B7D /* AlipayRequestConfig.m in Sources */,

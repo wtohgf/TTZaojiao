@@ -146,4 +146,72 @@
         
     }];
 }
+
+
++(void)getTempTestListWithPageindex:(NSString*)pageIndex Result:(GrownTestListBlock)block{
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"p_1": pageIndex,
+                                 @"p_2": @"10"
+                                 };
+    
+    [[AFAppDotNetAPIClient sharedClient]apiGet:TEMPERAMENT_TEST_LIST Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* retList = (NSMutableArray*)result_data;
+                if (retList.count > 0) {
+                    NSDictionary* ret = [retList firstObject];
+                    if ([[ret objectForKey:@"msg"] isEqualToString:@"Get_Test_QiZhi_List"]) {
+                        NSMutableArray* gymList = [retList mutableCopy];
+                        [gymList removeObjectAtIndex:0];
+                        block(gymList);
+                    }else{
+                        block(@"error");
+                    }
+                }else{
+                    block(@"error");
+                }
+            }else{
+                block(@"error");
+            }
+        }else{
+            block(@"neterror");
+        };
+        
+    }];
+    
+}
+
++(void)getTempReportWithResultID:(NSString*)resultId Result:(GrownTestListBlock)block{
+    
+    NSDictionary* parameters = @{
+                                 @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
+                                 @"i_psd": [TTUserModelTool sharedUserModelTool].password,
+                                 @"id": resultId,
+                                 };
+    
+    [[AFAppDotNetAPIClient sharedClient]apiGet:TEMPERAMENT_REPORT Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* retList = (NSMutableArray*)result_data;
+                if (retList.count > 0) {
+                    NSDictionary* ret = [retList firstObject];
+                    block(ret);
+                    }else{
+                        block(@"error");
+                    }
+                }else{
+                    block(@"error");
+                }
+        }else{
+            block(@"neterror");
+        };
+    }];
+}
+
+
+
 @end

@@ -270,6 +270,7 @@
             [self performSegueWithIdentifier:@"TOCHENGZHANG" sender:self];
         }
         else {
+            [self performSegueWithIdentifier:@"TOTEMPTEST" sender:self];
         }
     }
     else if (4 == indexPath.section) {

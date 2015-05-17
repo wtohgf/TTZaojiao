@@ -45,7 +45,9 @@
     _date.text = dateString;
 
     _result.text  = [growTestDict objectForKey:@"tige_sort"];
- 
+    if (_result.text == nil) {
+        _result.text = [growTestDict objectForKey:@"qizhi_sort"];
+    }
     if ([_result.text isEqualToString:@"正常"]) {
         [_point setImage:[UIImage imageNamed:@"point_green"]];
     }else if([_result.text rangeOfString:@"严重"].length != 0){
