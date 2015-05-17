@@ -8,6 +8,6 @@
 
 #import "TTBaseViewController.h"
 
-@interface TTWoScoreViewController : TTBaseViewController
+@interface TTWoScoreViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end
