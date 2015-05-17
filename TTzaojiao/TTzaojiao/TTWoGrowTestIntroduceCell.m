@@ -33,11 +33,13 @@
 -(void)addSubviews{
     UILabel* label = [[UILabel alloc]init];
     _title = label;
+    label.textColor = [UIColor colorWithRed:174.f/255.f green:68.f/255.f blue:77.f/255.f alpha:1.f];
     [self.contentView addSubview:label];
     
     
     UILabel* content = [[UILabel alloc]init];
     _content = content;
+    content.textColor = [UIColor colorWithRed:174.f/255.f green:68.f/255.f blue:77.f/255.f alpha:1.f];
     [self.contentView addSubview:content];
 }
 
@@ -45,7 +47,7 @@
     _titleContent = titleContent;
     _title.text = [titleContent objectForKey:@"title"];
     _title.font = [UIFont systemFontOfSize:14.f];
-    _title.backgroundColor = [UIColor colorWithRed:255.f/255.f green:240.f/255.f blue:242.f/255.f alpha:1.f];
+    _title.backgroundColor = [UIColor colorWithRed:247.f/255.f green:215.f/255.f blue:226.f/255.f alpha:1.f];
     _title.textAlignment = NSTextAlignmentCenter;
     _title.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 30.f);
     _title.numberOfLines = 0;

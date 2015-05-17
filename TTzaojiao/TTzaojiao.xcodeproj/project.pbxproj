@@ -114,6 +114,7 @@
 		1D3B04941B08614B00E2E41D /* TTWoTemperatureTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04931B08614B00E2E41D /* TTWoTemperatureTestController.m */; };
 		1D3B04971B08654C00E2E41D /* TTWoTempTestReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */; };
 		1D3B049A1B086D1500E2E41D /* TTWoTempTestSubmitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04991B086D1500E2E41D /* TTWoTempTestSubmitController.m */; };
+		1D3B049D1B08737B00E2E41D /* TTWoTempTestAnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B049C1B08737B00E2E41D /* TTWoTempTestAnswerCell.m */; };
 		1D3BC0561AF72E1A00E8BE72 /* NSString+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */; };
 		1D3BC0591AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */; };
 		1D3BC05C1AF7477100E8BE72 /* TTDynamicReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */; };
@@ -525,6 +526,8 @@
 		1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTempTestReportViewController.m; sourceTree = "<group>"; };
 		1D3B04981B086D1500E2E41D /* TTWoTempTestSubmitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTempTestSubmitController.h; sourceTree = "<group>"; };
 		1D3B04991B086D1500E2E41D /* TTWoTempTestSubmitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTempTestSubmitController.m; sourceTree = "<group>"; };
+		1D3B049B1B08737B00E2E41D /* TTWoTempTestAnswerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTempTestAnswerCell.h; sourceTree = "<group>"; };
+		1D3B049C1B08737B00E2E41D /* TTWoTempTestAnswerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTempTestAnswerCell.m; sourceTree = "<group>"; };
 		1D3BC0541AF72E1A00E8BE72 /* NSString+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MoreAttribute.h"; sourceTree = "<group>"; };
 		1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoreAttribute.m"; sourceTree = "<group>"; };
 		1D3BC0571AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -1548,6 +1551,8 @@
 				1D3B048A1B0837DC00E2E41D /* TTWoScoreIntroduceCell.h */,
 				1D3B048B1B0837DC00E2E41D /* TTWoScoreIntroduceCell.m */,
 				1D3B048D1B083A5C00E2E41D /* ScoreIntroduce.plist */,
+				1D3B049B1B08737B00E2E41D /* TTWoTempTestAnswerCell.h */,
+				1D3B049C1B08737B00E2E41D /* TTWoTempTestAnswerCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2017,6 +2022,7 @@
 				1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */,
 				1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */,
 				02442BC01AF871FE00AF8DDC /* LLBlurSidebar.m in Sources */,
+				1D3B049D1B08737B00E2E41D /* TTWoTempTestAnswerCell.m in Sources */,
 				1D651CF01AFE0547005093BF /* TTZaojiaoLessionCell.m in Sources */,
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1D370AEF1AF1DACF00DF99CE /* BlogUserDynamicModel.m in Sources */,
