@@ -96,12 +96,8 @@
 {
     if(buttonIndex == 1)
     {
-        if (_webView == nil) {
-            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
-            _webView = webView;
-        }
-        NSString *tel = [NSString stringWithFormat:@"tel://%@",_telLabel.text];
-        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:tel]]];
+        NSString *tel = [NSString stringWithFormat:@"tel://%@",_modelFrame.model.i_tel];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tel]];
     }
 }
 @end
