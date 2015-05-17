@@ -107,6 +107,8 @@
 		1D3B047E1B07FB3E00E2E41D /* TTWoGrowTestHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B047D1B07FB3E00E2E41D /* TTWoGrowTestHeightCell.m */; };
 		1D3B04811B07FBD200E2E41D /* TTWoGrowTestWeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04801B07FBD200E2E41D /* TTWoGrowTestWeightCell.m */; };
 		1D3B04841B07FC6B00E2E41D /* TTWoGrowTestStartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04831B07FC6B00E2E41D /* TTWoGrowTestStartCell.m */; };
+		1D3B04871B08200500E2E41D /* TTWoGrowTestIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B04861B08200500E2E41D /* TTWoGrowTestIntroduceCell.m */; };
+		1D3B04891B0826C400E2E41D /* GrowTestTitleContent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D3B04881B0826C400E2E41D /* GrowTestTitleContent.plist */; };
 		1D3BC0561AF72E1A00E8BE72 /* NSString+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */; };
 		1D3BC0591AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0581AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.m */; };
 		1D3BC05C1AF7477100E8BE72 /* TTDynamicReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC05B1AF7477100E8BE72 /* TTDynamicReleaseViewController.m */; };
@@ -505,6 +507,9 @@
 		1D3B04801B07FBD200E2E41D /* TTWoGrowTestWeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoGrowTestWeightCell.m; sourceTree = "<group>"; };
 		1D3B04821B07FC6B00E2E41D /* TTWoGrowTestStartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoGrowTestStartCell.h; sourceTree = "<group>"; };
 		1D3B04831B07FC6B00E2E41D /* TTWoGrowTestStartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoGrowTestStartCell.m; sourceTree = "<group>"; };
+		1D3B04851B08200500E2E41D /* TTWoGrowTestIntroduceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoGrowTestIntroduceCell.h; sourceTree = "<group>"; };
+		1D3B04861B08200500E2E41D /* TTWoGrowTestIntroduceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoGrowTestIntroduceCell.m; sourceTree = "<group>"; };
+		1D3B04881B0826C400E2E41D /* GrowTestTitleContent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GrowTestTitleContent.plist; sourceTree = "<group>"; };
 		1D3BC0541AF72E1A00E8BE72 /* NSString+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MoreAttribute.h"; sourceTree = "<group>"; };
 		1D3BC0551AF72E1A00E8BE72 /* NSString+MoreAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MoreAttribute.m"; sourceTree = "<group>"; };
 		1D3BC0571AF7453A00E8BE72 /* UIBarButtonItem+MoreAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MoreAttribute.h"; sourceTree = "<group>"; };
@@ -791,6 +796,7 @@
 				1DB7247E1B0776A5005C2584 /* TTWoGrowTestReportViewController.m */,
 				1D3B04791B07F51100E2E41D /* TTWoChengZhangSubmitController.h */,
 				1D3B047A1B07F51100E2E41D /* TTWoChengZhangSubmitController.m */,
+				1D3B04881B0826C400E2E41D /* GrowTestTitleContent.plist */,
 			);
 			name = wo;
 			sourceTree = "<group>";
@@ -1515,6 +1521,8 @@
 				1D3B04801B07FBD200E2E41D /* TTWoGrowTestWeightCell.m */,
 				1D3B04821B07FC6B00E2E41D /* TTWoGrowTestStartCell.h */,
 				1D3B04831B07FC6B00E2E41D /* TTWoGrowTestStartCell.m */,
+				1D3B04851B08200500E2E41D /* TTWoGrowTestIntroduceCell.h */,
+				1D3B04861B08200500E2E41D /* TTWoGrowTestIntroduceCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1830,6 +1838,7 @@
 				1D3BC0B91AF8A1BD00E8BE72 /* keyboard_grid_bg@2x.png in Resources */,
 				1D3BC0BD1AF8A1BD00E8BE72 /* keyboard_segment_normal@2x.png in Resources */,
 				1D3BC0AF1AF8A1BD00E8BE72 /* keyboard_bg@2x.png in Resources */,
+				1D3B04891B0826C400E2E41D /* GrowTestTitleContent.plist in Resources */,
 				1D3BC0BF1AF8A1BD00E8BE72 /* keyboard_segment_normal_selected@2x.png in Resources */,
 				1DDF4EBF1AE3B712004661EB /* btn_021@2x.png in Resources */,
 				1D3BC0BA1AF8A1BD00E8BE72 /* keyboard_popup.png in Resources */,
@@ -1984,6 +1993,7 @@
 				02041B831AE8BD1E00B09561 /* TTWoButtonTableViewCell.m in Sources */,
 				1D370AEF1AF1DACF00DF99CE /* BlogUserDynamicModel.m in Sources */,
 				02D144FB1AFCA7C00028DC80 /* TTWoIconTableViewCell.m in Sources */,
+				1D3B04871B08200500E2E41D /* TTWoGrowTestIntroduceCell.m in Sources */,
 				1DDF4E8E1AE26C82004661EB /* TTRealRegisitViewController.m in Sources */,
 				0FE830AB1AF85ECA00A15860 /* LaMaDetailViewController.m in Sources */,
 				0FE830A91AF85EC100A15860 /* LaMaDetailModel.m in Sources */,

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>成长发育评测</string>
+		<key>content</key>
+		<string>    成长发育评测是对宝宝身高、体重等发展状况的测试，用以测查宝宝的身体发育及营养状况。         国内外的研究表明，0～6岁是人一生发展中最重要的时期；一个人的学习能力的50%是在生命的头4年中发展起来的，另外有30%是在8岁前发展起来的；0～6岁是宝宝成长的关键期。</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>如何给宝宝测身高？</string>
+		<key>content</key>
+		<string>    让宝宝平躺在桌面上，使桌子的长、宽两边紧贴墙壁，然后在桌子的外沿揿一把尺，一端的零点紧贴墙壁；把宝宝的头顶紧靠壁，枕部紧贴桌面，头部摆正，两手放平，使宝宝的枕部、肩部、臂、臀部、足跟都紧贴桌面；一人负责保持宝宝上身稳定，另一人一手按住宝宝两膝关节，使其伸直，一手拿一块平整的木板，使宝宝的两足底平踏在木板上，将木板与桌面的接触线延伸到软尺，读数既为身长。</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>如何给宝宝测量体重？</string>
+		<key>content</key>
+		<string>    由于新生儿的身体太软，因此在测量体重时应格外小心谨慎，以免弄伤宝宝，测量时将宝宝放于秤盘中央即可读取宝宝的体重；需要注意的是，不要忘了在秤盘上垫一块绵软的布，以防宝宝着凉，称好体重后，要将绵软布等称一下，减去布的重量后就是新生儿的净体重。</string>
+	</dict>
+</array>
+</plist>

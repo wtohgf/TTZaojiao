@@ -12,10 +12,12 @@
 #import "TTWoGrowTestHeightCell.h"
 #import "TTGrowTemperTestTool.h"
 #import "TTWoGrowTestReportViewController.h"
+#import "TTWoGrowTestIntroduceCell.h"
 
 @interface TTWoChengZhangSubmitController (){
     NSString* _weihgt;
     NSString* _height;
+    NSArray* _growTestIntroList;
 }
 @property (weak, nonatomic) IBOutlet UITableView *chengZhangSubmintTableView;
 
@@ -36,6 +38,9 @@
     }
     
     _chengZhangSubmintTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
+    NSString* path = [[NSBundle mainBundle]pathForResource:@"GrowTestTitleContent.plist" ofType:nil];
+    _growTestIntroList = [NSArray arrayWithContentsOfFile:path];
     
 }
 
@@ -58,13 +63,15 @@
         };
         return cell;
     }else{
-        return [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"tmp"];
+        TTWoGrowTestIntroduceCell* cell = [TTWoGrowTestIntroduceCell woGrowTestIntroduceCellWithTableView:tableView];
+        cell.titleContent = _growTestIntroList[indexPath.row-3];
+        return cell;
    }
 
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 6;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -77,7 +84,7 @@
     }else if(indexPath.row == 2){
         return 66.f;
     }else{
-        return 0.f;
+        return [TTWoGrowTestIntroduceCell cellHeightWith:_growTestIntroList[indexPath.row - 3]];
     }
 }
 
