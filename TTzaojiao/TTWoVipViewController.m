@@ -60,6 +60,9 @@
     [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
     [self.navigationController pushViewController:userViewController animated:YES];
 }
+- (IBAction)endEdit:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
 
 /*
 #pragma mark - Navigation

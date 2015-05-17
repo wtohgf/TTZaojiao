@@ -96,5 +96,8 @@
         }
     }];
 }
+- (IBAction)endEdit:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
 
 @end

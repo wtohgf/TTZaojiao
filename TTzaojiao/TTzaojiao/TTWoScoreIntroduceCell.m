@@ -12,6 +12,11 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    if ([UIScreen mainScreen].bounds.size.width <=320) {
+        _title.font = [UIFont systemFontOfSize:10.f];
+        _score.font = [UIFont systemFontOfSize:10.f];
+        _introduce.font = [UIFont systemFontOfSize:10.f];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

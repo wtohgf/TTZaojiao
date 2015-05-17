@@ -112,5 +112,8 @@
     _playLessionType = @"1";
     
 }
+- (IBAction)endEdit:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
 
 @end
