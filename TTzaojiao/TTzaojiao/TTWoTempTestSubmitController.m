@@ -9,10 +9,19 @@
 #import "TTWoTempTestSubmitController.h"
 #import "TTWoTempTestAnswerCell.h"
 #import "TTWoGrowTestIntroduceCell.h"
+#import "TTGrowTemperTestTool.h"
+#import "TTWoTempTestQuestionCell.h"
+#import "TTWoTempTestReportViewController.h"
+#import "NSString+Extension.h"
 
-@interface TTWoTempTestSubmitController ()
+@interface TTWoTempTestSubmitController (){
+    NSString* _timuContent;
+    NSString* _timuCheck;
+    NSArray* _sortArray;
+    NSString* _timu_sort;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tempTestTableView;
-
+@property (weak, nonatomic) UIButton* headerButton;
 @end
 
 #define kTemperTestIntroduceTitle @"气质情绪测评"
@@ -32,7 +41,29 @@
     }
     
     _tempTestTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _sortArray = @[@"活动性",@"规律性",@"曲避性",@"适应性",@"反应强度",@"情绪本质",@"持久性",@"注意分散", @"敏感性"];
     
+    _timu_sort = @"1";
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [TTGrowTemperTestTool startTempTestWithFrist:YES timuCheck:@"0" Result:^(id testlist) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        if ([testlist isKindOfClass:[NSDictionary class]]) {
+            _timuContent = testlist[@"timu_content"];
+            [_tempTestTableView reloadData];
+        }else{
+            if ([testlist isKindOfClass:[NSString class]]) {
+                if ([testlist isEqualToString:@"neterror"]) {
+                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                }else{
+                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败 请稍后重试" View:self.navigationController.view];
+                }
+            }
+        }
+    }];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -62,8 +93,13 @@
     button.titleLabel.font = [UIFont systemFontOfSize:14.f];
     button.backgroundColor =  [UIColor colorWithRed:247.f/255.f green:215.f/255.f blue:226.f/255.f alpha:1.f];
     button.titleLabel.textAlignment = NSTextAlignmentLeft;
-    
+    _headerButton = button;
+    [self updateHeader];
     return headerView;
+}
+
+-(void)updateHeader{
+    [_headerButton setTitle:_sortArray[[_timu_sort integerValue]-1] forState:UIControlStateNormal];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -73,12 +109,19 @@
         tmpcell = cell;
     }
     if (indexPath.row == 1) {
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"questionCell"];
+        TTWoTempTestQuestionCell* cell = [tableView dequeueReusableCellWithIdentifier:@"questionCell"];
+        cell.qestion.text = _timuContent;
         tmpcell = cell;
     }
     
     if (indexPath.row == 2) {
         TTWoTempTestAnswerCell* cell = [tableView dequeueReusableCellWithIdentifier:@"anwserCell"];
+        TempTestAnswerBlock block;
+        block = ^(NSString* timuCheck){
+            _timuCheck = timuCheck;
+            [self nextTempTestStart];
+        };
+        cell.block = block;
         tmpcell = cell;
     }
     
@@ -116,5 +159,42 @@
         [TTWoGrowTestIntroduceCell cellHeightWith:dict];
     }
     return 0.f;
+}
+
+-(void)nextTempTestStart{
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [TTGrowTemperTestTool startTempTestWithFrist:NO timuCheck:_timuCheck Result:^(id testlist) {
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        if ([testlist isKindOfClass:[NSDictionary class]]) {
+            if ([[testlist objectForKey:@"msg"] isEqualToString:@"Get_Test_Qizhi_Ok"]) {
+                [MBProgressHUD TTDelayHudWithMassage:@"宝宝的气质测评已完成" View:self.navigationController.view];
+                NSString* resultID = [testlist objectForKey:@"msg_word"];
+                
+                [self performSegueWithIdentifier:@"SUBMITTOTEMPREPORT" sender:resultID];
+                
+            }else{
+                _timuContent = testlist[@"timu_content"];
+                _timu_sort = testlist[@"timu_sort"];
+                [self updateHeader];
+                [_tempTestTableView reloadData];
+            }
+        }else{
+            if ([testlist isKindOfClass:[NSString class]]) {
+                if ([testlist isEqualToString:@"neterror"]) {
+                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                }else{
+                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败 请稍后重试" View:self.navigationController.view];
+                }
+            }
+        }
+    }];
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[TTWoTempTestReportViewController class]]) {
+        TTWoTempTestReportViewController* tv = segue.destinationViewController;
+        tv.resultID = sender;
+    }
 }
 @end

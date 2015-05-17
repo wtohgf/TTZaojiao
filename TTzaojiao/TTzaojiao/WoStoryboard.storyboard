@@ -3847,7 +3847,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shuomingCell" rowHeight="44" id="GTb-TB-jfY" customClass="TTWoGrowTestHeightCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shuomingCell" rowHeight="44" id="GTb-TB-jfY">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GTb-TB-jfY" id="Bif-Ok-n2v">
@@ -3890,53 +3890,34 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="140" id="H1e-Wi-wTK" customClass="TTWoGrowTestWeightCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" rowHeight="140" id="H1e-Wi-wTK" customClass="TTWoTempTestQuestionCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H1e-Wi-wTK" id="EpF-fD-zAW">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宝宝体重（千克）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rw-I6-buJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rw-I6-buJ">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="27" id="VUE-Fn-A5e"/>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="27" id="dM3-Gg-4It"/>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="27" id="kzX-K3-sEx">
-                                                            <variation key="heightClass=regular-widthClass=compact" constant="119"/>
-                                                        </constraint>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.58898676658163263" green="0.080763159801722703" blue="0.11887593864318173" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="VUE-Fn-A5e"/>
-                                                            <exclude reference="dM3-Gg-4It"/>
-                                                            <exclude reference="kzX-K3-sEx"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="VUE-Fn-A5e"/>
-                                                            <include reference="dM3-Gg-4It"/>
-                                                            <include reference="kzX-K3-sEx"/>
-                                                        </mask>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="3Rw-I6-buJ" firstAttribute="trailing" secondItem="EpF-fD-zAW" secondAttribute="trailingMargin" id="MdX-BT-xYd"/>
-                                                <constraint firstItem="3Rw-I6-buJ" firstAttribute="leading" secondItem="EpF-fD-zAW" secondAttribute="leadingMargin" id="Zel-sC-YFk"/>
-                                                <constraint firstItem="3Rw-I6-buJ" firstAttribute="top" secondItem="EpF-fD-zAW" secondAttribute="topMargin" constant="4" id="dW2-xw-Xsf"/>
+                                                <constraint firstItem="3Rw-I6-buJ" firstAttribute="bottom" secondItem="EpF-fD-zAW" secondAttribute="bottomMargin" id="8ee-t4-h2a"/>
+                                                <constraint firstItem="3Rw-I6-buJ" firstAttribute="leading" secondItem="EpF-fD-zAW" secondAttribute="leadingMargin" id="ScK-Hi-cXR"/>
+                                                <constraint firstItem="3Rw-I6-buJ" firstAttribute="top" secondItem="EpF-fD-zAW" secondAttribute="topMargin" id="X03-De-wCO"/>
+                                                <constraint firstItem="3Rw-I6-buJ" firstAttribute="trailing" secondItem="EpF-fD-zAW" secondAttribute="trailingMargin" id="cxE-qo-ToS"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="3Rw-I6-buJ"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="MdX-BT-xYd"/>
-                                                    <exclude reference="Zel-sC-YFk"/>
-                                                    <exclude reference="dW2-xw-Xsf"/>
+                                                    <exclude reference="8ee-t4-h2a"/>
+                                                    <exclude reference="ScK-Hi-cXR"/>
+                                                    <exclude reference="X03-De-wCO"/>
+                                                    <exclude reference="cxE-qo-ToS"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -3944,13 +3925,17 @@
                                                     <include reference="3Rw-I6-buJ"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="MdX-BT-xYd"/>
-                                                    <include reference="Zel-sC-YFk"/>
-                                                    <include reference="dW2-xw-Xsf"/>
+                                                    <include reference="8ee-t4-h2a"/>
+                                                    <include reference="ScK-Hi-cXR"/>
+                                                    <include reference="X03-De-wCO"/>
+                                                    <include reference="cxE-qo-ToS"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.96799266579999999" green="0.84196281959999997" blue="0.88822902950000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="qestion" destination="3Rw-I6-buJ" id="KMH-fV-6ur"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="anwserCell" rowHeight="178" id="Wcd-4q-STF" customClass="TTWoTempTestAnswerCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -4127,11 +4112,12 @@
                     <navigationItem key="navigationItem" title="气质情绪测评" id="vMj-sh-4RU"/>
                     <connections>
                         <outlet property="tempTestTableView" destination="Q3n-iJ-NEi" id="hTL-bt-DLd"/>
+                        <segue destination="CdR-Hn-IeW" kind="show" identifier="SUBMITTOTEMPREPORT" id="goF-3p-cFO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMw-gs-8C7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4183.5" y="1831.5"/>
+            <point key="canvasLocation" x="4183.5" y="1830"/>
         </scene>
     </scenes>
     <resources>
@@ -4148,5 +4134,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mNZ-em-Kcd"/>
+        <segue reference="goF-3p-cFO"/>
     </inferredMetricsTieBreakers>
 </document>

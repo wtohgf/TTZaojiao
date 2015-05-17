@@ -25,6 +25,16 @@
 }
 
 - (IBAction)answerClicked:(UIButton *)sender {
-    
+    if (_block) {
+        NSString* timuCheck = nil;
+        if ([sender.titleLabel.text isEqualToString:@"极少这样"]) {
+            timuCheck = @"1";
+        }else if([sender.titleLabel.text isEqualToString:@"经常这样"]){
+            timuCheck = @"2";
+        }else{
+            timuCheck = @"3";
+        }
+        _block(timuCheck);
+    }
 }
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^TempTestAnswerBlock) (NSString* timuCheck);
 @interface TTWoTempTestAnswerCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *answerLessButton;
 @property (weak, nonatomic) IBOutlet UIButton *answerAlways;
 @property (weak, nonatomic) IBOutlet UIButton *answerOffenButton;
 - (IBAction)answerClicked:(UIButton *)sender;
 
+@property (strong, nonatomic) TempTestAnswerBlock block;
 @end

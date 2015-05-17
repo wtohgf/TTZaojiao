@@ -19,4 +19,7 @@ typedef void (^GrownTestListBlock)(id testlist);
 +(void)submitGrowTestWithWeight:(NSString*)weight Height:(NSString*)height Result:(GrownTestListBlock)block;
 +(void)getTempTestListWithPageindex:(NSString*)pageIndex Result:(GrownTestListBlock)block;
 +(void)getTempReportWithResultID:(NSString*)resultId Result:(GrownTestListBlock)block;
+
++(void)startTempTestWithFrist:(BOOL)isFrist timuCheck:(NSString*)timuCheck Result:(GrownTestListBlock)block;
+
 @end
