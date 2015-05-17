@@ -140,7 +140,7 @@
 }
 
 -(void)startChengZhangtest{
-    
+    [self performSegueWithIdentifier:@"TOCHENGZHANGSUBMIT" sender:nil];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

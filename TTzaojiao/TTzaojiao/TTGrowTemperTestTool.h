@@ -16,4 +16,5 @@ typedef void (^GrownTestListBlock)(id testlist);
 @interface TTGrowTemperTestTool : NSObject
 +(void)getTestListWithPageindex:(NSString*)pageIndex Result:(GrownTestListBlock)block;
 +(void)getTestReportWithResultID:(NSString*)resultId Result:(GrownTestListBlock)block;
++(void)submitGrowTestWithWeight:(NSString*)weight Height:(NSString*)height Result:(GrownTestListBlock)block;
 @end
