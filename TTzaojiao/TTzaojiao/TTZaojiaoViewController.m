@@ -40,17 +40,20 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
-        
-        NSComparisonResult result = [NSString compareDateNow:user.vip_time];
-        if (NSOrderedDescending == result) {
-            _rightView.vip.hidden = NO;
-        }else{
-            _rightView.vip.hidden = YES;
-        }
-        
-    }];
-
+    if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        _rightView.vip.hidden = YES;
+    }else{
+        [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
+            
+            NSComparisonResult result = [NSString compareDateNow:user.vip_time];
+            if (NSOrderedDescending == result) {
+                _rightView.vip.hidden = NO;
+            }else{
+                _rightView.vip.hidden = YES;
+            }
+            
+        }];
+    }
 }
 
 -(void)addNavItems{
