@@ -66,7 +66,24 @@
 }
 
 -(void)imagePickerDidSelectImage:(UIImage *)image{
-    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
+    CGSize size;
+    if (image.size.width >= image.size.height) {
+        size = (CGSize){100.f*image.size.width/image.size.height, 100.f};
+    }else{
+        size = (CGSize){100.f, 100.f*image.size.height/image.size.width};
+    }
+    
+    image = [image scaleToSize:image size:size];
+    
+    CGFloat step = 0.25;
+    CGFloat orignal = 1.0;
+    NSData* imageData = UIImageJPEGRepresentation(image, orignal);
+    while (imageData.length > 1024*528) {
+        orignal = orignal - step;
+        imageData = UIImageJPEGRepresentation(image, orignal);
+    }
+    
+    image = [UIImage imageWithData:imageData];
     [_images addObject:image];
     [_publichPicsView addPicImage:image];
 }

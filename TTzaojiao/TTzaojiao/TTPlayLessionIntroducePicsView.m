@@ -7,6 +7,8 @@
 //
 
 #import "TTPlayLessionIntroducePicsView.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 
 @implementation TTPlayLessionIntroducePicsView
 
@@ -55,9 +57,9 @@
         CGFloat picY = _titleLabel.bottom + TTBlogTableBorder+(TTBlogTableBorder+picH)*line;
         
         UIImageView* imageView = [[UIImageView alloc]init];
-
         [self addSubview:imageView];
         imageView.frame = CGRectMake(picX, picY, picW, picH);
+        
     }
     
 }

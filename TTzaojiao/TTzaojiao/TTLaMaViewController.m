@@ -137,10 +137,10 @@
 //ADD_REG_COMPAY
 -(void) leftBtnClick
 {
-    
-    LaMaAddRegCompayViewController *addRegCompayController = [[LaMaAddRegCompayViewController alloc]init];
-    // [addRegCompayController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:addRegCompayController animated:YES];
+//    
+//    LaMaAddRegCompayViewController *addRegCompayController = [[LaMaAddRegCompayViewController alloc]init];
+    [self performSegueWithIdentifier:@"TOADDREGLAMA" sender:nil];
+//    [self.navigationController pushViewController:addRegCompayController animated:YES];
     
 }
 

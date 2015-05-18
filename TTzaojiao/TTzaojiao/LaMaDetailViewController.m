@@ -47,13 +47,6 @@
     tableView.delegate = self;
     
     self.title = @"详情";
-}
-
-#pragma mark
-- (void)viewWillAppear:(BOOL)animated
-{
-    
-    [super viewWillAppear:animated];
     
     [self modelFrame];
     // NSString* i_id = _ttid;
@@ -81,8 +74,13 @@
             }
         };
     }];
-    
-    
+
+}
+
+#pragma mark
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 #pragma tableview 数据源以及代理方法

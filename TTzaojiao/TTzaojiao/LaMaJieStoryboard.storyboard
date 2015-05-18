@@ -217,7 +217,7 @@
                         <outlet property="headerView" destination="Fna-tZ-Ike" id="rGW-q1-jgl"/>
                         <outlet property="locationCity" destination="JC4-8S-shg" id="Ep9-7A-4qt"/>
                         <outlet property="tableView" destination="P7D-IL-1M6" id="DyR-qn-SLO"/>
-                        <segue destination="e5h-bd-kvK" kind="show" identifier="cityListSegue" id="4Wy-Wh-5rv"/>
+                        <segue destination="wjQ-vW-ekt" kind="show" identifier="TOADDREGLAMA" id="EL8-oc-cfw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ior-bS-dBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,24 +337,23 @@
             </objects>
             <point key="canvasLocation" x="792" y="470.25"/>
         </scene>
-        <!--城市列表-->
-        <scene sceneID="9Ix-Po-r48">
+        <!--La Ma Add Reg Compay View Controller-->
+        <scene sceneID="DcZ-Fe-xFk">
             <objects>
-                <viewController id="e5h-bd-kvK" customClass="CityListViewController" sceneMemberID="viewController">
+                <viewController id="wjQ-vW-ekt" customClass="LaMaAddRegCompayViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="nDb-fK-2Nh"/>
-                        <viewControllerLayoutGuide type="bottom" id="YPg-Ed-aGf"/>
+                        <viewControllerLayoutGuide type="top" id="t5l-ZF-0xF"/>
+                        <viewControllerLayoutGuide type="bottom" id="WMZ-tg-lF0"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ayF-d9-Hg0">
+                    <view key="view" contentMode="scaleToFill" id="dOF-Xl-TXw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="城市列表" id="4Fd-Go-aE3"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bn8-Yj-29L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlT-nB-Pcy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516.5" y="470.25"/>
+            <point key="canvasLocation" x="811" y="1166"/>
         </scene>
     </scenes>
     <resources>
