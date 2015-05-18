@@ -7,7 +7,7 @@
 //
 
 #import "TTBaseViewController.h"
-
+#import "MBProgressHUD+TTHud.h"
 @interface TTRegeistViewController : TTBaseViewController
 
 @end

@@ -14,7 +14,6 @@
 @property (nonatomic,weak) UILabel *addresssLabel;
 @property (nonatomic,weak) UILabel *telLabel;
 @property (nonatomic,weak) UIButton *telButton;
-@property (nonatomic,weak) UIWebView *webView;
 
 @property (nonatomic,strong) LamaTableViewCellModelFrame *modelFrame;
 @end

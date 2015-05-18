@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTBaseViewController.h"
+#import <TTWoScoreLessionViewController.h>
 
 @interface TTWoViewController : TTBaseViewController
 

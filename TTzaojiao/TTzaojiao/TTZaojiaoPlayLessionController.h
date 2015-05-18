@@ -13,7 +13,6 @@
 #import "TTLessionMngTool.h"
 #import "DetailLessionModel.h"
 #import "TTPlayLessionHeaderCell.h"
-#import "AppMvPlayViewController.h"
 #import "TTWoVipViewController.h"
 #import "TTDongTaiViewController.h"
 

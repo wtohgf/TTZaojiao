@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AlipayHeader.h"
 #import "NetworkHelper.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
 
@@ -25,6 +26,9 @@
     [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
     [[AFNetworkActivityLogger sharedLogger] startLogging];
 #endif
+//    self.allowRotation = NO;
+    //真机调试无声音
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     
     return YES;
 }
@@ -146,6 +150,13 @@
 //            abort();
 //        }
 //    }
+//}
+
+//-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+//    if (self.allowRotation) {
+//        return UIInterfaceOrientationMaskAll;
+//    }
+//    return UIInterfaceOrientationMaskPortrait;
 //}
 
 @end

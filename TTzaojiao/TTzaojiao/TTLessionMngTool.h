@@ -15,11 +15,13 @@ typedef void (^LessionIDBlock)(NSString* lessionID);
 typedef void (^WeekLessionBlock)(NSMutableArray* lessions);
 typedef void (^DetailLessionBlock)(DetailLessionModel* detailLession);
 typedef void (^LessionVideoPathBlock)(NSString* videoPath);
+typedef void (^GYMLessionVideoPathBlock)(id videoPath);
 
 @interface TTLessionMngTool : NSObject
 
 +(void)getLessionID:(LessionIDBlock)block;
 +(void)getWeekLessions:(NSString*)lessionID Result:(WeekLessionBlock)block;
++(void)getGymLessionVideoPath:(GYMLessionVideoPathBlock)block;
 +(void)getDetailLessionInfo:(NSString*)activeID Result:(DetailLessionBlock)block;
 +(void)getLessionVideoPath:(NSString*)activeID Result:(LessionVideoPathBlock)block;
 @end

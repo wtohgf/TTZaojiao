@@ -28,6 +28,7 @@
  uid = 40651;
  }
  */
+
 @interface NearByBabyModel : NSObject
 @property (copy, nonatomic) NSString * msg;
 @property (copy, nonatomic) NSString * msg_word;

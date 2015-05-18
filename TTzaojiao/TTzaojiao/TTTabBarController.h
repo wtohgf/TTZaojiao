@@ -9,5 +9,7 @@
 #import "RDVTabBarController.h"
 #import "RDVTabBarController.h"
 #import "RDVTabBarItem.h"
-@interface TTTabBarController : RDVTabBarController
+
+@interface TTTabBarController : RDVTabBarController<RDVTabBarDelegate, UIAlertViewDelegate>
+
 @end

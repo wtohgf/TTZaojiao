@@ -8,11 +8,13 @@
 
 #import "TTZaojiaoPlayLessionController.h"
 #import "TTDynamicReleaseViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define kSectionMargin 8.f
 
-@interface TTZaojiaoPlayLessionController ()
+@interface TTZaojiaoPlayLessionController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) UITableView* zaoJiaoPlayTableView;
+@property (copy, nonatomic) NSString* fullPath;
 @end
 
 @implementation TTZaojiaoPlayLessionController
@@ -33,18 +35,7 @@
 
 - (void)addNavItems{
     self.title = @"早教课堂";
-    
-//    UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state" target:self action:@selector(dynamic_state:)];
-//    self.navigationItem.rightBarButtonItem = itemright;
-    
 }
-
-//-(void)dynamic_state:(UIBarButtonItem*)item{
-//    UIStoryboard* storyBoard = [UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-//    TTDynamicReleaseViewController* rv = [storyBoard instantiateViewControllerWithIdentifier:@"DynamicReleaseViewController"];
-//    
-//    [self.navigationController pushViewController:rv animated:YES];
-//}
 
 -(void)addTableView{
     UITableView * tableView = [[UITableView alloc]init];
@@ -53,14 +44,7 @@
     CGFloat w=self.view.frame.size.width;
     CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
     tableView.frame = CGRectMake(0, 0, w, h);
-    
-    //    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-    //        self.edgesForExtendedLayout = UIRectEdgeNone;
-    //        self.extendedLayoutIncludesOpaqueBars
-    //        = NO;
-    //        self.modalPresentationCapturesStatusBarAppearance
-    //        = NO;
-    //    }
+
     
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -93,10 +77,6 @@
         if (_lession != nil) {
             TTPlayLessionHeaderCell* tmpcell = [TTPlayLessionHeaderCell playLessionHeaderCellWithTableView:tableView];
             tmpcell.lession = _lession;
-//            tmpcell.lession = _lession;
-//            tmpcell.rightPushBtn.hidden = YES;
-//            tmpcell.lessionIntroduce.hidden = YES;
-//            tmpcell.playLessionBtn.hidden = NO;
             tmpcell.delegate = self;
             cell = tmpcell;
         }else{
@@ -159,29 +139,49 @@
         }
     }];
 }
-#pragma mark 理解上课
+#pragma mark 立即上课
 -(void)didPlayLession{
-    
+    if ([AFNetworkReachabilityManager sharedManager].reachable) {
+        [self playLessionVideo];
+    }else{
+        [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+    }
+}
+
+-(void)playLessionVideo{
     [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
     
     [TTLessionMngTool getLessionVideoPath:_lession.active_id Result:^(NSString *videoPath) {
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         if (videoPath != nil) {
-            
+            if ([videoPath isEqualToString:@"neterror"]) {
+                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+                return;
+            }
             NSString* fullPath = [NSString stringWithFormat:@"%@%@", TTBASE_URL, videoPath];
-            
-            AppMvPlayViewController* moviePlayer =[[AppMvPlayViewController alloc]init];
-            
-            moviePlayer.playurl = fullPath;
-            [self presentViewController:moviePlayer animated:YES completion:nil];
-  
+            _fullPath = fullPath;
+            if ([AFNetworkReachabilityManager sharedManager].reachableViaWiFi) {
+                MPMoviePlayerViewController* movieViewPlayer = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:_fullPath]];
+                [self presentMoviePlayerViewControllerAnimated:movieViewPlayer];
+            }else if( [AFNetworkReachabilityManager sharedManager].reachableViaWWAN){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前WIFI未连接 会耗费流量" delegate:self cancelButtonTitle:@"不看了" otherButtonTitles:@"继续看", nil];
+                alert.delegate = self;
+                alert.tag = 111;
+                [alert show];
+            }else{
+                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+            }
         }else{
-            UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"只有VIP会员才能上此课程" delegate:self cancelButtonTitle:@"不上了" otherButtonTitles:@"立即充值",nil];
-            [alertView show];
+            if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+                UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后体验课程" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
+                [alertView show];
+            }else{
+                UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"只有VIP会员才能上此课程" delegate:self cancelButtonTitle:@"不上了" otherButtonTitles:@"立即充值",nil];
+                [alertView show];
+            }
         }
     }];
     
-
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -190,14 +190,26 @@
             break;
         case 1:
         {
-            UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
-            TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
-            [self.navigationController pushViewController:vipPayController animated:YES];
+            //继续观看视频
+            if (alertView.tag == 111) {
+                MPMoviePlayerViewController* movieViewPlayer = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:_fullPath]];
+                [self presentMoviePlayerViewControllerAnimated:movieViewPlayer];
+            }else{
+                
+                if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+                    [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self.navigationController];
+                }else{
+                    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
+                    TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
+                    [self.navigationController pushViewController:vipPayController animated:YES];
+                }
+            }
         }
             break;
         default:
             break;
     }
 }
+
 
 @end

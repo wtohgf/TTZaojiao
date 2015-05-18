@@ -176,25 +176,41 @@ static TTCityMngTool* tool;
 }
 
 //经纬度转cityCode
-- (void) getReverseGeocode:(CLLocation *)location
+- (void) getReverseGeocode:(CLLocation *)location Result:(actionCityCodeBlock)block
 {
+    
+    // 保存 Device 的现语言 (英语 法语 ，，，)
+    NSMutableArray
+    *userDefaultLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    
+    // 强制 成 简体中文
+    [[NSUserDefaults
+      standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-hans", nil] forKey:@"AppleLanguages"];
+    
     CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
     [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        
+        if (error!= nil) {
+            block(nil, error);
+            return;
+        }
         for (CLPlacemark * placemark in placemarks) {
             
             NSDictionary *test = [placemark addressDictionary];
             
-            NSLog(@"city is %@",[test objectForKey:@"City"]) ;
-            
             //  Country(国家)  State(城市)  SubLocality(区)
-            
-            NSLog(@"\n国家:%@\n省:%@\n城市:%@\n街道:%@", [test objectForKey:@"Country"],[test objectForKey:@"State"],[test objectForKey:@"City"],[test objectForKey:@"Street"]);
             NSString* cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:[test objectForKey:@"City"]];
             _cityCode = cityCode;
+            block(cityCode, nil);
         }
+        if (_cityCode == nil) {
+            block(nil, error);
+        }
+        
+        // 还原Device 的语言
+        [[NSUserDefaults
+          standardUserDefaults] setObject:userDefaultLanguages
+         forKey:@"AppleLanguages"];
     }];
-    
     
     
 }

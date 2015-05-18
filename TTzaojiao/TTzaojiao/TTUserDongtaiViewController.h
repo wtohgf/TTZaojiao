@@ -19,7 +19,7 @@
 #import "UIImageView+MoreAttribute.h"
 
 @interface TTUserDongtaiViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTDynamicUserStatusHeaderViewDelegate, TTDynamicUserBlogCellDelegate,
-    JSImagePickerViewControllerDelegate>
+    JSImagePickerViewControllerDelegate,UIAlertViewDelegate>
 @property (copy, nonatomic) NSString * i_uid;
 
 @end

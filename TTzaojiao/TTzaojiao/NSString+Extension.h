@@ -16,7 +16,7 @@
 //yyyy－MM-HH
 +(NSString *) getMounthOfDateString:(NSString*) dateString;
 +(NSTimeInterval)getTimeIntervalOfDateString:(NSString*) dateString;
-
++(NSString *) getChnYMDWithString:(NSString*) dateString;
 -(CGRect)boundByFont:(UIFont*)font andWidth:(CGFloat)width;
 
 @end

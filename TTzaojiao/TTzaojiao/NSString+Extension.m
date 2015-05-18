@@ -123,11 +123,23 @@
     return [date timeIntervalSinceNow];
 }
 
++(NSString *)getChnYMDWithString:(NSString *)dateString{
+    NSArray* dateComps = [dateString componentsSeparatedByString:@" "];
+    
+    NSString* dateStrOldType = [dateComps firstObject];
+    NSArray* ymdArray = [dateStrOldType componentsSeparatedByString:@"-"];
+    
+    NSString* dateChnString = [NSString stringWithFormat:@"%@年%@月%@日", ymdArray[0], ymdArray[1], ymdArray[2]];
+    return dateChnString;
+}
+
 -(CGRect)boundByFont:(UIFont *)font andWidth:(CGFloat)width{
     CGSize rect = {width, MAXFLOAT};
     NSDictionary* attr = @{NSFontAttributeName:font};
     CGRect bound = [self boundingRectWithSize:rect options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil];
     return bound;
 }
+
+
 
 @end

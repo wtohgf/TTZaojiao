@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Base Navgation Controller-->
         <scene sceneID="pE6-pj-iKG">
             <objects>
-                <navigationController storyboardIdentifier="DongTaiNav" id="lAH-Fr-How" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DongTaiNav" id="lAH-Fr-How" customClass="TTBaseNavgationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfd-Zx-0vG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

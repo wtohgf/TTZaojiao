@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// CXAlertView
+#define COCOAPODS_POD_AVAILABLE_CXAlertView
+#define COCOAPODS_VERSION_MAJOR_CXAlertView 1
+#define COCOAPODS_VERSION_MINOR_CXAlertView 1
+#define COCOAPODS_VERSION_PATCH_CXAlertView 0
+
 // HSDatePickerViewController
 #define COCOAPODS_POD_AVAILABLE_HSDatePickerViewController
 #define COCOAPODS_VERSION_MAJOR_HSDatePickerViewController 1

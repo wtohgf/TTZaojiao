@@ -9,6 +9,7 @@
 #import "TTRealRegisitViewController.h"
 #import <AFHTTPSessionManager.h>
 #import "UIImage+MoreAttribute.h"
+#import "TTUIChangeTool.h"
 
 @interface TTRealRegisitViewController ()
 {
@@ -60,6 +61,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
@@ -70,6 +72,7 @@
     [self addKeyNotification];
     
     [self initAllParameters];
+    [[self rdv_tabBarController]setTabBarHidden:YES];
 }
 
 
@@ -91,6 +94,7 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
+    [[self rdv_tabBarController]setTabBarHidden:NO];
 }
 
 #pragma mark 添加低栏
@@ -251,7 +255,9 @@
         }
     } Progress:^(CGFloat progress) {
         _iconPath = @"";
-        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+//        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+        
+        [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
 }
@@ -279,12 +285,14 @@
         ;
         _type = @"1";
         _birthdayString = @"1970-01-01";
+        _birthDay.text = @"孕期宝宝";
     }];
     [ac addAction:yunBaby];
     UIAlertAction* futureBaby = [UIAlertAction actionWithTitle:@"未来宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         ;
         _type = @"2";
         _birthdayString = @"1970-01-01";
+        _birthDay.text = @"未来宝宝";
     }];
     [ac addAction:futureBaby];
 
@@ -296,19 +304,22 @@
 - (IBAction)regist:(UIButton *)sender {
     
     if (_iconPath.length == 0) {
-        [[[UIAlertView alloc]init]showAlert:@"请设置宝宝头像" byTime:2.0];
+       // [[[UIAlertView alloc]init]showAlert:@"请设置宝宝头像" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请设置宝宝头像" View:self.navigationController.view];
         return;
     }
     if (_genderType.length == 0){
-        [[[UIAlertView alloc]init]showAlert:@"请选择性别" byTime:2.0];
+       // [[[UIAlertView alloc]init]showAlert:@"请选择性别" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请选择性别" View:self.navigationController.view];
         return;
     }
     if (_birthdayString.length == 0){
-        [[[UIAlertView alloc]init]showAlert:@"请选择生日" byTime:2.0];
+       // [[[UIAlertView alloc]init]showAlert:@"请选择生日" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请选择生日" View:self.navigationController.view];
         return;
     }
     if (_babyName.text.length == 0) {
-        [[[UIAlertView alloc]init]showAlert:@"请填写宝宝姓名" byTime:2.0];
+        [MBProgressHUD TTDelayHudWithMassage:@"请填写宝宝姓名" View:self.navigationController.view];
         return;
     }
     
@@ -331,16 +342,15 @@
                 if (((NSMutableArray*)result_data).count!=0) {
                     RegMsgSecond* msgSecond = (RegMsgSecond*)result_data[0];
                     if ([msgSecond.msg isEqualToString:@"Get_Reg_2"]) {
-                        NSLog(@"注册成功");
+                        [MBProgressHUD TTDelayHudWithMassage:@"恭喜您 注册成功 请登录" View:self.navigationController.view];
+                        [[TTUIChangeTool sharedTTUIChangeTool]pushToLongon:self.navigationController];
                     }else{
-                        [[[UIAlertView alloc]init]showAlert:msgSecond.msg_word byTime:3.0];
+                        [MBProgressHUD TTDelayHudWithMassage:msgSecond.msg_word View:self.navigationController.view];
                     }
                 }
             }
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         };
         
     }];

@@ -13,6 +13,7 @@
 #import "UIAlertView+MoreAttribute.h"
 
 typedef void(^actionLocationBlock)(CLLocation* location, NSError* error);
+typedef void(^actionCityCodeBlock)(NSString* cityCode, NSError* error);
 
 @interface TTCityMngTool : NSObject<CLLocationManagerDelegate>
 +(instancetype)sharedCityMngTool;
@@ -23,7 +24,7 @@ typedef void(^actionLocationBlock)(CLLocation* location, NSError* error);
 @property (strong, nonatomic) CLLocationManager* locationManager;
 -(void)startLocation:(actionLocationBlock)locationBlock;
 //经纬度转cityCode
-- (void) getReverseGeocode:(CLLocation *)location;
+- (void) getReverseGeocode:(CLLocation *)location Result:(actionCityCodeBlock)block;
 @property (strong, nonatomic) NSArray* cityCodeList;
 @property (strong, nonatomic) actionLocationBlock locationBlock ;
 @property (copy, nonatomic) NSString* cityCode; //110000

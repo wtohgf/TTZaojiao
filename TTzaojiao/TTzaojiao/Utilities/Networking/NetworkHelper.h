@@ -21,4 +21,5 @@
 + (NSString *)makeMessageOfApiException:(NSInteger)code API:(NSString *)api;
 + (void)startMonitorNetworkConnection;
 + (void)stopMonitorNetworkConnection;
+
 @end

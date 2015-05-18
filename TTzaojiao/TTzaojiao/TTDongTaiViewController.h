@@ -19,7 +19,7 @@
 #import "TTDynamicReleaseViewController.h"
 
 
-@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDyanmicUserStautsCellDelegate, TTDynamicSidebarViewControllerDelegate,TTNearBybabyTableViewCellDelegate>
+@interface TTDongTaiViewController : TTBaseViewController<UITableViewDelegate, UITableViewDataSource, TTDyanmicUserStautsCellDelegate, TTDynamicSidebarViewControllerDelegate,TTNearBybabyTableViewCellDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) CLLocation* location;
 
 @property (strong, nonatomic) LessionModel * lession;//上课ID

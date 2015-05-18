@@ -13,13 +13,16 @@
 #import "TTWoBackTableViewCell.h"
 #import "TTUserDongtaiViewController.h"
 #import "TTWoIconTableViewCell.h"
+#import <CXAlertView.h>
+#import "NSString+Extension.h"
 
 #define LogoutAlertTag 19001
 
 @interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableview;
-@property (strong, nonatomic) IBOutlet UIButton *rightButtonItem;
+
 @property (strong, nonatomic) UIImageView *myIconView;
+@property (strong, nonatomic) DynamicUserModel* Wo;
 @end
 
 @implementation TTWoViewController
@@ -27,17 +30,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    actionSginBlock = ^() {
-#ifdef DEBUG
-        NSLog(@"Sign");
-#endif
+    actionSginBlock = ^(id result, id baby_jifen) {
+        if ([result isEqualToString:@"isSigned"]) {
+            [MBProgressHUD TTDelayHudWithMassage:@"您今天已经签过到了" View:self.navigationController.view];
+        }else if([result isEqualToString:@"neterror"])
+        {
+            [MBProgressHUD TTDelayHudWithMassage:@"签到未成功" View:self.navigationController.view];
+        }else if([result isEqualToString:@"SingedOK"]){
+            //更新我的积分信息
+            [MBProgressHUD TTDelayHudWithMassage:@"签到成功" View:self.navigationController.view];
+            _Wo.baby_jifen = baby_jifen;
+            [self.tableview reloadData];
+        }
+
     };
+    
     actionBackBlock = ^() {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要退出么？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         alert.tag = LogoutAlertTag;
         [alert show];
     };
-    [_myIconView setImageIcon:[[[TTUserModelTool sharedUserModelTool] logonUser] icon]];
+
+    if ([TTUserModelTool sharedUserModelTool].logonUser.icon.length == 0) {
+        [_myIconView setImage:[UIImage imageNamed:@"baby_icon1"]];
+    }else{
+        [_myIconView setImageIcon:[TTUserModelTool sharedUserModelTool].logonUser.icon];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,20 +63,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)rightButtonItem:(id)sender {
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    [userViewController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:userViewController animated:YES];
-}
 
 -(void)viewWillAppear:(BOOL)animated {
-    [self.tableview reloadData];
+    [super viewWillAppear:animated];
+    //获取我的最新信息
+    [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
+        _Wo = user;
+        [self.tableview reloadData];
+    }];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [self.tableview reloadData];
-}
+//-(void)viewDidAppear:(BOOL)animated {
+//    [self.tableview reloadData];
+//}
 
 /*
 #pragma mark - Navigation
@@ -133,6 +150,7 @@
             TTWoLableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LableCell"];
             cell.textLabel.text = @"我的积分";
             cell.imageView.image = [UIImage imageNamed:@"icon_score"];
+            cell.countLable.text = _Wo.baby_jifen;
             return cell;
         }
         else if (1 == indexPath.row) {
@@ -238,6 +256,7 @@
         else if (1 == indexPath.row) {
         }
         else {
+            [self performSegueWithIdentifier:@"TOSCORELESSIOM" sender:self];
         }
     }
     else if (2 == indexPath.section) {
@@ -245,16 +264,21 @@
     }
     else if (3 == indexPath.section) {
         if (0 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOMUYINGCAO" sender:self];
         }
         else if (1 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOCHENGZHANG" sender:self];
         }
         else {
+            [self performSegueWithIdentifier:@"TOTEMPTEST" sender:self];
         }
     }
     else if (4 == indexPath.section) {
         if (0 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOMYFRIEND" sender:self];
         }
         else if (1 == indexPath.row) {
+            [self performSegueWithIdentifier:@"TOMYFANS" sender:self];
         }
         else {
             UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
@@ -264,11 +288,23 @@
         }
     }
     else if (5 == indexPath.section) {
-        //        if (0 == indexPath.row) {
-        //        }
-        //        else {
+        UILabel* label = [[UILabel alloc]init];
+        label.font = TTBlogSubtitleFont;
+        label.textColor = [UIColor whiteColor];
+        label.backgroundColor = [UIColor colorWithRed:112.f/255.f green:145.f/255.f blue:70.f/255.f alpha:1.f];
+        label.text = @"微信公众号: ttzaojiao2013 \n1.vip用户即时跟踪\n2.每周微信抽取获奖关注用户获得1-12个月早教课程\n3.每日发布各月龄系统性早教指导、育儿资讯；\n4.未来平台可以实现同城、同龄早教宝宝互动。";
+        CGRect bound = [label.text boundByFont:TTBlogSubtitleFont andWidth:self.view.frame.size.width*0.6];
+        label.textAlignment = NSTextAlignmentLeft;
+        label.numberOfLines = 0;
+        label.frame = CGRectMake(0, 0, bound.size.width, bound.size.height);
+    
+        CXAlertView* alertView = [[CXAlertView alloc]initWithTitle:@"关注天天早教公众号" contentView:label cancelButtonTitle:@"确定"];
+
+        alertView.viewBackgroundColor = [UIColor colorWithRed:139.f/255.f green:185.f/255.f blue:79.f/255.f alpha:1.f];
+        alertView.cancelButtonColor = [UIColor whiteColor];
         
-        //        }
+        
+        [alertView show];
     }
     else {
         if (0 == indexPath.row) {
@@ -290,10 +326,7 @@
             return;
         }
         else if (1 == buttonIndex) {
-#ifdef DEBUG
-            NSLog(@"Logout!!!");
-#endif
-            [self.rdv_tabBarController.navigationController popViewControllerAnimated:YES];
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLongon];
         }
         else {
             return;
@@ -301,6 +334,13 @@
     }
     else {
         return;
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.destinationViewController isKindOfClass:[TTWoScoreLessionViewController class]]) {
+        TTWoScoreLessionViewController* slvc = (TTWoScoreLessionViewController*)segue.destinationViewController;
+        slvc.Wo = _Wo;
     }
 }
 

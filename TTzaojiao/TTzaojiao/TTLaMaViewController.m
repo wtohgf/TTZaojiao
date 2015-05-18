@@ -7,7 +7,6 @@
 //
 
 #import "TTLaMaViewController.h"
-#import "CityListViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "LamaModel.h"
 #import "LamaTotalModel.h"
@@ -121,6 +120,11 @@
 {
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
     NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
+    
+    if (_cityCode == nil) {
+        _cityCode = @"210200";
+    }
+    _locationCity.text = [[TTCityMngTool sharedCityMngTool]codetoCity:_cityCode];
     NSDictionary* parameters = @{
                                  @"i_uid":i_uid,
                                  @"p_1":pageIndex,
@@ -173,13 +177,15 @@
     //定位获得城市码
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
         //NSLog(@"latitude is %f",location.coordinate.latitude);
-        [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location];
-        _cityCode = [TTCityMngTool sharedCityMngTool].cityCode;
+        if(location!=nil){
+            [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
+                //假数据 macmini定位不好用
+                _cityCode = cityCode;
+            }];
+        }
+        //加载异步网络数据
+        [self loadData];
     }];
-    //假数据 macmini定位不好用
-    _cityCode = @"210200";
-    //加载异步网络数据
-    [self loadData];
     
 }
 
@@ -294,7 +300,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"willSelectRowAtIndexPath is %zi",indexPath.row);
+
     LamaModel *model = _models[indexPath.row];
     LaMaDetailViewController *detailController = [[LaMaDetailViewController alloc]init];
     //UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(160, 0, 120, 50)];
@@ -324,9 +330,6 @@
     //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
     [locateView showInView:self.view];
     
-    
-    
-    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -334,7 +337,7 @@
     if ([actionSheet isKindOfClass:[TSLocateView class]]) {
         TSLocateView *locateView = (TSLocateView *)actionSheet;
         TSLocation *location = locateView.locate;
-        NSLog(@"provice%@ city:%@", location.state, location.city);
+
         //You can uses location to your application.
         
         if(buttonIndex == 0) {
@@ -343,7 +346,6 @@
             NSString* cityName = [NSString stringWithFormat:@"%@市", location.city];
             _locationCity.text = cityName;
             _cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:cityName];
-            NSLog(@"code %@", _cityCode);
             NSString* cityString = [NSString stringWithFormat:@"%@ %@",location.state, location.city];
             [_location setText:cityString];
             //重新加载网络数据
