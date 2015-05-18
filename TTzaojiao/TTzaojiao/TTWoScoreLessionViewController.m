@@ -19,6 +19,9 @@
 
 
 - (IBAction)scorePayLession:(UIButton *)sender {
+    [_lessionAccount resignFirstResponder];
+    [_scoreCount resignFirstResponder];
+    
     NSDictionary* scoreLessionDict = @{
                                        @"1":@"300",
                                        @"2":@"800",

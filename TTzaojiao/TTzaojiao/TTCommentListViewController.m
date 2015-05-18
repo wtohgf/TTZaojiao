@@ -87,32 +87,34 @@
                                  @"p_1": _pageIndex,
                                  @"p_2": @"15"
                                  };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[AFAppDotNetAPIClient sharedClient]apiGet:COMMENT_LIST Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+      [[AFAppDotNetAPIClient sharedClient]apiGet:COMMENT_LIST Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
+
         [_commentListTableView.header endRefreshing];
         [_commentListTableView.footer endRefreshing];
-        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         if (result_status == ApiStatusSuccess) {
-            if (!_isGetMoreList) {
-                [_blogReplayList removeAllObjects];
-            }
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 if (((NSMutableArray*)result_data).count!=0) {
                     NSMutableArray* list = (NSMutableArray*)result_data;
-                    [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                        if ([obj isKindOfClass:[BlogReplayModel class]]) {
-                            [_blogReplayList addObject:obj];
-                            [_commentListTableView reloadData];
+                    if([[list firstObject]isKindOfClass:[NSDictionary class]]){
+                        NSDictionary* dict = [list firstObject];
+                        if([[dict objectForKey:@"msg"]isEqualToString:@"Get_List_Blog_Replay"])
+                        {
+                            [list removeObjectAtIndex:0];
+                            if(_isGetMoreList){
+                               [_blogReplayList addObjectsFromArray:list];
+                                _isGetMoreList = NO;
+                            }else{
+                                _blogReplayList = list;
+                            }
                         }
-                    }];
+                            
+                    }
+                    [_commentListTableView reloadData];
                 }
             }
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-                
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
         };
         
     }];
@@ -219,6 +221,7 @@
         if (_replayView.commentTextField.text.length != 0) {
             [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError* error) {
                 _location = location;
+                
                 [self replayComment];
             }];
             
@@ -248,23 +251,26 @@
                                  @"i_x":lat,
                                  @"i_y":lon
                                  };
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:COMMENT Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         if (result_status == ApiStatusSuccess) {
-            _isGetMoreList = NO;
-            _pageIndex = @"1";
-            [self updateCommentlist];
+            [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(updateInfo) userInfo:nil repeats:NO];
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
         };
         
     }];
     [_replayView.commentTextField resignFirstResponder];
     
 }
+
+-(void)updateInfo{
+    _isGetMoreList = NO;
+    _pageIndex = @"1";
+    [self updateCommentlist];
+}
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {

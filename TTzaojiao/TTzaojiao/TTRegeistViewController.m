@@ -125,7 +125,9 @@
 
 #pragma mark 下一步
 - (void)nextStep{
-    
+    [_phoneNumber resignFirstResponder];
+    [_firstPassword resignFirstResponder];
+    [_sencondPassword resignFirstResponder];
     //对手机号合理性判断
     if (_phoneNumber.text.length != 11 || ![_phoneNumber.text hasPrefix:@"1"]) {
 //        [[[UIAlertView alloc]init]showAlert:@"您输入的手机号无效" byTime:kALertTiem];

@@ -137,8 +137,8 @@
     }else{
         _age.text = @"未知";
     }
-    NSTimeInterval timeval = [NSString getTimeIntervalOfDateString:nearByBaby.sort_end_time];
-    if (timeval > 0) {
+    NSComparisonResult result = [NSString compareDateNow:nearByBaby.sort_end_time];
+    if (NSOrderedDescending == result) {
         _vip.hidden = NO;
     }else{
         _vip.hidden = YES;

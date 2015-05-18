@@ -326,7 +326,7 @@
             return;
         }
         else if (1 == buttonIndex) {
-            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self.navigationController];
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLongon];
         }
         else {
             return;

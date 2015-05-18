@@ -163,6 +163,12 @@
         [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = NO;
         _pageIndexInt = 1;
         _isGetMoreBlog = NO;
+        if ([TTUIChangeTool sharedTTUIChangeTool].sort != nil) {
+            _sortSeg.selectedSegmentIndex = [[TTUIChangeTool sharedTTUIChangeTool].sort integerValue]-1;
+            _i_sort = [TTUIChangeTool sharedTTUIChangeTool].sort;
+            [TTUIChangeTool sharedTTUIChangeTool].sort = nil;
+        }
+        
         if (_sortSeg.selectedSegmentIndex == 3) {
             [self showNearByBaby];
         }else{
@@ -447,8 +453,10 @@
         if (_lession != nil) {
             rv.activeID = _lession.active_id;
         }
+        if (_sortSeg.selectedSegmentIndex < 3) {
+            rv.sort = [NSString stringWithFormat:@"%zi", _sortSeg.selectedSegmentIndex+1];
+        }
     }
-    
 }
 
 -(void)showNearByBaby{

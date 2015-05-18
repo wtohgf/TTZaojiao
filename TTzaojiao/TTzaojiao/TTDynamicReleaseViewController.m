@@ -16,7 +16,6 @@
     CGFloat _backBottonBarY;
     NSString* _picsPath;
     NSMutableArray* _images;
-    NSString* _sort;//1早教自拍 2课程提问 3宝宝生活
 }
 @end
 @implementation TTDynamicReleaseViewController
@@ -40,7 +39,9 @@
     }
     _images = [NSMutableArray array];
     _picsPath = @"";
-    _sort = @"1";
+    if (_sort == nil) {
+        _sort = @"1";
+    }
 }
 
 -(void)addSubTextView{
@@ -100,6 +101,7 @@
         return;
     }
     
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
         if (location != nil) {
             _location = location;
@@ -118,12 +120,10 @@
 
 -(void)uploadPics{
     
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:_images Result:^(id result_data, ApiStatus result_status) {
         if ([result_data isKindOfClass:[NSMutableArray class]]) {
             NSMutableArray* list = (NSMutableArray*)result_data;
             if (list.count!=0) {
-                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                 
                 [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                     NSDictionary* dict = (NSDictionary*)obj;
@@ -189,10 +189,13 @@
                                  };
     
     [[AFAppDotNetAPIClient sharedClient]apiGet:PUBLISH_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
         if (result_status == ApiStatusSuccess) {
             [MBProgressHUD TTDelayHudWithMassage:@"发布成功" View:self.navigationController.view];
             [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
+            [TTUIChangeTool sharedTTUIChangeTool].sort = _sort;
             [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(cancel:) userInfo:nil repeats:NO];
             
         }else{
