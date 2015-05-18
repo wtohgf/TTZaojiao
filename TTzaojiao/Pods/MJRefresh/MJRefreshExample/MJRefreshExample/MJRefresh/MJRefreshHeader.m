@@ -48,24 +48,20 @@
 - (UILabel *)updatedTimeLabel
 {
     if (!_updatedTimeLabel) {
-        // 1.创建控件
         UILabel *updatedTimeLabel = [[UILabel alloc] init];
         updatedTimeLabel.backgroundColor = [UIColor clearColor];
         updatedTimeLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_updatedTimeLabel = updatedTimeLabel];
-        
-        // 2.设置更新时间
-        self.updatedTime = [[NSUserDefaults standardUserDefaults] objectForKey:self.dateKey];
     }
     return _updatedTimeLabel;
 }
 
 #pragma mark - 初始化方法
 - (instancetype)initWithFrame:(CGRect)frame {
-    // 设置默认的dateKey(赶在父类init之前)
-    self.dateKey = MJRefreshHeaderUpdatedTimeKey;
-    
     if (self = [super initWithFrame:frame]) {
+        // 设置默认的dateKey
+        self.dateKey = MJRefreshHeaderUpdatedTimeKey;
+        
         // 设置为默认状态
         self.state = MJRefreshHeaderStateIdle;
         
@@ -83,6 +79,13 @@
     
     if (newSuperview) {
         self.mj_h = MJRefreshHeaderHeight;
+    }
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    if (self.state == MJRefreshHeaderStateWillRefresh) {
+        self.state = MJRefreshHeaderStateRefreshing;
     }
 }
 
@@ -117,7 +120,9 @@
 #pragma mark - 私有方法
 - (void)setDateKey:(NSString *)dateKey
 {
-    _dateKey = dateKey ? [dateKey copy] : MJRefreshHeaderUpdatedTimeKey;
+    _dateKey = dateKey ? dateKey : MJRefreshHeaderUpdatedTimeKey;
+    
+    self.updatedTime = [[NSUserDefaults standardUserDefaults] objectForKey:_dateKey];
 }
 
 #pragma mark 设置最后的更新时间
@@ -180,6 +185,17 @@
         _scrollViewOriginalInset = _scrollView.contentInset;
     }
     
+    // 在刷新的 refreshing 状态，动态设置 content inset
+    if (self.state == MJRefreshHeaderStateRefreshing ) {
+        if(_scrollView.contentOffset.y >= -_scrollViewOriginalInset.top ) {
+            _scrollView.mj_insetT = _scrollViewOriginalInset.top;
+        } else {
+            _scrollView.mj_insetT = MIN(_scrollViewOriginalInset.top + self.mj_h,
+                                        _scrollViewOriginalInset.top - _scrollView.contentOffset.y);
+        }
+        return;
+    }
+    
     // 当前的contentOffset
     CGFloat offsetY = _scrollView.mj_offsetY;
     // 头部控件刚好出现的offsetY
@@ -221,7 +237,13 @@
 
 - (void)beginRefreshing
 {
-    self.state = MJRefreshHeaderStateRefreshing;
+    if (self.window) {
+        self.state = MJRefreshHeaderStateRefreshing;
+    } else {
+        self.state = MJRefreshHeaderStateWillRefresh;
+        // 刷新(预防从另一个控制器回到这个控制器的情况，回来要重新刷新一下)
+        [self setNeedsDisplay];
+    }
 }
 
 - (void)endRefreshing
@@ -257,6 +279,7 @@
                 
                 // 恢复inset和offset
                 [UIView animateWithDuration:MJRefreshSlowAnimationDuration delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionBeginFromCurrentState animations:^{
+                    // 修复top值不断累加
                     _scrollView.mj_insetT -= self.mj_h;
                 } completion:nil];
             }
