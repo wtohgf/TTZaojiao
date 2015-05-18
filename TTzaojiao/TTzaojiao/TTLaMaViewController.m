@@ -20,6 +20,7 @@
 #import "TSLocateView.h"
 #import "CustomDatePicker.h"
 #import <MapKit/MapKit.h>
+#import "TTUserModelTool.h"
 @interface TTLaMaViewController () <CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSUInteger _pageIndexInt;
@@ -41,6 +42,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self test];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.rowHeight = 150;
@@ -60,7 +62,61 @@
     [self setting];
     
 }
+-(void) test
+{
+    NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
+     NSString* i_psd = [TTUserModelTool sharedUserModelTool].password;
+    //NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
+    NSDictionary* parameters = @{
+                                 
+//                                 @"Weight":@"10",
+//                                 @"Height":@"80",
+ //                              @"id":@"6245",
+                                 @"i_uid":i_uid,
+                                 @"i_psd":i_psd,
+                                 @"p_1":@"1",
+                                 @"p_2":@"10"
+                                 };
+    //加载网络数据
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[AFAppDotNetAPIClient sharedClient]apiGet:GROW_TEST_LIST Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            //
+            // NSLog(@"%@",result_data);
+            
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                
+                //暂时不知道有什么用途
+                //              LamaTotalModel *total= [LamaTotalModel LamaTotalModelWithdict:result_data[0]];
+                NSMutableArray *tempArray = [NSMutableArray array];
+                
+                
+                [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                    if ([obj isKindOfClass:[LamaModel class]]) {
+                        [tempArray addObject:obj];
+                    }
+                }];
+                
+                _models = tempArray;
+                //NSLog(@"count is %zi",_models.count);
+                [_tableView reloadData];
+                
+                //当前用户信息
+                //UserModel *user = [TTUserModelTool sharedUserModelTool].logonUser;
+                // NSLog(@"%@ %@", user.name, user.icon);
+                
+            }
+            
+            
+        }else{
+            if (result_status != ApiStatusNetworkNotReachable) {
+                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            }
+        };
+    }];
 
+}
 - (void)loadData
 {
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
