@@ -7,7 +7,6 @@
 //
 
 #import "AlipayRequestConfig.h"
-#import "MBProgressHUD+TTHud.h"
 
 @implementation AlipayRequestConfig
 
