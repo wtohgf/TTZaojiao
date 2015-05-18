@@ -33,11 +33,12 @@
     //设定headerView
     [self setTableViewHeader];
     
+    [self getLessionID];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self getLessionID];
 }
 
 -(void)addNavItems{

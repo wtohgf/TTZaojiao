@@ -35,6 +35,8 @@
 -(void)setLession:(LessionModel *)lession{
     _lession = lession;
     [_lessionImage setImageIcon:lession.i_pic];
+    _lessionImage.userInteractionEnabled = YES;
+    [_lessionImage addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(playLession:)]];
     _lessionTitle.text = lession.active_name;
  
     NSString* lessionnum = [NSString stringWithFormat:@"%@宝宝在上课", lession.active_num_person];

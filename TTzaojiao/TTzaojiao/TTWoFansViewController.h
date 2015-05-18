@@ -8,6 +8,6 @@
 
 #import "TTBaseViewController.h"
 #import "TTNearBybabyTableViewCell.h"
-@interface TTWoFansViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTNearBybabyTableViewCellDelegate>
+@interface TTWoFansViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

@@ -23,7 +23,7 @@
     
     self.title = @"评论列表";
     
-    UITableView* tableView = [[UITableView alloc]initWithFrame:self.view.frame];
+    UITableView* tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - kBottomBarHeight)];
     [self.view addSubview:tableView];
     
     _commentListTableView = tableView;

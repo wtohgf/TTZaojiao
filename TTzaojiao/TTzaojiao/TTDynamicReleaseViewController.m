@@ -175,13 +175,11 @@
 
         if (result_status == ApiStatusSuccess) {
             [MBProgressHUD TTDelayHudWithMassage:@"发布成功" View:self.navigationController.view];
-            
+            [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
             [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(cancel:) userInfo:nil repeats:NO];
             
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误，请检查网络" View:self.navigationController.view];
         };
         
     }];
@@ -191,6 +189,7 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     [self addKeyNotification];
+    [_textView becomeFirstResponder];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

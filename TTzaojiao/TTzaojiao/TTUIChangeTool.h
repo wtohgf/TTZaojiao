@@ -15,4 +15,7 @@
 -(void)backToLongon;
 -(void)pushToLongon:(UINavigationController*)nav;
 -(void)backToLogReg:(UINavigationController*)nav;
+
+@property (assign, nonatomic) BOOL isneedUpdateUI;
+
 @end

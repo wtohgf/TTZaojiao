@@ -36,7 +36,7 @@
         self.frame = babyInfoView.frame;
         _babyInfoView = babyInfoView;
         
-        [_babyInfoView.iconView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)]];
+//        [_babyInfoView.iconView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconTap:)]];
     }
     
     return self;
@@ -48,12 +48,12 @@
     
 }
 
-- (void)iconTap:(UITapGestureRecognizer *)recognizer
-{
-    if ([_delegate respondsToSelector:@selector(didIconTaped:)]) {
-        [_delegate didIconTaped:_babyInfoView.nearByBaby.uid];
-    }
-}
+//- (void)iconTap:(UITapGestureRecognizer *)recognizer
+//{
+//    if ([_delegate respondsToSelector:@selector(didIconTaped:)]) {
+//        [_delegate didIconTaped:_babyInfoView.nearByBaby.uid];
+//    }
+//}
 
 
 @end
