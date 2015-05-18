@@ -78,32 +78,22 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@元",model.i_price];
     return cell;
 }
-
+/*
+ TTzaojiao[4099:1839278] result = {
+ memo = "";
+ result = "partner=\"2088711821877024\"&seller_id=\"273730638@qq.com\"&out_trade_no=\"-1478319783-40659-3\"&subject=\"\U5929\U5929\U65e9\U6559VIP\U670d\U52a1\"&body=\"3\U4e2a\U6708VIP\U670d\U52a1\"&total_fee=\"81\"&notify_url=\"http://www.ttzaojiao.com/AppCode/Alipay/notify_url.aspx\"&service=\"mobile.securitypay.pay\"&payment_type=\"1\"&_input_charset=\"UTF-8\"&it_b_pay=\"30m\"&success=\"true\"&sign_type=\"RSA\"&sign=\"kv1nNV0jxdxwSPmmEG217cuDUhLL3OUAdNXGMIalbNCBhGNKZRJYFeTXWXOp9C+7UlVvjZp3x5hsibyJzhS+ouXabmncGeftrbUmZyOnNE8+HFWJcMbxD2m+gVNngr9NWT6D7snNSjNYlR59z1v610fRHo4ZWI/iezaAoqwYJcs=\"";
+ resultStatus = 9000;
+ }
+ */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WoVipModel *model = (WoVipModel *)[_list objectAtIndex:indexPath.section];
+    NSString* productName = @"天天早教VIP服务";
+    NSString* productDescription = [NSString stringWithFormat:@"%@个月VIP服务",model.i_month];
+  
     
-    switch (indexPath.section) {
-        case 1:
-        {
-            NSString *tradeNo = [AlipayRequestConfig payWithProductName:@"课程名1" productDescription:@"早教课程VIP服务" amount:@"81"];
-            NSLog(@"tradeNo : %@",tradeNo);
-        }
-            break;
-        case 2:
-        {
-            NSString *tradeNo = [AlipayRequestConfig payWithProductName:@"课程名2" productDescription:@"早教课程VIP服务" amount:@"158"];
-            NSLog(@"tradeNo : %@",tradeNo);
-        }
-            break;
-            
-        default:
-        {
-            NSString *tradeNo = [AlipayRequestConfig payWithProductName:@"课程名3" productDescription:@"早教课程VIP服务" amount:@"288"];
-            NSLog(@"tradeNo : %@",tradeNo);
-        }
-            break;
-    }
+    [AlipayRequestConfig payWithProductName:productName productDescription:productDescription amount:model.i_price ttid:model.ttid];
     
     double delayInSeconds = 1.5;
     self.tableView.userInteractionEnabled = NO;

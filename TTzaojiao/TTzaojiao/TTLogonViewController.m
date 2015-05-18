@@ -152,7 +152,8 @@
 
 #pragma mark 登录
 - (void)Logon{
-    
+    [_account resignFirstResponder];
+    [_password resignFirstResponder];
     
     NSString* account = _account.text;
     NSString* password = _password.text;
