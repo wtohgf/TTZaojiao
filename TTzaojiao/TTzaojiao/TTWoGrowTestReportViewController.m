@@ -9,6 +9,11 @@
 #import "TTWoGrowTestReportViewController.h"
 #import "TTGrowTemperTestTool.h"
 #import "NSString+Extension.h"
+#import "TTWoGrowTestReportTigeCellTableViewCell.h"
+#import "TTWoGrowTestReportShengaoCellTableViewCell.h"
+#import "TTWoGrowTestReportTizhongCellTableViewCell.h"
+#import "TTWoGrowTestReportFrame.h"
+#import "TTWoGrowTestReportModel.h"
 
 @interface TTWoGrowTestReportViewController (){
     NSDictionary* _reportDict;
@@ -19,7 +24,7 @@
 @property (weak, nonatomic) UILabel* result;
 
 @property (weak, nonatomic) IBOutlet UITableView *growReportTableView;
-
+@property (nonatomic,strong) TTWoGrowTestReportFrame *modelFrame;
 @end
 
 @implementation TTWoGrowTestReportViewController
@@ -44,6 +49,13 @@
         [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
         if ([testlist isKindOfClass:[NSDictionary class]]) {
             _reportDict = testlist;
+            //字典转模型，算好高度，加载
+            TTWoGrowTestReportModel *model = [ TTWoGrowTestReportModel WoGrowTestReportModelWithDict: _reportDict];
+            TTWoGrowTestReportFrame *modelFrame = [[TTWoGrowTestReportFrame alloc]init];
+            
+           
+            modelFrame.model = model;
+            _modelFrame = modelFrame;
             [_growReportTableView reloadData];
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {
@@ -56,24 +68,71 @@
         }
     }];
 }
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString* ID = @"saveEditCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    cell.textLabel.text = @"TEST";
-    return cell;
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 140.f;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_modelFrame == nil) {
+        return 100;
+    }
+    else if (indexPath.row == 0) {
+        
+            return _modelFrame.shengaotizhongFrame.size.height+_modelFrame.tigePicHeight+30;
+        }
+    
+    else if (indexPath.row == 1)
+    {
+        
+            return _modelFrame.shengaonianlingFrame.size.height+_modelFrame.nianlingPicHeight+30;
+       
+    }
+    
+    else
+    {
+        return _modelFrame.tizhongnianlingFrame.size.height+_modelFrame.nianlingPicHeight+30;
+    }
+    
+    //[TTUserModelTool sharedUserModelTool].logonUser.gender
+    
 }
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        TTWoGrowTestReportTigeCellTableViewCell* cell = [TTWoGrowTestReportTigeCellTableViewCell WoGrowTestReportTigeCellWithTabelView:tableView];
+        if (_modelFrame != nil) {
+            cell.modelFrame = _modelFrame;
+            
+        }
+        return cell;
+   
+     }
+    else if (indexPath.row == 1) {
+        TTWoGrowTestReportShengaoCellTableViewCell* cell = [TTWoGrowTestReportShengaoCellTableViewCell WoGrowTestReportShengaoCellWithTabelView:tableView];
+        if (_modelFrame != nil) {
+            cell.modelFrame = _modelFrame;
+        }
+        
+        return cell;
+    }
+    
+    else{
+        TTWoGrowTestReportTizhongCellTableViewCell* cell = [TTWoGrowTestReportTizhongCellTableViewCell WoGrowTestReportTizhongCellWithTabelView:tableView];
+        if (_modelFrame != nil) {
+            cell.modelFrame = _modelFrame;
+        }
+        
+        return cell;
+    }
+
+}
+
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+       return 140.f;
+}
+
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headerView = [[UIView alloc]init];
@@ -152,6 +211,8 @@
     _date.text = [NSString getChnYMDWithString:[_reportDict objectForKey:@"TestDate"]];
     
     _result.text = [_reportDict objectForKey:@"tige_sort"];
+    
+       
 }
 
 @end
