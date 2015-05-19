@@ -115,8 +115,10 @@
             CGFloat picW = leftImage.size.width;
             CGFloat picH = leftImage.size.height;
             CGFloat leftWidth = screenWidth*kLeftRatio;
-            CGFloat leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
-            
+            CGFloat leftHeight = leftWidth*375/80;
+            if (picH!=0 && picW!=0) {
+                leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
+            }
             
 //            UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
             UIImage* bottomImage = [UIImage imageNamed:@"temp_report_bottom.gif"];
@@ -126,7 +128,10 @@
 //            CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
             
             CGFloat bottomWidth = screenWidth*(kRightRatio+8*kCenterRatio+kLeftRatio);
-            CGFloat bottomHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
+            CGFloat bottomHeight = (CGFloat)((bottomWidth * 41)/510) ;
+            if (picH!=0 && picW!=0) {
+                bottomHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
+            }
             
             _picHeight = leftHeight + bottomHeight;
             
@@ -242,7 +247,10 @@
         CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
         
         CGFloat leftWidth = screenWidth*kLeftRatio;
-        CGFloat leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
+        CGFloat leftHeight = (CGFloat)((leftWidth * 375)/80) ;
+        if (picH!=0 && picW!=0) {
+            leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
+        }
         CGFloat leftX = screenWidth*kPaddingRatio;
         CGFloat leftY = 0;
         leftView.frame = CGRectMake(leftX, leftY, leftWidth, leftHeight);
@@ -254,7 +262,10 @@
         CGFloat centerH = CGImageGetHeight(centerView.image.CGImage);
         
         CGFloat centerWidth = screenWidth*kCenterRatio;
-        CGFloat centerHeight = (CGFloat)((centerWidth * centerH)/centerW) ;
+        CGFloat centerHeight = (CGFloat)((centerWidth * 375)/50) ;
+        if (centerH!=0 && centerW!=0) {
+            centerHeight = (CGFloat)((centerWidth * centerH)/centerW) ;
+        }
         CGFloat centerX = CGRectGetMaxX(leftView.frame);
         CGFloat centerY = 0;
         _centerHeight = centerHeight;
@@ -275,7 +286,11 @@
         CGFloat rightH = CGImageGetHeight(rightView.image.CGImage);
         
         CGFloat rightWidth = screenWidth*kRightRatio;
-        CGFloat rightHeight = (CGFloat)((rightWidth * rightH)/rightW) ;
+        
+        CGFloat rightHeight = (CGFloat)((rightWidth * 375)/30) ;
+        if (rightH!=0 && rightW!=0) {
+            rightHeight = (CGFloat)((rightWidth * rightH)/rightW) ;
+        }
         CGFloat rightX = screenWidth*(kPaddingRatio+8*kCenterRatio+kLeftRatio);
         CGFloat rightY = 0;
         rightView.frame = CGRectMake(rightX, rightY, rightWidth, rightHeight);
@@ -286,7 +301,10 @@
         CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
         
         CGFloat bottomWidth = screenWidth*(kRightRatio+8*kCenterRatio+kLeftRatio);
-        CGFloat bottomHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
+        CGFloat bottomHeight = (CGFloat)((bottomWidth * 41)/510) ;
+        if (bottomH!=0 && bottomW!=0) {
+            rightHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
+        }
         CGFloat bottomX = screenWidth*(kPaddingRatio);
         CGFloat bottomY = CGRectGetMaxY(leftView.frame);
         bottomView.frame = CGRectMake(bottomX, bottomY, bottomWidth, bottomHeight);
