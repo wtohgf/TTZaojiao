@@ -113,8 +113,7 @@
         }else{
             [self publichState];
         }
-
-    }];
+    } View:self.navigationController.view];
 
 }
 

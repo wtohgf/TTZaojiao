@@ -20,9 +20,12 @@
 #import "CustomDatePicker.h"
 #import <MapKit/MapKit.h>
 #import "TTUserModelTool.h"
+#import <MJRefresh.h>
+
 @interface TTLaMaViewController () <CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSUInteger _pageIndexInt;
+    BOOL _isGetMore;
 }
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
@@ -59,21 +62,45 @@
     
     [self setting];
     
+    _isGetMore = NO;
+    _pageIndexInt = 1;
+    [self updateLamaList];
+    
+    [self setupRefresh];
+}
+
+-(void)updateLamaList{
     //定位获得城市码
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
+        [_tableView.header endRefreshing];
         //NSLog(@"latitude is %f",location.coordinate.latitude);
         if(location!=nil){
             [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
-                //假数据 macmini定位不好用
                 _cityCode = cityCode;
             }];
+        }else{
+            [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
         }
         //加载异步网络数据
         [self loadData];
-    }];
-    
+    } View:self.navigationController.view];
 }
 
+-(void)setupRefresh{
+    [_tableView addLegendHeaderWithRefreshingBlock:^{
+        [_tableView.header beginRefreshing];
+        _isGetMore = NO;
+        _pageIndexInt = 1;
+        [self updateLamaList];
+    }];
+    
+    [_tableView  addLegendFooterWithRefreshingBlock:^{
+        [_tableView.footer beginRefreshing];
+        _isGetMore = YES;
+        _pageIndexInt++;
+        [self updateLamaList];
+    }];
+}
 - (void)loadData
 {
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
@@ -105,10 +132,13 @@
                         [tempArray addObject:obj];
                     }
                 }];
-                
-                _models = tempArray;
+                if (_isGetMore) {
+                    [_models addObjectsFromArray:tempArray];
+                    _isGetMore = NO;
+                }else{
+                    _models = tempArray;
+                }
                 [_tableView reloadData];
-                
             }
             
         }else{

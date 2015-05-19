@@ -412,14 +412,13 @@
     
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
     if ([_i_sort isEqualToString:@"4"]) {
-        [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
-            if (location != nil) {
-                _location = location;
-            }else{
-                _location = nil;
+        [[TTCityMngTool sharedCityMngTool]startLocation:^(CLLocation *location, NSError *error) {
+            if (location == nil) {
+                [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
             }
+            _location = location;
             [self showNearByBaby];
-        }];
+        } View:self.navigationController.view];
     }else{
         [self updateBlog];
     }
@@ -513,6 +512,10 @@
                         [_dongtaiTable reloadData];
                     }else{
                         [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
+                        if (_sortSeg.selectedSegmentIndex == 3) {
+                            [_nearByBabys removeAllObjects];
+                            [_dongtaiTable reloadData];
+                        }
                     }
 
                 }
@@ -520,6 +523,10 @@
             }
             
         }else{
+            if (_sortSeg.selectedSegmentIndex == 3) {
+                [_nearByBabys removeAllObjects];
+                [_dongtaiTable reloadData];
+            }
             if (_isGetMoreBlog) {
                 [_dongtaiTable.footer endRefreshing];
                 _isGetMoreBlog = NO;

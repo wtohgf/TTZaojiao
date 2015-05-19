@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface BlogModel : NSObject
+@property (copy, nonatomic) NSString * msg;
+@property (copy, nonatomic) NSString * msg_word;
+@property (copy, nonatomic) NSString * p_0;
+@property (copy, nonatomic) NSString * p_1;
+@property (copy, nonatomic) NSString * p_2;
+
 @property (copy, nonatomic) NSString * id; //
 @property (copy, nonatomic) NSString * i_y; //
 @property (copy, nonatomic) NSString * i_x; //
