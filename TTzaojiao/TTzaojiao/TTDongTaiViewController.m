@@ -203,7 +203,7 @@
     NSDictionary* parameters = @{
                                  @"i_uid": i_uid,
                                  @"p_1": pageIndex,
-                                 @"p_2": @"15",
+                                 @"p_2": @"5",
                                  @"i_sort": _i_sort,
                                  @"id": _lession.active_id
                                  };

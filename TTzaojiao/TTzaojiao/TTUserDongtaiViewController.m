@@ -109,11 +109,11 @@
     NSDictionary* parameters = @{
                                  @"i_uid": _i_uid,
                                  @"p_1": _pageIndex,
-                                 @"p_2": @"15"
+                                 @"p_2": @"5"
                                  };
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:USER_BLOG Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [_userDynamicTableView.header endRefreshing];
         [_userDynamicTableView.footer endRefreshing];
         
@@ -133,6 +133,7 @@
                 }
             }
         }else{
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             if (result_status != ApiStatusNetworkNotReachable) {
                 [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
             }
