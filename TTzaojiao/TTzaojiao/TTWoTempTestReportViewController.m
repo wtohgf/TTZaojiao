@@ -125,9 +125,6 @@
             
             _picHeight = leftHeight + bottomHeight;
             
-            
-            
-            
             [_tempReportTableView reloadData];
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {
