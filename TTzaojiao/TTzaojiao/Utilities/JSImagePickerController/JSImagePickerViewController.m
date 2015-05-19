@@ -14,7 +14,7 @@
 
 @interface JSImagePickerViewController ()  <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-#define imagePickerHeight 280.0f
+#define imagePickerHeight 182.0f
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -35,7 +35,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @property (nonatomic) TransitionDelegate *transitionController;
 
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+//@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIButton *photoLibraryBtn;
 @property (nonatomic, strong) UIButton *cameraBtn;
 @property (nonatomic, strong) UIButton *cancelBtn;
@@ -87,7 +87,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.imagePickerView.frame.size.width, 50)];
     [btn setTitle:@"图片来源" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor lightGrayColor];
     [btn addTarget:self action:@selector(setDefaults) forControlEvents:UIControlEventTouchUpInside];
     
     [self.imagePickerView addSubview:btn];
@@ -99,20 +100,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void)imagePickerViewSetup {
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     
-    const CGRect collectionViewFrame = CGRectMake(7, 8, screenWidth-7-7, 122);
-    const CGRect libraryBtnFrame = CGRectMake(0, 149, screenWidth, 30);
-    const CGRect cameraBtnFrame = CGRectMake(0, 196, screenWidth, 30);
-    const CGRect cancelBtnFrame = CGRectMake(0, 242, screenWidth, 30);
+//    const CGRect collectionViewFrame = CGRectMake(7, 8, screenWidth-7-7, 122);
+    const CGRect libraryBtnFrame = CGRectMake(0, 50, screenWidth, 44);
+    const CGRect cameraBtnFrame = CGRectMake(0, 94, screenWidth, 44);
+    const CGRect cancelBtnFrame = CGRectMake(0, 138, screenWidth, 44);
     
-    UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [aFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:collectionViewFrame collectionViewLayout:aFlowLayout];
-    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.showsVerticalScrollIndicator = NO;
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    [self.collectionView registerClass:[JSPhotoCell class] forCellWithReuseIdentifier:@"Cell"];
+//    UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+//    [aFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+//    self.collectionView = [[UICollectionView alloc] initWithFrame:collectionViewFrame collectionViewLayout:aFlowLayout];
+//    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+//    self.collectionView.showsHorizontalScrollIndicator = NO;
+//    self.collectionView.showsVerticalScrollIndicator = NO;
+//    self.collectionView.delegate = self;
+//    self.collectionView.dataSource = self;
+//    [self.collectionView registerClass:[JSPhotoCell class] forCellWithReuseIdentifier:@"Cell"];
     
     UIFont *btnFont = [UIFont systemFontOfSize:19.0];
     
@@ -147,7 +148,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     separator3.backgroundColor = UIColorFromRGB(0xDDDDDD);
     [self.imagePickerView addSubview:separator3];
     
-    [self.imagePickerView addSubview:self.collectionView];
+  //  [self.imagePickerView addSubview:self.collectionView];
     [self.imagePickerView addSubview:self.photoLibraryBtn];
     [self.imagePickerView addSubview:self.cameraBtn];
     [self.imagePickerView addSubview:self.cancelBtn];
@@ -221,7 +222,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         [group setAssetsFilter:onlyPhotosFilter];
         [group enumerateAssetsUsingBlock:assetsEnumerationBlock];
         
-        [self.collectionView reloadData];
+        //[self.collectionView reloadData];
     } failureBlock:^(NSError *error) {
         NSLog(@"Error loading images %@", error);
     }];
@@ -371,8 +372,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 @end
-
-
 
 
 #pragma mark - AnimatedTransitioning -

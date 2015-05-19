@@ -61,6 +61,10 @@
 }
 
 - (IBAction)modifyAction:(UIButton *)sender {
+    if (_iconPath.length == 0) {
+        [MBProgressHUD TTDelayHudWithMassage:@"请更新头像" View:self.navigationController.view];
+        return;
+    }
     [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_ICON
                                      Parameters:@{@"i_uid":[[[TTUserModelTool sharedUserModelTool] logonUser] ttid],
                                                   @"i_psd":[[TTUserModelTool sharedUserModelTool] password],
@@ -87,11 +91,11 @@
     
     NSMutableArray* images = [NSMutableArray array];
     [images addObject:image];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
         if ([result_data isKindOfClass:[NSMutableArray class]]) {
             if (((NSMutableArray*)result_data).count!=0) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                 NSDictionary* dict = (NSDictionary*)result_data[0];
                 if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
                     NSString* filePath = dict[@"msg_word_1"];
@@ -103,9 +107,8 @@
         }
     } Progress:^(CGFloat progress) {
         _iconPath = @"";
-       // [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
         [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     }];
 
     

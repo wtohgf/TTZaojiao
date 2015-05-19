@@ -47,15 +47,7 @@
     tableView.delegate = self;
     
     self.title = @"详情";
-}
-
-#pragma mark
-- (void)viewWillAppear:(BOOL)animated
-{
     
-    [super viewWillAppear:animated];
-    
-    [self modelFrame];
     // NSString* i_id = _ttid;
     //    NSString* i_id = [NSString stringWithFormat:@"%d",[_ttid intValue] + 1 ];
     NSDictionary* parameters = @{
@@ -70,10 +62,14 @@
             LaMaDetailModel *model =   [LaMaDetailModel  LaMaDetailModelWithDict:(NSDictionary *)result_data[0]];
             //计算frame
             _modelFrame.model = model;
-            
-            
-            [_tableView reloadData];
-            
+            if (model!= nil) {
+                [self modelFrame];
+                /*TTzaojiao[4551:1919247] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'table view row height must not be negative - provided height for index path (<UIMutableIndexPath 0x174458ae0> 2 indexes [0, 0]) is nan'
+                 *** First throw call stack:
+                 (0x183d0a59c 0x1944600e4 0x183d0a45c 0x184b91554 0x1885d5634 0x1885972d8 0x18859952c 0x188599468 0x188598db4 0x1000c3f20 0x100088f14 0x10010f064 0x100460e30 0x100460df0 0x10046575c 0x183cc1fa4 0x183cc004c 0x183bed0a4 0x18cd8f5a4 0x1885223c0 0x1000e9384 0x194acea08)
+                 libc++abi.dylib: terminating with uncaught exception of type NSException*/
+                [_tableView reloadData];
+            }
             
         }else{
             if (result_status != ApiStatusNetworkNotReachable) {
@@ -81,8 +77,13 @@
             }
         };
     }];
-    
-    
+
+}
+
+#pragma mark
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 #pragma tableview 数据源以及代理方法
@@ -98,9 +99,14 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_modelFrame == nil) {
+        UITableViewCell* cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+        return cell;
+    }
     //创建相应cell－－NameAndPic
     if (indexPath.row == 0) {
         LamaTableViewCellNameAndPic *cell = [LamaTableViewCellNameAndPic LamaTableViewCellNameAndPicWithTabelView:_tableView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //数据传给cell，由cell处理设置
         cell.modelFrame = _modelFrame;
         return cell;
@@ -109,6 +115,7 @@
     else if (indexPath.row == 1)
     {
         LamaTableViewCellLabel *cell = [LamaTableViewCellLabel LamaTableViewCellContactWithTabelView:_tableView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.label.text = @"活动详情";
         cell.backgroundColor =  [UIColor colorWithRed:(233/255.0) green:(233/255.0) blue:(233/255.0) alpha:(233/255.0)];
         return cell;
@@ -121,6 +128,7 @@
         
         LamaTableViewCellContact *cell = [LamaTableViewCellContact LamaTableViewCellContactWithTabelView:_tableView];
         //数据传给cell，由cell处理设置
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.modelFrame = _modelFrame;
         return cell;
         
@@ -129,6 +137,7 @@
     else if (indexPath.row == self.modelFrame.model.count - 2)
     {
         LamaTableViewCellLabel *cell = [LamaTableViewCellLabel LamaTableViewCellContactWithTabelView:_tableView ];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.label.text = @"商家信息";
         return cell;
     }
@@ -137,6 +146,7 @@
     {
         
         LamaTableViewCellContent *cell = [LamaTableViewCellContent LamaTableViewCellContentWithTabelView:_tableView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         //数据传给cell，由cell处理设置
         cell.modelFrame = _modelFrame;
         return cell;
@@ -146,6 +156,7 @@
     else
     {
         LamaTableViewCellPicList *cell = [LamaTableViewCellPicList LamaTableViewCellPicListWithTabelView:_tableView];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         NSString *name  = _modelFrame.picListArray[indexPath.row-1];
         NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,name];
         [cell.picListView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_pic"]];
@@ -183,4 +194,5 @@
     }
     
 }
+
 @end

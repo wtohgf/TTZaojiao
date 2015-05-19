@@ -118,7 +118,24 @@ static TTCityMngTool* tool;
 }
 
 //开始定位
--(void)startLocation:(actionLocationBlock)locationBlock{
+-(void)startLocation:(actionLocationBlock)locationBlock View:(UIView*)showinView{
+    
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if (kCLAuthorizationStatusDenied == status || kCLAuthorizationStatusRestricted == status) {
+        
+        [[UIAlertView alloc]showWithTitle:@"定位失败" message:@"请您在设置中打开定位服务" cancelButtonTitle:@"知道了"];
+//        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+//        
+//        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+//            //如果点击打开的话，需要记录当前的状态，从设置回到应用的时候会用到
+//            [[UIApplication sharedApplication] openURL:url];
+//        }
+        if (locationBlock) {
+            locationBlock(nil, nil);
+        }
+        return;
+    }
+    
     _locationBlock = locationBlock;
     if ([CLLocationManager locationServicesEnabled])
     {
@@ -143,6 +160,7 @@ static TTCityMngTool* tool;
 
 //定位代理经纬度回调
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
     [_locationManager stopUpdatingLocation];
     
     CLLocation *newLocation = [locations lastObject];

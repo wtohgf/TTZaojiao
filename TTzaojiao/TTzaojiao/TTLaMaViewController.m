@@ -20,9 +20,12 @@
 #import "CustomDatePicker.h"
 #import <MapKit/MapKit.h>
 #import "TTUserModelTool.h"
+#import <MJRefresh.h>
+
 @interface TTLaMaViewController () <CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     NSUInteger _pageIndexInt;
+    BOOL _isGetMore;
 }
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
@@ -41,7 +44,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self test];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.rowHeight = 150;
@@ -49,72 +51,55 @@
     
     _pageIndexInt = 1;
     
-    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars
-        = NO;
-        self.modalPresentationCapturesStatusBarAppearance
-        = NO;
-    }
-    
+//    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars
+//        = NO;
+//        self.modalPresentationCapturesStatusBarAppearance
+//        = NO;
+//    }
+//    
     
     [self setting];
     
+    _isGetMore = NO;
+    _pageIndexInt = 1;
+    [self updateLamaList];
+    
+    [self setupRefresh];
 }
--(void) test
-{
-    NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
-     NSString* i_psd = [TTUserModelTool sharedUserModelTool].password;
-    //NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
-    NSDictionary* parameters = @{
-                                 
-//                                 @"Weight":@"10",
-//                                 @"Height":@"80",
- //                              @"id":@"6245",
-                                 @"i_uid":i_uid,
-                                 @"i_psd":i_psd,
-                                 @"p_1":@"1",
-                                 @"p_2":@"10"
-                                 };
-    //加载网络数据
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[AFAppDotNetAPIClient sharedClient]apiGet:GROW_TEST_LIST Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (result_status == ApiStatusSuccess) {
-            //
-            // NSLog(@"%@",result_data);
-            
-            if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                
-                //暂时不知道有什么用途
-                //              LamaTotalModel *total= [LamaTotalModel LamaTotalModelWithdict:result_data[0]];
-                NSMutableArray *tempArray = [NSMutableArray array];
-                
-                
-                [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    if ([obj isKindOfClass:[LamaModel class]]) {
-                        [tempArray addObject:obj];
-                    }
-                }];
-                
-                _models = tempArray;
-                //NSLog(@"count is %zi",_models.count);
-                [_tableView reloadData];
-                
-                //当前用户信息
-                //UserModel *user = [TTUserModelTool sharedUserModelTool].logonUser;
-                // NSLog(@"%@ %@", user.name, user.icon);
-                
-            }
-            
-            
-        }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
-        };
-    }];
 
+-(void)updateLamaList{
+    //定位获得城市码
+    [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
+        [_tableView.header endRefreshing];
+        //NSLog(@"latitude is %f",location.coordinate.latitude);
+        if(location!=nil){
+            [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
+                _cityCode = cityCode;
+            }];
+        }else{
+            [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
+        }
+        //加载异步网络数据
+        [self loadData];
+    } View:self.navigationController.view];
+}
+
+-(void)setupRefresh{
+    [_tableView addLegendHeaderWithRefreshingBlock:^{
+        [_tableView.header beginRefreshing];
+        _isGetMore = NO;
+        _pageIndexInt = 1;
+        [self updateLamaList];
+    }];
+    
+    [_tableView  addLegendFooterWithRefreshingBlock:^{
+        [_tableView.footer beginRefreshing];
+        _isGetMore = YES;
+        _pageIndexInt++;
+        [self updateLamaList];
+    }];
 }
 - (void)loadData
 {
@@ -132,17 +117,13 @@
                                  @"i_city":_cityCode
                                  };
     //加载网络数据
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_ACTIVE Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
         if (result_status == ApiStatusSuccess) {
-            //
-            // NSLog(@"%@",result_data);
-            
+
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 
-                //暂时不知道有什么用途
-                //              LamaTotalModel *total= [LamaTotalModel LamaTotalModelWithdict:result_data[0]];
                 NSMutableArray *tempArray = [NSMutableArray array];
                 
                 
@@ -151,17 +132,14 @@
                         [tempArray addObject:obj];
                     }
                 }];
-                
-                _models = tempArray;
-                //NSLog(@"count is %zi",_models.count);
+                if (_isGetMore) {
+                    [_models addObjectsFromArray:tempArray];
+                    _isGetMore = NO;
+                }else{
+                    _models = tempArray;
+                }
                 [_tableView reloadData];
-                
-                //当前用户信息
-                //UserModel *user = [TTUserModelTool sharedUserModelTool].logonUser;
-                // NSLog(@"%@ %@", user.name, user.icon);
-                
             }
-            
             
         }else{
             if (result_status != ApiStatusNetworkNotReachable) {
@@ -174,18 +152,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //定位获得城市码
-    [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
-        //NSLog(@"latitude is %f",location.coordinate.latitude);
-        if(location!=nil){
-            [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
-                //假数据 macmini定位不好用
-                _cityCode = cityCode;
-            }];
-        }
-        //加载异步网络数据
-        [self loadData];
-    }];
     
 }
 
@@ -193,11 +159,7 @@
 //ADD_REG_COMPAY
 -(void) leftBtnClick
 {
-    
-    LaMaAddRegCompayViewController *addRegCompayController = [[LaMaAddRegCompayViewController alloc]init];
-    // [addRegCompayController setI_uid:[[[TTUserModelTool sharedUserModelTool] logonUser] ttid]];
-    [self.navigationController pushViewController:addRegCompayController animated:YES];
-    
+    [self performSegueWithIdentifier:@"TOADDREGLAMA" sender:nil];
 }
 
 #pragma mark 显示个人信息
@@ -228,7 +190,6 @@
 - (void) setting
 {
     
-    
     //left
     UIButton *leftbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftbutton setImage:[UIImage imageNamed:@"icon_apply_join"]  forState:UIControlStateNormal];
@@ -255,10 +216,7 @@
 //懒加载模型
 - (NSMutableArray *)models
 {
-    
-    
     return _models;
-    
 }
 
 
@@ -303,21 +261,11 @@
 
     LamaModel *model = _models[indexPath.row];
     LaMaDetailViewController *detailController = [[LaMaDetailViewController alloc]init];
-    //UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(160, 0, 120, 50)];
-    //[title setText:@"详情"];
-    // controller.navigationItem.titleView= title;
     detailController.ttid = model.ttid;
     
     self.navigationController.title = @"详情";
     [self.navigationController pushViewController:detailController animated:YES];
 }
-
-
-
-//- (IBAction)locationAction:(id)sender {
-//    [self performSegueWithIdentifier:@"cityListSegue" sender:self];
-//}
-
 
 
 #pragma mark 更改位置

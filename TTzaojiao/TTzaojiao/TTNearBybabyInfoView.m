@@ -137,13 +137,17 @@
     }else{
         _age.text = @"未知";
     }
-    NSTimeInterval timeval = [NSString getTimeIntervalOfDateString:nearByBaby.sort_end_time];
-    if (timeval > 0) {
-        _vip.hidden = NO;
-    }else{
-        _vip.hidden = YES;
-    }
     
+    if ([nearByBaby.uid isEqualToString:@"1977"]) {
+        _vip.hidden = YES;
+    }else{
+        NSComparisonResult result = [NSString compareDateNow:nearByBaby.sort_end_time];
+        if (NSOrderedDescending == result) {
+            _vip.hidden = NO;
+        }else{
+            _vip.hidden = YES;
+        }
+    }
     _distance.text = [NSString stringWithFormat:@"%@km", nearByBaby.i_distance];
     _nearByBaby = nearByBaby;
 }

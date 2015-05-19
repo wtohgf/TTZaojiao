@@ -18,7 +18,7 @@
 
 @property (strong, nonatomic) UIViewController *mainViewController;
 @property (weak, nonatomic) IBOutlet UIButton *savePassworkCheckButton;
-@property (weak, nonatomic) IBOutlet UIView *siganBottomBar;
+@property (weak, nonatomic) UIView *siganBottomBar;
 //@property (weak, nonatomic) IBOutlet UIView *bottomBar;
 @property (weak, nonatomic) CustomBottomBar* bottomBar;
 @property (weak, nonatomic) IBOutlet UITextField *account;
@@ -91,16 +91,7 @@
     }];
     NSArray* items;
     _bottomBar = bottomBar;
-    if ([TTUserModelTool sharedUserModelTool].logonUser == nil) {
-        items = @[@"返回", @"登录"];
-    }else{
-        if(![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]){
-            items = @[@"登录"];
-        }else{
-            items = @[@"返回", @"登录"];
-        }
-    }
-    
+    items = @[@"返回", @"登录"];
     bottomBar.items = items;
     _bottomBar.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;
@@ -161,7 +152,8 @@
 
 #pragma mark 登录
 - (void)Logon{
-    
+    [_account resignFirstResponder];
+    [_password resignFirstResponder];
     
     NSString* account = _account.text;
     NSString* password = _password.text;
@@ -227,6 +219,8 @@
         [TTKeyChainTool save:KEY_USERNAME_PASSWORD data:usernamepasswordKVPairs];
     }else{
         [TTKeyChainTool delete:KEY_USERNAME_PASSWORD];
+        _account.text = @"";
+        _password.text = @"";
     }
 
 }

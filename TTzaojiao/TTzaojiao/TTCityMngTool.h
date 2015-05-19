@@ -22,7 +22,7 @@ typedef void(^actionCityCodeBlock)(NSString* cityCode, NSError* error);
 -(NSString*)provinceofCity:(NSString*)cityName;
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
--(void)startLocation:(actionLocationBlock)locationBlock;
+-(void)startLocation:(actionLocationBlock)locationBlock View:(UIView*)view;
 //经纬度转cityCode
 - (void) getReverseGeocode:(CLLocation *)location Result:(actionCityCodeBlock)block;
 @property (strong, nonatomic) NSArray* cityCodeList;

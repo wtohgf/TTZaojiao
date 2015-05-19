@@ -84,9 +84,15 @@
             cell = tmpcell;
         }
     }else{
-        TTPlayLessionIntroduceCell* tmpcell = [TTPlayLessionIntroduceCell playLessionIntroduceCellWithTableView:tableView];
-        tmpcell.detailLession = _detailLession;
-        cell = tmpcell;
+        if (_detailLession != nil) {
+            TTPlayLessionIntroduceCell* tmpcell = [TTPlayLessionIntroduceCell playLessionIntroduceCellWithTableView:tableView];
+            tmpcell.detailLession = _detailLession;
+            cell = tmpcell;
+        }else{
+            UITableViewCell* tmpcell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+            cell = tmpcell;
+        }
+
     }
     
     return cell;

@@ -16,6 +16,7 @@
     CGFloat _backBottonBarY;
 
 }
+- (IBAction)selTap:(UITapGestureRecognizer *)sender;
 @property (strong, nonatomic) IBOutlet UIView *bottomBar;
 @property (weak, nonatomic) IBOutlet UIButton *icon;
 @property (weak, nonatomic) IBOutlet UITextField *babyName;
@@ -355,5 +356,14 @@
         
     }];
 
+}
+- (IBAction)changBirthDayTap:(UITapGestureRecognizer *)sender {
+    [self changBirthDay:nil];
+}
+- (IBAction)changGenderTap:(UITapGestureRecognizer *)sender {
+    [self changGental:nil];
+}
+- (IBAction)selTap:(UITapGestureRecognizer *)sender {
+    [self changLocation:nil];
 }
 @end

@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "TTNearBybabyInfoView.h"
-
-@protocol TTNearBybabyTableViewCellDelegate<NSObject>
--(void)didIconTaped:(NSString*)uid;
-@end
+//
+//@protocol TTNearBybabyTableViewCellDelegate<NSObject>
+//-(void)didIconTaped:(NSString*)uid;
+//@end
 
 @interface TTNearBybabyTableViewCell : UITableViewCell
 @property (weak, nonatomic) TTNearBybabyInfoView* babyInfoView;
 +(instancetype)nearBybabyCellWithTableView:(UITableView *)tableView;
 
-@property (weak, nonatomic) id<TTNearBybabyTableViewCellDelegate> delegate;
+//@property (weak, nonatomic) id<TTNearBybabyTableViewCellDelegate> delegate;
 @property (strong, nonatomic) NearByBabyModel* nearByBaby;
 @end

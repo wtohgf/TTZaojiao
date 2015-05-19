@@ -42,7 +42,8 @@
     _videoPathList = [NSMutableArray array];
     _yiziCaoTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    [NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(getGYMPath) userInfo:nil repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(getGYMPath) userInfo:nil repeats:NO];
+    [self getGYMPath];
 }
 
 -(void)getGYMPath{

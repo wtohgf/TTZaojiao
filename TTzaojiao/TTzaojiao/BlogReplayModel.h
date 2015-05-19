@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface BlogReplayModel : NSObject
+@property (copy, nonatomic) NSString * msg;
+@property (copy, nonatomic) NSString * msg_word;
+@property (copy, nonatomic) NSString * p_0;
+@property (copy, nonatomic) NSString * p_1;
+@property (copy, nonatomic) NSString * p_2;
+
 @property (copy, nonatomic) NSString * Birthday;
 @property (copy, nonatomic) NSString * baby_name;
 @property (copy, nonatomic) NSString * face;

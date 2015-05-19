@@ -15,7 +15,7 @@
 +(NSString *) getMounthOfDate:(NSDate*) compareDate;
 //yyyy－MM-HH
 +(NSString *) getMounthOfDateString:(NSString*) dateString;
-+(NSTimeInterval)getTimeIntervalOfDateString:(NSString*) dateString;
++(NSComparisonResult)compareDateNow:(NSString *)dateString;
 +(NSString *) getChnYMDWithString:(NSString*) dateString;
 -(CGRect)boundByFont:(UIFont*)font andWidth:(CGFloat)width;
 

@@ -190,6 +190,7 @@
 		1D3BC0D31AF8A1F500E8BE72 /* WUDemoKeyboardPressedCellPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0CF1AF8A1F500E8BE72 /* WUDemoKeyboardPressedCellPopupView.m */; };
 		1D3BC0D41AF8A1F500E8BE72 /* WUDemoKeyboardTextKeyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0D11AF8A1F500E8BE72 /* WUDemoKeyboardTextKeyCell.m */; };
 		1D3BC0D71AF8BA0E00E8BE72 /* EmojiTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BC0D61AF8BA0E00E8BE72 /* EmojiTextAttachment.m */; };
+		1D3C82561B09EF29005A5A86 /* shengao_nianling_female.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1D3C82551B09EF29005A5A86 /* shengao_nianling_female.gif */; };
 		1D3FD90E1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FD90D1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m */; };
 		1D3FD9121AFC4C9600B9CA6B /* TTNearBybabyInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FD9111AFC4C9600B9CA6B /* TTNearBybabyInfoView.m */; };
 		1D3FD9191AFC5AD800B9CA6B /* NearByBabyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3FD9181AFC5AD800B9CA6B /* NearByBabyModel.m */; };
@@ -651,6 +652,7 @@
 		1D3BC0D11AF8A1F500E8BE72 /* WUDemoKeyboardTextKeyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUDemoKeyboardTextKeyCell.m; sourceTree = "<group>"; };
 		1D3BC0D51AF8BA0E00E8BE72 /* EmojiTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiTextAttachment.h; sourceTree = "<group>"; };
 		1D3BC0D61AF8BA0E00E8BE72 /* EmojiTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiTextAttachment.m; sourceTree = "<group>"; };
+		1D3C82551B09EF29005A5A86 /* shengao_nianling_female.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shengao_nianling_female.gif; sourceTree = "<group>"; };
 		1D3FD90C1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNearBybabyTableViewCell.h; sourceTree = "<group>"; };
 		1D3FD90D1AFC4C3000B9CA6B /* TTNearBybabyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNearBybabyTableViewCell.m; sourceTree = "<group>"; };
 		1D3FD9101AFC4C9600B9CA6B /* TTNearBybabyInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNearBybabyInfoView.h; sourceTree = "<group>"; };

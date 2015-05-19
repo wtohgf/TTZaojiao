@@ -16,7 +16,6 @@
     CGFloat _backBottonBarY;
     NSString* _picsPath;
     NSMutableArray* _images;
-    NSString* _sort;//1早教自拍 2课程提问 3宝宝生活
 }
 @end
 @implementation TTDynamicReleaseViewController
@@ -40,7 +39,9 @@
     }
     _images = [NSMutableArray array];
     _picsPath = @"";
-    _sort = @"1";
+    if (_sort == nil) {
+        _sort = @"1";
+    }
 }
 
 -(void)addSubTextView{
@@ -66,7 +67,24 @@
 }
 
 -(void)imagePickerDidSelectImage:(UIImage *)image{
-    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
+    CGSize size;
+    if (image.size.width >= image.size.height) {
+        size = (CGSize){100.f*image.size.width/image.size.height, 100.f};
+    }else{
+        size = (CGSize){100.f, 100.f*image.size.height/image.size.width};
+    }
+    
+    image = [image scaleToSize:image size:size];
+    
+    CGFloat step = 0.25;
+    CGFloat orignal = 1.0;
+    NSData* imageData = UIImageJPEGRepresentation(image, orignal);
+    while (imageData.length > 1024*528) {
+        orignal = orignal - step;
+        imageData = UIImageJPEGRepresentation(image, orignal);
+    }
+    
+    image = [UIImage imageWithData:imageData];
     [_images addObject:image];
     [_publichPicsView addPicImage:image];
 }
@@ -83,6 +101,7 @@
         return;
     }
     
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
         if (location != nil) {
             _location = location;
@@ -94,19 +113,16 @@
         }else{
             [self publichState];
         }
-
-    }];
+    } View:self.navigationController.view];
 
 }
 
 -(void)uploadPics{
     
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:_images Result:^(id result_data, ApiStatus result_status) {
         if ([result_data isKindOfClass:[NSMutableArray class]]) {
             NSMutableArray* list = (NSMutableArray*)result_data;
             if (list.count!=0) {
-                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
                 
                 [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                     NSDictionary* dict = (NSDictionary*)obj;
@@ -172,16 +188,17 @@
                                  };
     
     [[AFAppDotNetAPIClient sharedClient]apiGet:PUBLISH_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-
+        
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        
         if (result_status == ApiStatusSuccess) {
             [MBProgressHUD TTDelayHudWithMassage:@"发布成功" View:self.navigationController.view];
-            
+            [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
+            [TTUIChangeTool sharedTTUIChangeTool].sort = _sort;
             [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(cancel:) userInfo:nil repeats:NO];
             
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误，请检查网络" View:self.navigationController.view];
         };
         
     }];
@@ -191,6 +208,7 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     [self addKeyNotification];
+    [_textView becomeFirstResponder];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

@@ -33,11 +33,27 @@
     //设定headerView
     [self setTableViewHeader];
     
+    [self getLessionID];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self getLessionID];
+    
+    if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        _rightView.vip.hidden = YES;
+    }else{
+        [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
+            
+            NSComparisonResult result = [NSString compareDateNow:user.vip_time];
+            if (NSOrderedDescending == result) {
+                _rightView.vip.hidden = NO;
+            }else{
+                _rightView.vip.hidden = YES;
+            }
+            
+        }];
+    }
 }
 
 -(void)addNavItems{
@@ -202,6 +218,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section != 0) {
+        if (_lessList == nil || _lessList[indexPath.section-1] == nil) {
+            return;
+        }
         [self performSegueWithIdentifier:@"toPlayLession" sender:_lessList[indexPath.section-1]];
     }
 }

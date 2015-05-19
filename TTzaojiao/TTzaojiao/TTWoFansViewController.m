@@ -66,7 +66,6 @@
     TTNearBybabyTableViewCell* cell = [TTNearBybabyTableViewCell nearBybabyCellWithTableView:tableView];
     cell.nearByBaby = _friendList[indexPath.row];
     cell.babyInfoView.distance.hidden = YES;
-    cell.delegate = self;
     return cell;
 }
 
@@ -124,10 +123,11 @@
     [[self rdv_tabBarController] setTabBarHidden:NO];
 }
 
--(void)didIconTaped:(NSString *)uid{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
     TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    [userViewController setI_uid:uid];
+    NearByBabyModel* baby = _friendList[indexPath.row];
+    [userViewController setI_uid:baby.uid];
     [self.navigationController pushViewController:userViewController animated:YES];
 }
 

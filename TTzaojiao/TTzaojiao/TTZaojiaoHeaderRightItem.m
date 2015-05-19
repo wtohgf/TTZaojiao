@@ -87,12 +87,12 @@
     CGFloat vipw = _vip.bounds.size.width;
     CGFloat viph = _vip.bounds.size.height;
     _vip.frame = CGRectMake(vipx, vipy, vipw, viph);
-    if ([logonUser.vip isEqualToString:@"0"]) {
-        _vip.hidden = YES;
-    }else{
-        _vip.hidden = NO;
-    }
-    
+//    if ([logonUser.vip isEqualToString:@"0"]) {
+//        _vip.hidden = YES;
+//    }else{
+//        _vip.hidden = NO;
+//    }
+//    
 
     CGFloat genderAgex = _vip.left - TTBlogTableBorder*0.5 - _genderAge.width;
     CGFloat genderAgey = vipy;

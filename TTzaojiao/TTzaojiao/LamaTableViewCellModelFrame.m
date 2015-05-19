@@ -53,13 +53,10 @@
     _model.count =  (int)heightArray.count;
     _model.count += 3;
     
-    
     //算公司描述
     CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width-8*2, MAXFLOAT);
     CGSize  textSize = [model.i_content  sizeWithMaxSize:maxSize andFont:kTextFont];
     _i_contentFrame = CGRectMake(8, 0, [UIScreen mainScreen].bounds.size.width-8*2, textSize.height);
-    
-    
     
 }
 @end

@@ -19,7 +19,6 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     return cell;
     
 }
@@ -57,15 +56,15 @@
     _detailLession = detailLession;
     [_lessionAim setTitle:@"课程目标" Content:detailLession.active_mubiao];
     
-    _lessionAim.frame = CGRectMake(TTBlogTableBorder, TTBlogTableBorder, _lessionAim.contentLabel.bounds.size.width, _lessionAim.viewHeight);
+    _lessionAim.frame = CGRectMake(TTBlogTableBorder, TTBlogTableBorder, ScreenWidth-2*TTBlogTableBorder, _lessionAim.viewHeight);
     
     [_lessionAttention setTitle:@"注意事项" Content:detailLession.active_zhuyi];
-    _lessionAttention.frame = CGRectMake(TTBlogTableBorder, _lessionAim.bottom + TTBlogTableBorder, _lessionAttention.contentLabel.bounds.size.width, _lessionAttention.viewHeight);
+    _lessionAttention.frame = CGRectMake(TTBlogTableBorder, _lessionAim.bottom + TTBlogTableBorder, ScreenWidth-2*TTBlogTableBorder, _lessionAttention.viewHeight);
     
     [_lessionStep setTitle:@"操作步骤" Content: detailLession.active_buzhou];
-    _lessionStep.frame = CGRectMake(TTBlogTableBorder, _lessionAttention.bottom + TTBlogTableBorder, _lessionStep.contentLabel.bounds.size.width, _lessionStep.viewHeight);
+    _lessionStep.frame = CGRectMake(TTBlogTableBorder, _lessionAttention.bottom + TTBlogTableBorder, ScreenWidth-2*TTBlogTableBorder, _lessionStep.viewHeight);
     
-    _picsView.frame = CGRectMake(TTBlogTableBorder, _lessionStep.bottom, ScreenWidth-2*TTBlogTableBorder, _picsView.viewHeight);
+    _picsView.frame = CGRectMake(TTBlogTableBorder, _lessionStep.bottom, ScreenWidth-2*TTBlogTableBorder, [TTPlayLessionIntroducePicsView viewHeightWithPicsCount:8]);
     
     NSArray* picsList = [detailLession.pic componentsSeparatedByString:@"|"];
     

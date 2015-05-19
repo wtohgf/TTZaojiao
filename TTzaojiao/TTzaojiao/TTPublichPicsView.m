@@ -31,18 +31,12 @@
             photoView.frame = CGRectMake(picX, picY, picW, picH);
             photoView.userInteractionEnabled = YES;
             photoView.tag = i;
-            [photoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTap:)]];
             [self addSubview:photoView];
             [_pics addObject:photoView];
             photoView.hidden = YES;
         }
     }
     return self;
-}
-
-- (void)photoTap:(UITapGestureRecognizer *)recognizer
-{
-    
 }
 
 -(void)addPic:(NSString *)picName{

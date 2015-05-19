@@ -75,6 +75,7 @@
 
 -(void)dynamic_state:(UIBarButtonItem*)item{
     if (![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        
         [self performSegueWithIdentifier:@"toRelease" sender:item];
     }else{
         UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以发布自己的动态" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
@@ -140,6 +141,16 @@
     sortSeg.selectedSegmentIndex = 0;
     [view addSubview:sortSeg];
     
+    _pageIndexInt = 1;
+    _isGetMoreBlog = NO;
+    _i_sort = @"1";
+    _group = @"0";
+    if (_sortSeg.selectedSegmentIndex == 3) {
+        [self showNearByBaby];
+    }else{
+        [self updateBlog];
+    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -147,14 +158,23 @@
     if (_lession != nil) {
         [[self rdv_tabBarController] setTabBarHidden:YES animated:NO];
     }
-    _pageIndexInt = 1;
-    _isGetMoreBlog = NO;
-    if (_sortSeg.selectedSegmentIndex == 3) {
-        [self showNearByBaby];
-    }else{
-        [self updateBlog];
-    }
 
+    if ([TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI){
+        [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = NO;
+        _pageIndexInt = 1;
+        _isGetMoreBlog = NO;
+        if ([TTUIChangeTool sharedTTUIChangeTool].sort != nil) {
+            _sortSeg.selectedSegmentIndex = [[TTUIChangeTool sharedTTUIChangeTool].sort integerValue]-1;
+            _i_sort = [TTUIChangeTool sharedTTUIChangeTool].sort;
+            [TTUIChangeTool sharedTTUIChangeTool].sort = nil;
+        }
+        
+        if (_sortSeg.selectedSegmentIndex == 3) {
+            [self showNearByBaby];
+        }else{
+            [self updateBlog];
+        }
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -301,7 +321,7 @@
         TTNearBybabyTableViewCell* cell = [TTNearBybabyTableViewCell nearBybabyCellWithTableView:tableView];
         
         cell.nearByBaby = _nearByBabys[indexPath.row];
-        cell.delegate = self;
+//        cell.delegate = self;
         return cell;
     }else{
         TTDyanmicUserStautsCell* cell = [TTDyanmicUserStautsCell dyanmicUserStautsCellWithTableView:tableView];
@@ -315,10 +335,10 @@
     
 }
 
-//附近宝宝头像点击处理
--(void)didIconTaped:(NSString *)uid{
-    [self performSegueWithIdentifier:@"toUserDynamic" sender:uid];
-}
+////附近宝宝头像点击处理
+//-(void)didIconTaped:(NSString *)uid{
+//    [self performSegueWithIdentifier:@"toUserDynamic" sender:uid];
+//}
 
 //点赞
 -(void)daynamicUserStatusZanClicked:blogid{
@@ -392,14 +412,13 @@
     
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
     if ([_i_sort isEqualToString:@"4"]) {
-        [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
-            if (location != nil) {
-                _location = location;
-            }else{
-                _location = nil;
+        [[TTCityMngTool sharedCityMngTool]startLocation:^(CLLocation *location, NSError *error) {
+            if (location == nil) {
+                [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
             }
+            _location = location;
             [self showNearByBaby];
-        }];
+        } View:self.navigationController.view];
     }else{
         [self updateBlog];
     }
@@ -433,8 +452,10 @@
         if (_lession != nil) {
             rv.activeID = _lession.active_id;
         }
+        if (_sortSeg.selectedSegmentIndex < 3) {
+            rv.sort = [NSString stringWithFormat:@"%zi", _sortSeg.selectedSegmentIndex+1];
+        }
     }
-    
 }
 
 -(void)showNearByBaby{
@@ -491,6 +512,10 @@
                         [_dongtaiTable reloadData];
                     }else{
                         [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
+                        if (_sortSeg.selectedSegmentIndex == 3) {
+                            [_nearByBabys removeAllObjects];
+                            [_dongtaiTable reloadData];
+                        }
                     }
 
                 }
@@ -498,6 +523,10 @@
             }
             
         }else{
+            if (_sortSeg.selectedSegmentIndex == 3) {
+                [_nearByBabys removeAllObjects];
+                [_dongtaiTable reloadData];
+            }
             if (_isGetMoreBlog) {
                 [_dongtaiTable.footer endRefreshing];
                 _isGetMoreBlog = NO;
@@ -509,6 +538,13 @@
             }
         };
     }];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_sortSeg.selectedSegmentIndex == 3) {
+        NearByBabyModel* baby = _nearByBabys[indexPath.row];
+        [self performSegueWithIdentifier:@"toUserDynamic" sender:baby.uid];
+    }
 }
 
 @end

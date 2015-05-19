@@ -7,6 +7,7 @@
 //
 
 #import "AlipayRequestConfig.h"
+#import "TTUserModelTool.h"
 
 @interface AlipayRequestConfig (TTAlipay)
 
@@ -17,6 +18,6 @@
  *  @param productDescription 商品详情
  *  @param amount             总金额
  */
-+(NSString *)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount;
++(NSString *)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount ttid:(NSString*)ttid;
 
 @end

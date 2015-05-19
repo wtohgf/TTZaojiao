@@ -8,7 +8,7 @@
 
 #import "TTCommentRelaseView.h"
 
-#define kCommentViewRatio 44.f/600.f
+#define kBottomBarHeight 44.f
 
 @implementation TTCommentRelaseView
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -21,14 +21,14 @@
         //设置边框颜色
         [_commentTextField.layer setBorderColor:[UIColor blackColor].CGColor];
         
-        textField.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width*4/5, [UIScreen mainScreen].bounds.size.height*kCommentViewRatio);
+        textField.frame = CGRectMake(1.f, 1.f, [UIScreen mainScreen].bounds.size.width*4/5, kBottomBarHeight - 2.f);
         [textField addTarget:self action:@selector(editend:) forControlEvents:UIControlEventEditingDidEndOnExit];
     
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         
         [self addSubview:button];
         _replayButton = button;
-        button.frame = CGRectMake(textField.right, 0, [UIScreen mainScreen].bounds.size.width - textField.right, textField.height);
+        button.frame = CGRectMake(textField.right, 1.f, [UIScreen mainScreen].bounds.size.width - textField.right, textField.height);
         [button addTarget:self action:@selector(replay:) forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:@"发布" forState:UIControlStateNormal];
         

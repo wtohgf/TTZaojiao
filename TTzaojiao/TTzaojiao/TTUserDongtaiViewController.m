@@ -52,12 +52,6 @@
     }
     
     _blogList = [NSMutableArray array];
-    _isGetMoreList = NO;
-    _pageIndex = @"1";
-    _isMyFriend = NO;
-    _isChangCover = NO;
-    _isChangIcon = NO;
-    [self updateDynamicBlog];
     
     [self setupRefresh];
     
@@ -75,6 +69,13 @@
 
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarHidden = YES;
+    
+    _isGetMoreList = NO;
+    _pageIndex = @"1";
+    _isMyFriend = NO;
+    _isChangCover = NO;
+    _isChangIcon = NO;
+    [self updateDynamicBlog];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -388,9 +389,11 @@
                     NSDictionary* result = [result_data firstObject];
                     if ([[result objectForKey:@"msg"] isEqualToString:@"Blog_Del"]) {
                         [MBProgressHUD TTDelayHudWithMassage:@"动态删除成功" View:self.navigationController.view];
+                        [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
                         _isGetMoreList = NO;
                         _pageIndex = @"1";
                         [self updateDynamicBlog];
+                        
                     }else{
                         [MBProgressHUD TTDelayHudWithMassage:@"动态删除失败" View:self.navigationController.view];
                     }

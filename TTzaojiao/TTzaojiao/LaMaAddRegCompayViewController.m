@@ -26,6 +26,7 @@
 #pragma mark 入驻申请布局
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     //NSLog(@"reg");
     self.navigationItem.title = @"申请入驻辣妈街";
     
@@ -51,10 +52,18 @@
     regBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [regBtn setBackgroundColor:[UIColor colorWithRed:252/255.0 green:33/255.0 blue:94/255.0 alpha:1.0]];
     [regBtn addTarget:self action:@selector(regBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    regBtn.layer.cornerRadius = 18.f;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
 
-    
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark 文本代理方法
@@ -126,10 +135,6 @@
     }];
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 #pragma mark 键盘通知处理函数
 - (void) keyboardChange:(NSNotification*)notification
 {

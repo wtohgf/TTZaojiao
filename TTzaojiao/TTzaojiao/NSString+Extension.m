@@ -112,15 +112,15 @@
     return mouth;
 }
 
-+(NSTimeInterval)getTimeIntervalOfDateString:(NSString *)dateString{
++(NSComparisonResult)compareDateNow:(NSString *)dateString{
     NSDateFormatter* formater = [[NSDateFormatter alloc]init];
-    [formater setDateFormat:@"yyyy-mm-dd HH:mm:ss"];
+    [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
      NSDate* date = [formater dateFromString:dateString];
     if (date == nil) {
-        [formater setDateFormat:@"yyyy-mm-dd"];
+        [formater setDateFormat:@"yyyy-MM-dd"];
         date = [formater dateFromString:dateString];
     }
-    return [date timeIntervalSinceNow];
+    return [date compare:[NSDate date]];
 }
 
 +(NSString *)getChnYMDWithString:(NSString *)dateString{

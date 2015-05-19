@@ -10,8 +10,9 @@
 
 @implementation AlipayRequestConfig (TTAlipay)
 
-+(NSString *)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount {
-    NSString *tradeNo = [AlipayToolKit genTradeNoWithTime];
++(NSString *)payWithProductName:(NSString *)productName productDescription:(NSString *)productDescription amount:(NSString *)amount ttid:(NSString*)ttid {
+    NSString *prefixtradeNo = [AlipayToolKit genTradeNoWithTime];
+    NSString *tradeNo = [NSString stringWithFormat:@"%@-%@-%@", prefixtradeNo, [TTUserModelTool sharedUserModelTool].logonUser.ttid, ttid];
     [AlipayRequestConfig alipayWithPartner:kPartnerID
                                     seller:kSellerAccount
                                    tradeNO:tradeNo
