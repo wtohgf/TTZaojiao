@@ -418,7 +418,7 @@
             }
             _location = location;
             [self showNearByBaby];
-        } View:self.navigationController.view];
+        }];
     }else{
         [self updateBlog];
     }

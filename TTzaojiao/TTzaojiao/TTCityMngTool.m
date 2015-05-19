@@ -118,12 +118,12 @@ static TTCityMngTool* tool;
 }
 
 //开始定位
--(void)startLocation:(actionLocationBlock)locationBlock View:(UIView*)showinView{
+-(void)startLocation:(actionLocationBlock)locationBlock{
     
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     if (kCLAuthorizationStatusDenied == status || kCLAuthorizationStatusRestricted == status) {
         
-        [[UIAlertView alloc]showWithTitle:@"定位失败" message:@"请您在设置中打开定位服务" cancelButtonTitle:@"知道了"];
+//        [[UIAlertView alloc]showWithTitle:@"定位失败" message:@"请您在设置中打开定位服务" cancelButtonTitle:@"知道了"];
 //        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
 //        
 //        if ([[UIApplication sharedApplication] canOpenURL:url]) {

@@ -75,16 +75,6 @@
     }
     
     image = [image scaleToSize:image size:size];
-    
-    CGFloat step = 0.25;
-    CGFloat orignal = 1.0;
-    NSData* imageData = UIImageJPEGRepresentation(image, orignal);
-    while (imageData.length > 1024*528) {
-        orignal = orignal - step;
-        imageData = UIImageJPEGRepresentation(image, orignal);
-    }
-    
-    image = [UIImage imageWithData:imageData];
     [_images addObject:image];
     [_publichPicsView addPicImage:image];
 }
@@ -113,7 +103,7 @@
         }else{
             [self publichState];
         }
-    } View:self.navigationController.view];
+    }];
 
 }
 
@@ -224,16 +214,22 @@
     
     UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"早教自拍" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         _sort = @"1";
+        [_textView resignFirstResponder];
+        [self release:nil];
     }];
     [ac addAction:action1];
     UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"课程提问" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         ;
          _sort = @"2";
+        [_textView resignFirstResponder];
+        [self release:nil];
     }];
     [ac addAction:action2];
     UIAlertAction* action3 = [UIAlertAction actionWithTitle:@"宝宝生活" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         ;
         _sort = @"3";
+        [_textView resignFirstResponder];
+        [self release:nil];
     }];
     [ac addAction:action3];
     [self presentViewController:ac animated:YES completion:nil];
@@ -261,7 +257,7 @@
 #pragma mark 添加低栏
 -(void)addBottomBar{
 
-    CGFloat h = [UIScreen mainScreen].bounds.size.height*44.f/600.f;
+    CGFloat h = kBottomBarHeight;
     
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat y = [UIScreen mainScreen].bounds.size.height - self.navigationController.navigationBar.height -[UIApplication sharedApplication].statusBarFrame.size.height - h;

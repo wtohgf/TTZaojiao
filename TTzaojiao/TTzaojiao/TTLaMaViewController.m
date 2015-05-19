@@ -83,7 +83,7 @@
         }
         //加载异步网络数据
         [self loadData];
-    } View:self.navigationController.view];
+    }];
 }
 
 -(void)setupRefresh{

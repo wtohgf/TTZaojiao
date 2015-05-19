@@ -222,7 +222,7 @@
             [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
                 _location = location;
                 [self replayComment];
-            } View:self.navigationController.view];
+            }];
             
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"评论不能为空" View:self.navigationController.view];
