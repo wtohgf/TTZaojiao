@@ -108,17 +108,22 @@
             
             //[self drawPic];
             //caculata height of section 1
-            UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
-            CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
-            CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
-            
+//            UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
+            UIImage* leftImage = [UIImage imageNamed:@"temp_report_left.gif"];
+//            CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
+//            CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
+            CGFloat picW = leftImage.size.width;
+            CGFloat picH = leftImage.size.height;
             CGFloat leftWidth = screenWidth*kLeftRatio;
             CGFloat leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
             
             
-            UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
-            CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
-            CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
+//            UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
+            UIImage* bottomImage = [UIImage imageNamed:@"temp_report_bottom.gif"];
+            CGFloat bottomW = bottomImage.size.width;
+            CGFloat bottomH = bottomImage.size.height;
+//            CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
+//            CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
             
             CGFloat bottomWidth = screenWidth*(kRightRatio+8*kCenterRatio+kLeftRatio);
             CGFloat bottomHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
@@ -356,10 +361,16 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (_modelArray == nil) {
+        return 1;
+    }
     return 11;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (_modelArray == nil) {
+        return 0;
+    }
     return 1;
 }
 #define ktitleHeight 30.0f
@@ -367,7 +378,7 @@
 #define kpadding 8.0f
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(_modelArray == nil) return 10.f;
+    if(_modelArray == nil) return 0.f;
     if (indexPath.section == 0) {
         return 140.0f;
     }
