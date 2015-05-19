@@ -7,13 +7,7 @@ HSDatePickerViewController
 
 Usage
 =====
-Use [CocoaPods](http://guides.cocoapods.org/using/using-cocoapods.html)
-```
-pod 'HSDatePickerViewController', '~> 1.0'
-```
-or add sources from `HSDatePickerViewControllerDemo/HSDatePickerViewController` subfolder to your project.
-
-
+Add sources from `HSDatePickerViewControllerDemo/HSDatePickerViewController` subfolder to your project.
 
 Import main header:
 

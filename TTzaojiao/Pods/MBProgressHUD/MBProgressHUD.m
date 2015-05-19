@@ -209,13 +209,6 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 }
 
 - (id)initWithView:(UIView *)view {
-   /* *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'View must not be nil.'
-    *** First throw call stack:
-    (0x183d0a59c 0x1944600e4 0x183d0a45c 0x184b91554 0x1001377e8 0x1001366e4 0x1000c3b84 0x1000c38e0 0x1000c2b04 0x1001478cc 0x100454e30 0x100454df0 0x10045eeb4 0x100454df0 0x10046acd4 0x10045701c 0x100459500 0x183cc1fa4 0x183cc004c 0x183bed0a4 0x18cd8f5a4 0x1885223c0 0x1000bd384 0x194acea08)
-    libc++abi.dylib: terminating with uncaught exception of type NSException*/
-    if (view == nil) {
-       return [self initWithFrame:CGRectZero];
-    }
 	NSAssert(view, @"View must not be nil.");
 	return [self initWithFrame:view.bounds];
 }
