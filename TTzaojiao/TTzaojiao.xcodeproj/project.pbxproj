@@ -55,15 +55,21 @@
 		02FBF12C1AFB26B70009425A /* TTWoPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF12B1AFB26B70009425A /* TTWoPersonalInfoViewController.m */; };
 		02FBF1331AFB2A130009425A /* TTWoPasswordModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */; };
 		0F6AE2E71AE7765B0004AD05 /* TTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */; };
+		0F7A26171B0A028700FB58E2 /* TTWoTemperatureTestAllModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A26161B0A028700FB58E2 /* TTWoTemperatureTestAllModel.m */; };
+		0F7A261B1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A261A1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m */; };
+		0F7A26241B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A26231B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m */; };
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
 		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
 		0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */; };
+		0F842F4D1B0B056800ECF92F /* temp_report_right.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F842F4C1B0B056800ECF92F /* temp_report_right.gif */; };
+		0F842F4F1B0B057200ECF92F /* temp_report_left.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F842F4E1B0B057200ECF92F /* temp_report_left.gif */; };
+		0F842F511B0B058800ECF92F /* temp_report_center.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F842F501B0B058700ECF92F /* temp_report_center.jpg */; };
+		0F842F531B0B061500ECF92F /* temp_report_bottom.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F842F521B0B061500ECF92F /* temp_report_bottom.gif */; };
 		0F92FDF01B09903000D2D799 /* TTWoGrowTestReportFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F92FDEF1B09903000D2D799 /* TTWoGrowTestReportFrame.m */; };
 		0F92FDF31B09919B00D2D799 /* TTWoGrowTestReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F92FDF21B09919B00D2D799 /* TTWoGrowTestReportModel.m */; };
 		0F92FDF61B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F92FDF51B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.m */; };
 		0F92FE021B09C23E00D2D799 /* nianling_h.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F92FDF81B09C23E00D2D799 /* nianling_h.gif */; };
 		0F92FE031B09C23E00D2D799 /* shengao_h.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F92FDF91B09C23E00D2D799 /* shengao_h.gif */; };
-		0F92FE041B09C23E00D2D799 /* shengao_nianling_female.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F92FDFA1B09C23E00D2D799 /* shengao_nianling_female.gif */; };
 		0F92FE051B09C23E00D2D799 /* shengao_nianling_male.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F92FDFB1B09C23E00D2D799 /* shengao_nianling_male.gif */; };
 		0F92FE061B09C23E00D2D799 /* shengao_tizhong_female.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F92FDFC1B09C23E00D2D799 /* shengao_tizhong_female.gif */; };
 		0F92FE071B09C23E00D2D799 /* shengao_tizhong_male.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0F92FDFD1B09C23E00D2D799 /* shengao_tizhong_male.gif */; };
@@ -428,12 +434,22 @@
 		02FBF1321AFB2A130009425A /* TTWoPasswordModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoPasswordModifyViewController.m; sourceTree = "<group>"; };
 		0F6AE2E51AE7765B0004AD05 /* TTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabBarController.h; sourceTree = "<group>"; };
 		0F6AE2E61AE7765B0004AD05 /* TTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabBarController.m; sourceTree = "<group>"; };
+		0F7A26151B0A028700FB58E2 /* TTWoTemperatureTestAllModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTemperatureTestAllModel.h; sourceTree = "<group>"; };
+		0F7A26161B0A028700FB58E2 /* TTWoTemperatureTestAllModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTemperatureTestAllModel.m; sourceTree = "<group>"; };
+		0F7A26191B0A113C00FB58E2 /* TTWoTemperatureTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTemperatureTestModel.h; sourceTree = "<group>"; };
+		0F7A261A1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTemperatureTestModel.m; sourceTree = "<group>"; };
+		0F7A26221B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoTemperatureTestCell.h; sourceTree = "<group>"; };
+		0F7A26231B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTemperatureTestCell.m; sourceTree = "<group>"; };
 		0F7C06CA1AEA1B120020ACBA /* LamaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaModel.h; sourceTree = "<group>"; };
 		0F7C06CB1AEA1B120020ACBA /* LamaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaModel.m; sourceTree = "<group>"; };
 		0F7C06CD1AEA216C0020ACBA /* LamaTotalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTotalModel.h; sourceTree = "<group>"; };
 		0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTotalModel.m; sourceTree = "<group>"; };
 		0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCell.h; sourceTree = "<group>"; };
 		0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCell.m; sourceTree = "<group>"; };
+		0F842F4C1B0B056800ECF92F /* temp_report_right.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = temp_report_right.gif; sourceTree = "<group>"; };
+		0F842F4E1B0B057200ECF92F /* temp_report_left.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = temp_report_left.gif; sourceTree = "<group>"; };
+		0F842F501B0B058700ECF92F /* temp_report_center.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = temp_report_center.jpg; sourceTree = "<group>"; };
+		0F842F521B0B061500ECF92F /* temp_report_bottom.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = temp_report_bottom.gif; sourceTree = "<group>"; };
 		0F92FDEE1B09903000D2D799 /* TTWoGrowTestReportFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoGrowTestReportFrame.h; sourceTree = "<group>"; };
 		0F92FDEF1B09903000D2D799 /* TTWoGrowTestReportFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoGrowTestReportFrame.m; sourceTree = "<group>"; };
 		0F92FDF11B09919B00D2D799 /* TTWoGrowTestReportModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoGrowTestReportModel.h; sourceTree = "<group>"; };
@@ -442,7 +458,6 @@
 		0F92FDF51B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoGrowTestReportTigeCellTableViewCell.m; sourceTree = "<group>"; };
 		0F92FDF81B09C23E00D2D799 /* nianling_h.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = nianling_h.gif; sourceTree = "<group>"; };
 		0F92FDF91B09C23E00D2D799 /* shengao_h.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shengao_h.gif; sourceTree = "<group>"; };
-		0F92FDFA1B09C23E00D2D799 /* shengao_nianling_female.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shengao_nianling_female.gif; sourceTree = "<group>"; };
 		0F92FDFB1B09C23E00D2D799 /* shengao_nianling_male.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shengao_nianling_male.gif; sourceTree = "<group>"; };
 		0F92FDFC1B09C23E00D2D799 /* shengao_tizhong_female.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shengao_tizhong_female.gif; sourceTree = "<group>"; };
 		0F92FDFD1B09C23E00D2D799 /* shengao_tizhong_male.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = shengao_tizhong_male.gif; sourceTree = "<group>"; };
@@ -821,15 +836,18 @@
 		02240C931AE6394700EEB7AF /* wo */ = {
 			isa = PBXGroup;
 			children = (
+				0F92FE141B09ED4400D2D799 /* Models */,
 				1D48D1061B04832B002D48A8 /* Views */,
-				1D3B04951B08654C00E2E41D /* TTWoTempTestReportViewController.h */,
-				1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */,
+				1D3B04921B08614B00E2E41D /* TTWoTemperatureTestController.h */,
+				1D3B04931B08614B00E2E41D /* TTWoTemperatureTestController.m */,
 				1DB724691B05E62C005C2584 /* TTWoyiziCaoViewController.h */,
 				1DB7246A1B05E62C005C2584 /* TTWoyiziCaoViewController.m */,
 				1D48D1101B05A3AA002D48A8 /* TTWoFansViewController.h */,
 				1D48D1111B05A3AA002D48A8 /* TTWoFansViewController.m */,
 				1D48D10A1B0514DF002D48A8 /* TTWoScoreLessionViewController.h */,
 				1D48D10B1B0514DF002D48A8 /* TTWoScoreLessionViewController.m */,
+				1DB7247D1B0776A5005C2584 /* TTWoGrowTestReportViewController.h */,
+				1DB7247E1B0776A5005C2584 /* TTWoGrowTestReportViewController.m */,
 				028E08C71B004BF700966866 /* TTWoScoreViewController.h */,
 				028E08C81B004BF700966866 /* TTWoScoreViewController.m */,
 				02240C9C1AE639C000EEB7AF /* WoStoryboard.storyboard */,
@@ -855,8 +873,6 @@
 				1D3B04881B0826C400E2E41D /* GrowTestTitleContent.plist */,
 				1D3B048F1B0851E300E2E41D /* TTWoNavigtaionViewController.h */,
 				1D3B04901B0851E300E2E41D /* TTWoNavigtaionViewController.m */,
-				1D3B04921B08614B00E2E41D /* TTWoTemperatureTestController.h */,
-				1D3B04931B08614B00E2E41D /* TTWoTemperatureTestController.m */,
 				1D3B04981B086D1500E2E41D /* TTWoTempTestSubmitController.h */,
 				1D3B04991B086D1500E2E41D /* TTWoTempTestSubmitController.m */,
 			);
@@ -866,6 +882,8 @@
 		02240C941AE6394B00EEB7AF /* lamajie */ = {
 			isa = PBXGroup;
 			children = (
+				0F92FE131B09EC8000D2D799 /* Models */,
+				0F92FE121B09EB7400D2D799 /* Views */,
 				0FBED4701B0343C1002D4628 /* LaMaAddRegCompayViewController.h */,
 				0FBED4711B0343CD002D4628 /* LaMaAddRegCompayViewController.m */,
 				0FE830A61AF85EA100A15860 /* LaMaDetailViewController.h */,
@@ -1107,16 +1125,6 @@
 		02FBF1221AFA3EB30009425A /* WoModel */ = {
 			isa = PBXGroup;
 			children = (
-				0F92FDEE1B09903000D2D799 /* TTWoGrowTestReportFrame.h */,
-				0F92FDEF1B09903000D2D799 /* TTWoGrowTestReportFrame.m */,
-				0F92FDF11B09919B00D2D799 /* TTWoGrowTestReportModel.h */,
-				0F92FDF21B09919B00D2D799 /* TTWoGrowTestReportModel.m */,
-				0F92FDF41B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.h */,
-				0F92FDF51B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.m */,
-				0F92FE0C1B09CF4100D2D799 /* TTWoGrowTestReportShengaoCellTableViewCell.h */,
-				0F92FE0D1B09CF4100D2D799 /* TTWoGrowTestReportShengaoCellTableViewCell.m */,
-				0F92FE0F1B09D35500D2D799 /* TTWoGrowTestReportTizhongCellTableViewCell.h */,
-				0F92FE101B09D35600D2D799 /* TTWoGrowTestReportTizhongCellTableViewCell.m */,
 				02FBF1231AFA3EE20009425A /* WoVipModel.h */,
 				02FBF1241AFA3EE20009425A /* WoVipModel.m */,
 			);
@@ -1132,13 +1140,30 @@
 			name = TabbarPage;
 			sourceTree = "<group>";
 		};
+		0F7A26181B0A035800FB58E2 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				0F7A26221B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.h */,
+				0F7A26231B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m */,
+				0F7A26151B0A028700FB58E2 /* TTWoTemperatureTestAllModel.h */,
+				0F7A26161B0A028700FB58E2 /* TTWoTemperatureTestAllModel.m */,
+				0F7A26191B0A113C00FB58E2 /* TTWoTemperatureTestModel.h */,
+				0F7A261A1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m */,
+				1D3B04951B08654C00E2E41D /* TTWoTempTestReportViewController.h */,
+				1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
 		0F92FDF71B09C21B00D2D799 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
-				1D3C82551B09EF29005A5A86 /* shengao_nianling_female.gif */,
+				0F842F501B0B058700ECF92F /* temp_report_center.jpg */,
+				0F842F4C1B0B056800ECF92F /* temp_report_right.gif */,
+				0F842F4E1B0B057200ECF92F /* temp_report_left.gif */,
+				0F842F521B0B061500ECF92F /* temp_report_bottom.gif */,
 				0F92FDF81B09C23E00D2D799 /* nianling_h.gif */,
 				0F92FDF91B09C23E00D2D799 /* shengao_h.gif */,
-				0F92FDFA1B09C23E00D2D799 /* shengao_nianling_female.gif */,
 				0F92FDFB1B09C23E00D2D799 /* shengao_nianling_male.gif */,
 				0F92FDFC1B09C23E00D2D799 /* shengao_tizhong_female.gif */,
 				0F92FDFD1B09C23E00D2D799 /* shengao_tizhong_male.gif */,
@@ -1150,7 +1175,26 @@
 			name = imgs;
 			sourceTree = "<group>";
 		};
-		0FAD38F21AEDDB9100644273 /* LamaModel */ = {
+		0F92FE121B09EB7400D2D799 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */,
+				0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */,
+				0FE830A51AF85E8B00A15860 /* LamaTableViewCellNameAndPic.h */,
+				0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */,
+				0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicList.h */,
+				0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */,
+				0FCB300A1AFC907D005F00C7 /* LamaTableViewCellLabel.h */,
+				0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */,
+				0FCB300D1AFC90A2005F00C7 /* LamaTableViewCellContact.h */,
+				0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */,
+				0FCB30101AFC90B9005F00C7 /* LamaTableViewCellContent.h */,
+				0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0F92FE131B09EC8000D2D799 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				0F7C06CA1AEA1B120020ACBA /* LamaModel.h */,
@@ -1161,10 +1205,19 @@
 				0FE830A81AF85EC100A15860 /* LaMaDetailModel.m */,
 				0FE830A11AF85DE800A15860 /* LamaTableViewCellModelFrame.h */,
 				0FE830A31AF85E5B00A15860 /* LamaTableViewCellModelFrame.m */,
-				1DB7247D1B0776A5005C2584 /* TTWoGrowTestReportViewController.h */,
-				1DB7247E1B0776A5005C2584 /* TTWoGrowTestReportViewController.m */,
 			);
-			name = LamaModel;
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0F92FE141B09ED4400D2D799 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F92FDEE1B09903000D2D799 /* TTWoGrowTestReportFrame.h */,
+				0F92FDEF1B09903000D2D799 /* TTWoGrowTestReportFrame.m */,
+				0F92FDF11B09919B00D2D799 /* TTWoGrowTestReportModel.h */,
+				0F92FDF21B09919B00D2D799 /* TTWoGrowTestReportModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		1D018E0C1AE15F6200696F25 /* BaseClass */ = {
@@ -1187,7 +1240,6 @@
 				1D651CF41AFE1145005093BF /* LessionModel */,
 				1D3FD9161AFC5AB800B9CA6B /* NearByBabyModel */,
 				02FBF1221AFA3EB30009425A /* WoModel */,
-				0FAD38F21AEDDB9100644273 /* LamaModel */,
 				1D47550B1AEB3140004EDEED /* BlogModel */,
 				1DC7C5CF1AE632F300346732 /* RegSecond */,
 				1DC7C5C81AE4B32E00346732 /* RegMsg */,
@@ -1272,18 +1324,6 @@
 				1D57E1A91AE74FED00EA3D35 /* CustomDatePicker.xib */,
 				1D57E1AB1AE7511E00EA3D35 /* CustomDatePicker.h */,
 				1D57E1AC1AE7511E00EA3D35 /* CustomDatePicker.m */,
-				0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */,
-				0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */,
-				0FE830A51AF85E8B00A15860 /* LamaTableViewCellNameAndPic.h */,
-				0FE8309D1AF85DCC00A15860 /* LamaTableViewCellNameAndPic.m */,
-				0FE8309E1AF85DCC00A15860 /* LamaTableViewCellPicList.h */,
-				0FE830A01AF85DE800A15860 /* LamaTableViewCellPicList.m */,
-				0FCB300A1AFC907D005F00C7 /* LamaTableViewCellLabel.h */,
-				0FCB300B1AFC907D005F00C7 /* LamaTableViewCellLabel.m */,
-				0FCB300D1AFC90A2005F00C7 /* LamaTableViewCellContact.h */,
-				0FCB300E1AFC90A2005F00C7 /* LamaTableViewCellContact.m */,
-				0FCB30101AFC90B9005F00C7 /* LamaTableViewCellContent.h */,
-				0FCB30111AFC90B9005F00C7 /* LamaTableViewCellContent.m */,
 				1D4253E01B03EF2300BBCB4A /* CustomBottomBar.h */,
 				1D4253E11B03EF2400BBCB4A /* CustomBottomBar.m */,
 			);
@@ -1593,6 +1633,13 @@
 		1D48D1061B04832B002D48A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0F7A26181B0A035800FB58E2 /* test */,
+				0F92FDF41B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.h */,
+				0F92FDF51B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.m */,
+				0F92FE0C1B09CF4100D2D799 /* TTWoGrowTestReportShengaoCellTableViewCell.h */,
+				0F92FE0D1B09CF4100D2D799 /* TTWoGrowTestReportShengaoCellTableViewCell.m */,
+				0F92FE0F1B09D35500D2D799 /* TTWoGrowTestReportTizhongCellTableViewCell.h */,
+				0F92FE101B09D35600D2D799 /* TTWoGrowTestReportTizhongCellTableViewCell.m */,
 				02D144F91AFCA7C00028DC80 /* TTWoIconTableViewCell.h */,
 				02D144FA1AFCA7C00028DC80 /* TTWoIconTableViewCell.m */,
 				02041B851AE8BD2800B09561 /* TTWoBackTableViewCell.h */,
@@ -1894,7 +1941,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D3BC0AC1AF8A1BD00E8BE72 /* weico@2x.png in Resources */,
-				0F92FE041B09C23E00D2D799 /* shengao_nianling_female.gif in Resources */,
 				1D3BC0C81AF8A1BD00E8BE72 /* keyboard_text.png in Resources */,
 				1D3BC0BC1AF8A1BD00E8BE72 /* keyboard_segment_normal.png in Resources */,
 				1DDF4EBC1AE3B712004661EB /* btn_020@2x.png in Resources */,
@@ -1945,6 +1991,7 @@
 				1D3BC0B71AF8A1BD00E8BE72 /* keyboard_emotion_selected@2x.png in Resources */,
 				1D3BC0B91AF8A1BD00E8BE72 /* keyboard_grid_bg@2x.png in Resources */,
 				1D3BC0BD1AF8A1BD00E8BE72 /* keyboard_segment_normal@2x.png in Resources */,
+				0F842F511B0B058800ECF92F /* temp_report_center.jpg in Resources */,
 				1D3BC0AF1AF8A1BD00E8BE72 /* keyboard_bg@2x.png in Resources */,
 				1D3B04891B0826C400E2E41D /* GrowTestTitleContent.plist in Resources */,
 				1D3BC0BF1AF8A1BD00E8BE72 /* keyboard_segment_normal_selected@2x.png in Resources */,
@@ -1954,12 +2001,14 @@
 				1DDF4EBB1AE3B712004661EB /* btn_020.press@2x.png in Resources */,
 				1D3B048E1B083A5C00E2E41D /* ScoreIntroduce.plist in Resources */,
 				1D4754FA1AEB2450004EDEED /* DongTaiStoryboard.storyboard in Resources */,
+				0F842F4F1B0B057200ECF92F /* temp_report_left.gif in Resources */,
 				0F92FE061B09C23E00D2D799 /* shengao_tizhong_female.gif in Resources */,
 				0F92FE0A1B09C23E00D2D799 /* tizhong_nianling_male.gif in Resources */,
 				1DDF4EC01AE3B712004661EB /* ProvincesAndCities.plist in Resources */,
 				1D3BC0C61AF8A1BD00E8BE72 /* keyboard_switch_pressed.png in Resources */,
 				1D3BC0BB1AF8A1BD00E8BE72 /* keyboard_popup@2x.png in Resources */,
 				1D3BC0B61AF8A1BD00E8BE72 /* keyboard_emotion_selected.png in Resources */,
+				0F842F4D1B0B056800ECF92F /* temp_report_right.gif in Resources */,
 				1D3BC0C91AF8A1BD00E8BE72 /* keyboard_text@2x.png in Resources */,
 				1DDF4EC21AE3B712004661EB /* TSLocateView.xib in Resources */,
 				1D57E1AA1AE74FED00EA3D35 /* CustomDatePicker.xib in Resources */,
@@ -2077,10 +2126,12 @@
 				1DB7247C1B076118005C2584 /* TTGrowTemperTestTool.m in Sources */,
 				1D3B04811B07FBD200E2E41D /* TTWoGrowTestWeightCell.m in Sources */,
 				1D3B04941B08614B00E2E41D /* TTWoTemperatureTestController.m in Sources */,
+				0F7A26171B0A028700FB58E2 /* TTWoTemperatureTestAllModel.m in Sources */,
 				02BFC57E1ADF903500D0DF30 /* CoreDataStorageController.m in Sources */,
 				0FCB30121AFC90B9005F00C7 /* LamaTableViewCellContent.m in Sources */,
 				1D44C89F1AEF411A00D2FC93 /* TTDynamicCommentsView.m in Sources */,
 				1D651CDC1AFDB831005093BF /* TTZaojiaoHeaderLeftItem.m in Sources */,
+				0F7A26241B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m in Sources */,
 				1D3762951AF0C76200CAAA05 /* TTUserDongtaiViewController.m in Sources */,
 				1D3FE2BC1AEE8712006D66FC /* TTDynamicUserStatusTopView.m in Sources */,
 				1D3BC07C1AF89F6100E8BE72 /* WUEmoticonsKeyboardKeyItemGroupView.m in Sources */,
@@ -2098,6 +2149,7 @@
 				02BFC4ED1ADF668100D0DF30 /* NetworkHelper.m in Sources */,
 				1D4253A81B005AB000BBCB4A /* TTPlayLessionHeaderCell.m in Sources */,
 				1D3FD9191AFC5AD800B9CA6B /* NearByBabyModel.m in Sources */,
+				0F7A261B1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m in Sources */,
 				0F92FE111B09D35600D2D799 /* TTWoGrowTestReportTizhongCellTableViewCell.m in Sources */,
 				02FBF1251AFA3EE20009425A /* WoVipModel.m in Sources */,
 				1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */,

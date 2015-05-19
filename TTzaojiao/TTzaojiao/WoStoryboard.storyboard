@@ -2272,9 +2272,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-Sj-m4X">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-Sj-m4X">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="623-xu-J4x" id="eL0-2K-3Bf"/>
                                     <outlet property="delegate" destination="623-xu-J4x" id="epL-GH-Fmf"/>
@@ -4158,7 +4158,7 @@
         <image name="point_green" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oz7-A6-HBg"/>
         <segue reference="goF-3p-cFO"/>
+        <segue reference="mNZ-em-Kcd"/>
     </inferredMetricsTieBreakers>
 </document>

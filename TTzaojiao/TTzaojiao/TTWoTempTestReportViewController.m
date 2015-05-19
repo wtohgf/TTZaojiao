@@ -9,7 +9,14 @@
 #import "TTWoTempTestReportViewController.h"
 #import "TTGrowTemperTestTool.h"
 #import "NSString+Extension.h"
-
+#import "TTWoTemperatureTestCell.h"
+#define screenWidth [UIScreen mainScreen].bounds.size.width
+#define screenHeight [UIScreen mainScreen].bounds.size.width
+#define kpicAll (80+8*50+30+16.0)
+#define kLeftRatio 80/kpicAll
+#define kCenterRatio 50/kpicAll
+#define kPaddingRatio 8/kpicAll
+#define kRightRatio 30/kpicAll
 @interface TTWoTempTestReportViewController (){
     NSDictionary* _reportDict;
 }
@@ -17,9 +24,20 @@
 @property (weak, nonatomic) UILabel* mounth;
 @property (weak, nonatomic) UILabel* date;
 @property (weak, nonatomic) UILabel* result;
+@property ( nonatomic) CGFloat picHeight;
+@property ( nonatomic)  CGFloat centerWidth ;
+@property ( nonatomic)  CGFloat centerHeight ;
+@property ( nonatomic)  CGFloat centerX ;
+@property ( nonatomic)  CGFloat centerY ;
+
+@property ( nonatomic) CGRect value_info_1F;
+@property ( nonatomic) CGRect value_info_2F;
+@property (nonatomic,copy) NSString *value_info_1;
+@property (nonatomic,copy) NSString *value_info_2;
 
 @property (weak, nonatomic) IBOutlet UITableView *tempReportTableView;
 
+@property (nonatomic,strong) NSArray *modelArray;
 @end
 
 @implementation TTWoTempTestReportViewController
@@ -35,6 +53,8 @@
         self.modalPresentationCapturesStatusBarAppearance
         = NO;
     }
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -44,6 +64,70 @@
         [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
         if ([testlist isKindOfClass:[NSDictionary class]]) {
             _reportDict = testlist;
+            
+            _value_info_1 = testlist[@"i_value_info_1"];
+            _value_info_2 = testlist[@"i_value_info_2"];
+            _value_info_1F= [testlist[@"i_value_info_1"] boundByFont:[UIFont systemFontOfSize:12.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
+            _value_info_2F= [testlist[@"i_value_info_2"] boundByFont:[UIFont systemFontOfSize:12.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
+            
+            NSMutableArray *modelArray = [[NSMutableArray alloc]init];;
+            for (int i = 0; i < 9; i++) {
+                NSMutableArray *dictArray = [[NSMutableArray alloc]init];;
+                NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+                 NSString * name = [NSString stringWithFormat:@"i_part_%d_name",i+1];
+                
+                NSString * content = [NSString stringWithFormat:@"i_part_%d_content",i+1];
+                 NSString * jianyi = [NSString stringWithFormat:@"i_part_%d_jianyi",i+1];
+                 NSString * pingjia= [NSString stringWithFormat:@"i_part_%d_pingjia",i+1];
+                NSString * fen= [NSString stringWithFormat:@"i_fen_%d",i+1];
+                 NSString *qizhi= [NSString stringWithFormat:@"qizhi_%d",i+1] ;
+                
+                CGRect contentF= [testlist[content] boundByFont:[UIFont systemFontOfSize:12.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
+                CGRect pingjiaF= [testlist[pingjia] boundByFont:[UIFont systemFontOfSize:12.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
+                CGRect jianyiF= [testlist[jianyi] boundByFont:[UIFont systemFontOfSize:12.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
+                
+                
+                
+                [dict setObject:testlist[name] forKey:name];
+                [dict setObject:testlist[content] forKey:content];
+                [dict setObject:testlist[jianyi] forKey:jianyi];
+                [dict setObject:testlist[pingjia] forKey:pingjia];
+                [dict setObject:testlist[fen] forKey:fen];
+                [dict setObject:testlist[qizhi] forKey:qizhi];
+              
+                //dictArray数组有四个元素 计算完毕变化的文字的长度
+                [dictArray addObject:dict];
+                [dictArray addObject:NSStringFromCGRect(contentF)];
+                [dictArray addObject:NSStringFromCGRect(pingjiaF)];
+                [dictArray addObject:NSStringFromCGRect(jianyiF)];
+                
+                [modelArray addObject:dictArray];
+            }
+            
+            _modelArray = modelArray;
+            
+            //[self drawPic];
+            //caculata height of section 1
+            UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
+            CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
+            CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
+            
+            CGFloat leftWidth = screenWidth*kLeftRatio;
+            CGFloat leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
+            
+            
+            UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
+            CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
+            CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
+            
+            CGFloat bottomWidth = screenWidth*(kRightRatio+8*kCenterRatio+kLeftRatio);
+            CGFloat bottomHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
+            
+            _picHeight = leftHeight + bottomHeight;
+            
+            
+            
+            
             [_tempReportTableView reloadData];
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {
@@ -56,80 +140,269 @@
         }
     }];
 }
+//
+//@property (weak, nonatomic)  UILabel *nameTitleLabel;
+//@property (weak, nonatomic)  UILabel *nameLabel;
+//
+//@property (weak, nonatomic)  UILabel *pingjiaTitleLabel;
+//@property (weak, nonatomic)  UILabel *pingjiaLabel;
+//
+//@property (weak, nonatomic)  UILabel *jianyiTitleLabel;
+//@property (weak, nonatomic)  UILabel *jianyiLabel;
 
+//- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (indexPath.section == 0) {
+//        return NO;
+//    }
+//    else return YES;
+//    
+//}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString* ID = @"saveEditCell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    if (_modelArray == nil){
+        return [[UITableViewCell alloc]init];
     }
-    cell.textLabel.text = @"TEST";
-    return cell;
+    
+    if ((indexPath.section == 0)) {
+      UITableViewCell *cell =   [[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140.f)];
+        
+        UIView *headerView = [[UIView alloc]init];
+        [cell.contentView addSubview:headerView];//////jiany
+        headerView.backgroundColor = [UIColor colorWithRed:239.f/255.f green:239.f/255.f blue:244.f/255.f alpha:1.f];
+        
+        headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 140.f);
+        
+        UIView* subHeaderView = [[UIView alloc]init];
+        [headerView addSubview:subHeaderView];
+        subHeaderView.frame = CGRectMake(0, 20.f, self.view.frame.size.width, 100.f);
+        subHeaderView.backgroundColor = [UIColor whiteColor];
+        
+        UILabel* mountTitle = [[UILabel alloc]init];
+        [subHeaderView addSubview:mountTitle];
+        mountTitle.text = @"宝宝月龄:";
+        mountTitle.font = [UIFont systemFontOfSize:16.f];
+        mountTitle.textAlignment = NSTextAlignmentRight;
+        mountTitle.frame = CGRectMake(0, 5, self.view.frame.size.width*0.5, 30.f);
+        
+        UILabel* dateTitle = [[UILabel alloc]init];
+        [subHeaderView addSubview:dateTitle];
+        dateTitle.text = @"测评日期:";
+        dateTitle.font = [UIFont systemFontOfSize:16.f];
+        dateTitle.textAlignment = NSTextAlignmentRight;
+        dateTitle.frame = CGRectMake(0, mountTitle.bottom, self.view.frame.size.width*0.5, 30.f);
+        
+        UILabel* resultTitle = [[UILabel alloc]init];
+        [subHeaderView addSubview:resultTitle];
+        resultTitle.text = @"测评结果:";
+        resultTitle.font = [UIFont systemFontOfSize:16.f];
+        resultTitle.textAlignment = NSTextAlignmentRight;
+        resultTitle.frame = CGRectMake(0, dateTitle.bottom, self.view.frame.size.width*0.5, 30.f);
+        
+        UILabel* mounth = [[UILabel alloc]init];
+        _mounth = mounth;
+        [subHeaderView addSubview:mounth];
+        mounth.font = [UIFont systemFontOfSize:16.f];
+        mounth.textAlignment = NSTextAlignmentLeft;
+        mounth.frame = CGRectMake(self.view.frame.size.width*0.5 +10.f, mountTitle.up, self.view.frame.size.width*0.5-10.f, 30.f);
+        
+        UILabel* date = [[UILabel alloc]init];
+        _date = date;
+        [subHeaderView addSubview:date];
+        date.font = [UIFont systemFontOfSize:16.f];
+        date.textAlignment = NSTextAlignmentLeft;
+        date.frame = CGRectMake(self.view.frame.size.width*0.5+10.f, dateTitle.up, self.view.frame.size.width*0.5-10.f, 30.f);
+        
+        UILabel* result = [[UILabel alloc]init];
+        _result = result;
+        [subHeaderView addSubview:result];
+        result.font = [UIFont systemFontOfSize:16.f];
+        result.textAlignment = NSTextAlignmentLeft;
+        result.frame = CGRectMake(self.view.frame.size.width*0.5+10.f, resultTitle.up, self.view.frame.size.width*0.5-10.f, 30.f);
+        [self updateHeader];
+        return cell;
+    }
+    //气质情绪综合分析
+    else if(indexPath.section == 1)
+    {
+         UITableViewCell *cell =   [[UITableViewCell alloc]initWithFrame:CGRectMake(0, 0, screenWidth, _picHeight+30+8.0f+8.0f+_value_info_1F.size.height+_value_info_2F.size.height)];
+        //NSLog(@"%@",NSStringFromCGRect(cell.frame));
+        ////////////////////////////标题/////////////////////////////////////
+        UILabel * titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, screenWidth, 30)];
+        [cell.contentView addSubview:titleLabel];
+        titleLabel.text = @"气质情绪综合分析";
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        ///////////////////////图////////////////////////////////////////
+        UIImageView *imageView1=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(titleLabel.frame), screenWidth, _picHeight)];
+        [cell.contentView addSubview:imageView1];
+        
+        UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
+        CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
+        CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
+        
+        CGFloat leftWidth = screenWidth*kLeftRatio;
+        CGFloat leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
+        CGFloat leftX = screenWidth*kPaddingRatio;
+        CGFloat leftY = 0;
+        leftView.frame = CGRectMake(leftX, leftY, leftWidth, leftHeight);
+        [imageView1 addSubview:leftView];
+        
+        
+        UIImageView * centerView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+        CGFloat centerW = CGImageGetWidth(centerView.image.CGImage);
+        CGFloat centerH = CGImageGetHeight(centerView.image.CGImage);
+        
+        CGFloat centerWidth = screenWidth*kCenterRatio;
+        CGFloat centerHeight = (CGFloat)((centerWidth * centerH)/centerW) ;
+        CGFloat centerX = CGRectGetMaxX(leftView.frame);
+        CGFloat centerY = 0;
+        _centerHeight = centerHeight;
+        _centerWidth =      centerWidth;
+        _centerX= centerX;
+        _centerY = centerY;
+        for (int i = 0; i < 8; i++) {
+            UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(centerX+i*(centerWidth), centerY, centerWidth, centerHeight)];
+            [img setImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+            [imageView1 addSubview:img];
+            
+        }
+        
+        
+        
+        UIImageView * rightView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_right.gif"]];
+        CGFloat rightW = CGImageGetWidth(rightView.image.CGImage);
+        CGFloat rightH = CGImageGetHeight(rightView.image.CGImage);
+        
+        CGFloat rightWidth = screenWidth*kRightRatio;
+        CGFloat rightHeight = (CGFloat)((rightWidth * rightH)/rightW) ;
+        CGFloat rightX = screenWidth*(kPaddingRatio+8*kCenterRatio+kLeftRatio);
+        CGFloat rightY = 0;
+        rightView.frame = CGRectMake(rightX, rightY, rightWidth, rightHeight);
+        [imageView1 addSubview:rightView];
+        
+        UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
+        CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
+        CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
+        
+        CGFloat bottomWidth = screenWidth*(kRightRatio+8*kCenterRatio+kLeftRatio);
+        CGFloat bottomHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
+        CGFloat bottomX = screenWidth*(kPaddingRatio);
+        CGFloat bottomY = CGRectGetMaxY(leftView.frame);
+        bottomView.frame = CGRectMake(bottomX, bottomY, bottomWidth, bottomHeight);
+        [imageView1 addSubview:bottomView];
+        ///////////////////////////////画点///////////////////////////////////////
+        for (int i = 0; i < 8; i++) {
+            NSString * str = [NSString stringWithFormat:@"qizhi_%d",i+1];
+             NSString * str2 = [NSString stringWithFormat:@"qizhi_%d",i+2];
+            ;
+            CGPoint P1 = CGPointMake(centerX+centerWidth*i, centerHeight/18.0*(19-2*[_reportDict[str] intValue]));
+            CGPoint P2 = CGPointMake(centerX+centerWidth*(i+1), (centerHeight/18.0)*(19-2*[_reportDict[str2] intValue]) );
+            
+        
+        
+        
+        ///////////////////////////////////////////////////////////////////////////
+        UIImageView *imageView=[[UIImageView alloc] initWithFrame:imageView1.frame];
+        [cell.contentView addSubview:imageView];
+        
+        
+        
+        UIGraphicsBeginImageContext(imageView.frame.size);
+//        NSLog(@"%@",NSStringFromCGRect(imageView.frame));
+//        NSLog(@"%@",NSStringFromCGRect(imageView1.frame));
+        [imageView.image drawInRect:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.height)];
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 2.0);  //线宽
+        CGContextSetAllowsAntialiasing(UIGraphicsGetCurrentContext(), YES);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 1.0);  //颜色
+        CGContextBeginPath(UIGraphicsGetCurrentContext());
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), P1.x, P1.y);  //起点坐标
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), P2.x, P2.y);   //终点坐标
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        imageView.image=UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        }
+        /////////////////////////////评价///////////////////////////////
+        UILabel * info1Label = [[UILabel alloc]initWithFrame:CGRectMake(8.0f, CGRectGetMaxY(imageView1.frame)+8.0f, screenWidth-16.0f, _value_info_1F.size.height)];
+        [cell.contentView addSubview:info1Label];
+        info1Label.text =_value_info_1;
+        info1Label.numberOfLines = 0;
+        info1Label.font = [UIFont systemFontOfSize:12.f];
+        info1Label.textColor = [UIColor redColor];
+        
+        UILabel * info2Label = [[UILabel alloc]initWithFrame:CGRectMake(8.0f, CGRectGetMaxY(info1Label.frame)+8.0f, screenWidth-16.0f, _value_info_2F.size.height)];
+        [cell.contentView addSubview:info2Label];
+        info2Label.text =_value_info_2;
+        info2Label.numberOfLines = 0;
+        info2Label.font = [UIFont systemFontOfSize:12.f];
+       
+        return cell;
+    }
+    
+    NSArray* resultArray = [NSArray arrayWithObjects:@"测评结果：低",@"测评结果：中",@"测评结果：高" ,nil];
+    TTWoTemperatureTestCell * cell = [TTWoTemperatureTestCell WoTemperatureTestCellWithTabelView:tableView];
+    NSArray * modelArray = _modelArray[indexPath.section-2];
+    cell.modelArray = modelArray;
+    cell.titleLabel.text = [(NSDictionary*)modelArray[0]  valueForKey:[NSString stringWithFormat:@"i_part_%ld_name",indexPath.section-1]];
+     cell.resultLabel.text = resultArray[[[(NSDictionary*)modelArray[0]  valueForKey:[NSString stringWithFormat:@"i_fen_%ld",indexPath.section-1]] intValue] -1];
+    
+    cell.nameTitleLabel.text = [NSString stringWithFormat:@"什么是%@?",[(NSDictionary*)modelArray[0]  valueForKey:[NSString stringWithFormat:@"i_part_%ld_name",indexPath.section-1]]];
+    
+    cell.nameLabel.text =[(NSDictionary*)modelArray[0]  valueForKey:[NSString stringWithFormat:@"i_part_%ld_content",indexPath.section-1]]; ;
+    
+    
+    cell.pingjiaTitleLabel.text = [NSString stringWithFormat:@"%@评价",[(NSDictionary*)modelArray[0]  valueForKey:[NSString stringWithFormat:@"i_part_%ld_name",indexPath.section-1]]];
+    cell.pingjiaLabel.text = [(NSDictionary*)modelArray[0]  valueForKey:[NSString stringWithFormat:@"i_part_%ld_pingjia",indexPath.section-1]];
+
+    cell.jianyiTitleLabel.text = @"教养建议";
+    cell.jianyiLabel.text = [(NSDictionary*)modelArray[0]  valueForKey:[NSString stringWithFormat:@"i_part_%ld_jianyi",indexPath.section-1]];
+        return cell;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 11;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return 1;
 }
-
+#define ktitleHeight 30.0f
+#define ksubtitleHeight 15.0f
+#define kpadding 8.0f
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(_modelArray == nil) return 10.f;
+    if (indexPath.section == 0) {
+        return 140.0f;
+    }
+    if (indexPath.section == 1) {
+        return _picHeight+30.0+8.0f+8.0f+_value_info_2F.size.height+_value_info_1F.size.height;
+    }
+   NSArray *dictArray =  _modelArray[indexPath.section-2];
+    //dictArray[0];
+    CGRect nameF =    CGRectFromString((NSString*)dictArray[1]);
+    CGRect pingjiaF =    CGRectFromString((NSString*)dictArray[2]);
+    CGRect jianyiF =    CGRectFromString((NSString*)dictArray[3]);
+    
+    return ktitleHeight + 3*ksubtitleHeight + nameF.size.height + pingjiaF.size.height +jianyiF.size.height+ 6*kpadding +1;
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 140.f;
+    if (section == 0) {
+        return 0.01f;
+    }
+
+    return 10.f;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc]init];
-    headerView.backgroundColor = [UIColor colorWithRed:239.f/255.f green:239.f/255.f blue:244.f/255.f alpha:1.f];
+    if (_modelArray == nil) return [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)];
     
-    headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 140.f);
-    
-    UIView* subHeaderView = [[UIView alloc]init];
-    [headerView addSubview:subHeaderView];
-    subHeaderView.frame = CGRectMake(0, 20.f, self.view.frame.size.width, 100.f);
-    subHeaderView.backgroundColor = [UIColor whiteColor];
-    
-    UILabel* mountTitle = [[UILabel alloc]init];
-    [subHeaderView addSubview:mountTitle];
-    mountTitle.text = @"宝宝月龄:";
-    mountTitle.font = [UIFont systemFontOfSize:16.f];
-    mountTitle.textAlignment = NSTextAlignmentRight;
-    mountTitle.frame = CGRectMake(0, 5, self.view.frame.size.width*0.5, 30.f);
-    
-    UILabel* dateTitle = [[UILabel alloc]init];
-    [subHeaderView addSubview:dateTitle];
-    dateTitle.text = @"测评日期:";
-    dateTitle.font = [UIFont systemFontOfSize:16.f];
-    dateTitle.textAlignment = NSTextAlignmentRight;
-    dateTitle.frame = CGRectMake(0, mountTitle.bottom, self.view.frame.size.width*0.5, 30.f);
-    
-    UILabel* resultTitle = [[UILabel alloc]init];
-    [subHeaderView addSubview:resultTitle];
-    resultTitle.text = @"测评结果:";
-    resultTitle.font = [UIFont systemFontOfSize:16.f];
-    resultTitle.textAlignment = NSTextAlignmentRight;
-    resultTitle.frame = CGRectMake(0, dateTitle.bottom, self.view.frame.size.width*0.5, 30.f);
-    
-    UILabel* mounth = [[UILabel alloc]init];
-    _mounth = mounth;
-    [subHeaderView addSubview:mounth];
-    mounth.font = [UIFont systemFontOfSize:16.f];
-    mounth.textAlignment = NSTextAlignmentLeft;
-    mounth.frame = CGRectMake(self.view.frame.size.width*0.5 +10.f, mountTitle.up, self.view.frame.size.width*0.5-10.f, 30.f);
-    
-    UILabel* date = [[UILabel alloc]init];
-    _date = date;
-    [subHeaderView addSubview:date];
-    date.font = [UIFont systemFontOfSize:16.f];
-    date.textAlignment = NSTextAlignmentLeft;
-    date.frame = CGRectMake(self.view.frame.size.width*0.5+10.f, dateTitle.up, self.view.frame.size.width*0.5-10.f, 30.f);
-    
-    UILabel* result = [[UILabel alloc]init];
-    _result = result;
-    [subHeaderView addSubview:result];
-    result.font = [UIFont systemFontOfSize:16.f];
-    result.textAlignment = NSTextAlignmentLeft;
-    result.frame = CGRectMake(self.view.frame.size.width*0.5+10.f, resultTitle.up, self.view.frame.size.width*0.5-10.f, 30.f);
-    [self updateHeader];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 10.0f)];
+    headerView.backgroundColor =  [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1];
     return headerView;
+    
 }
+
+
 /*
  {
  "i_fen_1" = 2;
@@ -209,5 +482,97 @@
     _date.text = [_reportDict objectForKey:@"i_time"];
     
     _result.text = [_reportDict objectForKey:@"i_value"];
+}
+
+
+
+-(void) drawPic
+{
+    
+    UIImageView *imageView1=[[UIImageView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:imageView1];
+    
+    UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
+    CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
+    CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
+    
+    CGFloat leftWidth = screenWidth*kLeftRatio;
+    CGFloat leftHeight = (CGFloat)((leftWidth * picH)/picW) ;
+    CGFloat leftX = screenWidth*kPaddingRatio;
+    CGFloat leftY = 0;
+    leftView.frame = CGRectMake(leftX, leftY, leftWidth, leftHeight);
+    [imageView1 addSubview:leftView];
+    
+    
+    UIImageView * centerView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+    CGFloat centerW = CGImageGetWidth(centerView.image.CGImage);
+    CGFloat centerH = CGImageGetHeight(centerView.image.CGImage);
+    
+    CGFloat centerWidth = screenWidth*kCenterRatio;
+    CGFloat centerHeight = (CGFloat)((centerWidth * centerH)/centerW) ;
+    CGFloat centerX = CGRectGetMaxX(leftView.frame);
+    CGFloat centerY = 0;
+    _centerHeight = centerHeight;
+    _centerWidth =      centerWidth;
+    _centerX= centerX;
+    _centerY = centerY;
+    for (int i = 0; i < 8; i++) {
+        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(centerX+i*(centerWidth), centerY, centerWidth, centerHeight)];
+        [img setImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+        [imageView1 addSubview:img];
+        
+    }
+    
+    
+    
+    UIImageView * rightView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_right.gif"]];
+    CGFloat rightW = CGImageGetWidth(rightView.image.CGImage);
+    CGFloat rightH = CGImageGetHeight(rightView.image.CGImage);
+    
+    CGFloat rightWidth = screenWidth*kRightRatio;
+    CGFloat rightHeight = (CGFloat)((rightWidth * rightH)/rightW) ;
+    CGFloat rightX = screenWidth*(kPaddingRatio+8*kCenterRatio+kLeftRatio);
+    CGFloat rightY = 0;
+    rightView.frame = CGRectMake(rightX, rightY, rightWidth, rightHeight);
+    [imageView1 addSubview:rightView];
+    
+    UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
+    CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
+    CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
+    
+    CGFloat bottomWidth = screenWidth*(kRightRatio+8*kCenterRatio+kLeftRatio);
+    CGFloat bottomHeight = (CGFloat)((bottomWidth * bottomH)/bottomW) ;
+    CGFloat bottomX = screenWidth*(kPaddingRatio);
+    CGFloat bottomY = CGRectGetMaxY(leftView.frame);
+    bottomView.frame = CGRectMake(bottomX, bottomY, bottomWidth, bottomHeight);
+    [imageView1 addSubview:bottomView];
+    //_picHeight = CGRectGetMaxY(bottomView.frame);
+    
+   
+}
+-(void) drawLineWithBegin:(CGPoint) begin withEnd:(CGPoint)end withRange:(CGRect)range
+{
+    
+    
+    UIImageView *imageView=[[UIImageView alloc] initWithFrame:range];
+    [self.view addSubview:imageView];
+    
+    
+    
+    UIGraphicsBeginImageContext(imageView.frame.size);
+    [imageView.image drawInRect:CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.height)];
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 2.0);  //线宽
+    CGContextSetAllowsAntialiasing(UIGraphicsGetCurrentContext(), YES);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0.0, 0.0, 0.0, 1.0);  //颜色
+    CGContextBeginPath(UIGraphicsGetCurrentContext());
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), begin.x, begin.y);  //起点坐标
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), end.x, end.y);   //终点坐标
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    imageView.image=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    
 }
 @end
