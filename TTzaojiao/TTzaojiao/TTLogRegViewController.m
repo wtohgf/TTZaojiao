@@ -10,6 +10,7 @@
 #import "CustomBottomBar.h"
 
 @interface TTLogRegViewController()
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) CustomBottomBar* bottomBar;
 @end
 
@@ -19,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     //设置背景图片
-    [self setBackGroundImages];
+   // [self setBackGroundImages];
     //    //添加低栏
     [self addBottomBar];
     
@@ -54,7 +55,9 @@
     
     bottomBar.items = items;
     _bottomBar.frame = CGRectMake(x, y, w, h);
-    [self.view addSubview:_bottomBar];
+    _backgroundImage.userInteractionEnabled = YES;
+    [_backgroundImage addSubview:_bottomBar];
+//    [self.view bringSubviewToFront:_bottomBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -69,32 +72,32 @@
      [[self rdv_tabBarController] setTabBarHidden:NO];
 }
 
-#pragma mark 设置背景图片
-- (void) setBackGroundImages{
-    NSString* babyPicName;
-    int line = 0, row = 0;
-    const int linecount = 4;
-    CGFloat babyPicWidth = self.view.frame.size.width/linecount;
-    CGFloat babyPicHegiht = babyPicWidth;
-    int realnum = 0;
-    
-    for(int i=0; i<100; i++) {
-        line = i/linecount;
-        row = i%linecount;
-        realnum = i%25;
-        babyPicName = [NSString stringWithFormat:@"baby_icon%d",realnum+1];
-        UIImageView* baby = [[UIImageView alloc]init];
-        [baby setImage:[UIImage imageNamed:babyPicName]];
-        CGFloat x = row*babyPicWidth;
-        CGFloat y = line*babyPicHegiht;
-        
-        if (y >= self.view.frame.size.height) {
-            break;
-        }
-        baby.frame = CGRectMake(x, y, babyPicWidth, babyPicHegiht);
-        
-        [self.view insertSubview:baby belowSubview:self.view.subviews[0]];
-    }
-}
+//#pragma mark 设置背景图片
+//- (void) setBackGroundImages{
+//    NSString* babyPicName;
+//    int line = 0, row = 0;
+//    const int linecount = 4;
+//    CGFloat babyPicWidth = self.view.frame.size.width/linecount;
+//    CGFloat babyPicHegiht = babyPicWidth;
+//    int realnum = 0;
+//    
+//    for(int i=0; i<100; i++) {
+//        line = i/linecount;
+//        row = i%linecount;
+//        realnum = i%25;
+//        babyPicName = [NSString stringWithFormat:@"baby_icon%d",realnum+1];
+//        UIImageView* baby = [[UIImageView alloc]init];
+//        [baby setImage:[UIImage imageNamed:babyPicName]];
+//        CGFloat x = row*babyPicWidth;
+//        CGFloat y = line*babyPicHegiht;
+//        
+//        if (y >= self.view.frame.size.height) {
+//            break;
+//        }
+//        baby.frame = CGRectMake(x, y, babyPicWidth, babyPicHegiht);
+//        
+//        [self.view insertSubview:baby belowSubview:self.view.subviews[0]];
+//    }
+//}
 
 @end

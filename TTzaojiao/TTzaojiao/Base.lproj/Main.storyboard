@@ -20,6 +20,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lor_pic" translatesAutoresizingMaskIntoConstraints="NO" id="XwA-jE-avq">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hzD-En-eR2" customClass="UIButton">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -384,46 +387,60 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" secondItem="hzD-En-eR2" secondAttribute="height" multiplier="3:1" id="6UP-fc-7Xa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XwA-jE-avq" secondAttribute="trailing" constant="-16" id="9KJ-kq-2jx"/>
                             <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Bx1-WP-r4q"/>
                             <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="44:600" id="DL9-0v-Tmg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KvZ-Bz-BZ4" secondAttribute="bottom" id="DRE-vn-raa"/>
+                            <constraint firstItem="XwA-jE-avq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Ia7-ri-3RW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KvZ-Bz-BZ4" secondAttribute="trailing" constant="-32" id="KBX-s9-ong"/>
                             <constraint firstItem="hzD-En-eR2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-32" id="Ts1-uj-uY8"/>
                             <constraint firstAttribute="width" secondItem="hzD-En-eR2" secondAttribute="width" multiplier="2:3" id="aLd-DV-lCV"/>
                             <constraint firstAttribute="centerY" secondItem="hzD-En-eR2" secondAttribute="centerY" id="jA6-fM-kGk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XwA-jE-avq" secondAttribute="bottom" id="kG5-7a-HCz"/>
                             <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-32" id="ltf-F7-wD0"/>
                             <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oWO-n2-Xse"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hzD-En-eR2" secondAttribute="trailing" constant="-32" id="qKI-Pj-cVt"/>
+                            <constraint firstItem="XwA-jE-avq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="x9i-LO-w5P"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="XwA-jE-avq"/>
                                 <exclude reference="hzD-En-eR2"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DL9-0v-Tmg"/>
-                                <exclude reference="KBX-s9-ong"/>
-                                <exclude reference="ltf-F7-wD0"/>
+                                <exclude reference="9KJ-kq-2jx"/>
+                                <exclude reference="Ia7-ri-3RW"/>
+                                <exclude reference="x9i-LO-w5P"/>
                                 <exclude reference="6UP-fc-7Xa"/>
                                 <exclude reference="Ts1-uj-uY8"/>
                                 <exclude reference="aLd-DV-lCV"/>
                                 <exclude reference="jA6-fM-kGk"/>
                                 <exclude reference="qKI-Pj-cVt"/>
+                                <exclude reference="DL9-0v-Tmg"/>
+                                <exclude reference="KBX-s9-ong"/>
+                                <exclude reference="ltf-F7-wD0"/>
+                                <exclude reference="kG5-7a-HCz"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="XwA-jE-avq"/>
                                 <include reference="hzD-En-eR2"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Bx1-WP-r4q"/>
-                                <include reference="KBX-s9-ong"/>
-                                <include reference="ltf-F7-wD0"/>
-                                <exclude reference="oWO-n2-Xse"/>
+                                <include reference="9KJ-kq-2jx"/>
+                                <include reference="Ia7-ri-3RW"/>
+                                <include reference="x9i-LO-w5P"/>
                                 <include reference="6UP-fc-7Xa"/>
                                 <include reference="Ts1-uj-uY8"/>
                                 <exclude reference="aLd-DV-lCV"/>
                                 <include reference="jA6-fM-kGk"/>
                                 <include reference="qKI-Pj-cVt"/>
+                                <exclude reference="Bx1-WP-r4q"/>
+                                <include reference="KBX-s9-ong"/>
+                                <include reference="ltf-F7-wD0"/>
+                                <exclude reference="oWO-n2-Xse"/>
+                                <include reference="kG5-7a-HCz"/>
                             </mask>
                         </variation>
                     </view>
@@ -450,10 +467,44 @@
                     <view key="view" contentMode="scaleToFill" id="NDt-DN-LQF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lor_pic" translatesAutoresizingMaskIntoConstraints="NO" id="g5j-C2-LGW">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DxE-V1-6PJ" firstAttribute="top" secondItem="g5j-C2-LGW" secondAttribute="bottom" id="DC0-P5-Mch"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g5j-C2-LGW" secondAttribute="trailing" constant="-16" id="HNY-BE-ffu"/>
+                            <constraint firstItem="g5j-C2-LGW" firstAttribute="top" secondItem="NDt-DN-LQF" secondAttribute="topMargin" id="W1K-HR-6T9"/>
+                            <constraint firstItem="g5j-C2-LGW" firstAttribute="leading" secondItem="NDt-DN-LQF" secondAttribute="leadingMargin" constant="-16" id="kwH-FU-DYW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="g5j-C2-LGW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="HNY-BE-ffu"/>
+                                <exclude reference="W1K-HR-6T9"/>
+                                <exclude reference="kwH-FU-DYW"/>
+                                <exclude reference="DC0-P5-Mch"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="g5j-C2-LGW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="HNY-BE-ffu"/>
+                                <include reference="W1K-HR-6T9"/>
+                                <include reference="kwH-FU-DYW"/>
+                                <include reference="DC0-P5-Mch"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="GAT-lK-7tz"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="g5j-C2-LGW" id="l9A-yr-ta1"/>
                         <segue destination="Yae-US-II8" kind="show" identifier="LogRegToLogon" id="bnn-dL-1m3"/>
                         <segue destination="hnJ-yl-aPh" kind="show" identifier="LogRegToReg" id="ZbU-HZ-DZ8"/>
                     </connections>
@@ -1700,6 +1751,7 @@
         <image name="default_icon" width="100" height="100"/>
         <image name="icon_more" width="24" height="43"/>
         <image name="login_pic" width="382" height="129"/>
+        <image name="lor_pic" width="720" height="1280"/>
         <image name="pic_checked" width="37" height="36"/>
         <image name="pic_unchecked" width="37" height="36"/>
     </resources>

@@ -40,8 +40,8 @@
     for (NSString * name  in picListArray) {
         NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,name];
         [picView2 setImageWithURL:[NSURL URLWithString:url]];
-        CGFloat w = CGImageGetWidth(picView.image.CGImage);
-        CGFloat h = CGImageGetHeight(picView.image.CGImage);
+        CGFloat w = CGImageGetWidth(picView2.image.CGImage);
+        CGFloat h = CGImageGetHeight(picView2.image.CGImage);
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
         CGFloat height = (CGFloat)((width * h)/w) ;
         [heightArray addObject:NSStringFromCGRect(CGRectMake(0, lastHeight, width, height))];
