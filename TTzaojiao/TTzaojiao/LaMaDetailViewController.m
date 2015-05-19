@@ -99,6 +99,10 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_modelFrame == nil) {
+        UITableViewCell* cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+        return cell;
+    }
     //创建相应cell－－NameAndPic
     if (indexPath.row == 0) {
         LamaTableViewCellNameAndPic *cell = [LamaTableViewCellNameAndPic LamaTableViewCellNameAndPicWithTabelView:_tableView];
