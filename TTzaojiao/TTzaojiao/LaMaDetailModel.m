@@ -11,11 +11,7 @@
 @implementation LaMaDetailModel
 +(instancetype)LaMaDetailModelWithDict:(NSDictionary *)dict{
     LaMaDetailModel* mode = [[LaMaDetailModel alloc]init];
-    
-    
-        NSMutableDictionary* tmpdict = [dict mutableCopy];
-  
-        [mode setValuesForKeysWithDictionary:tmpdict];
-        return mode;
+    [mode setValuesForKeysWithDictionary:dict];
+    return mode;
 }
 @end

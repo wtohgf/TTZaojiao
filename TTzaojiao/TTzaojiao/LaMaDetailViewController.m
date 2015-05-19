@@ -47,7 +47,7 @@
     tableView.delegate = self;
     
     self.title = @"详情";
-    
+    [self modelFrame];
     // NSString* i_id = _ttid;
     //    NSString* i_id = [NSString stringWithFormat:@"%d",[_ttid intValue] + 1 ];
     NSDictionary* parameters = @{
@@ -69,7 +69,6 @@
                         //计算frame
                         _modelFrame.model = model;
                         if (model!= nil) {
-                            [self modelFrame];
                             /*TTzaojiao[4551:1919247] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'table view row height must not be negative - provided height for index path (<UIMutableIndexPath 0x174458ae0> 2 indexes [0, 0]) is nan'
                              *** First throw call stack:
                              (0x183d0a59c 0x1944600e4 0x183d0a45c 0x184b91554 0x1885d5634 0x1885972d8 0x18859952c 0x188599468 0x188598db4 0x1000c3f20 0x100088f14 0x10010f064 0x100460e30 0x100460df0 0x10046575c 0x183cc1fa4 0x183cc004c 0x183bed0a4 0x18cd8f5a4 0x1885223c0 0x1000e9384 0x194acea08)
@@ -107,11 +106,17 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (_modelFrame == nil || _modelFrame.model == nil) {
+        return 0;
+    }
     return self.modelFrame.model.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (_modelFrame == nil || _modelFrame.model == nil) {
+        UITableViewCell* cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+        return cell;
+    }
     //创建相应cell－－NameAndPic
     if (indexPath.row == 0) {
         LamaTableViewCellNameAndPic *cell = [LamaTableViewCellNameAndPic LamaTableViewCellNameAndPicWithTabelView:_tableView];
@@ -175,6 +180,12 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (_modelFrame == nil) {
+        return 0.f;
+    }else if(_modelFrame.model == nil){
+        return 0.f;
+    }
     
     if (indexPath.row == 0 ) {
         return  self.modelFrame.NameAndPicCellHeight;
