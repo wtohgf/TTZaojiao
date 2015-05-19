@@ -199,6 +199,7 @@
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     [self addKeyNotification];
     [_textView becomeFirstResponder];
+    [_images removeAllObjects];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
