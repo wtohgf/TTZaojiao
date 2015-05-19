@@ -16,7 +16,7 @@
 
 @interface TTPlayLessionIntroducePicsView : UIView
 @property (weak, nonatomic) UILabel* titleLabel;
-@property (weak, nonatomic) NSArray* introducePics;
+@property (strong, nonatomic) NSArray* introducePics;
 
 +(instancetype)playLessionIntroducePicsView;
 

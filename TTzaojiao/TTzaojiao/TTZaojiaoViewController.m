@@ -218,6 +218,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section != 0) {
+        if (_lessList == nil || _lessList[indexPath.section-1] == nil) {
+            return;
+        }
         [self performSegueWithIdentifier:@"toPlayLession" sender:_lessList[indexPath.section-1]];
     }
 }

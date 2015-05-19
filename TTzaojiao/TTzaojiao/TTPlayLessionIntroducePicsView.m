@@ -58,6 +58,9 @@
         
         UIImageView* imageView = [[UIImageView alloc]init];
         [self addSubview:imageView];
+        imageView.userInteractionEnabled = YES;
+        imageView.tag = i;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(photoTap:)]];
         imageView.frame = CGRectMake(picX, picY, picW, picH);
         
     }
@@ -88,6 +91,30 @@
     CGFloat titleH = kTitleButtonHeight;
     
     return 3*TTBlogTableBorder+titleH+picH*line;
+}
+
+- (void)photoTap:(UITapGestureRecognizer *)recognizer
+{
+    if (_introducePics == nil) {
+        return;
+    }
+    NSUInteger count = _introducePics.count;
+    
+    // 1.封装图片数据
+    NSMutableArray *myphotos = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i<8; i++) {
+        // 一个MJPhoto对应一张显示的图片
+        MJPhoto *mjphoto = [[MJPhoto alloc] init];
+        
+        mjphoto.srcImageView = self.subviews[i+1]; // 来源于哪个
+        [myphotos addObject:mjphoto];
+    }
+    
+    // 2.显示相册
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = recognizer.view.tag; // 弹出相册时显示的第一张图片是？
+    browser.photos = myphotos; // 设置所有的图片
+    [browser show];
 }
 
 @end
