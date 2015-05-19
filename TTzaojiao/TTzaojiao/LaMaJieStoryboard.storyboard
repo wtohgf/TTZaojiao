@@ -182,7 +182,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="P7D-IL-1M6" firstAttribute="top" secondItem="uhx-YW-BnB" secondAttribute="bottom" id="drx-Ic-Xrr"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="P7D-IL-1M6" secondAttribute="bottom" constant="-64" id="mOV-sM-3oD"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="P7D-IL-1M6" secondAttribute="bottom" constant="-49" id="mOV-sM-3oD"/>
                             <constraint firstItem="P7D-IL-1M6" firstAttribute="top" secondItem="zSP-bA-E6I" secondAttribute="topMargin" id="oVp-j5-0Ma"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P7D-IL-1M6" secondAttribute="trailing" constant="-16" id="uXY-Y8-RQv"/>
                             <constraint firstItem="P7D-IL-1M6" firstAttribute="leading" secondItem="zSP-bA-E6I" secondAttribute="leadingMargin" constant="-16" id="wrp-dC-6di"/>

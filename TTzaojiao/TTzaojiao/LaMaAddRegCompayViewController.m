@@ -52,6 +52,7 @@
     regBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [regBtn setBackgroundColor:[UIColor colorWithRed:252/255.0 green:33/255.0 blue:94/255.0 alpha:1.0]];
     [regBtn addTarget:self action:@selector(regBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    regBtn.layer.cornerRadius = 18.f;
     
 }
 

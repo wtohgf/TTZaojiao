@@ -51,14 +51,14 @@
     
     _pageIndexInt = 1;
     
-    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.extendedLayoutIncludesOpaqueBars
-        = NO;
-        self.modalPresentationCapturesStatusBarAppearance
-        = NO;
-    }
-    
+//    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars
+//        = NO;
+//        self.modalPresentationCapturesStatusBarAppearance
+//        = NO;
+//    }
+//    
     
     [self setting];
     
