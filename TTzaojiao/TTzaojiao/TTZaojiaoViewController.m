@@ -85,11 +85,23 @@
 -(void)addTableView{
     UITableView * tableView = [[UITableView alloc]init];
     _zaoJiaoTableView = tableView;
+    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars
+        = NO;
+        self.modalPresentationCapturesStatusBarAppearance
+        = NO;
+    }
     
     CGFloat w=self.view.frame.size.width;
     CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
-    tableView.frame = CGRectMake(0, 0, w, h);
-
+    
+    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+         tableView.frame = CGRectMake(0, 0, w, h-49.f);
+    }else{
+        tableView.frame = CGRectMake(0, 64.f, w, h-49.f);
+    }
+   
     
     tableView.dataSource = self;
     tableView.delegate = self;

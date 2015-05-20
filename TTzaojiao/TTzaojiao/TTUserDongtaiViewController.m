@@ -68,7 +68,7 @@
     [self checkFriend:_i_uid];
 
     self.navigationController.navigationBar.hidden = YES;
-    [UIApplication sharedApplication].statusBarHidden = YES;
+    //[UIApplication sharedApplication].statusBarHidden = YES;
     
     _isGetMoreList = NO;
     _pageIndex = @"1";
@@ -82,7 +82,7 @@
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO];
     self.navigationController.navigationBar.hidden = NO;
-    [UIApplication sharedApplication].statusBarHidden = NO;
+    //[UIApplication sharedApplication].statusBarHidden = NO;
 }
 
 
@@ -227,7 +227,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return self.view.frame.size.height*9/20;
+    return self.view.frame.size.height*9/20+2*TTBlogTableBorder;
 }
 
 -(void)dynamicHeaderView:(TTDynamicUserStatusHeaderView *)headerView didActionType:(ActionType)type{

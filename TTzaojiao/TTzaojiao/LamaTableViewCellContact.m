@@ -35,7 +35,7 @@
     [_companyLabel setFrame:CGRectMake(8, 0, [UIScreen mainScreen].bounds.size.width, 20)];
     [_addresssLabel setFrame:CGRectMake(8, 20, [UIScreen mainScreen].bounds.size.width, 20)];
     [_telLabel setFrame:CGRectMake(8, 40, [UIScreen mainScreen].bounds.size.width, 20)];
-    [_telButton setFrame:CGRectMake(37, 60, 300, 47)];
+    [_telButton setFrame:CGRectMake(8, 60, [UIScreen mainScreen].bounds.size.width-16.f, 47)];
     
 }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -9,18 +10,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TTDynamicUserStatusHeaderView">
-            <rect key="frame" x="0.0" y="0.0" width="323" height="345"/>
+            <rect key="frame" x="0.0" y="0.0" width="323" height="306"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="YyM-1H-rza" userLabel="cover">
-                    <rect key="frame" x="0.0" y="0.0" width="323" height="231"/>
+                    <rect key="frame" x="0.0" y="0.0" width="323" height="192"/>
                     <color key="backgroundColor" red="1" green="0.89302381288934263" blue="0.95587769214439866" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulx-7O-MnF">
-                    <rect key="frame" x="0.0" y="229" width="323" height="116"/>
+                    <rect key="frame" x="0.0" y="229" width="323" height="77"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNC-18-8iJ">
-                            <rect key="frame" x="0.0" y="72" width="323" height="44"/>
+                            <rect key="frame" x="0.0" y="33" width="323" height="44"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="wxW-GQ-KVY"/>
@@ -29,13 +30,13 @@
                             <color key="textColor" red="0.51598340626639194" green="0.32973879297242442" blue="0.82678970025510201" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drn-HT-sWV" userLabel="个性签名">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drn-HT-sWV" userLabel="个性签名">
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rge-lW-S9o" userLabel="个性签名title">
-                            <rect key="frame" x="8" y="47" width="60" height="21"/>
+                            <rect key="frame" x="8" y="8" width="60" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="ezj-M9-MVf"/>
                                 <constraint firstAttribute="width" constant="60" id="fFf-gZ-SeH"/>
@@ -63,7 +64,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ly-7B-HJq" userLabel="babyName">
-                    <rect key="frame" x="71" y="232" width="244" height="21"/>
+                    <rect key="frame" x="71" y="193" width="244" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="MXH-7F-tE1"/>
                         <constraint firstAttribute="width" constant="244" id="S2w-UH-Nc0"/>
@@ -73,13 +74,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeH-IT-O26" userLabel="gengderMounth">
-                    <rect key="frame" x="71" y="255" width="244" height="17"/>
+                    <rect key="frame" x="71" y="216" width="244" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="Y7x-nh-C4Z">
-                    <rect key="frame" x="8" y="204" width="55" height="55"/>
+                    <rect key="frame" x="8" y="165" width="55" height="55"/>
                     <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="FGC-fL-5tN"/>
@@ -156,11 +157,11 @@
                 <outlet property="iconView" destination="Y7x-nh-C4Z" id="1TP-cn-3WA"/>
                 <outlet property="sepintr" destination="Drn-HT-sWV" id="mod-zF-28m"/>
             </connections>
-            <point key="canvasLocation" x="126.5" y="-62.5"/>
+            <point key="canvasLocation" x="126.5" y="-82"/>
         </view>
     </objects>
     <resources>
-        <image name="baby_icon1" width="180" height="180"/>
+        <image name="baby_icon1" width="57" height="57"/>
         <image name="icon_back_hot" width="44" height="72"/>
         <image name="icon_back_normal" width="44" height="72"/>
         <image name="praise_white" width="35" height="32"/>

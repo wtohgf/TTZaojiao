@@ -10,7 +10,7 @@
 #import "CustomBottomBar.h"
 
 @interface TTLogRegViewController()
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+//@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) CustomBottomBar* bottomBar;
 @end
 
@@ -31,8 +31,8 @@
 #pragma mark 添加低栏
 -(void)addBottomBar{
     CGFloat h = kBottomBarHeight;
-    CGFloat w = [UIApplication sharedApplication].keyWindow.frame.size.width;
-    CGFloat y = [UIApplication sharedApplication].keyWindow.frame.size.height -  h;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGFloat y = [UIScreen mainScreen].bounds.size.height -  h;
     CGFloat x = 0;
     
     CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
@@ -55,9 +55,9 @@
     
     bottomBar.items = items;
     _bottomBar.frame = CGRectMake(x, y, w, h);
-    _backgroundImage.userInteractionEnabled = YES;
-    [_backgroundImage addSubview:_bottomBar];
-//    [self.view bringSubviewToFront:_bottomBar];
+    //_backgroundImage.userInteractionEnabled = YES;
+    [self.view addSubview:_bottomBar];
+   // [self.view insertSubview:_bottomBar aboveSubview:_backgroundImage];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

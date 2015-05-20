@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -185,7 +186,9 @@
                             <constraint firstItem="5lj-w5-2uc" firstAttribute="top" secondItem="NNd-SQ-8KQ" secondAttribute="bottom" id="ejL-He-NcJ"/>
                             <constraint firstItem="T7g-GF-PLv" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="gLC-Bq-SgM"/>
                             <constraint firstItem="NNd-SQ-8KQ" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="lOV-8p-Mkw"/>
-                            <constraint firstItem="T7g-GF-PLv" firstAttribute="top" secondItem="Ttf-yV-IxW" secondAttribute="topMargin" id="vFI-55-Di9"/>
+                            <constraint firstItem="T7g-GF-PLv" firstAttribute="top" secondItem="Ttf-yV-IxW" secondAttribute="topMargin" id="vFI-55-Di9">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -233,6 +236,6 @@
         <image name="bottom_btn3_unchecked" width="29" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hzc-tP-phY"/>
+        <segue reference="3n7-7S-nGk"/>
     </inferredMetricsTieBreakers>
 </document>

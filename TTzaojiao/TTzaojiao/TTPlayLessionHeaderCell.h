@@ -10,9 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "LessionModel.h"
 #import "UIImageView+MoreAttribute.h"
-
-//Cell宽高比 确保显示协调
-#define kWidthHeightRatio 188/640
+#import "TTZaojiaLessionCellView.h"
 
 @protocol TTPlayLessionHeaderCellDelegate<NSObject>
 - (void)didPlayLession;
@@ -32,7 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *playLessionBtn;
 @property (weak, nonatomic) id<TTPlayLessionHeaderCellDelegate> delegate;
-
+@property (weak, nonatomic) TTZaojiaLessionCellView* subView;
 @property (strong, nonatomic) LessionModel* lession;
 
 +(instancetype)playLessionHeaderCellWithTableView:(UITableView*)tableView;

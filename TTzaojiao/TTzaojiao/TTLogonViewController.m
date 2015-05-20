@@ -75,8 +75,8 @@
 #pragma mark 添加低栏
 -(void)addBottomBar{
     CGFloat h = kBottomBarHeight;
-    CGFloat w = [UIApplication sharedApplication].keyWindow.frame.size.width;
-    CGFloat y = [UIApplication sharedApplication].keyWindow.frame.size.height -  h;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGFloat y = [UIScreen mainScreen].bounds.size.height -  h;
     CGFloat x = 0;
     
     CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
@@ -202,7 +202,7 @@
     TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
     //                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    [UINavigationBar appearance].hidden = NO;
+  //  [UINavigationBar appearance].hidden = NO;
     
     self.mainViewController = tabBarController;
     
