@@ -24,26 +24,23 @@
     _model = model;
     //左边图 算图片高度
     
-    UIImageView *tempView1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tizhong_v.gif"]];
+    UIImageView *tempView1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tizhong_v.png"]];
     CGFloat leftW = CGImageGetWidth(tempView1.image.CGImage);
     CGFloat leftH = CGImageGetHeight(tempView1.image.CGImage);
    
     CGFloat  leftWidth1 = [UIScreen mainScreen].bounds.size.width*ktizhongShengaoLeftRatio;
-   CGFloat leftHeight1 = (CGFloat)((leftWidth1 * leftH)/leftW) ;
+    CGFloat leftHeight1 = (CGFloat)((leftWidth1 * leftH)/leftW) ;
     _tigePicHeight = leftHeight1;
     
     CGFloat  leftWidth2 = [UIScreen mainScreen].bounds.size.width*knianlingShengaoLeftRatio;
     CGFloat leftHeight2 = (CGFloat)((leftWidth2 * leftH)/leftW) ;
     _nianlingPicHeight = leftHeight2;
     
-    
-    
     _shengaotizhongFrame = [model.tige_sort_content boundByFont:[UIFont systemFontOfSize:14.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
     _shengaonianlingFrame  = [model.tige_shengao_content boundByFont:[UIFont systemFontOfSize:14.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
     
     _tizhongnianlingFrame =[model.tige_tizhong_content boundByFont:[UIFont systemFontOfSize:14.f] andWidth:[UIScreen mainScreen].bounds.size.width - 16.f];
     
-
 }
 
 

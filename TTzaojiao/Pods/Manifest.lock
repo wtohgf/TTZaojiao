@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - BSImagePicker (0.7)
   - CXAlertView (1.1.0)
   - HSDatePickerViewController (1.0.0)
   - ImagePlayerView (1.0.2)
@@ -35,6 +36,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - BSImagePicker (~> 0.7)
   - CXAlertView (~> 1.1.0)
   - HSDatePickerViewController (~> 1.0)
   - ImagePlayerView
@@ -48,6 +50,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
+  BSImagePicker: 85c0b89cc3eec3ca994dfc9ae43a9fe0e0c18174
   CXAlertView: 6375319a666da09835508d349800fbc88ab6cb4d
   HSDatePickerViewController: 89c68d5b9e82378517c290c8d0353d0b5a4a6553
   ImagePlayerView: 076806b108ee454ffe543b5d09988d40b3e1a116

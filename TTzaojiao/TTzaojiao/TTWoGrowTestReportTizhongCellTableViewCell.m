@@ -84,12 +84,12 @@
     
     NSString * gender = [TTUserModelTool sharedUserModelTool].logonUser.gender;
     if ([gender isEqualToString:@"1"] ) {
-       [self test:@"tizhong_nianling_male.gif" andLeftImg:@"tizhong_v.gif" andBottomImg:@"nianling_h.gif" andpicType:3];
+       [self test:@"tizhong_nianling_male.png" andLeftImg:@"tizhong_v.png" andBottomImg:@"nianling_h.png" andpicType:3];
         
     }
     else
     {
-       [self test:@"tizhong_nianling_female.gif" andLeftImg:@"tizhong_v.gif" andBottomImg:@"nianling_h.gif" andpicType:3];
+       [self test:@"tizhong_nianling_female.png" andLeftImg:@"tizhong_v.png" andBottomImg:@"nianling_h.png" andpicType:3];
     }
 
     
@@ -115,7 +115,6 @@
     //[self.view addSubview:picView];
     
     //中间图
-    
     UIImageView *tempView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:centerimg]];
     CGFloat picW = CGImageGetWidth(tempView.image.CGImage);
     CGFloat picH = CGImageGetHeight(tempView.image.CGImage);

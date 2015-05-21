@@ -9,8 +9,10 @@
 #import "TTWoScoreLessionViewController.h"
 #import "TTUserDongtaiViewController.h"
 #import "TTUserModelTool.h"
+#import <CXAlertView.h>
 
 @interface TTWoScoreLessionViewController ()
+@property (weak, nonatomic) UIButton* oldselButton;
 @property (weak, nonatomic) IBOutlet UIButton *scorePayButton;
 @property (copy, nonatomic) NSString* playLessionType;
 @end
@@ -57,43 +59,73 @@
 }
 
 - (IBAction)scorePayLessionTypeSelect:(UITapGestureRecognizer *)sender {
-    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"兑换列表:" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
-    ac.view.backgroundColor = [UIColor whiteColor];
+    NSUInteger count = 5;
+    UIView* mainView = [[UIView alloc]initWithFrame:CGRectMake(0.f, 0.f, ScreenWidth*0.5, 5*30.f)];
     
-    UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"开用1个月早教服务[需300积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        _playLessionType = @"1";
-        _scoreLessionType.text = action.title;
-    }];
+    NSArray* mouth = @[@"1", @"3", @"6", @"12", @"24"];
+    NSArray* socre = @[@"300", @"800", @"1200", @"2000", @"3500"];
+    for (int i = 0; i<count; i++) {
+        UIButton* btn = [[UIButton alloc]init];
+        btn.frame = CGRectMake(0.f, i*30.f, ScreenWidth*0.5, 30.f);
+        [mainView addSubview:btn];
+        btn.tag = i;
+        NSString* title = [NSString stringWithFormat:@"开通%@个月早教服务[需%@积分]", mouth[i], socre[i]];
+        [btn setTitle:title forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(scorePayLessionChoice:) forControlEvents:UIControlEventTouchUpInside];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
+        [btn setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    }
 
-    [ac addAction:action1];
-    UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"开用3个月早教服务[需800积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _playLessionType = @"2";
-        _scoreLessionType.text = action.title;
-    }];
-    [ac addAction:action2];
-    UIAlertAction* action3 = [UIAlertAction actionWithTitle:@"开用6个月早教服务[需1200积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _playLessionType = @"3";
-        _scoreLessionType.text = action.title;
-    }];
-    [ac addAction:action3];
-    UIAlertAction* action4 = [UIAlertAction actionWithTitle:@"开用12个月早教服务[需2000积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _playLessionType = @"4";
-        _scoreLessionType.text = action.title;
-    }];
-    [ac addAction:action4];
-    UIAlertAction* action5 = [UIAlertAction actionWithTitle:@"开用24个月早教服务[需3500积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _playLessionType = @"5";
-        _scoreLessionType.text = action.title;
-    }];
-    [ac addAction:action5];
+    CXAlertView* alertView = [[CXAlertView alloc]initWithTitle:@"兑换列表:" contentView:mainView cancelButtonTitle:@"确定"];
+    alertView.userInteractionEnabled = YES;
+    [alertView show];
     
-    [self presentViewController:ac animated:YES completion:nil];
+//    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"兑换列表:" message:nil preferredStyle:UIAlertControllerStyleAlert];
+//    
+//    ac.view.backgroundColor = [UIColor whiteColor];
+//    
+//    UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"开用1个月早教服务[需300积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        _playLessionType = @"1";
+//        _scoreLessionType.text = action.title;
+//    }];
+//
+//    [ac addAction:action1];
+//    UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"开用3个月早教服务[需800积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        ;
+//        _playLessionType = @"2";
+//        _scoreLessionType.text = action.title;
+//    }];
+//    [ac addAction:action2];
+//    UIAlertAction* action3 = [UIAlertAction actionWithTitle:@"开用6个月早教服务[需1200积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        ;
+//        _playLessionType = @"3";
+//        _scoreLessionType.text = action.title;
+//    }];
+//    [ac addAction:action3];
+//    UIAlertAction* action4 = [UIAlertAction actionWithTitle:@"开用12个月早教服务[需2000积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        ;
+//        _playLessionType = @"4";
+//        _scoreLessionType.text = action.title;
+//    }];
+//    [ac addAction:action4];
+//    UIAlertAction* action5 = [UIAlertAction actionWithTitle:@"开用24个月早教服务[需3500积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        ;
+//        _playLessionType = @"5";
+//        _scoreLessionType.text = action.title;
+//    }];
+//    [ac addAction:action5];
+//    
+//    [self presentViewController:ac animated:YES completion:nil];
 
+}
+
+-(void)scorePayLessionChoice:(UIButton*)sender{
+    _oldselButton.selected = NO;
+    sender.selected = !sender.selected;
+    _oldselButton = sender;
+    _playLessionType = [NSString stringWithFormat:@"%ld", sender.tag];
+    _scoreLessionType.text = sender.titleLabel.text;
 }
 
 - (void)viewDidLoad {

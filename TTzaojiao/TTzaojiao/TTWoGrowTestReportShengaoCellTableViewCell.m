@@ -82,12 +82,12 @@
     //需要男女，身高，体重
     NSString * gender = [TTUserModelTool sharedUserModelTool].logonUser.gender;
     if ([gender isEqualToString:@"1"] ) {
-        [self test:@"shengao_nianling_male.gif" andLeftImg:@"shengao_v.gif" andBottomImg:@"nianling_h.gif" andpicType:2];
+        [self test:@"shengao_nianling_male.png" andLeftImg:@"shengao_v.png" andBottomImg:@"nianling_h.png" andpicType:2];
         
     }
     else
     {
-    [self test:@"shengao_nianling_female.gif" andLeftImg:@"shengao_v.gif" andBottomImg:@"nianling_h.gif" andpicType:2];
+    [self test:@"shengao_nianling_female.png" andLeftImg:@"shengao_v.png" andBottomImg:@"nianling_h.png" andpicType:2];
     }
     _descLabel.text = modelFrame.model.tige_shengao_content;
 }

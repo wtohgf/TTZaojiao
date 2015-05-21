@@ -27,9 +27,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"注册";
     //添加低栏
     [self addBottomBar];
+    
+    self.title = @"注册";
 
 }
 
@@ -55,8 +56,8 @@
 #pragma mark 添加低栏
 -(void)addBottomBar{
     CGFloat h = kBottomBarHeight;
-    CGFloat w = [UIApplication sharedApplication].keyWindow.frame.size.width;
-    CGFloat y = [UIApplication sharedApplication].keyWindow.frame.size.height -  h;
+    CGFloat w = self.view.width;
+    CGFloat y = self.view.height - h  -64.f;
     CGFloat x = 0;
     
     CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
@@ -98,7 +99,7 @@
     
     NSDictionary *info = [note userInfo];
     CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//键盘的frame
-    CGFloat offY = (self.view.frame.size.height-keyboardSize.height)-_bottomBar.frame.size.height;//屏幕总高度-键盘高度-bottomBar高度
+    CGFloat offY = (self.view.height-keyboardSize.height)-_bottomBar.frame.size.height;//屏幕总高度-键盘高度-bottomBar高度
     
     [UIView animateWithDuration:0.3 animations:^{
         CGRect frame =  _bottomBar.frame;

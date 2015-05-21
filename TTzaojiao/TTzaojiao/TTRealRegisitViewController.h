@@ -7,11 +7,12 @@
 //
 
 #import "TTBaseViewController.h"
-#import "JSImagePickerViewController.h"
 #import "TSLocateView.h"
 #import "CustomDatePicker.h"
+#import "TTPhotoChoiceAlerTool.h"
+#import "TTBlogFrame.h"
 
-@interface TTRealRegisitViewController : TTBaseViewController<JSImagePickerViewControllerDelegate, UIActionSheetDelegate>
+@interface TTRealRegisitViewController : TTBaseViewController< UIActionSheetDelegate, TTPhotoChoiceAlerToolDelegate>
 //第一步传过来的
 @property (copy, nonatomic) NSString* phoneNum;
 @property (copy, nonatomic) NSString* password;

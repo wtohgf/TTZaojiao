@@ -101,6 +101,7 @@
         [self updateLamaList];
     }];
 }
+
 - (void)loadData
 {
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
@@ -119,7 +120,7 @@
     //加载网络数据
     [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_ACTIVE Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView: self.navigationController.view animated:YES];
         if (result_status == ApiStatusSuccess) {
 
             if ([result_data isKindOfClass:[NSMutableArray class]]) {

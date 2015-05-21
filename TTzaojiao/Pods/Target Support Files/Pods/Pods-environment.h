@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 1
 
+// BSImagePicker
+#define COCOAPODS_POD_AVAILABLE_BSImagePicker
+#define COCOAPODS_VERSION_MAJOR_BSImagePicker 0
+#define COCOAPODS_VERSION_MINOR_BSImagePicker 7
+#define COCOAPODS_VERSION_PATCH_BSImagePicker 0
+
 // CXAlertView
 #define COCOAPODS_POD_AVAILABLE_CXAlertView
 #define COCOAPODS_VERSION_MAJOR_CXAlertView 1

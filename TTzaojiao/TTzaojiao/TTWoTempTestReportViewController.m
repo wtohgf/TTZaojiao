@@ -109,7 +109,7 @@
             //[self drawPic];
             //caculata height of section 1
 //            UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
-            UIImage* leftImage = [UIImage imageNamed:@"temp_report_left.gif"];
+            UIImage* leftImage = [UIImage imageNamed:@"temp_report_left.png"];
 //            CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
 //            CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
             CGFloat picW = leftImage.size.width;
@@ -121,7 +121,7 @@
             }
             
 //            UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
-            UIImage* bottomImage = [UIImage imageNamed:@"temp_report_bottom.gif"];
+            UIImage* bottomImage = [UIImage imageNamed:@"temp_report_bottom.png"];
             CGFloat bottomW = bottomImage.size.width;
             CGFloat bottomH = bottomImage.size.height;
 //            CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
@@ -242,7 +242,7 @@
         UIImageView *imageView1=[[UIImageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(titleLabel.frame), screenWidth, _picHeight)];
         [cell.contentView addSubview:imageView1];
         
-        UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
+        UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.png"]];
         CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
         CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
         
@@ -257,7 +257,7 @@
         [imageView1 addSubview:leftView];
         
         
-        UIImageView * centerView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+        UIImageView * centerView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_center.png"]];
         CGFloat centerW = CGImageGetWidth(centerView.image.CGImage);
         CGFloat centerH = CGImageGetHeight(centerView.image.CGImage);
         
@@ -274,14 +274,14 @@
         _centerY = centerY;
         for (int i = 0; i < 8; i++) {
             UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(centerX+i*(centerWidth), centerY, centerWidth, centerHeight)];
-            [img setImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+            [img setImage:[UIImage imageNamed:@"temp_report_center.png"]];
             [imageView1 addSubview:img];
             
         }
         
         
         
-        UIImageView * rightView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_right.gif"]];
+        UIImageView * rightView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_right.png"]];
         CGFloat rightW = CGImageGetWidth(rightView.image.CGImage);
         CGFloat rightH = CGImageGetHeight(rightView.image.CGImage);
         
@@ -296,7 +296,7 @@
         rightView.frame = CGRectMake(rightX, rightY, rightWidth, rightHeight);
         [imageView1 addSubview:rightView];
         
-        UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
+        UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.png"]];
         CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
         CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
         
@@ -518,7 +518,7 @@
     UIImageView *imageView1=[[UIImageView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:imageView1];
     
-    UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.gif"]];
+    UIImageView * leftView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_left.png"]];
     CGFloat picW = CGImageGetWidth(leftView.image.CGImage);
     CGFloat picH = CGImageGetHeight(leftView.image.CGImage);
     
@@ -530,7 +530,7 @@
     [imageView1 addSubview:leftView];
     
     
-    UIImageView * centerView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+    UIImageView * centerView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_center.png"]];
     CGFloat centerW = CGImageGetWidth(centerView.image.CGImage);
     CGFloat centerH = CGImageGetHeight(centerView.image.CGImage);
     
@@ -544,14 +544,14 @@
     _centerY = centerY;
     for (int i = 0; i < 8; i++) {
         UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(centerX+i*(centerWidth), centerY, centerWidth, centerHeight)];
-        [img setImage:[UIImage imageNamed:@"temp_report_center.jpg"]];
+        [img setImage:[UIImage imageNamed:@"temp_report_center.png"]];
         [imageView1 addSubview:img];
         
     }
     
     
     
-    UIImageView * rightView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_right.gif"]];
+    UIImageView * rightView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_right.png"]];
     CGFloat rightW = CGImageGetWidth(rightView.image.CGImage);
     CGFloat rightH = CGImageGetHeight(rightView.image.CGImage);
     
@@ -562,7 +562,7 @@
     rightView.frame = CGRectMake(rightX, rightY, rightWidth, rightHeight);
     [imageView1 addSubview:rightView];
     
-    UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.gif"]];
+    UIImageView * bottomView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"temp_report_bottom.png"]];
     CGFloat bottomW = CGImageGetWidth(bottomView.image.CGImage);
     CGFloat bottomH = CGImageGetHeight(bottomView.image.CGImage);
     

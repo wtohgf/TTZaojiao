@@ -29,10 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //设置背景图片
-    //[self setBackGroundImages];
     
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -66,9 +65,9 @@
     //装载tabbar
     TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
-
-    [UINavigationBar appearance].hidden = NO;
-    
+//
+//    [UINavigationBar appearance].hidden = NO;
+//    
     self.mainViewController = tabBarController;
     
     [self.navigationController pushViewController:_mainViewController animated:YES];

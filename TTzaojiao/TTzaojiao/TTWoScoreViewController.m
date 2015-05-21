@@ -86,7 +86,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return ([UIScreen mainScreen].bounds.size.height - 64.f)/17;
+    return 30.f;
 }
 
 @end

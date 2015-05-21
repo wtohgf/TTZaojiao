@@ -37,8 +37,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
-        
         //content
         UILabel *contentLabel  = [[UILabel alloc]init];
         [self.contentView addSubview:contentLabel];
@@ -47,7 +45,6 @@
         _contentLabel.font = kTextFont;
         
     }
-    
     return self;
 }
 

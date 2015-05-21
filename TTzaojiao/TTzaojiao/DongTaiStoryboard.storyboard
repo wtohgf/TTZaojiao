@@ -46,6 +46,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.92962282351297787" green="0.94637784499270627" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.92962282351297787" green="0.94637784499270627" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="bFt-7y-de5" id="KK7-PE-Iqt"/>
                                     <outlet property="delegate" destination="bFt-7y-de5" id="aoB-za-l9x"/>
@@ -53,34 +56,16 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZsM-t0-AN1" secondAttribute="trailing" constant="-16" id="26s-oH-qse"/>
-                            <constraint firstItem="0G3-z6-V9o" firstAttribute="top" secondItem="ZsM-t0-AN1" secondAttribute="bottom" id="SOM-0N-8ue"/>
-                            <constraint firstItem="ZsM-t0-AN1" firstAttribute="top" secondItem="ADd-rB-hGg" secondAttribute="top" id="Wlv-qw-Kul"/>
-                            <constraint firstItem="ZsM-t0-AN1" firstAttribute="leading" secondItem="ADd-rB-hGg" secondAttribute="leadingMargin" constant="-16" id="c1P-MH-1TO"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="p1G-uZ-O0V"/>
                                 <exclude reference="ZsM-t0-AN1"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="SOM-0N-8ue"/>
-                                <exclude reference="26s-oH-qse"/>
-                                <exclude reference="Wlv-qw-Kul"/>
-                                <exclude reference="c1P-MH-1TO"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="p1G-uZ-O0V"/>
                                 <include reference="ZsM-t0-AN1"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="SOM-0N-8ue"/>
-                                <include reference="26s-oH-qse"/>
-                                <include reference="Wlv-qw-Kul"/>
-                                <include reference="c1P-MH-1TO"/>
                             </mask>
                         </variation>
                     </view>
@@ -144,14 +129,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="T7g-GF-PLv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="u2F-kZ-jzI" id="Iw8-6S-gg9"/>
-                                    <outlet property="delegate" destination="u2F-kZ-jzI" id="HQL-Y2-Xvx"/>
-                                </connections>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNd-SQ-8KQ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.89302381289999999" blue="0.95587769209999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -181,49 +158,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NNd-SQ-8KQ" secondAttribute="trailing" constant="-16" id="ALn-YC-6n1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="T7g-GF-PLv" secondAttribute="trailing" constant="-16" id="LNu-PH-Em4"/>
-                            <constraint firstItem="NNd-SQ-8KQ" firstAttribute="top" secondItem="T7g-GF-PLv" secondAttribute="bottom" constant="-1" id="boQ-pK-j1Z"/>
                             <constraint firstItem="5lj-w5-2uc" firstAttribute="top" secondItem="NNd-SQ-8KQ" secondAttribute="bottom" id="ejL-He-NcJ"/>
-                            <constraint firstItem="T7g-GF-PLv" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="gLC-Bq-SgM"/>
                             <constraint firstItem="NNd-SQ-8KQ" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="lOV-8p-Mkw"/>
-                            <constraint firstItem="T7g-GF-PLv" firstAttribute="top" secondItem="Ttf-yV-IxW" secondAttribute="topMargin" id="vFI-55-Di9">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="T7g-GF-PLv"/>
                                 <exclude reference="NNd-SQ-8KQ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ejL-He-NcJ"/>
                                 <exclude reference="ALn-YC-6n1"/>
-                                <exclude reference="boQ-pK-j1Z"/>
                                 <exclude reference="lOV-8p-Mkw"/>
-                                <exclude reference="LNu-PH-Em4"/>
-                                <exclude reference="gLC-Bq-SgM"/>
-                                <exclude reference="vFI-55-Di9"/>
+                                <exclude reference="ejL-He-NcJ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="T7g-GF-PLv"/>
                                 <include reference="NNd-SQ-8KQ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ejL-He-NcJ"/>
                                 <include reference="ALn-YC-6n1"/>
-                                <include reference="boQ-pK-j1Z"/>
                                 <include reference="lOV-8p-Mkw"/>
-                                <include reference="LNu-PH-Em4"/>
-                                <include reference="gLC-Bq-SgM"/>
-                                <include reference="vFI-55-Di9"/>
+                                <include reference="ejL-He-NcJ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="addCancelFriend" destination="NNd-SQ-8KQ" id="0mE-HK-ZGu"/>
-                        <outlet property="userDynamicTableView" destination="T7g-GF-PLv" id="yjF-qb-BHK"/>
                         <segue destination="vJn-Ds-I7w" kind="show" identifier="toCommentList" id="3n7-7S-nGk"/>
                     </connections>
                 </viewController>
@@ -236,6 +196,6 @@
         <image name="bottom_btn3_unchecked" width="29" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3n7-7S-nGk"/>
+        <segue reference="hzc-tP-phY"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0BD603B3F1A13C2555F33F74"
+               BlueprintIdentifier = "AB6A52A4E901DE906B6D9D9F"
                BuildableName = "libPods-ZWIntroductionViewController.a"
                BlueprintName = "Pods-ZWIntroductionViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

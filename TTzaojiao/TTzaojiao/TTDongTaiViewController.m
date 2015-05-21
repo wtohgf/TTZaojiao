@@ -44,6 +44,16 @@
         self.modalPresentationCapturesStatusBarAppearance
         = NO;
     }
+    
+    CGFloat w=self.view.frame.size.width;
+    CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
+    
+    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+        _dongtaiTable.frame = CGRectMake(0, 0, w, h-49.f);
+    }else{
+        _dongtaiTable.frame = CGRectMake(0, 64.f, w, h-49.f);
+    }
+
 
     UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state" target:self action:@selector(dynamic_state:)];
     self.navigationItem.rightBarButtonItem = itemright;

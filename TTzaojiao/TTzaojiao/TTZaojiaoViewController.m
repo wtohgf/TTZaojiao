@@ -74,11 +74,12 @@
 -(void)vipPay:(TTZaojiaoHeaderRightItem*)sender{
     
     if ( [[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
-        [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self.navigationController];
+       [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self];
     }else{
         UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
         TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
         [self.navigationController pushViewController:vipPayController animated:YES];
+        
     }
 }
 

@@ -32,6 +32,8 @@
 @property (copy, nonatomic) NSString* name;
 @property (copy, nonatomic) NSString* type; //0已有宝宝 1孕期宝宝 2未来宝宝
 
+@property (weak, nonatomic) CXAlertView* birthDayTypeChoiceView;
+
 - (IBAction)changGental:(UIButton *)sender;
 - (IBAction)changLocation:(UIButton *)sender;
 - (IBAction)changIcon:(UIButton *)sender;
@@ -101,8 +103,8 @@
 #pragma mark 添加低栏
 -(void)addBottomBar{
     CGFloat h = kBottomBarHeight;
-    CGFloat w = self.view.frame.size.width;
-    CGFloat y = self.view.frame.size.height -  h;
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGFloat y = [UIScreen mainScreen].bounds.size.height -  h -64.f;
     CGFloat x = 0;
     _bottomBar.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;
@@ -161,24 +163,7 @@
 #pragma mark 更改性别
 - (IBAction)changGental:(UIButton *)sender {
     [_babyName resignFirstResponder];
-    
-    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择宝宝性别" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    ac.view.backgroundColor = [UIColor whiteColor];
-    
-    UIAlertAction* male = [UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        _genderType = @"0";
-        _gental.text = @"男";
-    }];
-    [ac addAction:male];
-    UIAlertAction* female = [UIAlertAction actionWithTitle:@"女" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _genderType = @"1";
-        _gental.text = @"女";
-    }];
-    [ac addAction:female];
-    
-    [self presentViewController:ac animated:YES completion:nil];
+    [self babyGenderSelect];
 }
 
 #pragma mark 更改位置
@@ -228,17 +213,19 @@
 #pragma mark 更改头像
 - (IBAction)changIcon:(UIButton *)sender {
     [_babyName resignFirstResponder];
-    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
-    imagePicker.delegate = self;
-    [imagePicker showImagePickerInController:self animated:YES];
+    [[TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool]photoPickerShowinView:self picCount:1];
+    [TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool].delegate = self;
+    
     
 }
 
--(void)imagePickerDidSelectImage:(UIImage *)image{
-    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
-    
+-(void)didSelectedPhotos:(NSArray *)photos{
     NSMutableArray* images = [NSMutableArray array];
-    [images addObject:image];
+    for (int i=0; i<photos.count; i++) {
+        UIImage* image = [photos[i] scaleToSize:photos[i] size:CGSizeMake(100, 100)];
+        [images addObject:image];
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
         if ([result_data isKindOfClass:[NSMutableArray class]]) {
@@ -248,7 +235,7 @@
                 if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
                     NSString* filePath = dict[@"msg_word_1"];
                     _iconPath = filePath;
-                    [_icon setImage:image forState:UIControlStateNormal];
+                    [_icon setImage:[photos firstObject] forState:UIControlStateNormal];
                 }else{
                     _iconPath = @"";
                 }
@@ -256,54 +243,25 @@
         }
     } Progress:^(CGFloat progress) {
         _iconPath = @"";
-//        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
+        //        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
         
         [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
+    
 }
+
 
 #pragma mark 更改生日
 - (IBAction)changBirthDay:(UIButton *)sender {
     [_babyName resignFirstResponder];
-    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择宝宝类型" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    ac.view.backgroundColor = [UIColor whiteColor];
-    
-    UIAlertAction* ownBaby = [UIAlertAction actionWithTitle:@"已有宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        _type = @"0";
-        CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
-        cdate.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
-        cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
-        [cdate showInView:self.view];
-        NSDateFormatter* formater = [[NSDateFormatter alloc]init];
-        [formater setDateFormat:@"yyyy-MM-dd"];
-        cdate.datePicker.minimumDate = [formater dateFromString:@"1970-01-01"];
-        cdate.datePicker.maximumDate = [NSDate date];
-    }];
-    [ac addAction:ownBaby];
-    UIAlertAction* yunBaby = [UIAlertAction actionWithTitle:@"孕期宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _type = @"1";
-        _birthdayString = @"1970-01-01";
-        _birthDay.text = @"孕期宝宝";
-    }];
-    [ac addAction:yunBaby];
-    UIAlertAction* futureBaby = [UIAlertAction actionWithTitle:@"未来宝宝" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _type = @"2";
-        _birthdayString = @"1970-01-01";
-        _birthDay.text = @"未来宝宝";
-    }];
-    [ac addAction:futureBaby];
-
-    [self presentViewController:ac animated:YES completion:nil];
+    [self babyBirthDaySelect];
 
 }
 
 #pragma mark 注册
 - (IBAction)regist:(UIButton *)sender {
-    
+    [_babyName resignFirstResponder];
     if (_iconPath.length == 0) {
        // [[[UIAlertView alloc]init]showAlert:@"请设置宝宝头像" byTime:2.0];
         [MBProgressHUD TTDelayHudWithMassage:@"请设置宝宝头像" View:self.navigationController.view];
@@ -366,4 +324,131 @@
 - (IBAction)selTap:(UITapGestureRecognizer *)sender {
     [self changLocation:nil];
 }
+
+
+-(void)babyBirthDaySelect{
+
+    UIView* mainView = [[UIView alloc]init];
+    mainView.frame = CGRectMake(0, 0, ScreenWidth*0.5, 120.f);
+    UIButton* btn = [[UIButton alloc]init];
+    btn.frame = CGRectMake(0.f, 0.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn];
+    btn.tag = 0;
+    [btn setTitle:@"已有宝宝" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(photoChoice:) forControlEvents:UIControlEventTouchUpInside];
+    btn.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    UIButton* btn2 = [[UIButton alloc]init];
+    btn2.frame = CGRectMake(0.f, 40.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn2];
+    btn2.tag = 1;
+    [btn2 setTitle:@"孕期宝宝" forState:UIControlStateNormal];
+    [btn2 addTarget:self action:@selector(photoChoice:) forControlEvents:UIControlEventTouchUpInside];
+    btn2.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn2 setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    UIButton* btn3 = [[UIButton alloc]init];
+    btn3.frame = CGRectMake(0.f, 80.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn3];
+    btn3.tag = 2;
+    [btn3 setTitle:@"未来宝宝" forState:UIControlStateNormal];
+    [btn3 addTarget:self action:@selector(photoChoice:) forControlEvents:UIControlEventTouchUpInside];
+    btn3.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn3 setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    CXAlertView* alertView = [[CXAlertView alloc]initWithTitle:@"给宝宝选择生日:" contentView:mainView cancelButtonTitle:nil];
+    _birthDayTypeChoiceView  = alertView;
+    [alertView show];
+    
+}
+
+-(void)photoChoice:(UIButton*)sender{
+    [_birthDayTypeChoiceView dismiss];
+    switch (sender.tag) {
+        case 0:
+        {
+            _type = @"0";
+            CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
+            cdate.frame = CGRectMake(0, self.view.frame.size.height*3/5, self.view.frame.size.width, self.view.frame.size.height*2/5);
+            cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
+            [cdate showInView:self.view];
+            NSDateFormatter* formater = [[NSDateFormatter alloc]init];
+            [formater setDateFormat:@"yyyy-MM-dd"];
+            cdate.datePicker.minimumDate = [formater dateFromString:@"1970-01-01"];
+            cdate.datePicker.maximumDate = [NSDate date];
+            
+        }
+            break;
+        case 1:
+        {
+            _type = @"1";
+            _birthdayString = @"1970-01-01";
+            _birthDay.text = @"孕期宝宝";
+         }
+            break;
+        case 2:
+        {
+            _type = @"2";
+            _birthdayString = @"1970-01-01";
+            _birthDay.text = @"未来宝宝";
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)babyGenderSelect{
+    
+    UIView* mainView = [[UIView alloc]init];
+    mainView.frame = CGRectMake(0, 0, ScreenWidth*0.5, 80.f);
+    UIButton* btn = [[UIButton alloc]init];
+    btn.frame = CGRectMake(0.f, 0.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn];
+    btn.tag = 0;
+    [btn setTitle:@"男" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(gender:) forControlEvents:UIControlEventTouchUpInside];
+    btn.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    UIButton* btn2 = [[UIButton alloc]init];
+    btn2.frame = CGRectMake(0.f, 40.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn2];
+    btn2.tag = 1;
+    [btn2 setTitle:@"女" forState:UIControlStateNormal];
+    [btn2 addTarget:self action:@selector(gender:) forControlEvents:UIControlEventTouchUpInside];
+    btn2.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn2 setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    
+    CXAlertView* alertView = [[CXAlertView alloc]initWithTitle:@"给宝宝选择性别:" contentView:mainView cancelButtonTitle:nil];
+    _birthDayTypeChoiceView  = alertView;
+    [alertView show];
+    
+}
+
+-(void)gender:(UIButton*)sender{
+    [_birthDayTypeChoiceView dismiss];
+    switch (sender.tag) {
+        case 0:
+        {
+            _genderType = @"0";
+            _gental.text = @"男";
+            
+        }
+            break;
+        case 1:
+        {
+            _genderType = @"1";
+            _gental.text = @"女";
+        }
+            break;
+
+        default:
+            break;
+    }
+}
+
+
 @end

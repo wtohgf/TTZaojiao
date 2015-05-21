@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addCancelFriend;
 
 @property (strong, nonatomic) DynamicUserModel* curUser;
-@property (weak, nonatomic) IBOutlet UITableView *userDynamicTableView;
+@property (weak, nonatomic) UITableView *userDynamicTableView;
 @property (weak, nonatomic) TTDynamicUserStatusHeaderView* headerView;
 
 @end
@@ -37,6 +37,7 @@
     self.title = @"个人动态";
     // Do any additional setup after loading the view.
 
+    
     if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.extendedLayoutIncludesOpaqueBars
@@ -44,6 +45,18 @@
         self.modalPresentationCapturesStatusBarAppearance
         = NO;
     }
+    
+    UITableView* tableView = [[UITableView alloc]init];
+    [self.view addSubview:tableView];
+    _userDynamicTableView = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    CGFloat w=ScreenWidth;
+    CGFloat h=ScreenHeight-44.f;
+    
+    _userDynamicTableView.frame = CGRectMake(0, 0, w, h);
+
     _userDynamicTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 
     //取得用户模型
@@ -253,11 +266,45 @@
     
     if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:_i_uid]) {
         _isChangCover = YES;
-        JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
-        imagePicker.delegate = self;
-        [imagePicker showImagePickerInController:self animated:YES];
+//        JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+//        imagePicker.delegate = self;
+//        [imagePicker showImagePickerInController:self animated:YES];
+        [[TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool]photoPickerShowinView:self picCount:1];
+        [TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool].delegate = self;
+        
     }
 
+}
+
+-(void)didSelectedPhotos:(NSArray *)photos{
+    if (photos != nil && photos.count > 0) {
+        UIImage * image = [photos firstObject];
+        image = [image scaleToSize:image size:CGSizeMake(100, 100)];
+  
+        NSMutableArray* images = [NSMutableArray array];
+        [images addObject:image];
+        [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                if (((NSMutableArray*)result_data).count!=0) {
+                    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                    NSDictionary* dict = (NSDictionary*)result_data[0];
+                    if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
+                        NSString* filePath = dict[@"msg_word_1"];
+                        _iconPath = filePath;
+                        [self updateIcon];
+                    }else{
+                        _iconPath = @"";
+                    }
+                }
+            }
+        } Progress:^(CGFloat progress) {
+            _iconPath = @"";
+            [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
+            [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        }];
+        
+    }
 }
 
 - (void)updateCover {
@@ -284,9 +331,8 @@
     if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:_i_uid]){
         
         _isChangIcon = YES;
-        JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
-        imagePicker.delegate = self;
-        [imagePicker showImagePickerInController:self animated:YES];
+        [[TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool]photoPickerShowinView:self picCount:1];
+        [TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool].delegate = self;
     }
 }
 
@@ -310,43 +356,6 @@
                                          }];
     _isChangIcon = NO;
 }
-
--(void)imagePickerDidSelectImage:(UIImage *)image{
-    
-    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
-    
-    NSMutableArray* images = [NSMutableArray array];
-    [images addObject:image];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
-        if ([result_data isKindOfClass:[NSMutableArray class]]) {
-            if (((NSMutableArray*)result_data).count!=0) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                NSDictionary* dict = (NSDictionary*)result_data[0];
-                if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
-                    NSString* filePath = dict[@"msg_word_1"];
-                    _iconPath = filePath;
-                    if (_isChangIcon) {
-                        [self updateIcon];
-                    }else if(_isChangCover){
-                        [self updateCover];
-                    }
-                }else{
-                    _iconPath = @"";
-                }
-            }
-        }
-    } Progress:^(CGFloat progress) {
-        _iconPath = @"";
-//        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
-        
-        [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    }];
-    
-    
-}
-
 
 -(void)backToPrePaeg{
     [self.navigationController popViewControllerAnimated:YES];

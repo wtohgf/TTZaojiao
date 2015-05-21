@@ -8,11 +8,11 @@
 
 #import "TTWoIconModiyViewController.h"
 #import <RDVTabBarController.h>
-#import "JSImagePickerViewController.h"
 #import "UIImage+MoreAttribute.h"
 #import "UIImageView+MoreAttribute.h"
+#import "TTPhotoChoiceAlerTool.h"
 
-@interface TTWoIconModiyViewController () <JSImagePickerViewControllerDelegate>
+@interface TTWoIconModiyViewController () <TTPhotoChoiceAlerToolDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *myIconButton;
 @property (strong, nonatomic) IBOutlet UIButton *modIconButton;
 @property (copy, nonatomic) NSString* iconPath;
@@ -55,10 +55,13 @@
  */
 
 - (IBAction)iconAction:(UIButton *)sender {
-    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
-    imagePicker.delegate = self;
-    [imagePicker showImagePickerInController:self animated:YES];
+//    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
+//    imagePicker.delegate = self;
+//    [imagePicker showImagePickerInController:self animated:YES];
+    [[TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool]photoPickerShowinView:self picCount:1];
+    [TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool].delegate = self;
 }
+
 
 - (IBAction)modifyAction:(UIButton *)sender {
     if (_iconPath.length == 0) {
@@ -83,35 +86,38 @@
                                          }];
 }
 
--(void)imagePickerDidSelectImage:(UIImage *)image{
-    
-    [_iconImageView setImage:image];
-    
-    image = [image scaleToSize:image size:CGSizeMake(100, 100)];
-    
-    NSMutableArray* images = [NSMutableArray array];
-    [images addObject:image];
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
-        if ([result_data isKindOfClass:[NSMutableArray class]]) {
-            if (((NSMutableArray*)result_data).count!=0) {
-                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-                NSDictionary* dict = (NSDictionary*)result_data[0];
-                if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
-                    NSString* filePath = dict[@"msg_word_1"];
-                    _iconPath = filePath;
-                }else{
-                    _iconPath = @"";
-                }
-            }
-        }
-    } Progress:^(CGFloat progress) {
-        _iconPath = @"";
-        [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-    }];
 
-    
+-(void)didSelectedPhotos:(NSArray *)photos{
+    if (photos != nil && photos.count > 0) {
+        UIImage * image = [photos firstObject];
+        image = [image scaleToSize:image size:CGSizeMake(100, 100)];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_iconImageView setImage:image];
+        });
+        
+        NSMutableArray* images = [NSMutableArray array];
+            [images addObject:image];
+            [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+            [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
+                if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                    if (((NSMutableArray*)result_data).count!=0) {
+                        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+                        NSDictionary* dict = (NSDictionary*)result_data[0];
+                        if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
+                            NSString* filePath = dict[@"msg_word_1"];
+                            _iconPath = filePath;
+                        }else{
+                            _iconPath = @"";
+                        }
+                    }
+                }
+            } Progress:^(CGFloat progress) {
+                _iconPath = @"";
+                [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
+                [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+            }];
+
+    }
 }
 
 @end

@@ -10,6 +10,7 @@
 #import <RDVTabBarController.h>
 #import "UIImage+MoreAttribute.h"
 #import "WUDemoKeyboardBuilder.h"
+#import "TTBlogFrame.h"
 
 @interface TTDynamicReleaseViewController()
 {
@@ -17,6 +18,7 @@
     NSString* _picsPath;
     NSMutableArray* _images;
 }
+@property (strong, nonatomic) CXAlertView* publicTypeSelectView;
 @end
 @implementation TTDynamicReleaseViewController
 -(void)viewDidLoad{
@@ -55,7 +57,7 @@
     [self.view addSubview:textView];
     [_textView becomeFirstResponder];
     _textView = textView;
-
+ 
 }
 
 -(void)addPublichPicsView{
@@ -64,19 +66,6 @@
     [self.view addSubview:publichPicsView];
     _publichPicsView = publichPicsView;
     
-}
-
--(void)imagePickerDidSelectImage:(UIImage *)image{
-    CGSize size;
-    if (image.size.width >= image.size.height) {
-        size = (CGSize){100.f*image.size.width/image.size.height, 100.f};
-    }else{
-        size = (CGSize){100.f, 100.f*image.size.height/image.size.width};
-    }
-    
-    image = [image scaleToSize:image size:size];
-    [_images addObject:image];
-    [_publichPicsView addPicImage:image];
 }
 
 -(void)cancel:(UIBarButtonItem*)item{
@@ -208,33 +197,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
 }
 
--(void)publichViewdidPublicTo:(TTPublichView *)view{
-    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"请选择发布到:" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    
-    ac.view.backgroundColor = [UIColor whiteColor];
-    
-    UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"早教自拍" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        _sort = @"1";
-        [_textView resignFirstResponder];
-        [self release:nil];
-    }];
-    [ac addAction:action1];
-    UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"课程提问" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-         _sort = @"2";
-        [_textView resignFirstResponder];
-        [self release:nil];
-    }];
-    [ac addAction:action2];
-    UIAlertAction* action3 = [UIAlertAction actionWithTitle:@"宝宝生活" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        ;
-        _sort = @"3";
-        [_textView resignFirstResponder];
-        [self release:nil];
-    }];
-    [ac addAction:action3];
-    [self presentViewController:ac animated:YES completion:nil];
-}
 
 -(void)publichViewdidSelBiaoqing:(TTPublichView *)view{
     if (self.textView.isFirstResponder) {
@@ -244,15 +206,6 @@
         [self.textView switchToEmoticonsKeyboard:[WUDemoKeyboardBuilder sharedEmoticonsKeyboard]];
         [self.textView becomeFirstResponder];
     }
-}
-
--(void)publichViewdidSelPic:(TTPublichView *)view{
-    
-    JSImagePickerViewController *imagePicker = [[JSImagePickerViewController alloc] init];
-    imagePicker.delegate = self;
-    [imagePicker showImagePickerInController:self animated:YES];
-    
-    [_textView resignFirstResponder];
 }
 
 #pragma mark 添加低栏
@@ -320,5 +273,101 @@
 
 //键盘点击return自动消失
 
+
+-(void)publichViewdidPublicTo:(TTPublichView *)view{
+    [self publicTypeSelect];
+}
+
+
+-(void)publicTypeSelect{
+    
+    UIView* mainView = [[UIView alloc]init];
+    mainView.frame = CGRectMake(0, 0, ScreenWidth*0.5, 120.f);
+    UIButton* btn = [[UIButton alloc]init];
+    btn.frame = CGRectMake(0.f, 0.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn];
+    btn.tag = 0;
+    [btn setTitle:@"早教自拍" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(photoChoice:) forControlEvents:UIControlEventTouchUpInside];
+    btn.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    UIButton* btn2 = [[UIButton alloc]init];
+    btn2.frame = CGRectMake(0.f, 40.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn2];
+    btn2.tag = 1;
+    [btn2 setTitle:@"课程提问" forState:UIControlStateNormal];
+    [btn2 addTarget:self action:@selector(photoChoice:) forControlEvents:UIControlEventTouchUpInside];
+    btn2.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn2 setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    UIButton* btn3 = [[UIButton alloc]init];
+    btn3.frame = CGRectMake(0.f, 80.f, ScreenWidth*0.5, 40.f);
+    [mainView addSubview:btn3];
+    btn3.tag = 2;
+    [btn3 setTitle:@"宝宝生活" forState:UIControlStateNormal];
+    [btn3 addTarget:self action:@selector(photoChoice:) forControlEvents:UIControlEventTouchUpInside];
+    btn3.titleLabel.font = [UIFont systemFontOfSize:18.f];
+    [btn3 setTitleColor:[UIColor purpleColor] forState:UIControlStateSelected];
+    
+    CXAlertView* alertView = [[CXAlertView alloc]initWithTitle:@"请选择发布到:" contentView:mainView cancelButtonTitle:nil];
+    _publicTypeSelectView  = alertView;
+    [alertView show];
+    
+}
+
+-(void)photoChoice:(UIButton*)sender{
+    [_publicTypeSelectView dismiss];
+    switch (sender.tag) {
+        case 0:
+        {
+            _sort = @"1";
+            [_textView resignFirstResponder];
+            [self release:nil];
+            
+        }
+            break;
+        case 1:
+        {
+            _sort = @"2";
+            [_textView resignFirstResponder];
+            [self release:nil];
+        }
+            break;
+        case 2:
+        {
+            _sort = @"3";
+            [_textView resignFirstResponder];
+            [self release:nil];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)publichViewdidSelPic:(TTPublichView *)view{
+    [_publicTypeSelectView dismiss];
+    [[TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool]photoPickerShowinView:self picCount:9];
+    [TTPhotoChoiceAlerTool sharedPhotoChoiceAlerTool].delegate = self;
+    
+    [_textView resignFirstResponder];
+}
+
+-(void)didSelectedPhotos:(NSArray *)photos{
+    CGSize size;
+    
+    for (int i=0; i<photos.count; i++) {
+        UIImage* image = photos[i];
+        if (image.size.width >= image.size.height) {
+            size = (CGSize){100.f*image.size.width/image.size.height, 100.f};
+        }else{
+            size = (CGSize){100.f, 100.f*image.size.height/image.size.width};
+        }
+        image = [image scaleToSize:image size:size];
+        [_images addObject:image];
+        [_publichPicsView addPicImage:image];
+    }
+}
 
 @end

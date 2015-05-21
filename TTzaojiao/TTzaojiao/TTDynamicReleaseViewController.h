@@ -9,10 +9,10 @@
 #import "TTBaseViewController.h"
 #import "TTPublichView.h"
 #import "TTPublichPicsView.h"
-#import "JSImagePickerViewController.h"
 #import "NSAttributedString+EmojiExtension.h"
+#import "TTPhotoChoiceAlerTool.h"
 
-@interface TTDynamicReleaseViewController : TTBaseViewController<TTPublichViewDelegate,JSImagePickerViewControllerDelegate>
+@interface TTDynamicReleaseViewController : TTBaseViewController<TTPublichViewDelegate,TTPhotoChoiceAlerToolDelegate>
 
 @property (weak, nonatomic) TTPublichView *bottomBar;
 @property (weak, nonatomic) UITextView *textView;
