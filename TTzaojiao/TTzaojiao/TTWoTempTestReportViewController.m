@@ -11,7 +11,7 @@
 #import "NSString+Extension.h"
 #import "TTWoTemperatureTestCell.h"
 #define screenWidth [UIScreen mainScreen].bounds.size.width
-#define screenHeight [UIScreen mainScreen].bounds.size.width
+#define screenHeight [UIScreen mainScreen].bounds.size.height
 #define kpicAll (80+8*50+30+16.0)
 #define kLeftRatio 80/kpicAll
 #define kCenterRatio 50/kpicAll
@@ -35,7 +35,7 @@
 @property (nonatomic,copy) NSString *value_info_1;
 @property (nonatomic,copy) NSString *value_info_2;
 
-@property (weak, nonatomic) IBOutlet UITableView *tempReportTableView;
+@property (weak, nonatomic) UITableView *tempReportTableView;
 
 @property (nonatomic,strong) NSArray *modelArray;
 @end
@@ -54,7 +54,25 @@
         = NO;
     }
     
+    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars
+        = NO;
+        self.modalPresentationCapturesStatusBarAppearance
+        = NO;
+    }
     
+    UITableView* tableView = [[UITableView alloc]init];
+    [self.view addSubview:tableView];
+    _tempReportTableView = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    CGFloat w=screenWidth;
+    CGFloat h=screenHeight-49.f-64.f;
+    
+    _tempReportTableView.frame = CGRectMake(0, 0, w, h);
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{

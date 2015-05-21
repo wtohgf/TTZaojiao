@@ -14,6 +14,8 @@
 #import "TTWoGrowTestReportTizhongCellTableViewCell.h"
 #import "TTWoGrowTestReportFrame.h"
 #import "TTWoGrowTestReportModel.h"
+#define screenWidth [UIScreen mainScreen].bounds.size.width
+#define screenHeight [UIScreen mainScreen].bounds.size.height
 
 @interface TTWoGrowTestReportViewController (){
     NSDictionary* _reportDict;
@@ -23,7 +25,7 @@
 @property (weak, nonatomic) UILabel* date;
 @property (weak, nonatomic) UILabel* result;
 
-@property (weak, nonatomic) IBOutlet UITableView *growReportTableView;
+@property (weak, nonatomic) UITableView *growReportTableView;
 @property (nonatomic,strong) TTWoGrowTestReportFrame *modelFrame;
 @end
 
@@ -40,6 +42,17 @@
         self.modalPresentationCapturesStatusBarAppearance
         = NO;
     }
+    
+    UITableView* tableView = [[UITableView alloc]init];
+    [self.view addSubview:tableView];
+    _growReportTableView = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    CGFloat w=screenWidth;
+    CGFloat h=screenHeight-49.f-64.f;
+    
+    _growReportTableView.frame = CGRectMake(0, 0, w, h);
 }
 
 - (void)viewWillAppear:(BOOL)animated{

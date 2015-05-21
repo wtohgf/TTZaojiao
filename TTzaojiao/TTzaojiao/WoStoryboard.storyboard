@@ -2243,50 +2243,9 @@
                     <view key="view" contentMode="scaleToFill" id="hqv-T1-Amo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="qhO-Sj-m4X">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="623-xu-J4x" id="eL0-2K-3Bf"/>
-                                    <outlet property="delegate" destination="623-xu-J4x" id="epL-GH-Fmf"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qhO-Sj-m4X" firstAttribute="leading" secondItem="hqv-T1-Amo" secondAttribute="leadingMargin" constant="-16" id="F1B-hT-Mpv"/>
-                            <constraint firstItem="qhO-Sj-m4X" firstAttribute="top" secondItem="hqv-T1-Amo" secondAttribute="topMargin" id="UbE-ir-AiF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qhO-Sj-m4X" secondAttribute="trailing" constant="-16" id="XK0-w5-ld6"/>
-                            <constraint firstItem="sTd-Pc-Wmi" firstAttribute="top" secondItem="qhO-Sj-m4X" secondAttribute="bottom" id="vOk-0u-G5h"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="qhO-Sj-m4X"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="vOk-0u-G5h"/>
-                                <exclude reference="F1B-hT-Mpv"/>
-                                <exclude reference="UbE-ir-AiF"/>
-                                <exclude reference="XK0-w5-ld6"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="qhO-Sj-m4X"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="vOk-0u-G5h"/>
-                                <include reference="F1B-hT-Mpv"/>
-                                <include reference="UbE-ir-AiF"/>
-                                <include reference="XK0-w5-ld6"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="成长发育评测报告" id="Nmi-OI-Z1l"/>
-                    <connections>
-                        <outlet property="growReportTableView" destination="qhO-Sj-m4X" id="hmE-Ea-5DM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mkr-90-5M2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3755,50 +3714,9 @@
                     <view key="view" contentMode="scaleToFill" id="drC-IM-pau">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fR1-Gv-CSu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="CdR-Hn-IeW" id="djv-QU-vaf"/>
-                                    <outlet property="delegate" destination="CdR-Hn-IeW" id="5hn-6Y-Lbj"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="kyP-Fa-EVE" firstAttribute="top" secondItem="fR1-Gv-CSu" secondAttribute="bottom" id="35i-n1-bgV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fR1-Gv-CSu" secondAttribute="trailing" constant="-16" id="ATv-Gh-2hy"/>
-                            <constraint firstItem="fR1-Gv-CSu" firstAttribute="top" secondItem="drC-IM-pau" secondAttribute="topMargin" id="hOk-MC-Jvm"/>
-                            <constraint firstItem="fR1-Gv-CSu" firstAttribute="leading" secondItem="drC-IM-pau" secondAttribute="leadingMargin" constant="-16" id="oBr-d0-u19"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="fR1-Gv-CSu"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="35i-n1-bgV"/>
-                                <exclude reference="ATv-Gh-2hy"/>
-                                <exclude reference="hOk-MC-Jvm"/>
-                                <exclude reference="oBr-d0-u19"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="fR1-Gv-CSu"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="35i-n1-bgV"/>
-                                <include reference="ATv-Gh-2hy"/>
-                                <include reference="hOk-MC-Jvm"/>
-                                <include reference="oBr-d0-u19"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="气质情绪评测报告" id="yK6-Ym-OBt"/>
-                    <connections>
-                        <outlet property="tempReportTableView" destination="fR1-Gv-CSu" id="RYv-Zi-0yb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMR-dN-feB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
