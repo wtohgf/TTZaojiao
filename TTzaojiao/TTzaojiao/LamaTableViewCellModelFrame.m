@@ -19,24 +19,26 @@
     
     //算公司名称和公司图片高度
     UIImageView *picView = [[UIImageView alloc]init];
+    picView.contentMode = UIViewContentModeScaleAspectFill;
     NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,model.i_pic];
     NSArray * tempArray =  [url componentsSeparatedByString:@"|"];
     [picView setImageWithURL:[NSURL URLWithString: [tempArray firstObject]]];
     CGFloat w = CGImageGetWidth(picView.image.CGImage);
     CGFloat h = CGImageGetHeight(picView.image.CGImage);
 
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width-16;
     CGFloat height = (CGFloat)((width * 3)/4) ;
     if (w != 0 && h != 0) {
         height = (CGFloat)((width * h)/w) ;
     }
-    _i_picFrame = CGRectMake(0, 0, width, height);
-    _i_nameFrame = CGRectMake(8, height, width, 30);
+    _i_picFrame = CGRectMake(8, 0, width-16, height);
+    _i_nameFrame = CGRectMake(8, height, width-16, 30);
     _NameAndPicCellHeight = CGRectGetMaxY(_i_nameFrame);
     
     
     //算图片list高度
     UIImageView *picView2 = [[UIImageView alloc]init];
+    picView2.contentMode = UIViewContentModeScaleAspectFill;
     //每张图片的url
     NSArray * picListArray =  [model.i_pic_list componentsSeparatedByString:@"|"];
     NSMutableArray * heightArray = [NSMutableArray array];
@@ -46,17 +48,17 @@
         [picView2 setImageWithURL:[NSURL URLWithString:url]];
         CGFloat w = CGImageGetWidth(picView2.image.CGImage);
         CGFloat h = CGImageGetHeight(picView2.image.CGImage);
-        CGFloat width = [UIScreen mainScreen].bounds.size.width;
+        CGFloat width = [UIScreen mainScreen].bounds.size.width -16;
         CGFloat height = (CGFloat)((width * 3)/4) ;
         if (w != 0 && h != 0) {
             height = (CGFloat)((width * h)/w) ;
         }
 
-        [heightArray addObject:NSStringFromCGRect(CGRectMake(0, lastHeight, width, height))];
+        [heightArray addObject:NSStringFromCGRect(CGRectMake(8, lastHeight, width-16, height))];
         lastHeight += height;
         
     }
-    _i_PicListFrame = CGRectMake(0, 0, width, height+8);
+    _i_PicListFrame = CGRectMake(8, 0, width-16, height+8);
     _picListArray = picListArray;
     _model.count =  (int)heightArray.count;
     _model.count += 3;

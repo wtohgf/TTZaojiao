@@ -37,7 +37,7 @@
     [self.layer addAnimation:animation forKey:@"TTDatePickerView"];
     self.backgroundColor = [UIColor whiteColor];
     self.alpha = 0.8;
-    self.frame = CGRectMake(0, view.frame.size.height*0.65, view.frame.size.width, view.frame.size.height*0.35);
+    self.frame = CGRectMake(0, view.frame.size.height*0.6, view.frame.size.width, view.frame.size.height*0.4);
     [view addSubview:backMaskView];
     [view addSubview:self];
 }

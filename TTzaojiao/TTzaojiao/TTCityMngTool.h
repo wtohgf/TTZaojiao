@@ -12,7 +12,7 @@
 #import "MBProgressHUD+TTHud.h"
 #import "UIAlertView+MoreAttribute.h"
 
-typedef void(^actionLocationBlock)(CLLocation* location, NSError* error);
+typedef void(^actionLocationBlock)(CLLocation* location, id error);
 typedef void(^actionCityCodeBlock)(NSString* cityCode, NSError* error);
 
 @interface TTCityMngTool : NSObject<CLLocationManagerDelegate>

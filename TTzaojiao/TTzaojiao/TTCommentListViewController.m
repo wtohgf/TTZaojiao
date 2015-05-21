@@ -54,14 +54,14 @@
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     
     [self addKeyNotification];
-    [UIApplication sharedApplication].statusBarHidden = YES;
+    //[UIApplication sharedApplication].statusBarHidden = YES;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO];
     [[NSNotificationCenter defaultCenter] removeObserver:self];//移除观察者
-    [UIApplication sharedApplication].statusBarHidden = NO;
+    //[UIApplication sharedApplication].statusBarHidden = NO;
 }
 
 -(void)setupRefresh{

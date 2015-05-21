@@ -120,21 +120,21 @@ static TTCityMngTool* tool;
 //开始定位
 -(void)startLocation:(actionLocationBlock)locationBlock{
     
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    if (kCLAuthorizationStatusDenied == status || kCLAuthorizationStatusRestricted == status) {
-        
-//        [[UIAlertView alloc]showWithTitle:@"定位失败" message:@"请您在设置中打开定位服务" cancelButtonTitle:@"知道了"];
-//        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+//    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+//    if (kCLAuthorizationStatusDenied == status || kCLAuthorizationStatusRestricted == status) {
 //        
-//        if ([[UIApplication sharedApplication] canOpenURL:url]) {
-//            //如果点击打开的话，需要记录当前的状态，从设置回到应用的时候会用到
-//            [[UIApplication sharedApplication] openURL:url];
+////        [[UIAlertView alloc]showWithTitle:@"定位失败" message:@"请您在设置中打开定位服务" cancelButtonTitle:@"知道了"];
+////        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+////        
+////        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+////            //如果点击打开的话，需要记录当前的状态，从设置回到应用的时候会用到
+////            [[UIApplication sharedApplication] openURL:url];
+////        }
+//        if (locationBlock) {
+//            locationBlock(nil, nil);
 //        }
-        if (locationBlock) {
-            locationBlock(nil, nil);
-        }
-        return;
-    }
+//        return;
+//    }
     
     _locationBlock = locationBlock;
     if ([CLLocationManager locationServicesEnabled])
@@ -155,6 +155,10 @@ static TTCityMngTool* tool;
         }
         
         [self.locationManager startUpdatingLocation];//开启位置更新
+    }else{
+        if (locationBlock) {
+            locationBlock(nil, @"定位服务未开启 请到设置中设定");
+        }
     }
 }
 
@@ -181,7 +185,7 @@ static TTCityMngTool* tool;
         if (result_status == ApiStatusSuccess) {
             _locationBlock(newLocation, nil);
         }else{
-            _locationBlock(nil, nil);
+            _locationBlock(nil, @"定位失败");
         };
         
     }];
@@ -190,7 +194,7 @@ static TTCityMngTool* tool;
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     [_locationManager stopUpdatingLocation];
   
-    _locationBlock(nil, error);
+    _locationBlock(nil, @"定位错误");
 }
 
 //经纬度转cityCode
@@ -218,7 +222,10 @@ static TTCityMngTool* tool;
             //  Country(国家)  State(城市)  SubLocality(区)
             NSString* cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:[test objectForKey:@"City"]];
             _cityCode = cityCode;
-            block(cityCode, nil);
+            if (cityCode!= nil) {
+                block(cityCode, nil);
+                break;
+            }
         }
         if (_cityCode == nil) {
             block(nil, error);

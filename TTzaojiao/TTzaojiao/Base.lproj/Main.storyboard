@@ -399,10 +399,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="KvZ-Bz-BZ4" secondAttribute="trailing" constant="-32" id="KBX-s9-ong"/>
                             <constraint firstItem="hzD-En-eR2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-32" id="Ts1-uj-uY8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lIZ-l5-s5d" secondAttribute="bottom" id="XIn-zp-XDs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lIZ-l5-s5d" secondAttribute="trailing" constant="-16" id="XtL-DC-M2l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lIZ-l5-s5d" secondAttribute="trailing" constant="-16" id="XtL-DC-M2l">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstAttribute="width" secondItem="hzD-En-eR2" secondAttribute="width" multiplier="2:3" id="aLd-DV-lCV"/>
                             <constraint firstAttribute="centerY" secondItem="hzD-En-eR2" secondAttribute="centerY" id="jA6-fM-kGk"/>
-                            <constraint firstItem="lIZ-l5-s5d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="kEV-j7-GgR"/>
+                            <constraint firstItem="lIZ-l5-s5d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="kEV-j7-GgR">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-32" id="ltf-F7-wD0"/>
                             <constraint firstItem="KvZ-Bz-BZ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oWO-n2-Xse"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hzD-En-eR2" secondAttribute="trailing" constant="-32" id="qKI-Pj-cVt"/>

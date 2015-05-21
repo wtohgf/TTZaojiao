@@ -23,7 +23,7 @@
     UISegmentedControl* _sortSeg;
     BOOL _isGetMoreBlog;
 }
-@property (weak, nonatomic) IBOutlet UITableView *dongtaiTable;
+@property (weak, nonatomic) UITableView *dongtaiTable;
 @property (strong, nonatomic) TTDynamicSidebarViewController *siderbar;
 
 @end
@@ -45,15 +45,18 @@
         = NO;
     }
     
-    CGFloat w=self.view.frame.size.width;
-    CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
+    UITableView* tableView = [[UITableView alloc]init];
+    [self.view addSubview:tableView];
+    _dongtaiTable = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
     
-    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-        _dongtaiTable.frame = CGRectMake(0, 0, w, h-49.f);
-    }else{
-        _dongtaiTable.frame = CGRectMake(0, 64.f, w, h-49.f);
-    }
-
+    CGFloat w=ScreenWidth;
+    CGFloat h=ScreenHeight-44.f-49.f;
+    
+    _dongtaiTable.frame = CGRectMake(0, 0, w, h);
+    
+    _dongtaiTable.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 
     UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state" target:self action:@selector(dynamic_state:)];
     self.navigationItem.rightBarButtonItem = itemright;
@@ -422,9 +425,9 @@
     
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
     if ([_i_sort isEqualToString:@"4"]) {
-        [[TTCityMngTool sharedCityMngTool]startLocation:^(CLLocation *location, NSError *error) {
+        [[TTCityMngTool sharedCityMngTool]startLocation:^(CLLocation *location,  id error) {
             if (location == nil) {
-                [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:error View:self.navigationController.view];
             }
             _location = location;
             [self showNearByBaby];
@@ -521,7 +524,7 @@
                         
                         [_dongtaiTable reloadData];
                     }else{
-                        [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
+                        [MBProgressHUD TTDelayHudWithMassage:@"未能获取附近宝宝信息" View:self.navigationController.view];
                         if (_sortSeg.selectedSegmentIndex == 3) {
                             [_nearByBabys removeAllObjects];
                             [_dongtaiTable reloadData];
@@ -543,9 +546,7 @@
             }else{
                 [_dongtaiTable.header endRefreshing];
             }
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
         };
     }];
 }

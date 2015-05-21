@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -42,36 +41,21 @@
                                     <rect key="frame" x="0.0" y="800" width="400" height="44"/>
                                 </variation>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZsM-t0-AN1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.92962282351297787" green="0.94637784499270627" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.92962282351297787" green="0.94637784499270627" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="dataSource" destination="bFt-7y-de5" id="KK7-PE-Iqt"/>
-                                    <outlet property="delegate" destination="bFt-7y-de5" id="aoB-za-l9x"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="p1G-uZ-O0V"/>
-                                <exclude reference="ZsM-t0-AN1"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="p1G-uZ-O0V"/>
-                                <include reference="ZsM-t0-AN1"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="动态" id="uH9-UD-QJB"/>
                     <connections>
-                        <outlet property="dongtaiTable" destination="ZsM-t0-AN1" id="ChK-SS-0vy"/>
                         <segue destination="vJn-Ds-I7w" kind="show" identifier="toCommentList" id="hzc-tP-phY"/>
                         <segue destination="u2F-kZ-jzI" kind="show" identifier="toUserDynamic" id="hH0-8n-o8Y"/>
                         <segue destination="gwV-g3-dvN" kind="show" identifier="toRelease" id="84q-Ul-aYh"/>
@@ -157,9 +141,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="NNd-SQ-8KQ" secondAttribute="trailing" constant="-16" id="ALn-YC-6n1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NNd-SQ-8KQ" secondAttribute="trailing" constant="-16" id="ALn-YC-6n1">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-32"/>
+                            </constraint>
                             <constraint firstItem="5lj-w5-2uc" firstAttribute="top" secondItem="NNd-SQ-8KQ" secondAttribute="bottom" id="ejL-He-NcJ"/>
-                            <constraint firstItem="NNd-SQ-8KQ" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="lOV-8p-Mkw"/>
+                            <constraint firstItem="NNd-SQ-8KQ" firstAttribute="leading" secondItem="Ttf-yV-IxW" secondAttribute="leadingMargin" constant="-16" id="lOV-8p-Mkw">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-32"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -196,6 +184,6 @@
         <image name="bottom_btn3_unchecked" width="29" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hzc-tP-phY"/>
+        <segue reference="3n7-7S-nGk"/>
     </inferredMetricsTieBreakers>
 </document>
