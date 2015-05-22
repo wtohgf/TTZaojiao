@@ -11,5 +11,5 @@
 
 @interface TTLaMaViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate,UIActionSheetDelegate>
 @property (copy, nonatomic) NSString * i_uid;
-@property (copy, nonatomic)    NSString* pageIndex;
+@property (copy, nonatomic) NSString* pageIndex;
 @end

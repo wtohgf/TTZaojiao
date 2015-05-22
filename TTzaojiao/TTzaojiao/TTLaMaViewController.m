@@ -30,7 +30,7 @@
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *locationCity;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *models;
 @property (copy, nonatomic) NSString* cityCode; //110000
 @property (weak, nonatomic) IBOutlet UILabel *location;
@@ -44,9 +44,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.rowHeight = 150;
+    
+    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars
+        = NO;
+        self.modalPresentationCapturesStatusBarAppearance
+        = NO;
+    }
+    
+    UITableView* tableView = [[UITableView alloc]init];
+    [self.view addSubview:tableView];
+    _tableView = tableView;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    
+    CGFloat w=ScreenWidth;
+    CGFloat h=ScreenHeight-44.f-49.f;
+    
+    _tableView.frame = CGRectMake(0, 0, w, h);
+    
+    _tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    
+    _tableView.rowHeight = 120.f;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _pageIndexInt = 1;
@@ -72,7 +92,11 @@
 -(void)updateLamaList{
     //定位获得城市码
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
-        [_tableView.header endRefreshing];
+        if (location == nil) {
+            [_tableView.header endRefreshing];
+            [_tableView.footer endRefreshing];
+        }
+       
         //NSLog(@"latitude is %f",location.coordinate.latitude);
         if(location!=nil){
             [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
@@ -121,6 +145,8 @@
     [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_ACTIVE Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
         [MBProgressHUD hideAllHUDsForView: self.navigationController.view animated:YES];
+        [_tableView.header endRefreshing];
+        [_tableView.footer endRefreshing];
         if (result_status == ApiStatusSuccess) {
 
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
@@ -233,7 +259,6 @@
     //data
     LamaModel * model=
     _models[indexPath.row];
-    
     //set cell
     cell.lamaModel = model;
     
@@ -242,12 +267,13 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 150;
+    return 120.f;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     CGRect headerFrame = CGRectMake(0, 0, tableView.frame.size.width, 44.f);
     _headerView.frame = headerFrame;
+    _headerView.backgroundColor = TTBlogBackgroundColor;
     return _headerView;
 }
 

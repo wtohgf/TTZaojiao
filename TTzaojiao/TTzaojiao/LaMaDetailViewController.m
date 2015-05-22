@@ -138,8 +138,6 @@
     //创建相应cell－－联系人
     else if(indexPath.row == (self.modelFrame.model.count - 1))
     {
-        
-        
         LamaTableViewCellContact *cell = [LamaTableViewCellContact LamaTableViewCellContactWithTabelView:_tableView];
         //数据传给cell，由cell处理设置
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -174,6 +172,8 @@
         NSString *name  = _modelFrame.picListArray[indexPath.row-1];
         NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,name];
         [cell.picListView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_pic"]];
+        //数据传给cell，由cell处理设置
+        cell.modelFrame = _modelFrame;
         return cell;
     }
     
