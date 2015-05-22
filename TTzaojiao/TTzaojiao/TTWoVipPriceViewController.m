@@ -11,6 +11,7 @@
 #import "AFAppDotNetAPIClient.h"
 #import "AlipayRequestConfig+TTAlipay.h"
 #import "UIAlertView+MoreAttribute.h"
+#import "MBProgressHUD+TTHud.h"
 
 @interface TTWoVipPriceViewController ()
 @property (strong, nonatomic) NSMutableArray *list;
@@ -29,7 +30,7 @@
             [self.tableView reloadData];
         }
         else {
-            [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         }
     }];
 }

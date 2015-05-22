@@ -500,7 +500,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTWoPersonalInfoViewController.m"
@@ -934,11 +934,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTUserDongtaiViewController.m"
-            timestampString = "453904027.283512"
+            timestampString = "453955375.019327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "-didSelectedPhotos:"
             landmarkType = "5">
          </BreakpointContent>
@@ -950,11 +950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "453934819.517563"
+            timestampString = "453955375.019327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "427"
-            endingLineNumber = "427"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
             landmarkName = "-selChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -966,11 +966,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "453934854.067358"
+            timestampString = "453955375.019327"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
             landmarkName = "-selChanged:"
             landmarkType = "5">
          </BreakpointContent>

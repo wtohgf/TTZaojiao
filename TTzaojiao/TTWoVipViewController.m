@@ -74,7 +74,7 @@
             [[[UIAlertView alloc] init] showWithTitle:@"" message:[[result_data firstObject] objectForKey:@"msg_word"] cancelButtonTitle:@"重试一下"];
         }
         else {
-            [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         }
     }];
 }

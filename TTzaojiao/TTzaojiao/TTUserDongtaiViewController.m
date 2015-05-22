@@ -146,9 +146,7 @@
                 }
             }
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         };
         
     }];
@@ -323,7 +321,7 @@
                                                  [self getUserinfo:_i_uid];
                                              }
                                              else {
-                                                 [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
                                              }
                                          }];
     _isChangCover = NO;
@@ -354,7 +352,7 @@
                                                  [self updateDynamicBlog];
                                              }
                                              else {
-                                                 [[[UIAlertView alloc] init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
                                              }
                                          }];
     _isChangIcon = NO;
@@ -412,9 +410,7 @@
                 }
             }
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         };
         
     }];
@@ -433,9 +429,7 @@
             
             [self updateDynamicBlog];
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         };
         
     }];
@@ -489,9 +483,7 @@
                     }
                 }
             }else{
-                if (result_status != ApiStatusNetworkNotReachable) {
-                    [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-                }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
             };
             
         }];
@@ -538,9 +530,7 @@
                 }
             }
         }else{
-            if (result_status != ApiStatusNetworkNotReachable) {
-                [[[UIAlertView alloc]init] showWithTitle:@"友情提示" message:@"服务器好像罢工了" cancelButtonTitle:@"重试一下"];
-            }
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
         };
         
     }];
