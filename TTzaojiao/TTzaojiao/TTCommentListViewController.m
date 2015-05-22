@@ -153,7 +153,7 @@
     _replayView.delegate = self;
     CGFloat h = kBottomBarHeight;
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
-    CGFloat y = [UIScreen mainScreen].bounds.size.height - self.navigationController.navigationBar.height - h;
+    CGFloat y = [UIScreen mainScreen].bounds.size.height -64.f - h;
     CGFloat x = 0;
     commentView.frame = CGRectMake(x, y, w, h);
     _backBottonBarY = y;

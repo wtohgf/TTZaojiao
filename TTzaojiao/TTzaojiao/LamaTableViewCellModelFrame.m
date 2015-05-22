@@ -26,12 +26,12 @@
     CGFloat w = CGImageGetWidth(picView.image.CGImage);
     CGFloat h = CGImageGetHeight(picView.image.CGImage);
 
-    CGFloat width = [UIScreen mainScreen].bounds.size.width-16;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = (CGFloat)((width * 3)/4) ;
     if (w != 0 && h != 0) {
         height = (CGFloat)((width * h)/w) ;
     }
-    _i_picFrame = CGRectMake(8, 0, width-16, height);
+    _i_picFrame = CGRectMake(0, 0, width, height);
     _i_nameFrame = CGRectMake(8, height, width-16, 30);
     _NameAndPicCellHeight = CGRectGetMaxY(_i_nameFrame);
     
@@ -48,17 +48,17 @@
         [picView2 setImageWithURL:[NSURL URLWithString:url]];
         CGFloat w = CGImageGetWidth(picView2.image.CGImage);
         CGFloat h = CGImageGetHeight(picView2.image.CGImage);
-        CGFloat width = [UIScreen mainScreen].bounds.size.width -16;
+        CGFloat width = [UIScreen mainScreen].bounds.size.width;
         CGFloat height = (CGFloat)((width * 3)/4) ;
         if (w != 0 && h != 0) {
             height = (CGFloat)((width * h)/w) ;
         }
 
-        [heightArray addObject:NSStringFromCGRect(CGRectMake(8, lastHeight, width-16, height))];
+        [heightArray addObject:NSStringFromCGRect(CGRectMake(0, lastHeight, width, height))];
         lastHeight += height;
         
     }
-    _i_PicListFrame = CGRectMake(8, 0, width-16, height+8);
+    _i_PicListFrame = CGRectMake(0, 0, width, height+8);
     _picListArray = picListArray;
     _model.count =  (int)heightArray.count;
     _model.count += 3;
