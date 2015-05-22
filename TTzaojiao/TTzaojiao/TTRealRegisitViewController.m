@@ -226,27 +226,28 @@
         [images addObject:image];
     }
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
-        if ([result_data isKindOfClass:[NSMutableArray class]]) {
-            if (((NSMutableArray*)result_data).count!=0) {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                NSDictionary* dict = (NSDictionary*)result_data[0];
-                if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
-                    NSString* filePath = dict[@"msg_word_1"];
-                    _iconPath = filePath;
-                    [_icon setImage:[photos firstObject] forState:UIControlStateNormal];
-                }else{
-                    _iconPath = @"";
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                if (((NSMutableArray*)result_data).count!=0) {
+                    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+                    NSDictionary* dict = (NSDictionary*)result_data[0];
+                    if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
+                        NSString* filePath = dict[@"msg_word_1"];
+                        _iconPath = filePath;
+                        [_icon setImage:[photos firstObject] forState:UIControlStateNormal];
+                    }else{
+                        _iconPath = @"";
+                    }
                 }
             }
+
+        }else{
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
         }
-    } Progress:^(CGFloat progress) {
-        _iconPath = @"";
-        //        [[[UIAlertView alloc]init]showAlert:@"图片设置失败" byTime:3.0];
-        
-        [MBProgressHUD TTDelayHudWithMassage:@"图片设置失败" View:self.navigationController.view];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        } Progress:^(CGFloat progress) {
     }];
     
 }

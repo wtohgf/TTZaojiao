@@ -80,7 +80,6 @@
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
         if (location != nil) {
             _location = location;
@@ -97,31 +96,34 @@
 }
 
 -(void)uploadPics{
-    
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:_images Result:^(id result_data, ApiStatus result_status) {
-        if ([result_data isKindOfClass:[NSMutableArray class]]) {
-            NSMutableArray* list = (NSMutableArray*)result_data;
-            if (list.count!=0) {
-                
-                [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    NSDictionary* dict = (NSDictionary*)obj;
-                    NSString* msgkey = [NSString stringWithFormat:@"msg_%01ld", idx+1];
-                    NSString* msgwordkey = [NSString stringWithFormat:@"msg_word_%01ld", idx+1];
-                    if ([dict[msgkey] isEqualToString:@"Up_Ok"]) {
-                        NSString* filePath = dict[msgwordkey];
-                        _picsPath = [_picsPath stringByAppendingString:filePath];
-                        _picsPath = [_picsPath stringByAppendingString:@"|"];
-                    }else{
-                        *stop = YES;
-                    }
-                }];
-                [self publichState];
+        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        if (result_status == ApiStatusSuccess) {
+            if ([result_data isKindOfClass:[NSMutableArray class]]) {
+                NSMutableArray* list = (NSMutableArray*)result_data;
+                if (list.count!=0) {
+                    
+                    [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                        NSDictionary* dict = (NSDictionary*)obj;
+                        NSString* msgkey = [NSString stringWithFormat:@"msg_%01ld", idx+1];
+                        NSString* msgwordkey = [NSString stringWithFormat:@"msg_word_%01ld", idx+1];
+                        if ([dict[msgkey] isEqualToString:@"Up_Ok"]) {
+                            NSString* filePath = dict[msgwordkey];
+                            _picsPath = [_picsPath stringByAppendingString:filePath];
+                            _picsPath = [_picsPath stringByAppendingString:@"|"];
+                        }else{
+                            *stop = YES;
+                        }
+                    }];
+                    [self publichState];
+                }
+
+            }else{
+                [MBProgressHUD TTDelayHudWithMassage:@"网络连接失败 请检查网络" View:self.navigationController.view];
             }
         }
     } Progress:^(CGFloat progress) {
-        _picsPath = @"";
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-        [MBProgressHUD TTDelayHudWithMassage:@"图片上传失败" View:self.navigationController.view];
     }];
 }
 
@@ -165,7 +167,7 @@
                                  @"i_month":[TTUserModelTool sharedUserModelTool].mouth,
                                  @"i_item":[TTUserModelTool sharedUserModelTool].group,
                                  };
-    
+    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:PUBLISH_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
         
         [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
