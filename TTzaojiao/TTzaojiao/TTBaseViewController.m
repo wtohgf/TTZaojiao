@@ -61,6 +61,12 @@
 
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:NO];
+}
+
 - (void)rightButtonItem:(id)sender {
     UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
     TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
