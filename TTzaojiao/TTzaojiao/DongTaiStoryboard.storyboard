@@ -120,7 +120,7 @@
                                     <constraint firstAttribute="height" constant="49" id="e5h-gA-Biw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="关注" image="bottom_btn3_unchecked">
+                                <state key="normal" title="关注" image="guanzhu">
                                     <color key="titleColor" red="0.15279862567784316" green="0.72285554846938771" blue="0.31134825627153134" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -154,9 +154,9 @@
                                 <exclude reference="NNd-SQ-8KQ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ejL-He-NcJ"/>
                                 <exclude reference="ALn-YC-6n1"/>
                                 <exclude reference="lOV-8p-Mkw"/>
-                                <exclude reference="ejL-He-NcJ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -164,9 +164,9 @@
                                 <include reference="NNd-SQ-8KQ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ejL-He-NcJ"/>
                                 <include reference="ALn-YC-6n1"/>
                                 <include reference="lOV-8p-Mkw"/>
-                                <include reference="ejL-He-NcJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -181,7 +181,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bottom_btn3_unchecked" width="29" height="25"/>
+        <image name="guanzhu" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3n7-7S-nGk"/>
