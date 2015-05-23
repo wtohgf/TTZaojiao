@@ -75,16 +75,22 @@
                                          Result:^(id result_data, ApiStatus result_status, NSString *api) {
                                              if (result_status == ApiStatusSuccess) {
                                                  [[[TTUserModelTool sharedUserModelTool] logonUser] setIcon:_iconPath];
-                                                 [_iconImageView setImageIcon:_iconPath];
-                                                 UIImageView* rightIconView =(UIImageView*)self.navigationItem.rightBarButtonItem.customView;
-                                                 [rightIconView setImageIcon:_iconPath];
-                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
-                                                [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
+                                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                                     [self updateIcon];
+                                                 });
+
                                              }
                                              else {
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+                                                 [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
                                              }
                                          }];
+}
+
+- (void)updateIcon{
+    UIImageView* rightIconView =(UIImageView*)self.navigationItem.rightBarButtonItem.customView;
+    [rightIconView setImageIcon:_iconPath];
+    [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+    [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
 }
 
 
@@ -92,15 +98,15 @@
     if (photos != nil && photos.count > 0) {
         UIImage * image = [photos firstObject];
         image = [image scaleToSize:image size:CGSizeMake(100, 100)];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_iconImageView setImage:image];
-        });
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [_iconImageView setImage:image];
+//        });
         
         NSMutableArray* images = [NSMutableArray array];
             [images addObject:image];
-            [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//            [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
             [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
-                [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+//                [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
                 if (result_status == ApiStatusSuccess) {
                     if ([result_data isKindOfClass:[NSMutableArray class]]) {
                         if (((NSMutableArray*)result_data).count!=0) {
@@ -108,6 +114,7 @@
                             if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
                                 NSString* filePath = dict[@"msg_word_1"];
                                 _iconPath = filePath;
+                                [_iconImageView setImageIcon:_iconPath];
                             }else{
                                 _iconPath = @"";
                             }

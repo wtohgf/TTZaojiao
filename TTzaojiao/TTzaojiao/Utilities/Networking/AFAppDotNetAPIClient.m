@@ -125,17 +125,17 @@
                     error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
                     result(error,ApiStatusError);
                 }
-                else if (![json isKindOfClass:[NSDictionary class]])
-                {
-                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
-                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
-                    result(error,ApiStatusError);
-                }
+//                else if (![json isKindOfClass:[NSDictionary class]])
+//                {
+//                    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NSLocalizedString(@"Data analysis failed", @"数据解析失败") forKey:NSLocalizedDescriptionKey];
+//                    error = [NSError errorWithDomain:JsonErrorDomain code:eJsonNil userInfo:userInfo];
+//                    result(error,ApiStatusError);
+//                }
                 else
                 {
-                    result(nil,ApiStatusSuccess);
+                    result(responseObject,ApiStatusSuccess);
                 }
-                result(responseObject,ApiStatusSuccess);
+                
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 result(error,ApiStatusError);
             }];

@@ -16,8 +16,8 @@
 {
     CGFloat _backBottonBarY;
     NSString* _picsPath;
-    NSMutableArray* _images;
 }
+@property (strong, nonatomic) NSMutableArray* images;
 @property (strong, nonatomic) CXAlertView* publicTypeSelectView;
 @end
 @implementation TTDynamicReleaseViewController
@@ -191,7 +191,7 @@
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     [self addKeyNotification];
     [_textView becomeFirstResponder];
-    [_images removeAllObjects];
+    //[_images removeAllObjects];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
