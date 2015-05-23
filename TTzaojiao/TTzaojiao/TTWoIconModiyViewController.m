@@ -79,6 +79,7 @@
                                                  UIImageView* rightIconView =(UIImageView*)self.navigationItem.rightBarButtonItem.customView;
                                                  [rightIconView setImageIcon:_iconPath];
                                                  [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+                                                [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
                                              }
                                              else {
             [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];

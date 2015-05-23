@@ -135,14 +135,16 @@
                 [_blogList removeAllObjects];
             }
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                if (((NSMutableArray*)result_data).count!=0) {
-                    NSMutableArray* list = (NSMutableArray*)result_data;
-                    [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                        if ([obj isKindOfClass:[BlogUserDynamicModel class]]) {
-                            [_blogList addObject:obj];
-                            [_userDynamicTableView reloadData];
-                        }
-                    }];
+                NSMutableArray* list = (NSMutableArray*)result_data;
+                if (list!= nil && list.count>0) {
+                    [list removeObjectAtIndex:0];
+                    if (!_isGetMoreList) {
+                        _blogList = list;
+                    }else{
+                        [_blogList addObjectsFromArray:list];
+                        _isGetMoreList = NO;
+                    }
+                    [_userDynamicTableView reloadData];
                 }
             }
         }else{
@@ -157,6 +159,7 @@
     [TTUserModelTool getUserInfo:i_uid Result:^(DynamicUserModel *user) {
         _curUser = user;
         if (_curUser != nil) {
+            [TTUserModelTool sharedUserModelTool].logonUser.icon = _curUser.icon;
             [self loadUserInfo];
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"用户信息取得失败" View:self.navigationController.view];
@@ -345,11 +348,16 @@
                                          Result:^(id result_data, ApiStatus result_status, NSString *api) {
                                              if (result_status == ApiStatusSuccess) {
                                                  [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
-
+                                                 [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
                                                  [self getUserinfo:_i_uid];
+                                                 
                                                  _isGetMoreList = NO;
                                                  _pageIndex = @"1";
-                                                 [self updateDynamicBlog];
+                                                 
+                                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                                     [self updateDynamicBlog];
+                                                 });
+                                                 
                                              }
                                              else {
             [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
@@ -402,7 +410,10 @@
                         [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
                         _isGetMoreList = NO;
                         _pageIndex = @"1";
-                        [self updateDynamicBlog];
+                        
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [self updateDynamicBlog];
+                        });
                         
                     }else{
                         [MBProgressHUD TTDelayHudWithMassage:@"动态删除失败" View:self.navigationController.view];

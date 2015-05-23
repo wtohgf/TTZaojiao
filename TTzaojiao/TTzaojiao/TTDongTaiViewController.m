@@ -35,8 +35,6 @@
     // Do any additional setup after loading the view.
     [self loadHeaderView];
     
-    [self setupRefresh];
-    
     if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.extendedLayoutIncludesOpaqueBars
@@ -78,6 +76,8 @@
     }else{
         self.title = _lession.active_name;
     }
+    
+    [self setupRefresh];
     
     _pageIndexInt = 1;
     _group = @"0";//全部月龄

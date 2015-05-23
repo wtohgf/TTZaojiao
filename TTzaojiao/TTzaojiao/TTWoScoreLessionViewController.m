@@ -25,18 +25,18 @@
     [_scoreCount resignFirstResponder];
     
     NSDictionary* scoreLessionDict = @{
-                                       @"1":@"300",
-                                       @"2":@"800",
-                                       @"3":@"1200",
-                                       @"4":@"2000",
-                                       @"5":@"3500"
+                                       @"0":@"300",
+                                       @"1":@"800",
+                                       @"2":@"1200",
+                                       @"3":@"2000",
+                                       @"4":@"3500"
                                        };
     NSDictionary* lessionMounthDict = @{
-                                       @"1":@"1",
-                                       @"2":@"3",
-                                       @"3":@"6",
-                                       @"4":@"12",
-                                       @"5":@"24"
+                                       @"0":@"1",
+                                       @"1":@"3",
+                                       @"2":@"6",
+                                       @"3":@"12",
+                                       @"4":@"24"
                                        };
     if ([_Wo.baby_jifen integerValue] < [[scoreLessionDict objectForKey:_playLessionType] integerValue]) {
         [MBProgressHUD TTDelayHudWithMassage:@"对不起 您的积分不足" View:self.navigationController.view];
@@ -81,43 +81,6 @@
     alertView.userInteractionEnabled = YES;
     [alertView show];
     
-//    UIAlertController* ac = [UIAlertController alertControllerWithTitle:@"兑换列表:" message:nil preferredStyle:UIAlertControllerStyleAlert];
-//    
-//    ac.view.backgroundColor = [UIColor whiteColor];
-//    
-//    UIAlertAction* action1 = [UIAlertAction actionWithTitle:@"开用1个月早教服务[需300积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        _playLessionType = @"1";
-//        _scoreLessionType.text = action.title;
-//    }];
-//
-//    [ac addAction:action1];
-//    UIAlertAction* action2 = [UIAlertAction actionWithTitle:@"开用3个月早教服务[需800积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        ;
-//        _playLessionType = @"2";
-//        _scoreLessionType.text = action.title;
-//    }];
-//    [ac addAction:action2];
-//    UIAlertAction* action3 = [UIAlertAction actionWithTitle:@"开用6个月早教服务[需1200积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        ;
-//        _playLessionType = @"3";
-//        _scoreLessionType.text = action.title;
-//    }];
-//    [ac addAction:action3];
-//    UIAlertAction* action4 = [UIAlertAction actionWithTitle:@"开用12个月早教服务[需2000积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        ;
-//        _playLessionType = @"4";
-//        _scoreLessionType.text = action.title;
-//    }];
-//    [ac addAction:action4];
-//    UIAlertAction* action5 = [UIAlertAction actionWithTitle:@"开用24个月早教服务[需3500积分]" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        ;
-//        _playLessionType = @"5";
-//        _scoreLessionType.text = action.title;
-//    }];
-//    [ac addAction:action5];
-//    
-//    [self presentViewController:ac animated:YES completion:nil];
-
 }
 
 -(void)scorePayLessionChoice:(UIButton*)sender{
@@ -139,7 +102,8 @@
     _scoreCount.text = _Wo.baby_jifen;
     
     //默认开通一个月 300积分
-    _playLessionType = @"1";
+    _playLessionType = @"0";
+    _scoreLessionType.text = @"开通1个月早教服务[需300积分]";
     
 }
 - (IBAction)endEdit:(UITextField *)sender {

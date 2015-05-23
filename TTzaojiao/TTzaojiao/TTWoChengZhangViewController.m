@@ -108,13 +108,13 @@
     UIView *headerView = [[UIView alloc]init];
     headerView.backgroundColor = [UIColor colorWithRed:239.f/255.f green:239.f/255.f blue:244.f/255.f alpha:1.f];
     
-    headerView.frame = CGRectMake(0, 0, self.view.frame.size.width, 100.f);
+    headerView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width+8.f, 100.f);
     
     [headerView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(startChengZhangtest)]];
     
     UIView* subHeaderView = [[UIView alloc]init];
     [headerView addSubview:subHeaderView];
-    subHeaderView.frame = CGRectMake(0, 17.f, self.view.frame.size.width, 66.f);
+    subHeaderView.frame = CGRectMake(0, 17.f, [UIScreen mainScreen].bounds.size.width+8.f, 66.f);
     subHeaderView.backgroundColor = [UIColor whiteColor];
     UIImageView* imageView = [[UIImageView alloc]init];
     [subHeaderView addSubview:imageView];
@@ -125,7 +125,7 @@
     [subHeaderView addSubview:rightView];
     
     [rightView setImage:[UIImage imageNamed:@"more_city"]];
-    rightView.frame = CGRectMake(self.view.frame.size.width-17.f, 25.f, 9.f, 16.f);
+    rightView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-17.f, 25.f, 9.f, 16.f);
     
     UILabel* label = [[UILabel alloc]init];
     [subHeaderView addSubview:label];
@@ -134,7 +134,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:16.f];
     label.textColor = [UIColor darkGrayColor];
-    label.frame = CGRectMake(imageView.right, 17.f, self.view.frame.size.width - imageView.right - 17.f, 32.f);
+    label.frame = CGRectMake(imageView.right, 17.f, [UIScreen mainScreen].bounds.size.width - imageView.right - 17.f, 32.f);
     
     return headerView;
 }

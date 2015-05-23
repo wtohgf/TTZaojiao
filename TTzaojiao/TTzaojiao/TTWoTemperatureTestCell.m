@@ -88,7 +88,7 @@
     
 }
 #define ktitleFont 14.0f
-#define ksubtitleFont 10.0f
+#define ksubtitleFont 12.0f
 #define kcontentFont 12.0f
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -120,7 +120,7 @@
         [self.contentView addSubview:nameTitleLabel];
         _nameTitleLabel = nameTitleLabel;
         _nameTitleLabel.font = [UIFont systemFontOfSize:ksubtitleFont];
-        _nameTitleLabel.textColor = [UIColor colorWithRed:0 green:255/255.0 blue:255/255.0 alpha:1];
+        _nameTitleLabel.textColor = [UIColor purpleColor];
 
         UILabel *nameLabel= [[UILabel alloc]init];
         [self.contentView addSubview:nameLabel];
@@ -134,7 +134,7 @@
         [self.contentView addSubview:pingjiaTitleLabel];
         _pingjiaTitleLabel = pingjiaTitleLabel;
         _pingjiaTitleLabel.font = [UIFont systemFontOfSize:ksubtitleFont];
-        _pingjiaTitleLabel.textColor = [UIColor colorWithRed:0 green:255/255.0 blue:255/255.0 alpha:1];
+        _pingjiaTitleLabel.textColor = [UIColor purpleColor];
         
         UILabel *pingjiaLabel= [[UILabel alloc]init];
         [self.contentView addSubview:pingjiaLabel];
@@ -148,7 +148,7 @@
         [self.contentView addSubview:jianyiTitleLabel];
         _jianyiTitleLabel = jianyiTitleLabel;
         _jianyiTitleLabel.font = [UIFont systemFontOfSize:ksubtitleFont];
-        _jianyiTitleLabel.textColor = [UIColor colorWithRed:0 green:255/255.0 blue:255/255.0 alpha:1];
+        _jianyiTitleLabel.textColor = [UIColor purpleColor];
         
         UILabel *jianyiLabel= [[UILabel alloc]init];
         [self.contentView addSubview:jianyiLabel];

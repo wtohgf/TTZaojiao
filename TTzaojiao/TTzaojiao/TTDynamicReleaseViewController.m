@@ -75,6 +75,7 @@
 #pragma mark 发布动态
 -(void)release:(UIBarButtonItem*)item{
 
+    [_textView resignFirstResponder];
     if (_textView.text.length == 0) {
         [MBProgressHUD TTDelayHudWithMassage:@"评论内容不能为空" View:self.navigationController.view];
         return;
@@ -358,6 +359,8 @@
 
 -(void)didSelectedPhotos:(NSArray *)photos{
     CGSize size;
+    [_images removeAllObjects];
+    [_publichPicsView hidenAllImage];
     
     for (int i=0; i<photos.count; i++) {
         UIImage* image = photos[i];

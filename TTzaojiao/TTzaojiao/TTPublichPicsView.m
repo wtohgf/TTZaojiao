@@ -61,4 +61,10 @@
     }
 }
 
+-(void)hidenAllImage{
+    for (UIView* subview in self.subviews) {
+        subview.hidden = YES;
+    }
+}
+
 @end

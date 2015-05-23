@@ -82,6 +82,7 @@
         if (result_status == ApiStatusSuccess) {
             [[TTUserModelTool sharedUserModelTool] setAccount:_accountTextFeild.text];
             [[[TTUserModelTool sharedUserModelTool] logonUser] setName:_nameTextFeild.text];
+            [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
             [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
         }
         else {

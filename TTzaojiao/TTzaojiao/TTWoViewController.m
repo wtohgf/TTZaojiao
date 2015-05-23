@@ -69,6 +69,7 @@
     //获取我的最新信息
     [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
         _Wo = user;
+        [TTUserModelTool sharedUserModelTool].logonUser.icon = _Wo.icon;
         [self.tableview reloadData];
     }];
 }
@@ -149,46 +150,46 @@
         if (0 == indexPath.row) {
             TTWoLableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LableCell"];
             cell.textLabel.text = @"我的积分";
-            cell.imageView.image = [UIImage imageNamed:@"icon_score"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_score.png"];
             cell.countLable.text = _Wo.baby_jifen;
             return cell;
         }
         else if (1 == indexPath.row) {
             TTWoButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonCell"];
             cell.textLabel.text = @"今日签到";
-            cell.imageView.image = [UIImage imageNamed:@"icon_sign"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_sign.png"];
             return cell;
         }
         else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"积分换课程";
-            cell.imageView.image = [UIImage imageNamed:@"icon_exchange"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_exchange.png"];
             return cell;
         }
     }
     else if (2 == indexPath.section) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
         cell.textLabel.text = @"我的VIP会员服务";
-        cell.imageView.image = [UIImage imageNamed:@"user_info_icon4"];
+        cell.imageView.image = [UIImage imageNamed:@"user_info_icon4.png"];
         return cell;
     }
     else if (3 == indexPath.section) {
         if (0 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"亲子母婴操";
-            cell.imageView.image = [UIImage imageNamed:@"icon_gym_small"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_gym_small.png"];
             return cell;
         }
         else if (1 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"成长发育测评";
-            cell.imageView.image = [UIImage imageNamed:@"icon_grow_test_small"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_grow_test_small.png"];
             return cell;
         }
         else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"气质情绪测评";
-            cell.imageView.image = [UIImage imageNamed:@"icon_temperament_test_small"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_temperament_test_small.png"];
             return cell;
         }
     }
@@ -196,19 +197,19 @@
         if (0 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"我的好友";
-            cell.imageView.image = [UIImage imageNamed:@"user_info_icon1"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon1.png"];
             return cell;
         }
         else if (1 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"我的粉丝";
-            cell.imageView.image = [UIImage imageNamed:@"user_info_icon2"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon2.png"];
             return cell;
         }
         else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"我的动态";
-            cell.imageView.image = [UIImage imageNamed:@"user_info_icon3"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon3.png"];
             return cell;
         }
     }
@@ -221,7 +222,7 @@
 //        else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"微信公众平台";
-            cell.imageView.image = [UIImage imageNamed:@"icon_weixin"];
+            cell.imageView.image = [UIImage imageNamed:@"icon_weixin_small.png"];
             return cell;
 //        }
     }
@@ -229,13 +230,13 @@
         if (0 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"设置个人信息";
-            cell.imageView.image = [UIImage imageNamed:@"user_info_icon5"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon5.png"];
             return cell;
         }
         else if (1 == indexPath.row) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DefaultCell"];
             cell.textLabel.text = @"设置登录密码";
-            cell.imageView.image = [UIImage imageNamed:@"user_info_icon6"];
+            cell.imageView.image = [UIImage imageNamed:@"user_info_icon6.png"];
             return cell;
         }
         else {

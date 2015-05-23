@@ -23,7 +23,7 @@
     
     self.title = @"评论列表";
     
-    UITableView* tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - kBottomBarHeight)];
+    UITableView* tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 20.f -64.f -30.f)];
     [self.view addSubview:tableView];
     
     _commentListTableView = tableView;
@@ -139,11 +139,6 @@
     commentFrame.comment = _blogReplayList[indexPath.row];
     return commentFrame.commentHeight;
 }
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20.f;
-}
-
 
 #pragma mark 添加低栏
 -(void)addBottomBar{
