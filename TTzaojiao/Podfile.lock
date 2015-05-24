@@ -36,7 +36,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
-  - BSImagePicker (~> 0.7)
+  - BSImagePicker
   - CXAlertView (~> 1.1.0)
   - HSDatePickerViewController (~> 1.0)
   - ImagePlayerView

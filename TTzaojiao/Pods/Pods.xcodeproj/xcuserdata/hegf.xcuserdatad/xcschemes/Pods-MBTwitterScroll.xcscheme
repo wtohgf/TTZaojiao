@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CF6914AC6F833E120FC0A762"
+               BlueprintIdentifier = "76AEAA4170E9C1D06ECDBF1C"
                BuildableName = "libPods-MBTwitterScroll.a"
                BlueprintName = "Pods-MBTwitterScroll"
                ReferencedContainer = "container:Pods.xcodeproj">

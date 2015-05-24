@@ -1832,8 +1832,7 @@
                                                             <exclude reference="nVM-ka-c29"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="188" y="23" width="107" height="21"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="nVM-ka-c29"/>
                                                         </mask>
@@ -1851,8 +1850,7 @@
                                                             <exclude reference="jCi-v1-ZnQ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="303" y="25" width="9" height="16"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="iod-8g-g7U"/>
                                                             <include reference="jCi-v1-ZnQ"/>
@@ -3578,7 +3576,8 @@
                                                             <exclude reference="6c7-a9-C5G"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="188" y="23" width="99" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="6c7-a9-C5G"/>
                                                         </mask>
@@ -3596,7 +3595,8 @@
                                                             <exclude reference="ome-jQ-ri0"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="295" y="25" width="9" height="16"/>
                                                         <mask key="constraints">
                                                             <include reference="IyU-z9-7t3"/>
                                                             <include reference="ome-jQ-ri0"/>
@@ -3878,7 +3878,8 @@
                                                             <exclude reference="raJ-81-q7n"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="16" width="304" height="43"/>
                                                         <mask key="constraints">
                                                             <include reference="raJ-81-q7n"/>
                                                         </mask>
@@ -3902,7 +3903,8 @@
                                                             <exclude reference="rrq-sN-L6E"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="67" width="304" height="43"/>
                                                         <mask key="constraints">
                                                             <include reference="rrq-sN-L6E"/>
                                                         </mask>
@@ -3926,7 +3928,8 @@
                                                             <exclude reference="p2Q-pE-g5h"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="118" width="304" height="43"/>
                                                         <mask key="constraints">
                                                             <include reference="p2Q-pE-g5h"/>
                                                         </mask>

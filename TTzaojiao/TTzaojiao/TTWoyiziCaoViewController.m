@@ -91,7 +91,7 @@
             return [TTWoMuyingCaoTableViewCell cellHeight];
         }
     }else{
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
             return [TTWoMuyingCaoTableViewCell cellHeight];
         }else{
             return 0.f;
