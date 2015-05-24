@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -13,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="323" height="306"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="YyM-1H-rza" userLabel="cover">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_pic.png" translatesAutoresizingMaskIntoConstraints="NO" id="YyM-1H-rza" userLabel="cover">
                     <rect key="frame" x="0.0" y="0.0" width="323" height="192"/>
                     <color key="backgroundColor" red="1" green="0.89302381288934263" blue="0.95587769214439866" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
@@ -162,6 +161,7 @@
     </objects>
     <resources>
         <image name="baby_icon1" width="57" height="57"/>
+        <image name="default_pic.png" width="185" height="185"/>
         <image name="icon_back_hot" width="44" height="72"/>
         <image name="icon_back_normal" width="44" height="72"/>
         <image name="praise_white" width="35" height="32"/>

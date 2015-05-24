@@ -168,7 +168,10 @@
     [TTUserModelTool getUserInfo:i_uid Result:^(DynamicUserModel *user) {
         _curUser = user;
         if (_curUser != nil) {
-            [TTUserModelTool sharedUserModelTool].logonUser.icon = _curUser.icon;
+            
+            if ([_curUser.uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
+                [TTUserModelTool sharedUserModelTool].logonUser.icon = _curUser.icon;
+            }
             [self loadUserInfo];
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"用户信息取得失败" View:self.view];
@@ -197,7 +200,12 @@
     genderMouth = [genderMouth stringByAppendingString:[NSString getMounthOfDateString:_curUser.birthday]];
     _headerView.genderMounth.text = genderMouth;
     _headerView.sepintr.text = _curUser.i_intr;
-    
+    if (_curUser.icon.length != 0) {
+        [_headerView.coverView setImageIcon:_curUser.icon];
+    }else{
+        [_headerView.coverView setImage:[UIImage imageNamed:@"baby_icon1"]];
+    }
+
 }
 
 

@@ -419,7 +419,6 @@
 		1D651CE51AFDC0B6005093BF /* TTVipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CE41AFDC0B6005093BF /* TTVipView.m */; };
 		1D651CE81AFDC5D1005093BF /* TTVipPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CE71AFDC5D1005093BF /* TTVipPayView.m */; };
 		1D651CEB1AFDE177005093BF /* TTZaojiaoIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */; };
-		1D651CED1AFDF727005093BF /* TTZaojiaoLessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D651CEC1AFDF727005093BF /* TTZaojiaoLessionCell.xib */; };
 		1D651CF01AFE0547005093BF /* TTZaojiaoLessionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */; };
 		1D651CF31AFE0D89005093BF /* TTLessionMngTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CF21AFE0D89005093BF /* TTLessionMngTool.m */; };
 		1D651CF71AFE115E005093BF /* LessionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D651CF61AFE115E005093BF /* LessionModel.m */; };
@@ -1105,7 +1104,6 @@
 		1D651CE71AFDC5D1005093BF /* TTVipPayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTVipPayView.m; sourceTree = "<group>"; };
 		1D651CE91AFDE177005093BF /* TTZaojiaoIntroduceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoIntroduceCell.h; sourceTree = "<group>"; };
 		1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoIntroduceCell.m; sourceTree = "<group>"; };
-		1D651CEC1AFDF727005093BF /* TTZaojiaoLessionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTZaojiaoLessionCell.xib; sourceTree = "<group>"; };
 		1D651CEE1AFE0547005093BF /* TTZaojiaoLessionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTZaojiaoLessionCell.h; sourceTree = "<group>"; };
 		1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTZaojiaoLessionCell.m; sourceTree = "<group>"; };
 		1D651CF11AFE0D89005093BF /* TTLessionMngTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLessionMngTool.h; sourceTree = "<group>"; };
@@ -2324,7 +2322,6 @@
 				1D651CE71AFDC5D1005093BF /* TTVipPayView.m */,
 				1D651CE91AFDE177005093BF /* TTZaojiaoIntroduceCell.h */,
 				1D651CEA1AFDE177005093BF /* TTZaojiaoIntroduceCell.m */,
-				1D651CEC1AFDF727005093BF /* TTZaojiaoLessionCell.xib */,
 				1D651CEE1AFE0547005093BF /* TTZaojiaoLessionCell.h */,
 				1D651CEF1AFE0547005093BF /* TTZaojiaoLessionCell.m */,
 				1D4253A61B005AB000BBCB4A /* TTPlayLessionHeaderCell.h */,
@@ -2523,7 +2520,6 @@
 				1D5A8EFB1B0C75B600980209 /* pic_bottom.png in Resources */,
 				1D5A8E591B0C75B600980209 /* baby_icon3.jpg in Resources */,
 				1D5A90091B0D6EA900980209 /* tizhong_nianling_male.png in Resources */,
-				1D651CED1AFDF727005093BF /* TTZaojiaoLessionCell.xib in Resources */,
 				1D5A8ED21B0C75B600980209 /* icon_delete.png in Resources */,
 				1D5A8E751B0C75B600980209 /* dynamic_tab_unchecked.png in Resources */,
 				1D5A8EFF1B0C75B600980209 /* point.png in Resources */,

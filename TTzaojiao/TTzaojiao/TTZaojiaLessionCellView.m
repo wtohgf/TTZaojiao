@@ -89,7 +89,7 @@
     commentCount.textAlignment = NSTextAlignmentLeft;
     commentCount.textColor = [UIColor purpleColor];
     
-    commentCount.frame = CGRectMake(commentCountImage.right, babyCount.up, (ScreenWidth-imageView.right-2*TTBlogTableBorder - 2*16.f)*0.4, 16.f);
+    commentCount.frame = CGRectMake(commentCountImage.right+2.f, babyCount.up, (ScreenWidth-imageView.right-2*TTBlogTableBorder - 2*16.f)*0.4, 16.f);
     
     for (int i = 0; i<5; i++) {
         UIImageView* imageView = [[UIImageView alloc]init];

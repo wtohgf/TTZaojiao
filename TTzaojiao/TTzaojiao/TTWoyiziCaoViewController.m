@@ -65,17 +65,16 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
-    if (_videoPathList!= nil && _videoPathList.count>0) {
-        if (indexPath.row < _videoPathList.count) {
-            TTWoyiziCaoTableViewCell* tmpcell = [TTWoyiziCaoTableViewCell woyiziCaoTableViewCellWithTableView:tableView];
-            if (_titlePicList.count > 0) {
-                tmpcell.titlePicsDict = _titlePicList[indexPath.row];
-            }
-            cell = tmpcell;
-        }else{
-            TTWoMuyingCaoTableViewCell* tmpcell = [TTWoMuyingCaoTableViewCell woMuyingCaoTableViewCellWithTableView:tableView];
-            cell = tmpcell;
+    
+    if (indexPath.row < _videoPathList.count) {
+        TTWoyiziCaoTableViewCell* tmpcell = [TTWoyiziCaoTableViewCell woyiziCaoTableViewCellWithTableView:tableView];
+        if (_titlePicList.count > 0) {
+            tmpcell.titlePicsDict = _titlePicList[indexPath.row];
         }
+        cell = tmpcell;
+    }else{
+        TTWoMuyingCaoTableViewCell* tmpcell = [TTWoMuyingCaoTableViewCell woMuyingCaoTableViewCellWithTableView:tableView];
+        cell = tmpcell;
     }
     return cell;
 }
