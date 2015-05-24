@@ -14,7 +14,6 @@
 #import "NearByBabyModel.h"
 
 @interface TTDongTaiViewController (){
-    NSMutableArray* _nearByBabys;
     NSUInteger _pageIndexInt;
     NSString* _i_sort;
     NSString* _group;
@@ -23,7 +22,10 @@
     BOOL _isGetMoreBlog;
 }
 @property (weak, nonatomic) UITableView *dongtaiTable;
+
 @property (strong, nonatomic) NSMutableArray* blogs;
+@property (strong, nonatomic) NSMutableArray* nearByBabys;
+
 @property (strong, nonatomic) TTDynamicSidebarViewController *siderbar;
 @property (strong, nonatomic) NSIndexPath* needupDateIndexPath;
 
@@ -79,6 +81,7 @@
     }
     
     [self setupRefresh];
+    
     _blogs = [NSMutableArray array];
     _nearByBabys = [NSMutableArray array];
 
@@ -179,12 +182,14 @@
     if (_sortSeg.selectedSegmentIndex != 3) {
         if([TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath == YES){
             [TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath = NO;
-            BlogModel* blog = [_blogs objectAtIndex:_needupDateIndexPath.row];
-            blog.replay = [TTUIChangeTool sharedTTUIChangeTool].needUpdateBlogList;
-            blog.i_replay = [NSString stringWithFormat:@"%ld", ([blog.i_replay integerValue]+1)];
-            [_blogs replaceObjectAtIndex:_needupDateIndexPath.row withObject:blog];
-            NSArray* blogArray = @[_needupDateIndexPath];
-            [_dongtaiTable reloadRowsAtIndexPaths:blogArray withRowAnimation:UITableViewRowAnimationAutomatic];
+            if (_blogs!= nil && _blogs.count > 0) {
+                BlogModel* blog = [_blogs objectAtIndex:_needupDateIndexPath.row];
+                blog.replay = [TTUIChangeTool sharedTTUIChangeTool].needUpdateBlogList;
+                blog.i_replay = [NSString stringWithFormat:@"%ld", ([blog.i_replay integerValue]+1)];
+                [_blogs replaceObjectAtIndex:_needupDateIndexPath.row withObject:blog];
+                NSArray* blogArray = @[_needupDateIndexPath];
+                [_dongtaiTable reloadRowsAtIndexPaths:blogArray withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
         }
     }
 
@@ -335,15 +340,18 @@
   
     if (_sortSeg.selectedSegmentIndex == 3) {
         TTNearBybabyTableViewCell* cell = [TTNearBybabyTableViewCell nearBybabyCellWithTableView:tableView];
-        
-        cell.nearByBaby = _nearByBabys[indexPath.row];
+        if (_nearByBabys.count > 0) {
+             cell.nearByBaby = _nearByBabys[indexPath.row];
+        }
 //        cell.delegate = self;
         return cell;
     }else{
         TTDyanmicUserStautsCell* cell = [TTDyanmicUserStautsCell dyanmicUserStautsCellWithTableView:tableView];
         TTBlogFrame* frame = [[TTBlogFrame alloc]init];
-        frame.blog = _blogs[indexPath.row];
-        cell.blogFrame = frame;
+        if (_blogs != nil && _blogs > 0) {
+            frame.blog = _blogs[indexPath.row];
+            cell.blogFrame = frame;
+        }
         //评论列表View的代理 响应查看全部按钮代理方法
         cell.delegate = self;
         return cell;
@@ -372,7 +380,6 @@
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
-        
     }];
 
 }
@@ -417,8 +424,12 @@
         return ScreenWidth*TTHeaderWithRatio+2*TTBlogTableBorder;
     }else{
         TTBlogFrame* frame = [[TTBlogFrame alloc]init];
-        frame.blog = _blogs[indexPath.row];
-        return frame.cellHeight;
+        if (_blogs != nil && _blogs.count > 0) {
+            frame.blog = _blogs[indexPath.row];
+            return frame.cellHeight;
+        }else{
+            return 0.f;
+        }
     }
 }
 
@@ -539,8 +550,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (_sortSeg.selectedSegmentIndex == 3) {
-        NearByBabyModel* baby = _nearByBabys[indexPath.row];
-        [self performSegueWithIdentifier:@"toUserDynamic" sender:baby.uid];
+        if (_nearByBabys.count > 0) {
+            NearByBabyModel* baby = _nearByBabys[indexPath.row];
+            [self performSegueWithIdentifier:@"toUserDynamic" sender:baby.uid];
+        }
     }
 }
 

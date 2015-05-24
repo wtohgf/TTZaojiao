@@ -203,7 +203,8 @@
 
 -(void)publichViewdidSelBiaoqing:(TTPublichView *)view{
     if (self.textView.isFirstResponder) {
-        if (self.textView.emoticonsKeyboard) [self.textView switchToDefaultKeyboard];
+        if (self.textView.emoticonsKeyboard){ [self.textView switchToDefaultKeyboard];
+        }
         else [self.textView switchToEmoticonsKeyboard:[WUDemoKeyboardBuilder sharedEmoticonsKeyboard]];
     }else{
         [self.textView switchToEmoticonsKeyboard:[WUDemoKeyboardBuilder sharedEmoticonsKeyboard]];

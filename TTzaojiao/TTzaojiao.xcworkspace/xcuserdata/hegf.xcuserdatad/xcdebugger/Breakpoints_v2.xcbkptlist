@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTUserDongtaiViewController.m"
-            timestampString = "454118053.553012"
+            timestampString = "454168608.722466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-updateDynamicBlog"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTUserDongtaiViewController.m"
-            timestampString = "454118053.553012"
+            timestampString = "454168608.722466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-updateDynamicBlog"
             landmarkType = "5">
          </BreakpointContent>
@@ -934,11 +934,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTUserDongtaiViewController.m"
-            timestampString = "454118053.553012"
+            timestampString = "454168608.722466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "-didSelectedPhotos:"
             landmarkType = "5">
          </BreakpointContent>
@@ -950,11 +950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454119561.067729"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "434"
-            endingLineNumber = "434"
+            startingLineNumber = "445"
+            endingLineNumber = "445"
             landmarkName = "-selChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -966,11 +966,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454119561.067729"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "439"
-            endingLineNumber = "439"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
             landmarkName = "-selChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1218,11 +1218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTUserDongtaiViewController.m"
-            timestampString = "454118053.553012"
+            timestampString = "454168608.722466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-updateDynamicBlog"
             landmarkType = "5">
          </BreakpointContent>
@@ -1234,11 +1234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDynamicReleaseViewController.m"
-            timestampString = "454036311.202677"
+            timestampString = "454166528.038306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
             landmarkName = "-didSelectedPhotos:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1458,13 +1458,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDynamicReleaseViewController.m"
-            timestampString = "454065160.461678"
+            timestampString = "454166528.038306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
-            landmarkName = "-didSelectedPhotos:"
-            landmarkType = "5">
+            startingLineNumber = "379"
+            endingLineNumber = "379"
+            landmarkName = "@implementation TTDynamicReleaseViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1522,11 +1522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454120920.400344"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-updateAllBlog"
             landmarkType = "5">
          </BreakpointContent>
@@ -1538,11 +1538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454119561.067729"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "445"
-            endingLineNumber = "445"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
             landmarkName = "-dynamicCell:didShowCommentList:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1554,11 +1554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454120920.400344"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "-updateAllBlog"
             landmarkType = "5">
          </BreakpointContent>
@@ -1570,11 +1570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454119561.067729"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "-dynamicCell:UserStatusRemsgClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1586,11 +1586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454120920.400344"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-updateWeekLessionBlog"
             landmarkType = "5">
          </BreakpointContent>
@@ -1602,11 +1602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTDongTaiViewController.m"
-            timestampString = "454120920.400344"
+            timestampString = "454168246.846248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "-updateAllBlog"
             landmarkType = "5">
          </BreakpointContent>
@@ -1618,11 +1618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTCommentListViewController.m"
-            timestampString = "454089128.59381"
+            timestampString = "454146812.458768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-updateCommentlist"
             landmarkType = "5">
          </BreakpointContent>
@@ -1634,11 +1634,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/MBProgressHUD/MBProgressHUD.m"
-            timestampString = "454118805.258921"
+            timestampString = "454126136.523589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "-initWithView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1650,12 +1650,124 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/MBProgressHUD/MBProgressHUD.m"
-            timestampString = "454118805.258921"
+            timestampString = "454126136.523589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "-initWithView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/Utilities/WUEmoticonsKeyboard/WUEmoticonsKeyboard.m"
+            timestampString = "454128961.089502"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-inputText:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/Utilities/WUEmoticonsKeyboard/WUEmoticonsKeyboard.m"
+            timestampString = "454128961.089502"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "-inputkeyItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/Utilities/WUEmoticonsKeyboard/WUEmoticonsKeyboard.m"
+            timestampString = "454128961.089502"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "-switchToDefaultKeyboard"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/Utilities/WUEmoticonsKeyboard/WUEmoticonsKeyboardToolsView.m"
+            timestampString = "454128489.437456"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-keyboardSwitchButtonTapped:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/Utilities/WUEmoticonsKeyboard/WUEmoticonsKeyboard.m"
+            timestampString = "454128875.036779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-switchToDefaultKeyboard"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/Utilities/WUEmoticonsKeyboard/WUEmoticonsKeyboard.m"
+            timestampString = "454129260.555352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-insertEmoji:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/Utilities/WUEmoticonsKeyboard/WUEmoticonsKeyboard.m"
+            timestampString = "454129316.470416"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-insertEmoji:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

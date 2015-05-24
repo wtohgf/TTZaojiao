@@ -13,7 +13,6 @@
 
 @interface TTUserDongtaiViewController ()
 {
-    NSMutableArray* _blogList;
     NSString* _pageIndex;
     BOOL _isGetMoreList;
     BOOL _isMyFriend;
@@ -22,7 +21,7 @@
     BOOL _isChangIcon;
 }
 @property (weak, nonatomic) IBOutlet UIButton *addCancelFriend;
-
+@property (strong, nonatomic) NSMutableArray* blogList;
 @property (strong, nonatomic) DynamicUserModel* curUser;
 @property (weak, nonatomic) UITableView *userDynamicTableView;
 @property (weak, nonatomic) TTDynamicUserStatusHeaderView* headerView;
@@ -210,15 +209,18 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TTDynamicUserBlogCell* cell = [TTDynamicUserBlogCell dyanmicUserBlogCellWithTableView:tableView];
     TTUserBlogFrame* frame = [[TTUserBlogFrame alloc]init];
-    frame.userblog = _blogList[indexPath.row];
-    if (_curUser.icon.length != 0) {
-        [cell.topView.iconView setImageIcon:_curUser.icon];
-    }else{
-        [cell.topView.iconView setImage:[UIImage imageNamed:@"baby_icon1"]];
+    if (_blogList.count > 0) {
+        frame.userblog = _blogList[indexPath.row];
+        if (_curUser.icon.length != 0) {
+            [cell.topView.iconView setImageIcon:_curUser.icon];
+        }else{
+            [cell.topView.iconView setImage:[UIImage imageNamed:@"baby_icon1"]];
+        }
+        cell.topView.name.text = _curUser.name;
+        cell.blogFrame = frame;
+        
+        cell.delegate = self;
     }
-    cell.topView.name.text = _curUser.name;
-    cell.blogFrame = frame;
-    cell.delegate = self;
     
     if ([_i_uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
         [cell.zanCountView.zanBtn setImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
@@ -245,9 +247,13 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TTUserBlogFrame* frame = [[TTUserBlogFrame alloc]init];
-    frame.userblog = _blogList[indexPath.row];
-    return frame.cellHeight;
+    if (_blogList.count > 0) {
+        TTUserBlogFrame* frame = [[TTUserBlogFrame alloc]init];
+        frame.userblog = _blogList[indexPath.row];
+        return frame.cellHeight;
+    }else{
+        return 0.f;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

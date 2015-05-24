@@ -108,10 +108,9 @@
                                 _blogReplayList = list;
                             }
                         }
-                        
-                        [TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath = YES;
+                    }
+                    if ([TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath == YES) {
                         [TTUIChangeTool sharedTTUIChangeTool].needUpdateBlogList = _blogReplayList;
-                        
                     }
                     [_commentListTableView reloadData];
                 }
@@ -233,6 +232,8 @@
 
 -(void)replayComment{
     
+    [TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath = YES;
+
     UserModel* user = [TTUserModelTool sharedUserModelTool].logonUser;
     NSString* lat = @"0";
     NSString* lon = @"0";
