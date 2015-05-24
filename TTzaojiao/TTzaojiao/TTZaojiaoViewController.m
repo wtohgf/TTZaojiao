@@ -40,6 +40,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    _leftView.logonUser = [TTUserModelTool sharedUserModelTool].logonUser;
+    
     if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
         _rightView.vip.hidden = YES;
     }else{
