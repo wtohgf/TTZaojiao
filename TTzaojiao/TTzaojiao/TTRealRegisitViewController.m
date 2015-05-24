@@ -169,17 +169,19 @@
 #pragma mark 更改位置
 - (IBAction)changLocation:(UIButton *)sender {
     [_babyName resignFirstResponder];
-    
+    _bottomBar.hidden = YES;
     TSLocateView *locateView = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
     locateView.titleLabel.text = @"定位城市";
     locateView.delegate = self;
     //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
     [locateView showInView:self.view];
+    locateView.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([actionSheet isKindOfClass:[TSLocateView class]]) {
+        _bottomBar.hidden = NO;
         TSLocateView *locateView = (TSLocateView *)actionSheet;
         TSLocation *location = locateView.locate;
         NSLog(@"provice%@ city:%@", location.state, location.city);
@@ -196,6 +198,7 @@
         }
 
     }else if([actionSheet isKindOfClass:[CustomDatePicker class]]){
+        _bottomBar.hidden = NO;
         CustomDatePicker *datePickerView = (CustomDatePicker *)actionSheet;
         
         if(buttonIndex == 0) {
@@ -255,6 +258,7 @@
 
 #pragma mark 更改生日
 - (IBAction)changBirthDay:(UIButton *)sender {
+    _bottomBar.hidden = YES;
     [_babyName resignFirstResponder];
     [self babyBirthDaySelect];
 
@@ -371,9 +375,9 @@
         {
             _type = @"0";
             CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
-            cdate.frame = CGRectMake(0, self.view.frame.size.height*3/5, self.view.frame.size.width, self.view.frame.size.height*2/5);
             cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
             [cdate showInView:self.view];
+            cdate.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
             NSDateFormatter* formater = [[NSDateFormatter alloc]init];
             [formater setDateFormat:@"yyyy-MM-dd"];
             cdate.datePicker.minimumDate = [formater dateFromString:@"1970-01-01"];

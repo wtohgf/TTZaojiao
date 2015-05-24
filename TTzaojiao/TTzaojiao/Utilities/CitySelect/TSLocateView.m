@@ -72,8 +72,8 @@
     [self setAlpha:1.0f];
     [self.layer addAnimation:animation forKey:@"DDLocateView"];
     self.backgroundColor = [UIColor whiteColor];
-    self.alpha = 0.8;
-    self.frame = CGRectMake(0, view.frame.size.height*0.5, view.frame.size.width, view.frame.size.height*0.5);
+    self.alpha = 0.9;
+    self.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
     [view addSubview:backMaskView];
     [view addSubview:self];
 }

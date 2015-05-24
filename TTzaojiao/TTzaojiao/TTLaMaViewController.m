@@ -306,11 +306,11 @@
     //[_babyName resignFirstResponder];
     [[self rdv_tabBarController]setTabBarHidden:YES];
     TSLocateView *locateView = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
-    locateView.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
     locateView.titleLabel.text = @"定位城市";
     locateView.delegate = self;
     //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
     [locateView showInView:self.view];
+    locateView.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
     
 }
 

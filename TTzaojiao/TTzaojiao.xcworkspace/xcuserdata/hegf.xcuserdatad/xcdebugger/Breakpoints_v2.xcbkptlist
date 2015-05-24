@@ -632,11 +632,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TTzaojiao/TTMainPageViewController.m"
-            timestampString = "453870150.189793"
+            timestampString = "454180694.902382"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-Trylongon:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1784,6 +1784,22 @@
             startingLineNumber = "205"
             endingLineNumber = "205"
             landmarkName = "-getLessionID"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/TTRealRegisitViewController.m"
+            timestampString = "454182202.238403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "-photoChoice:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

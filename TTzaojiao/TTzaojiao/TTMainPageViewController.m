@@ -61,7 +61,6 @@
 
 -(void)Trylongon:(UserModel*) user{
     
-    
     //装载tabbar
     TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
@@ -76,8 +75,9 @@
 
 #pragma mark 生日选择
 - (IBAction)dateChoice:(UIButton *)sender {
+    _logregButton.hidden = YES;
     CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
-    cdate.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
+//    cdate.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
     cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
    
     NSDateFormatter* formater = [[NSDateFormatter alloc]init];
@@ -92,7 +92,7 @@
     
     if([actionSheet isKindOfClass:[CustomDatePicker class]]){
         CustomDatePicker *datePickerView = (CustomDatePicker *)actionSheet;
-        
+        _logregButton.hidden = NO;
         if(buttonIndex == 0) {
             return;
         }else {
@@ -109,8 +109,6 @@
            
         }
     }
-
-    
 }
 
 #pragma mark 设置背景图片
