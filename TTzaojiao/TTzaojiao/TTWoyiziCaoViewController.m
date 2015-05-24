@@ -41,22 +41,22 @@
     _titlePicList = [NSArray arrayWithContentsOfFile:path];
     _videoPathList = [NSMutableArray array];
     _yiziCaoTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 //    [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(getGYMPath) userInfo:nil repeats:NO];
     [self getGYMPath];
 }
 
 -(void)getGYMPath{
     [TTLessionMngTool getGymLessionVideoPath:^(id videoPath) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([videoPath isKindOfClass:[NSMutableArray class]]) {
             _videoPathList = videoPath;
             [_yiziCaoTableView reloadData];
         }else if ([videoPath isKindOfClass:[NSString class]]){
             if ([videoPath isEqualToString:@"neterror"]) {
-                [MBProgressHUD TTDelayHudWithMassage:@"网络连接 错误，请检查网络" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"网络连接 错误，请检查网络" View:self.view];
             }else{
-                [MBProgressHUD TTDelayHudWithMassage:@"健康操获取失败" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"健康操获取失败" View:self.view];
             }
         }
     }];
@@ -106,7 +106,7 @@
             alert.tag = 111;
             [alert show];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.view];
         }
 
     }

@@ -83,6 +83,16 @@
     self.navigationController.navigationBar.hidden = YES;
     //[UIApplication sharedApplication].statusBarHidden = YES;
     
+    if ([TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI == YES) {
+        [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = NO;
+    }
+    if ([TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath == YES) {
+        [TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath = NO;
+        if ([TTUIChangeTool sharedTTUIChangeTool].needUpdateBlogList != nil) {
+            [TTUIChangeTool sharedTTUIChangeTool].needUpdateBlogList = nil;
+        }
+    }
+    
     _isGetMoreList = NO;
     _pageIndex = @"1";
     _isMyFriend = NO;
@@ -148,7 +158,7 @@
                 }
             }
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
         
     }];
@@ -162,7 +172,7 @@
             [TTUserModelTool sharedUserModelTool].logonUser.icon = _curUser.icon;
             [self loadUserInfo];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"用户信息取得失败" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"用户信息取得失败" View:self.view];
         }
         
     }];
@@ -284,13 +294,13 @@
   
         NSMutableArray* images = [NSMutableArray array];
         [images addObject:image];
-        [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
-            [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             if (result_status == ApiStatusSuccess) {
                 if ([result_data isKindOfClass:[NSMutableArray class]]) {
                     if (((NSMutableArray*)result_data).count!=0) {
-                        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                         NSDictionary* dict = (NSDictionary*)result_data[0];
                         if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
                             NSString* filePath = dict[@"msg_word_1"];
@@ -302,7 +312,7 @@
                     }
                 }
             }else{
-                [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
             }
 
         } Progress:^(CGFloat progress) {
@@ -319,12 +329,12 @@
                                                   }
                                          Result:^(id result_data, ApiStatus result_status, NSString *api) {
                                              if (result_status == ApiStatusSuccess) {
-                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.view];
                                                  
                                                  [self getUserinfo:_i_uid];
                                              }
                                              else {
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
                                              }
                                          }];
     _isChangCover = NO;
@@ -347,7 +357,7 @@
                                                   @"icon":_iconPath}
                                          Result:^(id result_data, ApiStatus result_status, NSString *api) {
                                              if (result_status == ApiStatusSuccess) {
-                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+                                                 [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.view];
                                                  [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
                                                  [self getUserinfo:_i_uid];
                                                  
@@ -360,7 +370,7 @@
                                                  
                                              }
                                              else {
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
                                              }
                                          }];
     _isChangIcon = NO;
@@ -398,15 +408,15 @@
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
                                  @"i_id": blogid,
                                  };
-    //[MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
+    //[MBProgressHUD showHUDAddedTo:self.view  animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:DELETE_DYNAMIC_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        //[MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        //[MBProgressHUD hideHUDForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 if (((NSMutableArray*)result_data).count!=0) {
                     NSDictionary* result = [result_data firstObject];
                     if ([[result objectForKey:@"msg"] isEqualToString:@"Blog_Del"]) {
-                        [MBProgressHUD TTDelayHudWithMassage:@"动态删除成功" View:self.navigationController.view];
+                        [MBProgressHUD TTDelayHudWithMassage:@"动态删除成功" View:self.view];
                         [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
                         _isGetMoreList = NO;
                         _pageIndex = @"1";
@@ -416,12 +426,12 @@
                         });
                         
                     }else{
-                        [MBProgressHUD TTDelayHudWithMassage:@"动态删除失败" View:self.navigationController.view];
+                        [MBProgressHUD TTDelayHudWithMassage:@"动态删除失败" View:self.view];
                     }
                 }
             }
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
         
     }];
@@ -440,7 +450,7 @@
             
             [self updateDynamicBlog];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
         
     }];
@@ -453,7 +463,7 @@
 
 - (IBAction)addorCancelFreind:(UIButton *)sender {
     if ([_i_uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
-        [MBProgressHUD TTDelayHudWithMassage:@"不能关注自己" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"不能关注自己" View:self.view];
         return;
     }
     
@@ -478,23 +488,23 @@
                             if ([[result objectForKey:@"msg"] isEqualToString:@"1"]) {
                                 _isMyFriend = NO;
                                 [sender setTitle:@"关注" forState:UIControlStateNormal];
-                                [MBProgressHUD TTDelayHudWithMassage:@"取消关注成功" View:self.navigationController.view];
+                                [MBProgressHUD TTDelayHudWithMassage:@"取消关注成功" View:self.view];
                             }else{
-                                [MBProgressHUD TTDelayHudWithMassage:@"取消关注失败" View:self.navigationController.view];
+                                [MBProgressHUD TTDelayHudWithMassage:@"取消关注失败" View:self.view];
                             }
                         }else{
                             if ([[result objectForKey:@"msg"] isEqualToString:@"Friend_Add"]) {
                                 _isMyFriend = YES;
-                                [MBProgressHUD TTDelayHudWithMassage:@"关注成功" View:self.navigationController.view];
+                                [MBProgressHUD TTDelayHudWithMassage:@"关注成功" View:self.view];
                                 [sender setTitle:@"取消关注" forState:UIControlStateNormal];
                             }else{
-                                [MBProgressHUD TTDelayHudWithMassage:@"关注失败" View:self.navigationController.view];
+                                [MBProgressHUD TTDelayHudWithMassage:@"关注失败" View:self.view];
                             }
                         }
                     }
                 }
             }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
             };
             
         }];
@@ -541,7 +551,7 @@
                 }
             }
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
         
     }];

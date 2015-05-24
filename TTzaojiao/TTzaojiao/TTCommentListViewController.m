@@ -91,7 +91,7 @@
 
         [_commentListTableView.header endRefreshing];
         [_commentListTableView.footer endRefreshing];
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 if (((NSMutableArray*)result_data).count!=0) {
@@ -108,13 +108,16 @@
                                 _blogReplayList = list;
                             }
                         }
-                            
+                        
+                        [TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath = YES;
+                        [TTUIChangeTool sharedTTUIChangeTool].needUpdateBlogList = _blogReplayList;
+                        
                     }
                     [_commentListTableView reloadData];
                 }
             }
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
         };
         
     }];
@@ -124,7 +127,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TTCommentListCell* cell = [TTCommentListCell commentListCellWithTableView:tableView];
     TTCommentFrame* commentFrame = [[TTCommentFrame alloc]init];
-    commentFrame.comment = _blogReplayList[indexPath.row];
+    commentFrame.comment =  [BlogReplayModel blogReplayModelWithDict:_blogReplayList[indexPath.row]];
     cell.commentFrame = commentFrame;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -136,7 +139,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     TTCommentFrame* commentFrame = [[TTCommentFrame alloc]init];
-    commentFrame.comment = _blogReplayList[indexPath.row];
+    commentFrame.comment = [BlogReplayModel blogReplayModelWithDict:_blogReplayList[indexPath.row]];
     return commentFrame.commentHeight;
 }
 
@@ -220,7 +223,7 @@
             }];
             
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"评论不能为空" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"评论不能为空" View:self.view];
         }
     }    else{
         UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以给好友发消息哦" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
@@ -245,13 +248,13 @@
                                  @"i_x":lat,
                                  @"i_y":lon
                                  };
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:COMMENT Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-//        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
             [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(updateInfo) userInfo:nil repeats:NO];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
         };
         
     }];

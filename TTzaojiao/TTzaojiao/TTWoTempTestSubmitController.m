@@ -48,18 +48,18 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TTGrowTemperTestTool startTempTestWithFrist:YES timuCheck:@"0" Result:^(id testlist) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([testlist isKindOfClass:[NSDictionary class]]) {
             _timuContent = testlist[@"timu_content"];
             [_tempTestTableView reloadData];
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {
                 if ([testlist isEqualToString:@"neterror"]) {
-                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
                 }else{
-                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败 请稍后重试" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败 请稍后重试" View:self.view];
                 }
             }
         }
@@ -162,12 +162,12 @@
 }
 
 -(void)nextTempTestStart{
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TTGrowTemperTestTool startTempTestWithFrist:NO timuCheck:_timuCheck Result:^(id testlist) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([testlist isKindOfClass:[NSDictionary class]]) {
             if ([[testlist objectForKey:@"msg"] isEqualToString:@"Get_Test_Qizhi_Ok"]) {
-                [MBProgressHUD TTDelayHudWithMassage:@"宝宝的气质测评已完成" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"宝宝的气质测评已完成" View:self.view];
                 NSString* resultID = [testlist objectForKey:@"msg_word"];
                 
                 [self performSegueWithIdentifier:@"SUBMITTOTEMPREPORT" sender:resultID];
@@ -181,9 +181,9 @@
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {
                 if ([testlist isEqualToString:@"neterror"]) {
-                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
                 }else{
-                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败 请稍后重试" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败 请稍后重试" View:self.view];
                 }
             }
         }

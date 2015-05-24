@@ -32,13 +32,13 @@
     // Do any additional setup after loading the view.
     actionSginBlock = ^(id result, id baby_jifen) {
         if ([result isEqualToString:@"isSigned"]) {
-            [MBProgressHUD TTDelayHudWithMassage:@"您今天已经签过到了" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"您今天已经签过到了" View:self.view];
         }else if([result isEqualToString:@"neterror"])
         {
-            [MBProgressHUD TTDelayHudWithMassage:@"签到未成功" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"签到未成功" View:self.view];
         }else if([result isEqualToString:@"SingedOK"]){
             //更新我的积分信息
-            [MBProgressHUD TTDelayHudWithMassage:@"签到成功" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"签到成功" View:self.view];
             _Wo.baby_jifen = baby_jifen;
             [self.tableview reloadData];
         }

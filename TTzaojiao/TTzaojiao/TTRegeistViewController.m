@@ -132,14 +132,14 @@
     //对手机号合理性判断
     if (_phoneNumber.text.length != 11 || ![_phoneNumber.text hasPrefix:@"1"]) {
 //        [[[UIAlertView alloc]init]showAlert:@"您输入的手机号无效" byTime:kALertTiem];
-        [MBProgressHUD TTDelayHudWithMassage:@"您输入的手机号无效" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"您输入的手机号无效" View:self.view];
         _phoneNumber.text = @"";
         return;
     }
     //对密码长度进行判断
     if (_firstPassword.text.length < 6 || _firstPassword.text.length>14) {
 //        [[[UIAlertView alloc]init]showAlert:@"请您输入6~14位密码" byTime:kALertTiem];
-        [MBProgressHUD TTDelayHudWithMassage:@"请您输入6~14位密码" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请您输入6~14位密码" View:self.view];
         _firstPassword.text = @"";
         return;
     }
@@ -147,7 +147,7 @@
     //对确认密码和首次密码一致性判断
     if (![_sencondPassword.text isEqualToString:_firstPassword.text]) {
 //        [[[UIAlertView alloc]init]showAlert:@"两次密码不一致" byTime:kALertTiem];
-        [MBProgressHUD TTDelayHudWithMassage:@"两次密码不一致" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"两次密码不一致" View:self.view];
         _sencondPassword.text = @"";
         return;
     }
@@ -169,12 +169,12 @@
                         NSString* segTag = @"nextStep";
                         [self performSegueWithIdentifier:@"nextStep" sender: segTag];
                     }else{
-                        [MBProgressHUD TTDelayHudWithMassage:msgFirst.msg_word View:self.navigationController.view];
+                        [MBProgressHUD TTDelayHudWithMassage:msgFirst.msg_word View:self.view];
                     }
                 }
            }
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
         
     }];

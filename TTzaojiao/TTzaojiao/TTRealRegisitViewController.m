@@ -226,13 +226,13 @@
         [images addObject:image];
     }
     
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 if (((NSMutableArray*)result_data).count!=0) {
-                    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                     NSDictionary* dict = (NSDictionary*)result_data[0];
                     if ([dict[@"msg_1"] isEqualToString:@"Up_Ok"]) {
                         NSString* filePath = dict[@"msg_word_1"];
@@ -245,7 +245,7 @@
             }
 
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
         }
         } Progress:^(CGFloat progress) {
     }];
@@ -265,21 +265,21 @@
     [_babyName resignFirstResponder];
     if (_iconPath.length == 0) {
        // [[[UIAlertView alloc]init]showAlert:@"请设置宝宝头像" byTime:2.0];
-        [MBProgressHUD TTDelayHudWithMassage:@"请设置宝宝头像" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请设置宝宝头像" View:self.view];
         return;
     }
     if (_genderType.length == 0){
        // [[[UIAlertView alloc]init]showAlert:@"请选择性别" byTime:2.0];
-        [MBProgressHUD TTDelayHudWithMassage:@"请选择性别" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请选择性别" View:self.view];
         return;
     }
     if (_birthdayString.length == 0){
        // [[[UIAlertView alloc]init]showAlert:@"请选择生日" byTime:2.0];
-        [MBProgressHUD TTDelayHudWithMassage:@"请选择生日" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请选择生日" View:self.view];
         return;
     }
     if (_babyName.text.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"请填写宝宝姓名" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请填写宝宝姓名" View:self.view];
         return;
     }
     
@@ -302,15 +302,15 @@
                 if (((NSMutableArray*)result_data).count!=0) {
                     RegMsgSecond* msgSecond = (RegMsgSecond*)result_data[0];
                     if ([msgSecond.msg isEqualToString:@"Get_Reg_2"]) {
-                        [MBProgressHUD TTDelayHudWithMassage:@"恭喜您 注册成功 请登录" View:self.navigationController.view];
+                        [MBProgressHUD TTDelayHudWithMassage:@"恭喜您 注册成功 请登录" View:self.view];
                         [[TTUIChangeTool sharedTTUIChangeTool]pushToLongon:self.navigationController];
                     }else{
-                        [MBProgressHUD TTDelayHudWithMassage:msgSecond.msg_word View:self.navigationController.view];
+                        [MBProgressHUD TTDelayHudWithMassage:msgSecond.msg_word View:self.view];
                     }
                 }
             }
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
         
     }];

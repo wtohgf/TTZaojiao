@@ -34,6 +34,7 @@
 @property (nonatomic,strong) NSMutableArray *models;
 @property (copy, nonatomic) NSString* cityCode; //110000
 @property (weak, nonatomic) IBOutlet UILabel *location;
+@property (weak, nonatomic) UIButton* rightbtn;
 
 @end
 
@@ -103,7 +104,7 @@
                 _cityCode = cityCode;
             }];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.view];
         }
         //加载异步网络数据
         [self loadData];
@@ -142,9 +143,9 @@
                                  @"i_city":_cityCode
                                  };
     //加载网络数据
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_ACTIVE Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideAllHUDsForView: self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView: self.view animated:YES];
         [_tableView.header endRefreshing];
         [_tableView.footer endRefreshing];
         if (result_status == ApiStatusSuccess) {
@@ -169,7 +170,7 @@
             }
             
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
     }];
 }
@@ -177,6 +178,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if (_rightbtn != nil) {
+        [_rightbtn setImage:[self loadWebImage] forState:UIControlStateNormal];
+    }
     
 }
 
@@ -227,6 +232,7 @@
     
     //right
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rightbtn = button;
     [button setImage:[self loadWebImage] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(rightBtnClick:)
      forControlEvents:UIControlEventTouchUpInside];

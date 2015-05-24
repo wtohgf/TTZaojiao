@@ -98,38 +98,38 @@
     
     _height =  heightCell.hegiht.text;
     if (_height.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"请输入身高" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入身高" View:self.view];
         return;
     }
     if ([_height integerValue] < 50 || [_height integerValue]>120) {
-        [MBProgressHUD TTDelayHudWithMassage:@"请输入50至120厘米之间的身高" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入50至120厘米之间的身高" View:self.view];
         return;
     }
     
     _weihgt =  weightCell.weight.text;
     if (_weihgt.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"请输入体重" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入体重" View:self.view];
         return;
     }
     if ([_weihgt integerValue] < 3 || [_weihgt integerValue]>22) {
-        [MBProgressHUD TTDelayHudWithMassage:@"请输入3～22千克之间的体重" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入3～22千克之间的体重" View:self.view];
         return;
     }
     
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TTGrowTemperTestTool submitGrowTestWithWeight:_weihgt Height:_height  Result:^(id testlist) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([testlist isKindOfClass:[NSDictionary class]]) {
             NSString* resultID = [testlist objectForKey:@"msg_word"];
             [self performSegueWithIdentifier:@"SUBMITTOGROWREPORT" sender:resultID];
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {
                 if ([testlist isEqualToString:@"neterror"]) {
-                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
                 }else if([testlist isEqualToString:@"error"]){
-                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"测评失败" View:self.view];
                 }else{
-                    [MBProgressHUD TTDelayHudWithMassage:testlist View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:testlist View:self.view];
                 }
             }
         }

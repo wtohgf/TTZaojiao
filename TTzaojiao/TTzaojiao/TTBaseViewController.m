@@ -63,8 +63,9 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-    [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:NO];
+    if (self.view != nil) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
+    }
 }
 
 - (void)rightButtonItem:(id)sender {

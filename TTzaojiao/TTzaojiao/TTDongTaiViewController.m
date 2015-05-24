@@ -14,7 +14,6 @@
 #import "NearByBabyModel.h"
 
 @interface TTDongTaiViewController (){
-    NSMutableArray* _blogs;
     NSMutableArray* _nearByBabys;
     NSUInteger _pageIndexInt;
     NSString* _i_sort;
@@ -24,7 +23,9 @@
     BOOL _isGetMoreBlog;
 }
 @property (weak, nonatomic) UITableView *dongtaiTable;
+@property (strong, nonatomic) NSMutableArray* blogs;
 @property (strong, nonatomic) TTDynamicSidebarViewController *siderbar;
+@property (strong, nonatomic) NSIndexPath* needupDateIndexPath;
 
 @end
 
@@ -78,6 +79,10 @@
     }
     
     [self setupRefresh];
+    _blogs = [NSMutableArray array];
+    _nearByBabys = [NSMutableArray array];
+
+    [TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath = NO;
     
     _pageIndexInt = 1;
     _group = @"0";//全部月龄
@@ -171,23 +176,37 @@
     if (_lession != nil) {
         [[self rdv_tabBarController] setTabBarHidden:YES animated:NO];
     }
+    if (_sortSeg.selectedSegmentIndex != 3) {
+        if([TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath == YES){
+            [TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath = NO;
+            BlogModel* blog = [_blogs objectAtIndex:_needupDateIndexPath.row];
+            blog.replay = [TTUIChangeTool sharedTTUIChangeTool].needUpdateBlogList;
+            blog.i_replay = [NSString stringWithFormat:@"%ld", ([blog.i_replay integerValue]+1)];
+            [_blogs replaceObjectAtIndex:_needupDateIndexPath.row withObject:blog];
+            NSArray* blogArray = @[_needupDateIndexPath];
+            [_dongtaiTable reloadRowsAtIndexPaths:blogArray withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
 
     if ([TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI){
         [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = NO;
+        
         _pageIndexInt = 1;
         _isGetMoreBlog = NO;
+        
         if ([TTUIChangeTool sharedTTUIChangeTool].sort != nil) {
             _sortSeg.selectedSegmentIndex = [[TTUIChangeTool sharedTTUIChangeTool].sort integerValue]-1;
             _i_sort = [TTUIChangeTool sharedTTUIChangeTool].sort;
             [TTUIChangeTool sharedTTUIChangeTool].sort = nil;
         }
-        
         if (_sortSeg.selectedSegmentIndex == 3) {
             [self showNearByBaby];
         }else{
             [self updateBlog];
         }
     }
+
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -220,87 +239,75 @@
                                  @"i_sort": _i_sort,
                                  @"id": _lession.active_id
                                  };
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_BLOG Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
-        if (_blogs == nil) {
-            _blogs = [NSMutableArray array];
-        }
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
+        [_dongtaiTable.footer endRefreshing];
+        [_dongtaiTable.header endRefreshing];
         if (result_status == ApiStatusSuccess) {
-            if (_isGetMoreBlog) {
-                [_dongtaiTable.footer endRefreshing];
-                _isGetMoreBlog = NO;
-            }else{
-                [_dongtaiTable.header endRefreshing];
-                [_blogs removeAllObjects];
-                [_dongtaiTable reloadData];
-            }
+
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    if ([obj isKindOfClass:[BlogModel class]]) {
-                        [_blogs addObject:obj];
+                NSMutableArray* list = result_data;
+                if (list!= nil && list.count>0) {
+                    [list removeObjectAtIndex:0];
+                    if (_isGetMoreBlog) {
+                        [_blogs addObjectsFromArray:list];
+                        _isGetMoreBlog = NO;
+                    }else{
+                        [_blogs removeAllObjects];
+                        [_dongtaiTable reloadData];
+                        _blogs = list;
                     }
-                }];
-                
+                }
                 [_dongtaiTable reloadData];
             }
             
         }else{
-            if (_isGetMoreBlog) {
-                [_dongtaiTable.footer endRefreshing];
-                _isGetMoreBlog = NO;
-            }else{
-                [_dongtaiTable.header endRefreshing];
-            }
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
     }];
 
 }
 
 -(void)updateAllBlog{
+
     NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
     NSDictionary* parameters = @{
                                  @"i_uid": i_uid,
                                  @"p_1": pageIndex,
-                                 @"p_2": @"15",
+                                 @"p_2": @"5",
                                  @"i_sort": _i_sort,
                                  @"i_group": _group
                                  };
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_BLOG_GROUP Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
-        if (_blogs == nil) {
-            _blogs = [NSMutableArray array];
-        }
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        [_dongtaiTable.footer endRefreshing];
+        [_dongtaiTable.header endRefreshing];
         if (result_status == ApiStatusSuccess) {
-            if (_isGetMoreBlog) {
-                [_dongtaiTable.footer endRefreshing];
-                _isGetMoreBlog = NO;
-            }else{
-                [_dongtaiTable.header endRefreshing];
-                [_blogs removeAllObjects];
-                [_dongtaiTable reloadData];
-            }
+            
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    if ([obj isKindOfClass:[BlogModel class]]) {
-                        [_blogs addObject:obj];
+                NSMutableArray* list = result_data;
+                if (list!= nil && list.count>0) {
+                    [list removeObjectAtIndex:0];
+                    if (_isGetMoreBlog) {
+                        [_blogs addObjectsFromArray:list];
+                        _isGetMoreBlog = NO;
+                    }else{
+                        [_blogs removeAllObjects];
+                        [_dongtaiTable reloadData];
+                        _blogs = list;
                     }
-                }];
-                
+                }
+
                 [_dongtaiTable reloadData];
             }
             
         }else{
-            if (_isGetMoreBlog) {
-                [_dongtaiTable.footer endRefreshing];
-                _isGetMoreBlog = NO;
-            }else{
-                [_dongtaiTable.header endRefreshing];
-            }
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
     }];
 }
@@ -357,14 +364,13 @@
                                  @"i_psd": [TTUserModelTool sharedUserModelTool].password,
                                  @"id": blogid,
                                  };
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:PRAISE_NEW Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
-            
             [self updateBlog];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };
         
     }];
@@ -372,8 +378,10 @@
 }
 
 //消息查看
--(void)daynamicUserStatusRemsgClicked:(NSString *)blogid{
+-(void)dynamicCell:(TTDyanmicUserStautsCell *)cell UserStatusRemsgClicked:(NSString *)blogid{
     if (![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+        NSIndexPath* indexPath = [_dongtaiTable indexPathForCell:cell];
+        _needupDateIndexPath = indexPath;
         [self performSegueWithIdentifier:@"toCommentList" sender:blogid];
     }else{
         UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以给好友发评论哦" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
@@ -421,7 +429,7 @@
     if ([_i_sort isEqualToString:@"4"]) {
         [[TTCityMngTool sharedCityMngTool]startLocation:^(CLLocation *location,  id error) {
             if (location == nil) {
-                [MBProgressHUD TTDelayHudWithMassage:error View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:error View:self.view];
             }
             _location = location;
             [self showNearByBaby];
@@ -429,12 +437,13 @@
     }else{
         [self updateBlog];
     }
-    
 
 }
 
 #pragma mark 查看回复全部列表
--(void)dynamicCommentsView:(TTDynamicCommentsView *)dynamicCommentsView didShowCommentList:(NSString *)blog_id{
+-(void)dynamicCell:(TTDyanmicUserStautsCell *)cell didShowCommentList:(NSString *)blog_id{
+    NSIndexPath* indexPath = [_dongtaiTable indexPathForCell:cell];
+    _needupDateIndexPath = indexPath;
     [self performSegueWithIdentifier:@"toCommentList" sender:blog_id];
 }
 
@@ -488,37 +497,28 @@
                                  @"i_y": lon
                                  };
     
-    [MBProgressHUD showHUDAddedTo:_dongtaiTable animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:NEARBY_BABY Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideAllHUDsForView:_dongtaiTable animated:YES];
-        if (_nearByBabys == nil) {
-            _nearByBabys = [NSMutableArray array];
-        }
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        [_dongtaiTable.footer endRefreshing];
+        [_dongtaiTable.header endRefreshing];
         if (result_status == ApiStatusSuccess) {
-            if (_isGetMoreBlog) {
-                [_dongtaiTable.footer endRefreshing];
-                _isGetMoreBlog = NO;
-            }else{
-                [_dongtaiTable.header endRefreshing];
-                [_nearByBabys removeAllObjects];
-                [_dongtaiTable reloadData];
-            }
+
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
-                NSMutableArray* array = result_data;
-                if ([result_data[0] isKindOfClass:[NearByBabyModel class]] && array.count > 0) {
-                    NearByBabyModel* msg = result_data[0];
-                    if ([msg.msg isEqualToString:@"Get_Test_User_List_Distance"]) {
-                        [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                            if (idx > 0) {
-                                if ([obj isKindOfClass:[NearByBabyModel class]]) {
-                                    [_nearByBabys addObject:obj];
-                                }
-                            }
-                        }];
-                        
+                    NSMutableArray* list = result_data;
+                    if (list != nil && list.count>0) {
+                        [list removeObjectAtIndex:0];
+                        if (_isGetMoreBlog) {
+                            [_nearByBabys addObjectsFromArray:list];
+                            _isGetMoreBlog = NO;
+                        }else{
+                            [_nearByBabys removeAllObjects];
+                            [_dongtaiTable reloadData];
+                            _nearByBabys =  list;
+                        }
                         [_dongtaiTable reloadData];
                     }else{
-                        [MBProgressHUD TTDelayHudWithMassage:@"未能获取附近宝宝信息" View:self.navigationController.view];
+                        [MBProgressHUD TTDelayHudWithMassage:@"未能获取附近宝宝信息" View:self.view];
                         if (_sortSeg.selectedSegmentIndex == 3) {
                             [_nearByBabys removeAllObjects];
                             [_dongtaiTable reloadData];
@@ -526,21 +526,13 @@
                     }
 
                 }
-                
-            }
             
         }else{
-            if (_sortSeg.selectedSegmentIndex == 3) {
-                [_nearByBabys removeAllObjects];
-                [_dongtaiTable reloadData];
-            }
             if (_isGetMoreBlog) {
-                [_dongtaiTable.footer endRefreshing];
                 _isGetMoreBlog = NO;
             }else{
-                [_dongtaiTable.header endRefreshing];
             }
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
         };
     }];
 }

@@ -39,21 +39,21 @@
                                        @"4":@"24"
                                        };
     if ([_Wo.baby_jifen integerValue] < [[scoreLessionDict objectForKey:_playLessionType] integerValue]) {
-        [MBProgressHUD TTDelayHudWithMassage:@"对不起 您的积分不足" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"对不起 您的积分不足" View:self.view];
         return;
     }
     
     if (_lessionAccount.text.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"上课账号不能为空" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"上课账号不能为空" View:self.view];
         return;
     }
     
     [TTUserModelTool ScorePayLessionWithMouth:[lessionMounthDict objectForKey:_playLessionType] UserAccount:_lessionAccount.text Result:^(id isSucsses) {
         if ([isSucsses isEqualToString:@"YES"]) {
-            [MBProgressHUD TTDelayHudWithMassage:@"恭喜您！课程兑换成功" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"恭喜您！课程兑换成功" View:self.view];
             _scoreCount.text = [NSString stringWithFormat:@"%ld", [_scoreCount.text integerValue] - [[scoreLessionDict objectForKey:_playLessionType] integerValue]];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"对不起！兑换未成功 请稍后重试" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"对不起！兑换未成功 请稍后重试" View:self.view];
         }
     }];
 }

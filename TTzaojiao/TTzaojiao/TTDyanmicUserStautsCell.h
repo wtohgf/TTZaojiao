@@ -13,14 +13,14 @@
 #import "TTDynamicPhotosView.h"
 #import "TTDynamicCommentsView.h"
 #import "TTCommentFrame.h"
-
+@class TTDyanmicUserStautsCell;
 @protocol TTDyanmicUserStautsCellDelegate<NSObject>
 -(void)dynamicUserStatusTopView:(TTDynamicUserStatusTopView*)view didIconTaped:(NSString*)uid;
 
 -(void)daynamicUserStatusZanClicked:(NSString*)blogid;
--(void)daynamicUserStatusRemsgClicked:(NSString*)blogid;
+-(void)dynamicCell:(TTDyanmicUserStautsCell*) cell UserStatusRemsgClicked:(NSString*)blogid;
 
--(void)dynamicCommentsView:(TTDynamicCommentsView*)dynamicCommentsView didShowCommentList:(NSString*)blog_id;
+-(void)dynamicCell:(TTDyanmicUserStautsCell*)cell didShowCommentList:(NSString*)blog_id;
 @end
 
 

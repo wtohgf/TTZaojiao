@@ -184,7 +184,7 @@
                 }
                 
             }else{
-                [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
             };
         }];
       

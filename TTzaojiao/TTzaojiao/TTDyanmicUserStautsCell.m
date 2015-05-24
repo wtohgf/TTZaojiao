@@ -91,11 +91,11 @@
 }
 
 -(void)remsg:(UIButton*)sender{
-    if ([_delegate respondsToSelector:@selector(daynamicUserStatusRemsgClicked:)]) {
+    if ([_delegate respondsToSelector:@selector(dynamicCell:UserStatusRemsgClicked:)]) {
         
         if (_blogFrame.blog != nil) {
             BlogModel* blog = _blogFrame.blog;
-            [_delegate daynamicUserStatusRemsgClicked:blog.id];
+            [_delegate dynamicCell:self UserStatusRemsgClicked:blog.id];
         }
         
     }
@@ -112,10 +112,10 @@
 
 #pragma mark 显示全部回复 此处用代理
 -(void)showAllReplay:(UIButton*)sender{
-    if ([_delegate respondsToSelector:@selector(dynamicCommentsView:didShowCommentList:)]) {
+    if ([_delegate respondsToSelector:@selector(dynamicCell:didShowCommentList:)]) {
         if (_blogFrame.blog != nil) {
             BlogModel* blog = _blogFrame.blog;
-            [_delegate dynamicCommentsView:_commentsView didShowCommentList:blog.id];
+            [_delegate dynamicCell:self didShowCommentList:blog.id];
         }
         
     }

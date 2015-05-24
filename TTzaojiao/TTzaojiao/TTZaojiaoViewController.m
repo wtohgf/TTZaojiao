@@ -204,7 +204,7 @@
             NSInteger tmdID = [_lessionID integerValue];
             tmdID = tmdID-1;
             if (tmdID < 0) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:self.view];
                 return;
             }else{
                 _lessionID = [NSString stringWithFormat:@"%ld", tmdID];
@@ -215,7 +215,7 @@
             NSInteger tmdID = [_lessionID integerValue];
             tmdID = tmdID + 1;
             if (tmdID > 100) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.view];
                 return;
             }
             _lessionID = [NSString stringWithFormat:@"%ld", tmdID];
@@ -224,7 +224,7 @@
         if (lessionID != nil) {
             [self getWeekLession:(_lessionID)];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"账号信息不正确\n请重新登录" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"账号信息不正确\n请重新登录" View:self.view];
         }
     }];
 }
@@ -246,18 +246,18 @@
 
 -(void)getWeekLession:(NSString*)lessionID{
 
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
 
     [TTLessionMngTool getWeekLessions:lessionID Result:^(NSMutableArray *lessions) {
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (lessions != nil) {
             _lessList = lessions;
             [_zaoJiaoTableView reloadData];
         }else{
             if (_sortSeg.selectedSegmentIndex == 0) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:self.view];
             }else            if (_sortSeg.selectedSegmentIndex == 2) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.view];
             }
         }
     }];

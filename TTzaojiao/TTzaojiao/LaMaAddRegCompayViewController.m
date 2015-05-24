@@ -80,19 +80,19 @@
     if (_compayNameTextField.text.length == 0) {
         //NSLog(@"请输入商家名称");
         //[self createLabelWith:@"请输入商家名称"];
-         [MBProgressHUD TTDelayHudWithMassage:@"请输入商家名称" View:self.navigationController.view];
+         [MBProgressHUD TTDelayHudWithMassage:@"请输入商家名称" View:self.view];
     }
     else if(_contactNameField.text.length == 0)
     {
          //NSLog(@"请输入联系人姓名");
         //[self createLabelWith:@"请输入联系人姓名"];
-         [MBProgressHUD TTDelayHudWithMassage:@"请输入联系人姓名" View:self.navigationController.view];
+         [MBProgressHUD TTDelayHudWithMassage:@"请输入联系人姓名" View:self.view];
     }
     else if(_telField.text.length == 0)
     {
         //NSLog(@"请输入联系电话");
         //[self createLabelWith:@"请输入联系电话"];
-        [MBProgressHUD TTDelayHudWithMassage:@"请输入联系电话" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请输入联系电话" View:self.view];
     }
     else
     {

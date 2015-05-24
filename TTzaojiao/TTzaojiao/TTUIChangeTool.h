@@ -17,5 +17,6 @@
 
 @property (assign, nonatomic) BOOL isneedUpdateUI;
 @property (copy, nonatomic) NSString * sort; //1 早教自拍 2课程提问 3宝宝生活
-
+@property (assign, nonatomic) BOOL shouldBeUpdateCellIndexPath;
+@property (strong, nonatomic) NSArray* needUpdateBlogList;
 @end

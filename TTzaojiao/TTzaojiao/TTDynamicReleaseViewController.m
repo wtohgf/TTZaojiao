@@ -77,7 +77,7 @@
 
     [_textView resignFirstResponder];
     if (_textView.text.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"评论内容不能为空" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"评论内容不能为空" View:self.view];
         return;
     }
     
@@ -97,9 +97,9 @@
 }
 
 -(void)uploadPics{
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:_images Result:^(id result_data, ApiStatus result_status) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 NSMutableArray* list = (NSMutableArray*)result_data;
@@ -121,7 +121,7 @@
                 }
 
             }else{
-                [MBProgressHUD TTDelayHudWithMassage:@"网络连接失败 请检查网络" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"网络连接失败 请检查网络" View:self.view];
             }
         }
     } Progress:^(CGFloat progress) {
@@ -168,19 +168,19 @@
                                  @"i_month":[TTUserModelTool sharedUserModelTool].mouth,
                                  @"i_item":[TTUserModelTool sharedUserModelTool].group,
                                  };
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:PUBLISH_STATE Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
         
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         if (result_status == ApiStatusSuccess) {
-            [MBProgressHUD TTDelayHudWithMassage:@"发布成功" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"发布成功" View:self.view];
             [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
             [TTUIChangeTool sharedTTUIChangeTool].sort = _sort;
             [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(cancel:) userInfo:nil repeats:NO];
             
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误，请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误，请检查网络" View:self.view];
         };
         
     }];

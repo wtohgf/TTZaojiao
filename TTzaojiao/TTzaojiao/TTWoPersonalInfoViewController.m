@@ -58,16 +58,16 @@
 
 - (IBAction)commitAction:(UIButton *)sender {
     if (_accountTextFeild.text.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"账号不能为空" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"账号不能为空" View:self.view];
         return;
     }
     if (![_accountTextFeild.text hasPrefix:@"1"] || _accountTextFeild.text.length != 11) {
-        [MBProgressHUD TTDelayHudWithMassage:@"输入的手机号不合理" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"输入的手机号不合理" View:self.view];
         return;
     }
     
     if (_nameTextFeild.text.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"宝宝姓名不能为空" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"宝宝姓名不能为空" View:self.view];
         return;
     }
     
@@ -83,10 +83,10 @@
             [[TTUserModelTool sharedUserModelTool] setAccount:_accountTextFeild.text];
             [[[TTUserModelTool sharedUserModelTool] logonUser] setName:_nameTextFeild.text];
             [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
-            [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.view];
         }
         else {
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         }
     }];
 }

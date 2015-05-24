@@ -65,7 +65,7 @@
 
 - (IBAction)modifyAction:(UIButton *)sender {
     if (_iconPath.length == 0) {
-        [MBProgressHUD TTDelayHudWithMassage:@"请更新头像" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"请更新头像" View:self.view];
         return;
     }
     [[AFAppDotNetAPIClient sharedClient] apiGet:UPDATE_ICON
@@ -81,7 +81,7 @@
 
                                              }
                                              else {
-                                                 [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+                                                 [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
                                              }
                                          }];
 }
@@ -89,7 +89,7 @@
 - (void)updateIcon{
     UIImageView* rightIconView =(UIImageView*)self.navigationItem.rightBarButtonItem.customView;
     [rightIconView setImageIcon:_iconPath];
-    [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.navigationController.view];
+    [MBProgressHUD TTDelayHudWithMassage: @"更新成功！" View:self.view];
     [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
 }
 
@@ -104,9 +104,9 @@
         
         NSMutableArray* images = [NSMutableArray array];
             [images addObject:image];
-//            [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+//            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [[AFAppDotNetAPIClient sharedClient]uploadImage:nil Images:images Result:^(id result_data, ApiStatus result_status) {
-//                [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+//                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                 if (result_status == ApiStatusSuccess) {
                     if ([result_data isKindOfClass:[NSMutableArray class]]) {
                         if (((NSMutableArray*)result_data).count!=0) {
@@ -121,7 +121,7 @@
                         }
                     }
                 }else{
-                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
                 }
 
             } Progress:^(CGFloat progress) {

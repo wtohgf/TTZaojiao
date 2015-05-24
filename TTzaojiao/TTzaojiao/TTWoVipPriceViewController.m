@@ -30,7 +30,7 @@
             [self.tableView reloadData];
         }
         else {
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         }
     }];
 }

@@ -90,9 +90,9 @@
 }
 
 -(void)updateFriend{
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TTUserModelTool getWoFriendListResult:^(id friendList) {
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [_wofriendTableView.header endRefreshing];
         [_wofriendTableView.footer endRefreshing];
         if ([friendList isKindOfClass:[NSMutableArray class]]) {
@@ -100,9 +100,9 @@
             [_wofriendTableView reloadData];
         }else if([friendList isKindOfClass:[NSString class]]){
             if ([friendList isEqualToString:@"neterror"]) {
-                [MBProgressHUD TTDelayHudWithMassage:@"网络连接 错误，请检查网络" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"网络连接 错误，请检查网络" View:self.view];
             }else{
-                [MBProgressHUD TTDelayHudWithMassage:@"好友信息获取失败" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"好友信息获取失败" View:self.view];
             }
         }
     }];

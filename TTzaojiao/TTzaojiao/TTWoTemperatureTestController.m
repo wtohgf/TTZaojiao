@@ -56,9 +56,9 @@
 }
 
 -(void)updateTestList{
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TTGrowTemperTestTool getTempTestListWithPageindex:_pageIndex Result:^(id testlist) {
-        [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [_tempTestTableView.header endRefreshing];
         [_tempTestTableView.footer endRefreshing];
         if ([testlist isKindOfClass:[NSMutableArray class]]) {
@@ -71,9 +71,9 @@
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {
                 if ([testlist isEqualToString:@"neterror"]) {
-                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
                 }else{
-                    [MBProgressHUD TTDelayHudWithMassage:@"测试历史获取失败" View:self.navigationController.view];
+                    [MBProgressHUD TTDelayHudWithMassage:@"测试历史获取失败" View:self.view];
                 }
             }
         }

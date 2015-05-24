@@ -145,15 +145,15 @@
 }
 
 -(void)getDetailLessionInfo{
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
 
     [TTLessionMngTool getDetailLessionInfo:_lession.active_id Result:^(DetailLessionModel *detailLession) {
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         _detailLession = detailLession;
         if (detailLession!= nil) {
             [_zaoJiaoPlayTableView reloadData];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"获取课程详细信息失败" View:self.navigationController.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"获取课程详细信息失败" View:self.view];
         }
     }];
 }
@@ -162,18 +162,18 @@
     if ([AFNetworkReachabilityManager sharedManager].reachable) {
         [self playLessionVideo];
     }else{
-        [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+        [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.view];
     }
 }
 
 -(void)playLessionVideo{
-    [MBProgressHUD showHUDAddedTo:self.navigationController.view  animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
     
     [TTLessionMngTool getLessionVideoPath:_lession.active_id Result:^(NSString *videoPath) {
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (videoPath != nil) {
             if ([videoPath isEqualToString:@"neterror"]) {
-                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.view];
                 return;
             }
             NSString* fullPath = [NSString stringWithFormat:@"%@%@", TTBASE_URL, videoPath];
@@ -187,7 +187,7 @@
                 alert.tag = 111;
                 [alert show];
             }else{
-                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.navigationController.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"网络链接错误 请检查网络" View:self.view];
             }
         }else{
             if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {

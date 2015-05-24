@@ -47,10 +47,10 @@
             break;
         case ApiEnumGet_List_Blog_Replay:
         {
-            id tmpModel = [BlogReplayModel blogReplayModelWithDict:(NSDictionary *)modelObj];
-            if (tmpModel != nil) {
-                modelObj = tmpModel;
-            }
+//            id tmpModel = [BlogReplayModel blogReplayModelWithDict:(NSDictionary *)modelObj];
+//            if (tmpModel != nil) {
+//                modelObj = tmpModel;
+//            }
         }
             break;
         case ApiEnumGet_List_User_Info:
