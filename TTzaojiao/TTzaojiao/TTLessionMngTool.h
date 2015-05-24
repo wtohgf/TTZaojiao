@@ -11,9 +11,9 @@
 #import "TTUserModelTool.h"
 #import "UIAlertView+MoreAttribute.h"
 
-typedef void (^LessionIDBlock)(NSString* lessionID);
-typedef void (^WeekLessionBlock)(NSMutableArray* lessions);
-typedef void (^DetailLessionBlock)(DetailLessionModel* detailLession);
+typedef void (^LessionIDBlock)(id lessionID);
+typedef void (^WeekLessionBlock)(id lessions);
+typedef void (^DetailLessionBlock)(id detailLession);
 typedef void (^LessionVideoPathBlock)(NSString* videoPath);
 typedef void (^GYMLessionVideoPathBlock)(id videoPath);
 

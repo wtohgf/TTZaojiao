@@ -15,8 +15,9 @@
 
 @interface TTWoTemperatureTestController (){
     NSString* _pageIndex;
-    NSMutableArray* _testHistoryList;
+    
 }
+@property (strong, nonatomic) NSMutableArray* testHistoryList;
 @property (weak, nonatomic) IBOutlet UITableView *tempTestTableView;
 
 @end
@@ -63,7 +64,7 @@
         [_tempTestTableView.footer endRefreshing];
         if ([testlist isKindOfClass:[NSMutableArray class]]) {
             if ([_pageIndex isEqualToString:@"1"]) {
-                _testHistoryList = [testlist mutableCopy];
+                _testHistoryList = testlist;
             }else{
                 [_testHistoryList addObjectsFromArray:testlist];
             }
@@ -93,7 +94,9 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TTWoChengzhangHistoryCell* cell = [TTWoChengzhangHistoryCell woChengzangHistoryCellWithTableView:tableView];
-    cell.growTestDict = _testHistoryList[indexPath.row];
+    if (_testHistoryList!= nil && _testHistoryList.count>0) {
+        cell.growTestDict = _testHistoryList[indexPath.row];
+    }
     return cell;
 }
 
@@ -149,9 +152,11 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary* testReportDict = _testHistoryList[indexPath.row];
-    NSString* resultID = [testReportDict objectForKey:@"id"];
-    [self performSegueWithIdentifier:@"TOTEMPTESTREPORT" sender:resultID];
+    if (_testHistoryList != nil&& _testHistoryList.count>0) {
+        NSDictionary* testReportDict = _testHistoryList[indexPath.row];
+        NSString* resultID = [testReportDict objectForKey:@"id"];
+        [self performSegueWithIdentifier:@"TOTEMPTESTREPORT" sender:resultID];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

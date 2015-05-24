@@ -80,6 +80,7 @@
 //        = NO;
 //    }
 //    
+    _models = [NSMutableArray array];
     
     [self setting];
     
@@ -261,15 +262,15 @@
     //create cell
     
     LamaTableViewCell *cell = [LamaTableViewCell lamaCellWithTabelView:tableView];
-    
-    //data
-    LamaModel * model=
-    _models[indexPath.row];
-    //set cell
-    cell.lamaModel = model;
-    
+    if (_models.count > 0) {
+        //data
+        LamaModel * model=
+        _models[indexPath.row];
+        //set cell
+        cell.lamaModel = model;
+    }
+ 
     return cell;
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -289,21 +290,23 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    LamaModel *model = _models[indexPath.row];
-    LaMaDetailViewController *detailController = [[LaMaDetailViewController alloc]init];
-    detailController.ttid = model.ttid;
-    
-    self.navigationController.title = @"详情";
-    [self.navigationController pushViewController:detailController animated:YES];
+    if (_models.count > 0) {
+        LamaModel *model = _models[indexPath.row];
+        LaMaDetailViewController *detailController = [[LaMaDetailViewController alloc]init];
+        detailController.ttid = model.ttid;
+        
+        self.navigationController.title = @"详情";
+        [self.navigationController pushViewController:detailController animated:YES];
+    }
 }
 
 
 #pragma mark 更改位置
 - (IBAction)changLocation:(UIButton *)sender {
     //[_babyName resignFirstResponder];
-    
+    [[self rdv_tabBarController]setTabBarHidden:YES];
     TSLocateView *locateView = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
+    locateView.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
     locateView.titleLabel.text = @"定位城市";
     locateView.delegate = self;
     //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
@@ -320,17 +323,17 @@
         //You can uses location to your application.
         
         if(buttonIndex == 0) {
-            _cityCode = @"";
+            _cityCode = @"210200";
         }else {
             NSString* cityName = [NSString stringWithFormat:@"%@市", location.city];
             _locationCity.text = cityName;
             _cityCode = [[TTCityMngTool sharedCityMngTool]citytoCode:cityName];
             NSString* cityString = [NSString stringWithFormat:@"%@ %@",location.state, location.city];
             [_location setText:cityString];
-            //重新加载网络数据
-            [self loadData];
         }
-        
+        [[self rdv_tabBarController]setTabBarHidden:NO];
+        //重新加载网络数据
+        [self loadData];
     }
 }
 

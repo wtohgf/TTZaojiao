@@ -14,10 +14,10 @@
 
 @interface TTWoyiziCaoViewController ()
 {
-    NSArray* _titlePicList;
-    NSMutableArray* _videoPathList;
     NSString* _fullPath;
 }
+@property (strong, nonatomic) NSArray* titlePicList;
+@property (strong, nonatomic) NSMutableArray* videoPathList;
 @property (weak, nonatomic) IBOutlet UITableView *yiziCaoTableView;
 
 @end
@@ -64,14 +64,18 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell;
-    if (indexPath.row < _videoPathList.count) {
-        TTWoyiziCaoTableViewCell* tmpcell = [TTWoyiziCaoTableViewCell woyiziCaoTableViewCellWithTableView:tableView];
-        tmpcell.titlePicsDict = _titlePicList[indexPath.row];
-        cell = tmpcell;
-    }else{
-        TTWoMuyingCaoTableViewCell* tmpcell = [TTWoMuyingCaoTableViewCell woMuyingCaoTableViewCellWithTableView:tableView];
-        cell = tmpcell;
+    UITableViewCell* cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+    if (_videoPathList!= nil && _videoPathList.count>0) {
+        if (indexPath.row < _videoPathList.count) {
+            TTWoyiziCaoTableViewCell* tmpcell = [TTWoyiziCaoTableViewCell woyiziCaoTableViewCellWithTableView:tableView];
+            if (_titlePicList.count > 0) {
+                tmpcell.titlePicsDict = _titlePicList[indexPath.row];
+            }
+            cell = tmpcell;
+        }else{
+            TTWoMuyingCaoTableViewCell* tmpcell = [TTWoMuyingCaoTableViewCell woMuyingCaoTableViewCellWithTableView:tableView];
+            cell = tmpcell;
+        }
     }
     return cell;
 }
@@ -81,10 +85,18 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row < _videoPathList.count) {
-        return 66.f;
+    if (_videoPathList != nil && _videoPathList.count >0) {
+        if (indexPath.row < _videoPathList.count) {
+            return 66.f;
+        }else{
+            return [TTWoMuyingCaoTableViewCell cellHeight];
+        }
     }else{
-        return [TTWoMuyingCaoTableViewCell cellHeight];
+        if (indexPath.row == 1) {
+            return [TTWoMuyingCaoTableViewCell cellHeight];
+        }else{
+            return 0.f;
+        }
     }
 }
 

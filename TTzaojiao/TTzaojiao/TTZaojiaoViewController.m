@@ -122,7 +122,9 @@
         cell = tmpcell;
     }else{
         TTZaojiaoLessionCell* tmpcell = [TTZaojiaoLessionCell zaojiaoLessionCellWithTableView:tableView];
-        tmpcell.lession = _lessList[indexPath.section-1];
+        if (_lessList.count > 0) {
+            tmpcell.lession = _lessList[indexPath.section-1];
+        }
         cell = tmpcell;
     }
     return cell;
@@ -197,7 +199,17 @@
 }
 
 -(void)getLessionID{
-    [TTLessionMngTool getLessionID:^(NSString *lessionID) {
+    [TTLessionMngTool getLessionID:^(id lessionID) {
+        if ([lessionID isEqualToString:@"error"]) {
+            [MBProgressHUD TTDelayHudWithMassage:@"账号信息不正确\n请重新登录" View:self.view];
+            return;
+        }
+        
+        if ([lessionID isEqualToString:@"neterror"]) {
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
+            return;
+        }
+        
         _lessionID = lessionID;
         //上周课程
         if (_sortSeg.selectedSegmentIndex == 0) {
@@ -223,15 +235,13 @@
         
         if (lessionID != nil) {
             [self getWeekLession:(_lessionID)];
-        }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"账号信息不正确\n请重新登录" View:self.view];
         }
     }];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section != 0) {
-        if (_lessList == nil || _lessList[indexPath.section-1] == nil) {
+        if (_lessList == nil ||_lessList.count == 0|| _lessList[indexPath.section-1] == nil) {
             return;
         }
         [self performSegueWithIdentifier:@"toPlayLession" sender:_lessList[indexPath.section-1]];
@@ -248,9 +258,9 @@
 
     [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
 
-    [TTLessionMngTool getWeekLessions:lessionID Result:^(NSMutableArray *lessions) {
+    [TTLessionMngTool getWeekLessions:lessionID Result:^(id lessions) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        if (lessions != nil) {
+        if ([lessions isKindOfClass:[NSMutableArray class]]) {
             _lessList = lessions;
             [_zaoJiaoTableView reloadData];
         }else{

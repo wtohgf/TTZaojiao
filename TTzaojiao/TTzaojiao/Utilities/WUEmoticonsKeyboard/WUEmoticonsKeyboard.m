@@ -13,6 +13,8 @@
 
 #import "EmojiTextAttachment.h"
 
+#define kFontSize 16.f
+
 NSString * const WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification = @"WUEmoticonsKeyboardDidSwitchToDefaultKeyboardNotification";
 
 CGSize  const WUEmoticonsKeyboardDefaultSize            = (CGSize){320,216};
@@ -89,7 +91,7 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
         
         [textView.textStorage removeAttribute:NSFontAttributeName range:wholeRange];
         
-        [textView.textStorage addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:22.0f] range:wholeRange];
+        [textView.textStorage addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:kFontSize] range:wholeRange];
     }
 
 }
@@ -107,7 +109,7 @@ CGFloat const WUEmoticonsKeyboardToolsViewDefaultHeight = 45;
     emojiTextAttachment.image = keyItem.image;
     
     //Set emoji size
-    emojiTextAttachment.emojiSize = 22.f;
+    emojiTextAttachment.emojiSize = kFontSize;
     
     //Insert emoji image
     [textView.textStorage insertAttributedString:[NSAttributedString attributedStringWithAttachment:emojiTextAttachment]

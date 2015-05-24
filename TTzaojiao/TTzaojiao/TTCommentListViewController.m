@@ -10,11 +10,12 @@
 #import "BlogReplayModel.h"
 @interface TTCommentListViewController()
 {
-    NSMutableArray* _blogReplayList;
     NSString* _pageIndex;
     BOOL _isGetMoreList;
     CGFloat _backBottonBarY;
 }
+@property (strong, nonatomic) NSMutableArray* blogReplayList;
+
 @end
 @implementation TTCommentListViewController
 
@@ -124,11 +125,13 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TTCommentListCell* cell = [TTCommentListCell commentListCellWithTableView:tableView];
-    TTCommentFrame* commentFrame = [[TTCommentFrame alloc]init];
-    commentFrame.comment =  [BlogReplayModel blogReplayModelWithDict:_blogReplayList[indexPath.row]];
-    cell.commentFrame = commentFrame;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+     TTCommentListCell* cell = [TTCommentListCell commentListCellWithTableView:tableView];
+    if (_blogReplayList.count > 0) {
+        TTCommentFrame* commentFrame = [[TTCommentFrame alloc]init];
+        commentFrame.comment =  [BlogReplayModel blogReplayModelWithDict:_blogReplayList[indexPath.row]];
+        cell.commentFrame = commentFrame;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     return cell;
 }
 
@@ -137,9 +140,13 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TTCommentFrame* commentFrame = [[TTCommentFrame alloc]init];
-    commentFrame.comment = [BlogReplayModel blogReplayModelWithDict:_blogReplayList[indexPath.row]];
-    return commentFrame.commentHeight;
+    if (_blogReplayList.count > 0) {
+        TTCommentFrame* commentFrame = [[TTCommentFrame alloc]init];
+        commentFrame.comment = [BlogReplayModel blogReplayModelWithDict:_blogReplayList[indexPath.row]];
+        return commentFrame.commentHeight;
+    }else{
+        return 0.f;
+    }
 }
 
 #pragma mark 添加低栏

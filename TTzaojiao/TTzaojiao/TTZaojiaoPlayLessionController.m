@@ -150,10 +150,14 @@
     [TTLessionMngTool getDetailLessionInfo:_lession.active_id Result:^(DetailLessionModel *detailLession) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         _detailLession = detailLession;
-        if (detailLession!= nil) {
+        if ([detailLession isKindOfClass:[DetailLessionModel class]]) {
             [_zaoJiaoPlayTableView reloadData];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"获取课程详细信息失败" View:self.view];
+            if ([detailLession isEqual:@"neterror"]) {
+                [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
+            }else{
+                [MBProgressHUD TTDelayHudWithMassage:@"获取课程详细信息失败" View:self.view];
+            }
         }
     }];
 }

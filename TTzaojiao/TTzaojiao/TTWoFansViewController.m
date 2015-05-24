@@ -11,9 +11,7 @@
 #import "TTUserDongtaiViewController.h"
 
 @interface TTWoFansViewController ()
-{
-    NSMutableArray* _friendList;
-}
+@property (strong, nonatomic) NSMutableArray* friendList;
 @property (weak, nonatomic) UITableView* wofriendTableView;
 @end
 
@@ -27,6 +25,9 @@
     
     //集成上下拉刷新
     [self setupRefresh];
+    
+    NSMutableArray* friendList = [NSMutableArray array];
+    _friendList = friendList;
     
 }
 
@@ -64,7 +65,9 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TTNearBybabyTableViewCell* cell = [TTNearBybabyTableViewCell nearBybabyCellWithTableView:tableView];
-    cell.nearByBaby = _friendList[indexPath.row];
+    if (_friendList!=nil&&_friendList.count>0) {
+        cell.nearByBaby = _friendList[indexPath.row];
+    }
     cell.babyInfoView.distance.hidden = YES;
     return cell;
 }
@@ -112,9 +115,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    
-    NSMutableArray* friendList = [NSMutableArray array];
-    _friendList = friendList;
     [self updateFriend];
 }
 
@@ -124,11 +124,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
-    TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
-    NearByBabyModel* baby = _friendList[indexPath.row];
-    [userViewController setI_uid:baby.uid];
-    [self.navigationController pushViewController:userViewController animated:YES];
+    if (_friendList!= nil&&_friendList.count>0) {
+        UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
+        TTUserDongtaiViewController *userViewController = (TTUserDongtaiViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"UserUIM"];
+        NearByBabyModel* baby = _friendList[indexPath.row];
+        [userViewController setI_uid:baby.uid];
+        [self.navigationController pushViewController:userViewController animated:YES];
+    }
 }
 
 @end

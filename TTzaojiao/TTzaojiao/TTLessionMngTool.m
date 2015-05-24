@@ -35,17 +35,17 @@
                             block(lessionID);
                         }
                         else{
-                            block(nil);
+                            block(@"error");
                         }
                     }
                     else{
-                        block(nil);
+                        block(@"error");
                     }
                 }else{
-                    block(nil);
+                    block(@"error");
                 }
             }else{
-                block(nil);
+                block(@"neterror");
             };
             
         }];
@@ -67,17 +67,17 @@
                             block(lessionID);
                     }
                     else{
-                        block(nil);
+                        block(@"error");
                     }
                 }
                 else{
-                    block(nil);
+                    block(@"error");
                 }
             }else{
-                block(nil);
+                block(@"error");
             }
         }else{
-            block(nil);
+            block(@"neterror");
         };
         
     }];
@@ -112,16 +112,16 @@
                         if (block!=nil && retList.count > 0) {
                             block(retList);
                         }else{
-                            block(nil);
+                            block(@"error");
                         }
                     }else{
-                        block(nil);
+                        block(@"error");
                     }
                 }else{
-                    block(nil);
+                    block(@"error");
                 }
             }else{
-                block(nil);
+                block(@"neterror");
             };
             
         }];
@@ -148,16 +148,16 @@
                     if (block!=nil && retList.count > 0) {
                         block(retList);
                     }else{
-                        block(nil);
+                        block(@"error");
                     }
                 }else{
-                    block(nil);
+                    block(@"error");
                 }
             }else{
-                block(nil);
+                block(@"error");
             }
         }else{
-            block(nil);
+            block(@"neterror");
         };
         
     }];
@@ -181,13 +181,13 @@
                     DetailLessionModel* detailLession = [retList firstObject];
                     block(detailLession);
                 }else{
-                    block(nil);
+                    block(@"error");
                 }
             }else{
-                block(nil);
+                block(@"error");
             }
         }else{
-            block(nil);
+            block(@"neterror");
         };
         
     }];

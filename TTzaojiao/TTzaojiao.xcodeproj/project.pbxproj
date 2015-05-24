@@ -300,7 +300,6 @@
 		1D5A8EF31B0C75B600980209 /* login_pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A8DB51B0C75B500980209 /* login_pic.png */; };
 		1D5A8EF41B0C75B600980209 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A8DB61B0C75B500980209 /* logo.png */; };
 		1D5A8EF51B0C75B600980209 /* lor_pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A8DB71B0C75B500980209 /* lor_pic.jpg */; };
-		1D5A8EF61B0C75B600980209 /* more_city.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A8DB81B0C75B500980209 /* more_city.png */; };
 		1D5A8EF71B0C75B600980209 /* my_attention_edit_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A8DB91B0C75B500980209 /* my_attention_edit_title.png */; };
 		1D5A8EF81B0C75B600980209 /* nearby_tab_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A8DBA1B0C75B500980209 /* nearby_tab_checked.png */; };
 		1D5A8EF91B0C75B600980209 /* nearby_tab_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5A8DBB1B0C75B500980209 /* nearby_tab_unchecked.png */; };
@@ -973,7 +972,6 @@
 		1D5A8DB51B0C75B500980209 /* login_pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_pic.png; sourceTree = "<group>"; };
 		1D5A8DB61B0C75B500980209 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		1D5A8DB71B0C75B500980209 /* lor_pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lor_pic.jpg; sourceTree = "<group>"; };
-		1D5A8DB81B0C75B500980209 /* more_city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_city.png; sourceTree = "<group>"; };
 		1D5A8DB91B0C75B500980209 /* my_attention_edit_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_attention_edit_title.png; sourceTree = "<group>"; };
 		1D5A8DBA1B0C75B500980209 /* nearby_tab_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby_tab_checked.png; sourceTree = "<group>"; };
 		1D5A8DBB1B0C75B500980209 /* nearby_tab_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby_tab_unchecked.png; sourceTree = "<group>"; };
@@ -1206,6 +1204,8 @@
 			children = (
 				0F92FE141B09ED4400D2D799 /* Models */,
 				1D48D1061B04832B002D48A8 /* Views */,
+				1D3B04951B08654C00E2E41D /* TTWoTempTestReportViewController.h */,
+				1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */,
 				1D3B04921B08614B00E2E41D /* TTWoTemperatureTestController.h */,
 				1D3B04931B08614B00E2E41D /* TTWoTemperatureTestController.m */,
 				1DB724691B05E62C005C2584 /* TTWoyiziCaoViewController.h */,
@@ -1267,7 +1267,6 @@
 			isa = PBXGroup;
 			children = (
 				1D37628C1AF07F7F00CAAA05 /* Views */,
-				1D3FE2B61AEE86A7006D66FC /* DynamicCell */,
 				1D3FE2B51AEE8691006D66FC /* Models */,
 				1DD95FB61AED0CB100C15215 /* TTDongTaiViewController.h */,
 				1DD95FB71AED0CB100C15215 /* TTDongTaiViewController.m */,
@@ -1507,21 +1506,6 @@
 			name = TabbarPage;
 			sourceTree = "<group>";
 		};
-		0F7A26181B0A035800FB58E2 /* test */ = {
-			isa = PBXGroup;
-			children = (
-				0F7A26221B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.h */,
-				0F7A26231B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m */,
-				0F7A26151B0A028700FB58E2 /* TTWoTemperatureTestAllModel.h */,
-				0F7A26161B0A028700FB58E2 /* TTWoTemperatureTestAllModel.m */,
-				0F7A26191B0A113C00FB58E2 /* TTWoTemperatureTestModel.h */,
-				0F7A261A1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m */,
-				1D3B04951B08654C00E2E41D /* TTWoTempTestReportViewController.h */,
-				1D3B04961B08654C00E2E41D /* TTWoTempTestReportViewController.m */,
-			);
-			name = test;
-			sourceTree = "<group>";
-		};
 		0F92FE121B09EB7400D2D799 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1559,6 +1543,10 @@
 		0F92FE141B09ED4400D2D799 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0F7A26151B0A028700FB58E2 /* TTWoTemperatureTestAllModel.h */,
+				0F7A26161B0A028700FB58E2 /* TTWoTemperatureTestAllModel.m */,
+				0F7A26191B0A113C00FB58E2 /* TTWoTemperatureTestModel.h */,
+				0F7A261A1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m */,
 				0F92FDEE1B09903000D2D799 /* TTWoGrowTestReportFrame.h */,
 				0F92FDEF1B09903000D2D799 /* TTWoGrowTestReportFrame.m */,
 				0F92FDF11B09919B00D2D799 /* TTWoGrowTestReportModel.h */,
@@ -1799,6 +1787,7 @@
 		1D37628C1AF07F7F00CAAA05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D3FE2B61AEE86A7006D66FC /* DynamicCell */,
 				1D3FD90F1AFC4C3C00B9CA6B /* NearBybabyCell */,
 				1D3BC07F1AF8A09E00E8BE72 /* TTEmotionsKeyboard */,
 				1D37628D1AF07FA500CAAA05 /* TTCommentRelaseView.h */,
@@ -1982,7 +1971,8 @@
 		1D48D1061B04832B002D48A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0F7A26181B0A035800FB58E2 /* test */,
+				0F7A26221B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.h */,
+				0F7A26231B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m */,
 				0F92FDF41B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.h */,
 				0F92FDF51B09997E00D2D799 /* TTWoGrowTestReportTigeCellTableViewCell.m */,
 				0F92FE0C1B09CF4100D2D799 /* TTWoGrowTestReportShengaoCellTableViewCell.h */,
@@ -2099,7 +2089,6 @@
 				1D5A8DB51B0C75B500980209 /* login_pic.png */,
 				1D5A8DB61B0C75B500980209 /* logo.png */,
 				1D5A8DB71B0C75B500980209 /* lor_pic.jpg */,
-				1D5A8DB81B0C75B500980209 /* more_city.png */,
 				1D5A8DB91B0C75B500980209 /* my_attention_edit_title.png */,
 				1D5A8DBA1B0C75B500980209 /* nearby_tab_checked.png */,
 				1D5A8DBB1B0C75B500980209 /* nearby_tab_unchecked.png */,
@@ -2584,7 +2573,6 @@
 				1D5A8FD41B0D29F900980209 /* expression_26.png in Resources */,
 				1D5A8E431B0C75B600980209 /* add_friend_normal.png in Resources */,
 				1D5A8E6F1B0C75B600980209 /* default_icon.png in Resources */,
-				1D5A8EF61B0C75B600980209 /* more_city.png in Resources */,
 				1D5A900C1B0D72AF00980209 /* shengao_tizhong_female.png in Resources */,
 				1D5A8FD11B0D29F900980209 /* expression_23.png in Resources */,
 				1D5A8ED11B0C75B600980209 /* icon_comment_pic.png in Resources */,
