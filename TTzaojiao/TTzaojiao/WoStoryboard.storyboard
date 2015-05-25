@@ -1569,9 +1569,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.78431379795074463" green="0.33725491166114807" blue="0.43137258291244507" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="24" width="106" height="20"/>
-                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_icon3" translatesAutoresizingMaskIntoConstraints="NO" id="ZLk-BK-lNQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1585,8 +1582,7 @@
                                                             <exclude reference="tNI-to-3K7"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="238" y="9" width="50" height="50"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="dDP-em-rf8"/>
                                                             <include reference="tNI-to-3K7"/>
@@ -1595,15 +1591,9 @@
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_icon2" translatesAutoresizingMaskIntoConstraints="NO" id="J5E-Kf-G4Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="180" y="9" width="50" height="50"/>
-                                                    </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baby_icon1" translatesAutoresizingMaskIntoConstraints="NO" id="8aj-Q2-g5Z">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="122" y="9" width="50" height="50"/>
-                                                    </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_more" translatesAutoresizingMaskIntoConstraints="NO" id="D0E-rE-Rcq">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1615,8 +1605,7 @@
                                                             <exclude reference="whJ-JH-tlN"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="296" y="16" width="16" height="32"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="whJ-JH-tlN"/>
                                                         </mask>
@@ -1716,20 +1705,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OfR-Oi-3lq" firstAttribute="top" secondItem="60N-4O-7yK" secondAttribute="topMargin" id="BJK-Qh-Vqx"/>
-                            <constraint firstItem="5f6-bZ-b0V" firstAttribute="top" secondItem="OfR-Oi-3lq" secondAttribute="bottom" id="EwC-dj-umG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OfR-Oi-3lq" secondAttribute="trailing" constant="-16" id="Pl4-1H-PdX"/>
-                            <constraint firstItem="OfR-Oi-3lq" firstAttribute="leading" secondItem="60N-4O-7yK" secondAttribute="leadingMargin" constant="-16" id="uC2-2p-E8Z"/>
+                            <constraint firstItem="OfR-Oi-3lq" firstAttribute="top" secondItem="60N-4O-7yK" secondAttribute="topMargin" constant="-8" id="Hkz-l0-Dkv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OfR-Oi-3lq" secondAttribute="trailing" constant="-16" id="Udr-0a-p5X"/>
+                            <constraint firstItem="OfR-Oi-3lq" firstAttribute="leading" secondItem="60N-4O-7yK" secondAttribute="leadingMargin" constant="-16" id="eo1-rJ-5Ot"/>
+                            <constraint firstItem="5f6-bZ-b0V" firstAttribute="top" secondItem="OfR-Oi-3lq" secondAttribute="bottom" id="mat-aL-WCf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="OfR-Oi-3lq"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="EwC-dj-umG"/>
-                                <exclude reference="BJK-Qh-Vqx"/>
-                                <exclude reference="Pl4-1H-PdX"/>
-                                <exclude reference="uC2-2p-E8Z"/>
+                                <exclude reference="Hkz-l0-Dkv"/>
+                                <exclude reference="Udr-0a-p5X"/>
+                                <exclude reference="eo1-rJ-5Ot"/>
+                                <exclude reference="mat-aL-WCf"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1737,10 +1726,10 @@
                                 <include reference="OfR-Oi-3lq"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="EwC-dj-umG"/>
-                                <include reference="BJK-Qh-Vqx"/>
-                                <include reference="Pl4-1H-PdX"/>
-                                <include reference="uC2-2p-E8Z"/>
+                                <include reference="Hkz-l0-Dkv"/>
+                                <include reference="Udr-0a-p5X"/>
+                                <include reference="eo1-rJ-5Ot"/>
+                                <include reference="mat-aL-WCf"/>
                             </mask>
                         </variation>
                     </view>
@@ -1832,7 +1821,8 @@
                                                             <exclude reference="nVM-ka-c29"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="188" y="23" width="99" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="nVM-ka-c29"/>
                                                         </mask>
@@ -1850,7 +1840,8 @@
                                                             <exclude reference="jCi-v1-ZnQ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="295" y="25" width="9" height="16"/>
                                                         <mask key="constraints">
                                                             <include reference="iod-8g-g7U"/>
                                                             <include reference="jCi-v1-ZnQ"/>
@@ -1932,7 +1923,9 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bAq-3s-j1a" secondAttribute="trailing" constant="-16" id="0Pu-ik-bEi"/>
                             <constraint firstItem="bAq-3s-j1a" firstAttribute="leading" secondItem="Po6-gT-kfG" secondAttribute="leadingMargin" constant="-16" id="CcM-zo-iOy"/>
-                            <constraint firstItem="bAq-3s-j1a" firstAttribute="top" secondItem="Po6-gT-kfG" secondAttribute="topMargin" id="bpA-J9-OvV"/>
+                            <constraint firstItem="bAq-3s-j1a" firstAttribute="top" secondItem="Po6-gT-kfG" secondAttribute="topMargin" id="bpA-J9-OvV">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                            </constraint>
                             <constraint firstItem="y0D-OW-ENg" firstAttribute="top" secondItem="bAq-3s-j1a" secondAttribute="bottom" id="ddJ-fj-kkt"/>
                         </constraints>
                         <variation key="default">
@@ -3677,7 +3670,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5Xj-eE-CPH" firstAttribute="top" secondItem="Ug0-uD-3kf" secondAttribute="bottom" id="GOu-ea-Xwh"/>
-                            <constraint firstItem="Ug0-uD-3kf" firstAttribute="top" secondItem="hY6-QI-a4m" secondAttribute="topMargin" id="Ja5-Hz-ekQ"/>
+                            <constraint firstItem="Ug0-uD-3kf" firstAttribute="top" secondItem="hY6-QI-a4m" secondAttribute="topMargin" id="Ja5-Hz-ekQ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                            </constraint>
                             <constraint firstItem="Ug0-uD-3kf" firstAttribute="leading" secondItem="hY6-QI-a4m" secondAttribute="leadingMargin" constant="-16" id="rQR-n6-Zih"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ug0-uD-3kf" secondAttribute="trailing" constant="-16" id="w4W-8o-8KW"/>
                         </constraints>
@@ -3771,7 +3766,8 @@
                                                             <exclude reference="MeL-si-JWL"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="304" height="27"/>
                                                         <mask key="constraints">
                                                             <exclude reference="MeL-si-JWL"/>
                                                         </mask>
@@ -3821,6 +3817,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.58898676658163263" green="0.080763159801722703" blue="0.11887593864318173" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="304" height="123"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -4045,9 +4044,9 @@
     </scenes>
     <resources>
         <image name="add_pic_pressed" width="30" height="27"/>
-        <image name="baby_icon1" width="57" height="57"/>
-        <image name="baby_icon2" width="180" height="180"/>
-        <image name="baby_icon3" width="180" height="180"/>
+        <image name="baby_icon1" width="29" height="29"/>
+        <image name="baby_icon2" width="29" height="29"/>
+        <image name="baby_icon3" width="29" height="29"/>
         <image name="icon_exchange" width="29" height="32"/>
         <image name="icon_more" width="24" height="43"/>
         <image name="icon_score.png" width="32" height="32"/>

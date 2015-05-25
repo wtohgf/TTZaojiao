@@ -65,17 +65,26 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell* cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
-    
-    if (indexPath.row < _videoPathList.count) {
-        TTWoyiziCaoTableViewCell* tmpcell = [TTWoyiziCaoTableViewCell woyiziCaoTableViewCellWithTableView:tableView];
-        if (_titlePicList.count > 0) {
-            tmpcell.titlePicsDict = _titlePicList[indexPath.row];
+    if (_videoPathList != nil && _videoPathList.count >0) {
+        if (indexPath.row < _videoPathList.count) {
+            TTWoyiziCaoTableViewCell* tmpcell = [TTWoyiziCaoTableViewCell woyiziCaoTableViewCellWithTableView:tableView];
+            if (_titlePicList.count > 0) {
+                tmpcell.titlePicsDict = _titlePicList[indexPath.row];
+            }
+            cell = tmpcell;
+        }else{
+            TTWoMuyingCaoTableViewCell* tmpcell = [TTWoMuyingCaoTableViewCell woMuyingCaoTableViewCellWithTableView:tableView];
+            cell = tmpcell;
         }
-        cell = tmpcell;
     }else{
-        TTWoMuyingCaoTableViewCell* tmpcell = [TTWoMuyingCaoTableViewCell woMuyingCaoTableViewCellWithTableView:tableView];
-        cell = tmpcell;
+        if (indexPath.row == 0) {
+            TTWoMuyingCaoTableViewCell* tmpcell = [TTWoMuyingCaoTableViewCell woMuyingCaoTableViewCellWithTableView:tableView];
+            cell = tmpcell;
+        }else{
+            cell = [[UITableViewCell alloc]initWithFrame:CGRectZero];
+        }
     }
+    
     return cell;
 }
 

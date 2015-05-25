@@ -40,9 +40,8 @@
     UITableView * tableView = [[UITableView alloc]init];
     _wofriendTableView = tableView;
     
-    CGFloat w=self.view.frame.size.width;
-    CGFloat h=self.view.frame.size.height - self.tabBarController.tabBar.height - self.navigationController.navigationBar.height - [UIApplication sharedApplication].statusBarFrame.size.height;
-    tableView.frame = CGRectMake(0, 0, w, h);
+    CGFloat w=[UIScreen mainScreen].bounds.size.width;
+    CGFloat h=[UIScreen mainScreen].bounds.size.height - 64.f - 49.f;    tableView.frame = CGRectMake(0, 0, w, h);
     
     
     tableView.dataSource = self;
