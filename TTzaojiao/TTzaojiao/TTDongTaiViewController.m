@@ -369,7 +369,7 @@
 //}
 
 //点赞
--(void)daynamicUserStatusZanClicked:blogid{
+-(void)dynamicCell:(TTDyanmicUserStautsCell *)cell UserStatusZanClicked:(NSString *)blogid{
     
     NSDictionary* parameters = @{
                                  @"i_uid": [TTUserModelTool sharedUserModelTool].logonUser.ttid,
@@ -380,7 +380,14 @@
     [[AFAppDotNetAPIClient sharedClient]apiGet:PRAISE_NEW Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         if (result_status == ApiStatusSuccess) {
-            [self updateBlog];
+//            [self updateBlog];
+            if (_blogs!= nil && _blogs.count>0) {
+                NSIndexPath* path = [_dongtaiTable indexPathForCell:cell];
+                BlogModel* blog = [_blogs objectAtIndex:path.row];
+                blog.i_zan = [NSString stringWithFormat:@"%ld", [blog.i_zan integerValue]+1];
+                [_dongtaiTable reloadData];
+            }
+
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };

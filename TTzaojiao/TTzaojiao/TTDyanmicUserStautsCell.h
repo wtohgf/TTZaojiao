@@ -17,7 +17,7 @@
 @protocol TTDyanmicUserStautsCellDelegate<NSObject>
 -(void)dynamicUserStatusTopView:(TTDynamicUserStatusTopView*)view didIconTaped:(NSString*)uid;
 
--(void)daynamicUserStatusZanClicked:(NSString*)blogid;
+-(void)dynamicCell:(TTDyanmicUserStautsCell*) cell UserStatusZanClicked:(NSString*)blogid;
 -(void)dynamicCell:(TTDyanmicUserStautsCell*) cell UserStatusRemsgClicked:(NSString*)blogid;
 
 -(void)dynamicCell:(TTDyanmicUserStautsCell*)cell didShowCommentList:(NSString*)blog_id;

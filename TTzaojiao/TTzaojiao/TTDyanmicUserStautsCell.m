@@ -102,10 +102,10 @@
 }
 
 -(void)zan:(UIButton*)sender{
-    if ([_delegate respondsToSelector:@selector(daynamicUserStatusZanClicked:)]) {
+    if ([_delegate respondsToSelector:@selector(dynamicCell:UserStatusZanClicked:)]) {
         if (_blogFrame.blog != nil) {
             BlogModel* blog = _blogFrame.blog;
-            [_delegate daynamicUserStatusZanClicked:blog.id];
+            [_delegate dynamicCell:self UserStatusZanClicked:blog.id];
         }
     }
 }
