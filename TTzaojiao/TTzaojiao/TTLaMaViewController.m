@@ -103,12 +103,12 @@
         if(location!=nil){
             [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
                 _cityCode = cityCode;
+                //加载异步网络数据
+                [self loadData];
             }];
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.view];
         }
-        //加载异步网络数据
-        [self loadData];
     }];
 }
 
@@ -133,7 +133,7 @@
     NSString* i_uid = [TTUserModelTool sharedUserModelTool].logonUser.ttid;
     NSString* pageIndex = [NSString stringWithFormat:@"%ld", _pageIndexInt];
     
-    if (_cityCode == nil) {
+    if (_cityCode == nil || [_cityCode isEqualToString:@""]) {
         _cityCode = @"210200";
     }
     _locationCity.text = [[TTCityMngTool sharedCityMngTool]codetoCity:_cityCode];
@@ -333,6 +333,8 @@
         }
         [[self rdv_tabBarController]setTabBarHidden:NO];
         //重新加载网络数据
+        _isGetMore = NO;
+        _pageIndexInt = 1;
         [self loadData];
     }
 }

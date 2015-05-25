@@ -51,10 +51,11 @@
     _dongtaiTable = tableView;
     tableView.delegate = self;
     tableView.dataSource = self;
-    
     CGFloat w=ScreenWidth;
-    CGFloat h=ScreenHeight-44.f-49.f;
-    
+    CGFloat h=ScreenHeight-64.f-49.f;
+    if (_lession != nil) {
+        h=ScreenHeight-64.f;
+    }
     _dongtaiTable.frame = CGRectMake(0, 0, w, h);
     
     _dongtaiTable.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
@@ -178,6 +179,9 @@
     [super viewWillAppear:animated];
     if (_lession != nil) {
         [[self rdv_tabBarController] setTabBarHidden:YES animated:NO];
+        
+        
+        
     }
     if (_sortSeg.selectedSegmentIndex != 3) {
         if([TTUIChangeTool sharedTTUIChangeTool].shouldBeUpdateCellIndexPath == YES){
