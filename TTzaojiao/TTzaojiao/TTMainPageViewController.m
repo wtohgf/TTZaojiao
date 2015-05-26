@@ -41,6 +41,10 @@
 
 #pragma mark 开始体验
 - (IBAction)startTryTeach:(UIButton *)sender {
+    if (_year.text.length == 0 ) {
+        [MBProgressHUD TTDelayHudWithMassage:@"选择宝宝生日即可体验" View:self.view];
+        return;
+    }
     NSString* birthDay = [NSString stringWithFormat:@"%@-%@-%@",_year.text, _mouth.text, _day.text];
     NSDictionary* dict = @{
                            @"id": @"1977",
