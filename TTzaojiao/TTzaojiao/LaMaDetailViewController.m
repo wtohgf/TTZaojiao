@@ -63,7 +63,7 @@
                 NSMutableArray* list = result_data;
                 if(list.count > 0){
                     //获取纯数据模型
-                    LaMaDetailModel *model =   [LaMaDetailModel  LaMaDetailModelWithDict:(NSDictionary *)result_data[0]];
+                    LaMaDetailModel *model = result_data[0];
                     
                     if([model.msg isEqualToString:@"Get_List_Active_Show"]){
                         //计算frame

@@ -21,6 +21,7 @@
 #import "NearByBabyModel.h"
 #import "LessionModel.h"
 #import "DetailLessionModel.h"
+#import "LaMaDetailModel.h"
 
 //Api Name
 typedef enum : NSUInteger {
@@ -30,6 +31,7 @@ typedef enum : NSUInteger {
     ApiEnumGet_Reg_1,
     ApiEnumGet_Reg_2,
     ApiEnumGet_List_Active, //辣妈街刷列表
+    ApiEnumGet_List_Active_Show, //辣妈街详细列表
     ApiEnumGet_List_Blog_Group, //动态
     ApiEnumGet_List_Blog_Replay,  //一条blog的评论列表
     ApiEnumGet_List_User_Info,

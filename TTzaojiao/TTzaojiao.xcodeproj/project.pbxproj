@@ -59,7 +59,6 @@
 		0F7A261B1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A261A1B0A113C00FB58E2 /* TTWoTemperatureTestModel.m */; };
 		0F7A26241B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A26231B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m */; };
 		0F7C06CC1AEA1B120020ACBA /* LamaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CB1AEA1B120020ACBA /* LamaModel.m */; };
-		0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */; };
 		0F7C06D21AEA2A0C0020ACBA /* LamaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */; };
 		0F92FDF01B09903000D2D799 /* TTWoGrowTestReportFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F92FDEF1B09903000D2D799 /* TTWoGrowTestReportFrame.m */; };
 		0F92FDF31B09919B00D2D799 /* TTWoGrowTestReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F92FDF21B09919B00D2D799 /* TTWoGrowTestReportModel.m */; };
@@ -619,8 +618,6 @@
 		0F7A26231B0A1E2B00FB58E2 /* TTWoTemperatureTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWoTemperatureTestCell.m; sourceTree = "<group>"; };
 		0F7C06CA1AEA1B120020ACBA /* LamaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaModel.h; sourceTree = "<group>"; };
 		0F7C06CB1AEA1B120020ACBA /* LamaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaModel.m; sourceTree = "<group>"; };
-		0F7C06CD1AEA216C0020ACBA /* LamaTotalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTotalModel.h; sourceTree = "<group>"; };
-		0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTotalModel.m; sourceTree = "<group>"; };
 		0F7C06D01AEA2A0C0020ACBA /* LamaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamaTableViewCell.h; sourceTree = "<group>"; };
 		0F7C06D11AEA2A0C0020ACBA /* LamaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamaTableViewCell.m; sourceTree = "<group>"; };
 		0F92FDEE1B09903000D2D799 /* TTWoGrowTestReportFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWoGrowTestReportFrame.h; sourceTree = "<group>"; };
@@ -1518,8 +1515,6 @@
 			children = (
 				0F7C06CA1AEA1B120020ACBA /* LamaModel.h */,
 				0F7C06CB1AEA1B120020ACBA /* LamaModel.m */,
-				0F7C06CD1AEA216C0020ACBA /* LamaTotalModel.h */,
-				0F7C06CE1AEA216C0020ACBA /* LamaTotalModel.m */,
 				0FE830A71AF85EA700A15860 /* LaMaDetailModel.h */,
 				0FE830A81AF85EC100A15860 /* LaMaDetailModel.m */,
 				0FE830A11AF85DE800A15860 /* LamaTableViewCellModelFrame.h */,
@@ -2953,7 +2948,6 @@
 				1D4253DC1B03421C00BBCB4A /* TTForceScreenOretationTool.m in Sources */,
 				1D3B048C1B0837DC00E2E41D /* TTWoScoreIntroduceCell.m in Sources */,
 				1D651CDF1AFDBEF4005093BF /* TTZaojiaoHeaderRightItem.m in Sources */,
-				0F7C06CF1AEA216C0020ACBA /* LamaTotalModel.m in Sources */,
 				1DB724791B075549005C2584 /* TTWoChengzhangHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

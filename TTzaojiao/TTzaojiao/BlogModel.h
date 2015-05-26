@@ -28,7 +28,7 @@
 @property (copy, nonatomic) NSString * baby_name; //
 @property (copy, nonatomic) NSString * face; //
 @property (copy, nonatomic) NSString * Birthday; //
-@property (copy, nonatomic) NSArray * replay;
+@property (strong, nonatomic) NSArray * replay;
 
 @property (strong, nonatomic) NSArray* photosURLStr;
 

@@ -421,7 +421,11 @@
                         }
                         if ([function rangeOfString:@"Get_List_Active"].length) {
                             api = ApiEnumGet_List_Active;
+                            if ([function rangeOfString:@"Get_List_Active_Show"].length) {
+                                api = ApiEnumGet_List_Active_Show;
+                            }
                         }
+
                         if ([function rangeOfString:@"Get_List_Blog_Group"].length || [function rangeOfString:@"Get_List_Blog"].length) {
                             api = ApiEnumGet_List_Blog_Group;
                         }

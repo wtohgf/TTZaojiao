@@ -45,6 +45,14 @@
             }
         }
             break;
+        case ApiEnumGet_List_Active_Show:
+        {
+            id tmpModel = [LaMaDetailModel LaMaDetailModelWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
+        }
+            break;
         case ApiEnumGet_List_Blog_Replay:
         {
 //            id tmpModel = [BlogReplayModel blogReplayModelWithDict:(NSDictionary *)modelObj];

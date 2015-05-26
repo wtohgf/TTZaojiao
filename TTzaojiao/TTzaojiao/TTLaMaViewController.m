@@ -9,7 +9,6 @@
 #import "TTLaMaViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "LamaModel.h"
-#import "LamaTotalModel.h"
 #import "UserModel.h"
 #import "TTBaseViewController.h"
 #import "LamaTableViewCell.h"
@@ -153,23 +152,20 @@
 
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 
-                NSMutableArray *tempArray = [NSMutableArray array];
-                
-                
-                [result_data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                    if ([obj isKindOfClass:[LamaModel class]]) {
-                        [tempArray addObject:obj];
+                NSMutableArray *tempArray = result_data;
+                if (tempArray != nil && tempArray.count>0) {
+                    [tempArray removeObjectAtIndex:0];
+                    if (_isGetMore) {
+                        [_models addObjectsFromArray:tempArray];
+                        _isGetMore = NO;
+                    }else{
+                        _models = tempArray;
                     }
-                }];
-                if (_isGetMore) {
-                    [_models addObjectsFromArray:tempArray];
-                    _isGetMore = NO;
-                }else{
-                    _models = tempArray;
+                    [_tableView reloadData];
+                    
                 }
-                [_tableView reloadData];
+                
             }
-            
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"网络连接有问题 请检查网络" View:self.view];
         };

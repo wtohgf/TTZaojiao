@@ -536,6 +536,16 @@
                         }else{
                             [_nearByBabys removeAllObjects];
                             [_dongtaiTable reloadData];
+                            [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                                NearByBabyModel* baby = obj;
+                                NearByBabyModel* tmpbaby = nil;
+                                if ([baby.uid isEqualToString:@"1977"]) {
+                                    tmpbaby = baby;
+                                }
+                                if (tmpbaby != nil) {
+                                    [list removeObject:tmpbaby];
+                                }
+                            }];
                             _nearByBabys =  list;
                         }
                         [_dongtaiTable reloadData];
