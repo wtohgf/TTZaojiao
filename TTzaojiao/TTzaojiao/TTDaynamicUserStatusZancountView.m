@@ -7,6 +7,7 @@
 //
 
 #import "TTDaynamicUserStatusZancountView.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTDaynamicUserStatusZancountView
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -15,13 +16,13 @@
         //消息
         UIButton* remsgBtn = [[UIButton alloc]init];
         [self addSubview:remsgBtn];
-        [remsgBtn setImage:[UIImage imageNamed:@"icon_comment"] forState:UIControlStateNormal];
+        [remsgBtn setImage:[UIImage imageWithName:@"icon_comment.png"] forState:UIControlStateNormal];
         remsgBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _remsgBtn = remsgBtn;
         
         //赞
         UIButton* zanBtn = [[UIButton alloc]init];
-        [zanBtn setImage:[UIImage imageNamed:@"icon_praise"] forState:UIControlStateNormal];
+        [zanBtn setImage:[UIImage imageWithName:@"icon_praise.png"] forState:UIControlStateNormal];
         [self addSubview:zanBtn];
         zanBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _zanBtn = zanBtn;

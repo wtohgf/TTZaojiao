@@ -7,6 +7,7 @@
 //
 
 #import "TTWoyiziCaoTableViewCell.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTWoyiziCaoTableViewCell
 +(instancetype)woyiziCaoTableViewCellWithTableView:(UITableView *)tableView{
@@ -43,9 +44,9 @@
     
     _title.text = [titlePicsDict objectForKey:@"titile"];
     NSArray* pics = [titlePicsDict objectForKey:@"pics"];
-    [_pic1 setImage:[UIImage imageNamed:pics[0]]];
-    [_pic2 setImage:[UIImage imageNamed:pics[1]]];
-    [_pic3 setImage:[UIImage imageNamed:pics[2]]];
+    [_pic1 setImage:[UIImage imageWithName:pics[0]]];
+    [_pic2 setImage:[UIImage imageWithName:pics[1]]];
+    [_pic3 setImage:[UIImage imageWithName:pics[2]]];
 }
 
 @end

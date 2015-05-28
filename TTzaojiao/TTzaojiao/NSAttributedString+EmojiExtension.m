@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "NSAttributedString+EmojiExtension.h"
 #import "EmojiTextAttachment.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation NSAttributedString (EmojiExtension)
 
@@ -45,8 +46,8 @@
         emojiTextAttachment.emojiSize = 16.f;
         //Set tag and image
         emojiTextAttachment.emojiTag = [NSString stringWithFormat:@"[expre_%@]", numString];
-        NSString* imageStr = [NSString stringWithFormat:@"expression_%@", numString];
-        emojiTextAttachment.image = [UIImage imageNamed:imageStr];
+        NSString* imageStr = [NSString stringWithFormat:@"expression_%@.png", numString];
+        emojiTextAttachment.image = [UIImage imageWithName:imageStr];
         
         NSRange allRange = {range.location, range.length+3};
         [tmpString replaceCharactersInRange:allRange withString:@"t"];

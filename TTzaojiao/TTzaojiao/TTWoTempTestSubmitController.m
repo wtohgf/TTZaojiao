@@ -85,7 +85,7 @@
     
     UIButton* button = [[UIButton alloc]init];
     [headerView addSubview:button];
-    [button setImage:[UIImage imageNamed:@"point"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageWithName:@"point.png"] forState:UIControlStateNormal];
     [button setTitle:@"活动性" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithRed:174.f/255.f green:68.f/255.f blue:77.f/255.f alpha:1.f] forState:UIControlStateNormal];
     button.frame = CGRectMake(self.view.width*0.5, 0, self.view.width*0.5, 30.f);

@@ -8,6 +8,7 @@
 
 #import "TTWoGrowTestReportTizhongCellTableViewCell.h"
 #import "TTUserModelTool.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTWoGrowTestReportTizhongCellTableViewCell
 
@@ -115,7 +116,7 @@
     //[self.view addSubview:picView];
     
     //中间图
-    UIImageView *tempView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:centerimg]];
+    UIImageView *tempView = [[UIImageView alloc]initWithImage:[UIImage imageWithName:centerimg]];
     CGFloat picW = CGImageGetWidth(tempView.image.CGImage);
     CGFloat picH = CGImageGetHeight(tempView.image.CGImage);
     CGFloat picWidth;
@@ -140,12 +141,12 @@
     
     UIView *centerView = [[UIView alloc]initWithFrame:CGRectMake(picX, picY, picWidth, picHeight)];
     UIImageView *centerImgView = [[UIImageView alloc]initWithFrame:centerView.bounds];
-    [centerImgView setImage:[UIImage imageNamed:centerimg]];
+    [centerImgView setImage:[UIImage imageWithName:centerimg]];
     [centerView addSubview:centerImgView];
     [_picView addSubview:centerView];
     
     //底部图
-    UIImageView *tempView3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:bottomimg]];
+    UIImageView *tempView3 = [[UIImageView alloc]initWithImage:[UIImage imageWithName:bottomimg]];
     CGFloat bottomW = CGImageGetWidth(tempView3.image.CGImage);
     CGFloat bottomH = CGImageGetHeight(tempView3.image.CGImage);
     CGFloat bottomWidth = picWidth;
@@ -154,11 +155,11 @@
     CGFloat bottomY = picHeight;
     
     UIImageView *bottomView = [[UIImageView alloc]initWithFrame:CGRectMake(bottomX, bottomY, bottomWidth, bottomHeight)];
-    [bottomView setImage:[UIImage imageNamed:bottomimg]];
+    [bottomView setImage:[UIImage imageWithName:bottomimg]];
     [_picView addSubview:bottomView];
     
     //左边图
-    UIImageView *tempView2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:leftimg]];
+    UIImageView *tempView2 = [[UIImageView alloc]initWithImage:[UIImage imageWithName:leftimg]];
     CGFloat leftW = CGImageGetWidth(tempView2.image.CGImage);
     CGFloat leftH = CGImageGetHeight(tempView2.image.CGImage);
     
@@ -178,7 +179,7 @@
     CGFloat leftY = 0;
     
     UIImageView *leftView = [[UIImageView alloc]initWithFrame:CGRectMake(leftX, leftY, leftWidth, leftHeight)];
-    [leftView setImage:[UIImage imageNamed:leftimg]];
+    [leftView setImage:[UIImage imageWithName:leftimg]];
     [_picView addSubview:leftView];
 #pragma warning
     //画点 临时数据测试

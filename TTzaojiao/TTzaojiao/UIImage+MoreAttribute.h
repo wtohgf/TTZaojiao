@@ -10,4 +10,5 @@
 
 @interface UIImage (MoreAttribute)
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size;
++(instancetype)imageWithName:(NSString*)name;
 @end

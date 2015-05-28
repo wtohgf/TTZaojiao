@@ -123,13 +123,13 @@
     subHeaderView.backgroundColor = [UIColor whiteColor];
     UIImageView* imageView = [[UIImageView alloc]init];
     [subHeaderView addSubview:imageView];
-    [imageView setImage:[UIImage imageNamed:@"clock"]];
+    [imageView setImage:[UIImage imageWithName:@"clock.png"]];
     imageView.frame = CGRectMake(33.f, 8.f, 50.f, 50.f);
     
     UIImageView* rightView = [[UIImageView alloc]init];
     [subHeaderView addSubview:rightView];
     
-    [rightView setImage:[UIImage imageNamed:@"more_city"]];
+    [rightView setImage:[UIImage imageWithName:@"more_city.png"]];
     rightView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width-17.f, 25.f, 9.f, 16.f);
     
     UILabel* label = [[UILabel alloc]init];

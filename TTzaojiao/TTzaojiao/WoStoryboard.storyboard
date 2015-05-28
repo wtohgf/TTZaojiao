@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1723,7 +1724,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OfR-Oi-3lq" firstAttribute="top" secondItem="60N-4O-7yK" secondAttribute="topMargin" constant="-8" id="Hkz-l0-Dkv">
+                            <constraint firstItem="OfR-Oi-3lq" firstAttribute="top" secondItem="60N-4O-7yK" secondAttribute="topMargin" id="Hkz-l0-Dkv">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="OfR-Oi-3lq" secondAttribute="trailing" constant="-16" id="Udr-0a-p5X">
@@ -4087,7 +4088,7 @@
         <image name="icon_more" width="24" height="43"/>
         <image name="icon_score.png" width="32" height="32"/>
         <image name="icon_sign.png" width="32" height="32"/>
-        <image name="more_city" width="9" height="16"/>
+        <image name="more_city" width="29" height="29"/>
         <image name="point_green" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>

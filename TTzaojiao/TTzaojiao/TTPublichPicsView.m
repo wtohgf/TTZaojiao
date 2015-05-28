@@ -7,6 +7,7 @@
 //
 
 #import "TTPublichPicsView.h"
+#import "UIImage+MoreAttribute.h"
 
 
 @implementation TTPublichPicsView
@@ -44,7 +45,7 @@
         UIImageView* imageView = self.subviews[i];
         if (imageView.hidden == YES) {
             imageView.hidden = NO;
-            [imageView setImage:[UIImage imageNamed:picName]];
+            [imageView setImage:[UIImage imageWithName:picName]];
             break;
         }
     }
@@ -65,6 +66,10 @@
     for (UIView* subview in self.subviews) {
         subview.hidden = YES;
     }
+}
+
+-(void)dealloc{
+    _pics = nil;
 }
 
 @end

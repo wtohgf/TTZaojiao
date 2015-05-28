@@ -7,6 +7,7 @@
 //
 
 #import "TTZaojiaoHeaderRightItem.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTZaojiaoHeaderRightItem
 
@@ -48,9 +49,9 @@
     }
     
     if ([logonUser.gender isEqualToString:@"1"]) {
-        [_genderAge.gender setImage:[UIImage imageNamed:@"gender_male"]];
+        [_genderAge.gender setImage:[UIImage imageWithName:@"gender_male.png"]];
     }else{
-        [_genderAge.gender setImage:[UIImage imageNamed:@"gender_female"]];
+        [_genderAge.gender setImage:[UIImage imageWithName:@"gender_female.png"]];
     }
     
     _genderAge.logonUser = logonUser;

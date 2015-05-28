@@ -69,8 +69,8 @@
 }
 #pragma mark 设置记住密码按钮
 -(void)setupSavePassworkButton{
-    [_savePassworkCheckButton setImage:[UIImage imageNamed:@"pic_unchecked"] forState:UIControlStateNormal];
-    [_savePassworkCheckButton setImage:[UIImage imageNamed:@"pic_checked"] forState:UIControlStateSelected];
+    [_savePassworkCheckButton setImage:[UIImage imageWithName:@"pic_unchecked.png"] forState:UIControlStateNormal];
+    [_savePassworkCheckButton setImage:[UIImage imageWithName:@"pic_checked.png"] forState:UIControlStateSelected];
 }
 #pragma mark 添加低栏
 -(void)addBottomBar{
@@ -200,7 +200,7 @@
 
     //装载tabbar
     TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithName:@"top_bg.png"] forBarMetrics:UIBarMetricsDefault];
     //                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
   //  [UINavigationBar appearance].hidden = NO;
     

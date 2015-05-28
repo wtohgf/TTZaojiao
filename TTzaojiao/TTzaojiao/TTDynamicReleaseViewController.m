@@ -375,6 +375,8 @@
             size = (CGSize){100.f*image.size.width/image.size.height, 100.f};
         }else{
             size = (CGSize){100.f, 100.f*image.size.height/image.size.width};
+            
+            
         }
         image = [image scaleToSize:image size:size];
         [_images addObject:image];

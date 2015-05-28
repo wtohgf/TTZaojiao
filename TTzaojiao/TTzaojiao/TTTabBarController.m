@@ -9,6 +9,7 @@
 #import "TTTabBarController.h"
 #import "TTUserModelTool.h"
 #import "TTUIChangeTool.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTTabBarController
 #pragma mark Tabbar
@@ -46,8 +47,8 @@
 }
 
 - (void)customizeTabBarForController:(TTTabBarController *)tabBarController {
-    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
-    UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
+    UIImage *finishedImage = [UIImage imageWithName:@"tabbar_selected_background.png"];
+    UIImage *unfinishedImage = [UIImage imageWithName:@"tabbar_normal_background.png"];
     NSArray *tabBarItemImages = @[@"bottom_btn1", @"bottom_btn2", @"bottom_btn4", @"bottom_btn5"];
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {

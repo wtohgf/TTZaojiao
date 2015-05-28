@@ -7,6 +7,8 @@
 //
 
 #import "TTDynamicCommentView.h"
+#import "UIImage+MoreAttribute.h"
+
 @interface TTDynamicCommentView()
 //头像
 @property (weak, nonatomic) UIImageView* iconView;

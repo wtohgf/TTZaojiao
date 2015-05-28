@@ -8,6 +8,7 @@
 
 #import "TTNearBybabyInfoView.h"
 #import "NSString+Extension.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTNearBybabyInfoView
 
@@ -127,9 +128,9 @@
     _name.text = nearByBaby.baby_name;
     
     if ([nearByBaby.Sex isEqualToString:@"1"]) {
-        [_gender setImage:[UIImage imageNamed:@"gender_male"]];
+        [_gender setImage:[UIImage imageWithName:@"gender_male.png"]];
     }else{
-        [_gender setImage:[UIImage imageNamed:@"gender_female"]];
+        [_gender setImage:[UIImage imageWithName:@"gender_female.png"]];
     }
 
     if (nearByBaby.Birthday.length != 0) {

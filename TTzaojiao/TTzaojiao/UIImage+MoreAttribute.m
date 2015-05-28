@@ -25,4 +25,11 @@
     return scaledImage;
 }
 
++(instancetype)imageWithName:(NSString*)name{
+    NSString* path = [[NSBundle mainBundle]pathForResource:name ofType:nil];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    //UIImage* image = [UIImage imageNamed:name];
+    return image;
+}
+
 @end

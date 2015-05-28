@@ -8,6 +8,8 @@
 
 #import "TTWoGrowTestReportFrame.h"
 #import "NSString+Extension.h"
+#import "UIImage+MoreAttribute.h"
+
 #define ktizhongShengaoAll (15.0+30+489+15.0)
 #define ktizhongShengaoLeftRatio 30/ktizhongShengaoAll
 #define ktizhongShengaoPicRatio 489/ktizhongShengaoAll
@@ -24,7 +26,7 @@
     _model = model;
     //左边图 算图片高度
     
-    UIImageView *tempView1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tizhong_v.png"]];
+    UIImageView *tempView1 = [[UIImageView alloc]initWithImage:[UIImage imageWithName:@"tizhong_v.png"]];
     CGFloat leftW = CGImageGetWidth(tempView1.image.CGImage);
     CGFloat leftH = CGImageGetHeight(tempView1.image.CGImage);
    

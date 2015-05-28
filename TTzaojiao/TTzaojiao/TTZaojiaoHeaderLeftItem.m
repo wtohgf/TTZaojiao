@@ -7,6 +7,7 @@
 //
 
 #import "TTZaojiaoHeaderLeftItem.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTZaojiaoHeaderLeftItem
 

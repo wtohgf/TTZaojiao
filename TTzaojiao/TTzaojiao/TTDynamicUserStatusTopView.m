@@ -12,6 +12,7 @@
 #import "UIImageView+MoreAttribute.h"
 #import "NSAttributedString+EmojiExtension.h"
 #import "NSString+Extension.h"
+#import "UIImage+MoreAttribute.h"
 
 @interface TTDynamicUserStatusTopView()
 /** 配图 */

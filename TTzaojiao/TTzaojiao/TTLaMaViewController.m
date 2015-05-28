@@ -219,7 +219,7 @@
     
     //left
     UIButton *leftbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftbutton setImage:[UIImage imageNamed:@"icon_apply_join"]  forState:UIControlStateNormal];
+    [leftbutton setImage:[UIImage imageWithName:@"icon_apply_join.png"]  forState:UIControlStateNormal];
     [leftbutton addTarget:self action:@selector(leftBtnClick)
          forControlEvents:UIControlEventTouchUpInside];
     leftbutton.frame = CGRectMake(50, 5, 100, 30);

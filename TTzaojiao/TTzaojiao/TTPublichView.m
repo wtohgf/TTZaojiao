@@ -7,6 +7,8 @@
 //
 
 #import "TTPublichView.h"
+#import "UIImage+MoreAttribute.h"
+
 #define kCommentViewRatio 44.f/600.f
 
 @implementation TTPublichView
@@ -21,7 +23,7 @@
         _selPicButton = selpic;
         
         selpic.frame = CGRectMake(8, (self.height-30)/2, 30, 30);
-        [selpic setImage:[UIImage imageNamed:@"publish_pic1"] forState:UIControlStateNormal];
+        [selpic setImage:[UIImage imageWithName:@"publish_pic1.png"] forState:UIControlStateNormal];
         [selpic addTarget:self action:@selector(selPic:) forControlEvents:UIControlEventTouchUpInside];
         
         UIButton* selbiaoqing = [[UIButton alloc]init];
@@ -30,7 +32,7 @@
         _selBiaoqingButton = selbiaoqing;
         
         selbiaoqing.frame = CGRectMake(_selPicButton.right+8, (self.height-30)/2, 30, 30);
-        [selbiaoqing setImage:[UIImage imageNamed:@"publish_pic2"] forState:UIControlStateNormal];
+        [selbiaoqing setImage:[UIImage imageWithName:@"publish_pic2.png"] forState:UIControlStateNormal];
         [selbiaoqing addTarget:self action:@selector(selBiaoqing:) forControlEvents:UIControlEventTouchUpInside];
         
         

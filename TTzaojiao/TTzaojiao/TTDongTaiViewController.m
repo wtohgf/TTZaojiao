@@ -58,11 +58,11 @@
     
     _dongtaiTable.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 
-    UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state" target:self action:@selector(dynamic_state:)];
+    UIBarButtonItem* itemright = [UIBarButtonItem barButtonItemWithImage:@"icon_add_dynamic_state.png" target:self action:@selector(dynamic_state:)];
     self.navigationItem.rightBarButtonItem = itemright;
     
     if (_lession == nil) {
-        UIBarButtonItem* itemleft = [UIBarButtonItem barButtonItemWithImage:@"icon_menu" target:self action:@selector(selAgeRange:)];
+        UIBarButtonItem* itemleft = [UIBarButtonItem barButtonItemWithImage:@"icon_menu.png" target:self action:@selector(selAgeRange:)];
         self.navigationItem.leftBarButtonItem = itemleft;
         // 左侧边栏开始
         UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];

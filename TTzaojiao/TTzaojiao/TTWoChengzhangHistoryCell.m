@@ -8,6 +8,7 @@
 
 #import "TTWoChengzhangHistoryCell.h"
 #import "NSString+Extension.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTWoChengzhangHistoryCell
 +(instancetype)woChengzangHistoryCellWithTableView:(UITableView *)tableView{
@@ -49,11 +50,11 @@
         _result.text = [growTestDict objectForKey:@"qizhi_sort"];
     }
     if ([_result.text isEqualToString:@"正常"]) {
-        [_point setImage:[UIImage imageNamed:@"point_green"]];
+        [_point setImage:[UIImage imageWithName:@"point_green.png"]];
     }else if([_result.text rangeOfString:@"严重"].length != 0){
-        [_point setImage:[UIImage imageNamed:@"point_yellow"]];
+        [_point setImage:[UIImage imageWithName:@"point_yellow.png"]];
     }else{
-        [_point setImage:[UIImage imageNamed:@"point_gray"]];
+        [_point setImage:[UIImage imageWithName:@"point_gray.png"]];
     }
     
 }

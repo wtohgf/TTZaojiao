@@ -70,7 +70,7 @@
     
     //装载tabbar
     TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithName:@"top_bg.png"] forBarMetrics:UIBarMetricsDefault];
  
     [UIApplication sharedApplication].keyWindow.rootViewController = tabBarController;
     

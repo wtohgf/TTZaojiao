@@ -7,6 +7,7 @@
 //
 
 #import "TTZaojiaLessionCellView.h"
+#import "UIImage+MoreAttribute.h"
 
 @implementation TTZaojiaLessionCellView
 
@@ -46,7 +47,7 @@
     playBtn.titleLabel.font = TTBlogSubtitleFont;
     [self addSubview:playBtn];
     
-    UIImageView* rightIcon = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"left_icon_right"]];
+    UIImageView* rightIcon = [[UIImageView alloc]initWithImage:[UIImage imageWithName:@"left_icon_right.png"]];
     [self addSubview:rightIcon];
     
     rightIcon.frame = CGRectMake(ScreenWidth-17.f, _lessionTitle.height*0.25, 9.f, 21.f);
@@ -62,7 +63,7 @@
     lessionIntro.frame = CGRectMake(lessionTitle.left, lessionTitle.bottom+TTBlogTableBorder*0.5, ScreenWidth-imageView.right-TTBlogTableBorder*2, 14.f);
     
     UIImageView* lessionCountImage = [[UIImageView alloc]init];
-    [lessionCountImage setImage:[UIImage imageNamed:@"icon_user_pic"]];
+    [lessionCountImage setImage:[UIImage imageWithName:@"icon_user_pic.png"]];
     [self addSubview:lessionCountImage];
     
     lessionCountImage.frame = CGRectMake(_lessionIntroduce.left, lessionIntro.bottom+TTBlogTableBorder, 16.f, 16.f);
@@ -77,7 +78,7 @@
     babyCount.frame = CGRectMake(lessionCountImage.right, lessionCountImage.up, (ScreenWidth-imageView.right-2*TTBlogTableBorder - 2*16.f)*0.6, 16.f);
     
     UIImageView* commentCountImage= [[UIImageView alloc]init];
-    [commentCountImage setImage:[UIImage imageNamed:@"icon_comment_pic"]];
+    [commentCountImage setImage:[UIImage imageWithName:@"icon_comment_pic.png"]];
     [self addSubview:commentCountImage];
     
     commentCountImage.frame = CGRectMake(_babyCount.right, lessionIntro.bottom+TTBlogTableBorder, 16.f, 16.f);

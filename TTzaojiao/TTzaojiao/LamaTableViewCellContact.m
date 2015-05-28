@@ -7,8 +7,7 @@
 //
 
 #import "LamaTableViewCellContact.h"
-
-
+#import "UIImage+MoreAttribute.h"
 #import "LamaTableViewCellModelFrame.h"
 
 #define  kTextFont  [UIFont systemFontOfSize:13]
@@ -66,7 +65,7 @@
         UIButton *telButton  = [[UIButton alloc]init];
         [self.contentView addSubview:telButton];
         _telButton = telButton;
-        [_telButton setImage:[UIImage imageNamed:@"street_call"] forState:UIControlStateNormal];
+        [_telButton setImage:[UIImage imageWithName:@"street_call.png"] forState:UIControlStateNormal];
         [_telButton addTarget:self action:@selector(contactCompanyBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         
     }

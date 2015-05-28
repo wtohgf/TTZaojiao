@@ -171,7 +171,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         NSString *name  = _modelFrame.picListArray[indexPath.row-1];
         NSString *url = [NSString stringWithFormat:@"%@%@",TTBASE_URL,name];
-        [cell.picListView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default_pic"]];
+        [cell.picListView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageWithName:@"default_pic.png"]];
         //数据传给cell，由cell处理设置
         cell.modelFrame = _modelFrame;
         return cell;

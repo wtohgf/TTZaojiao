@@ -231,7 +231,7 @@
     }
     
     if ([_i_uid isEqualToString:[TTUserModelTool sharedUserModelTool].logonUser.ttid]) {
-        [cell.zanCountView.zanBtn setImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
+        [cell.zanCountView.zanBtn setImage:[UIImage imageWithName:@"icon_delete.png"] forState:UIControlStateNormal];
         [cell.zanCountView.zanBtn setTitle:@"" forState:UIControlStateNormal];
     }
     

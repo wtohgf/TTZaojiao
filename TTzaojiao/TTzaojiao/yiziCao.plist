@@ -7,9 +7,9 @@
 		<string>益智按摩操</string>
 		<key>pics</key>
 		<array>
-			<string>gym_1_1</string>
-			<string>gym_1_2</string>
-			<string>gym_1_3</string>
+			<string>gym_1_1.png</string>
+			<string>gym_1_2.png</string>
+			<string>gym_1_3.png</string>
 		</array>
 	</dict>
 	<dict>
@@ -17,9 +17,9 @@
 		<string>母子健身操</string>
 		<key>pics</key>
 		<array>
-			<string>gym_2_1</string>
-			<string>gym_2_2</string>
-			<string>gym_2_3</string>
+			<string>gym_2_1.png</string>
+			<string>gym_2_2.png</string>
+			<string>gym_2_3.png</string>
 		</array>
 	</dict>
 	<dict>
@@ -27,9 +27,9 @@
 		<string>妈咪宝贝瑜伽</string>
 		<key>pics</key>
 		<array>
-			<string>gym_3_1</string>
-			<string>gym_3_2</string>
-			<string>gym_3_3</string>
+			<string>gym_3_1.png</string>
+			<string>gym_3_2.png</string>
+			<string>gym_3_3.png</string>
 		</array>
 	</dict>
 	<dict>
@@ -37,9 +37,9 @@
 		<string>宝宝健身操</string>
 		<key>pics</key>
 		<array>
-			<string>gym_4_1</string>
-			<string>gym_4_2</string>
-			<string>gym_4_3</string>
+			<string>gym_4_1.png</string>
+			<string>gym_4_2.png</string>
+			<string>gym_4_3.png</string>
 		</array>
 	</dict>
 	<dict>
@@ -47,9 +47,9 @@
 		<string>婴儿主被动操</string>
 		<key>pics</key>
 		<array>
-			<string>gym_5_1</string>
-			<string>gym_5_2</string>
-			<string>gym_5_3</string>
+			<string>gym_5_1.png</string>
+			<string>gym_5_2.png</string>
+			<string>gym_5_3.png</string>
 		</array>
 	</dict>
 	<dict>
@@ -57,9 +57,9 @@
 		<string>竹竿操</string>
 		<key>pics</key>
 		<array>
-			<string>gym_6_1</string>
-			<string>gym_6_2</string>
-			<string>gym_6_3</string>
+			<string>gym_6_1.png</string>
+			<string>gym_6_2.png</string>
+			<string>gym_6_3.png</string>
 		</array>
 	</dict>
 	<dict>
@@ -67,9 +67,9 @@
 		<string>亲子模仿操</string>
 		<key>pics</key>
 		<array>
-			<string>gym_7_1</string>
-			<string>gym_7_2</string>
-			<string>gym_7_3</string>
+			<string>gym_7_1.png</string>
+			<string>gym_7_2.png</string>
+			<string>gym_7_3.png</string>
 		</array>
 	</dict>
 </array>

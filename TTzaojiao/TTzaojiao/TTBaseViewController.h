@@ -20,6 +20,7 @@
 #import "TTTabBarController.h"
 #import "TTUserModelTool.h"
 #import "TTUIChangeTool.h"
+#import "UIImage+MoreAttribute.h"
 
 #define kBottomBarHeight 44.f
 
