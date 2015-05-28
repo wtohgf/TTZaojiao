@@ -106,6 +106,7 @@
             }];
         }else{
             [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:weakself.view];
+            [weakself loadData];
         }
     }];
 }
