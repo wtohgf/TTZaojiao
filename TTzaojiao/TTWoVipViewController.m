@@ -13,11 +13,11 @@
 #import "TTUserDongtaiViewController.h"
 
 @interface TTWoVipViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *accountTextFiled;
-@property (strong, nonatomic) IBOutlet UITextField *cardTextField;
-@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (strong, nonatomic) IBOutlet UIButton *commitButton;
-@property (strong, nonatomic) IBOutlet UIButton *payButton;
+@property (weak, nonatomic) IBOutlet UITextField *accountTextFiled;
+@property (weak, nonatomic) IBOutlet UITextField *cardTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *commitButton;
+@property (weak, nonatomic) IBOutlet UIButton *payButton;
 
 @end
 
@@ -84,4 +84,7 @@
     [self performSegueWithIdentifier:@"vippriceSegue" sender:self];
 }
 
+-(void)dealloc{
+    
+}
 @end

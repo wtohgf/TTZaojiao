@@ -8,16 +8,33 @@
 
 #import "CustomDatePicker.h"
 #define kDuration 0.3
+static CustomDatePicker* datePicker;
 
 @implementation CustomDatePicker
 
--(id)initWithTitle:(NSString *)title delegate:(id)delegate{
-    self = [[[NSBundle mainBundle] loadNibNamed:@"CustomDatePicker" owner:self options:nil] objectAtIndex:0];
-    if (self) {
-        self.delegate = delegate;
-        self.toptitle.text = title;
-    }
-    return self;
++(instancetype)sharedDatePicker:(NSString *)title delegate:(id)delegate{
+    
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        if (datePicker == nil) {
+            datePicker = [[[NSBundle mainBundle] loadNibNamed:@"CustomDatePicker" owner:self options:nil] objectAtIndex:0];;
+        }
+    });
+    [datePicker initWithTitle:title delegate:delegate];
+    return datePicker;
+}
+
++(instancetype)allocWithZone:(struct _NSZone *)zone{
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        datePicker = [super allocWithZone:zone];
+    });
+    return datePicker;
+}
+
+-(void)initWithTitle:(NSString *)title delegate:(id)delegate{
+    self.delegate = delegate;
+    self.toptitle.text = title;
 }
 
 - (void)showInView:(UIView *) view
@@ -75,5 +92,8 @@
     }
 }
 
+-(void)dealloc{
+    
+}
 
 @end

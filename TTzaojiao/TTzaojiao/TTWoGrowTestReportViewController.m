@@ -57,6 +57,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TTGrowTemperTestTool getTestReportWithResultID:_resultID Result:^(id testlist) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -81,6 +82,7 @@
         }
     }];
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 3;
 }
@@ -224,8 +226,12 @@
     _date.text = [NSString getChnYMDWithString:[_reportDict objectForKey:@"TestDate"]];
     
     _result.text = [_reportDict objectForKey:@"tige_sort"];
-    
        
+}
+
+-(void)dealloc{
+    _reportDict = nil;
+    _modelFrame = nil;
 }
 
 @end

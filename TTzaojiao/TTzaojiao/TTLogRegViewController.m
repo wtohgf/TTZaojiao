@@ -34,14 +34,14 @@
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat y = [UIScreen mainScreen].bounds.size.height -  h;
     CGFloat x = 0;
-    
+     __weak TTLogRegViewController* weakself = self;
     CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
         if ([title isEqualToString:@"返回"]) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [weakself.navigationController popViewControllerAnimated:YES];
         }else if ([title isEqualToString:@"注册"]) {
-            [self performSegueWithIdentifier:@"LogRegToReg" sender:nil];
+            [weakself performSegueWithIdentifier:@"LogRegToReg" sender:nil];
         }else if([title isEqualToString:@"登录"]){
-            [self performSegueWithIdentifier:@"LogRegToLogon" sender:nil];
+            [weakself performSegueWithIdentifier:@"LogRegToLogon" sender:nil];
         }
         
     }];
@@ -99,5 +99,7 @@
 //        [self.view insertSubview:baby belowSubview:self.view.subviews[0]];
 //    }
 //}
-
+-(void)dealloc{
+    
+}
 @end

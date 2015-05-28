@@ -14,8 +14,5 @@
 #import "TTCityMngTool.h"
 
 @interface TTCommentListViewController : TTBaseViewController<UITableViewDataSource, UITableViewDelegate, TTCommentRelaseViewDelegate,UIAlertViewDelegate>
-@property (weak, nonatomic) UITableView *commentListTableView;
-@property (weak, nonatomic) TTCommentRelaseView* replayView;
 @property (copy, nonatomic) NSString* blog_id;
-@property (strong, nonatomic) CLLocation* location;
 @end

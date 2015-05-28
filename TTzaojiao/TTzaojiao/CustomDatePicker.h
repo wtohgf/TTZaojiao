@@ -15,11 +15,11 @@
 @end
 
 @interface CustomDatePicker : UIActionSheet
++(instancetype)sharedDatePicker:(NSString *)title delegate:(id)delegate;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *toptitle;
 @property (weak, nonatomic) UIView* backMaskView;
 
-- (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate;
 - (void)showInView:(UIView *) view;
 
 @end

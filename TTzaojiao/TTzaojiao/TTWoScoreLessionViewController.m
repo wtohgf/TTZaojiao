@@ -12,6 +12,9 @@
 #import <CXAlertView.h>
 
 @interface TTWoScoreLessionViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *scoreCount;
+@property (weak, nonatomic) IBOutlet UITextField *lessionAccount;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLessionType;
 @property (weak, nonatomic) UIButton* oldselButton;
 @property (weak, nonatomic) IBOutlet UIButton *scorePayButton;
 @property (copy, nonatomic) NSString* playLessionType;
@@ -110,4 +113,7 @@
     [sender resignFirstResponder];
 }
 
+-(void)dealloc{
+    _Wo = nil;
+}
 @end

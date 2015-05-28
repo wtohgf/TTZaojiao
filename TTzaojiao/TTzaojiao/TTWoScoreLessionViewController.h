@@ -10,8 +10,6 @@
 #import "DynamicUserModel.h"
 
 @interface TTWoScoreLessionViewController : TTBaseViewController
-@property (weak, nonatomic) IBOutlet UILabel *scoreCount;
-@property (weak, nonatomic) IBOutlet UITextField *lessionAccount;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLessionType;
+
 @property (strong, nonatomic) DynamicUserModel* Wo;
 @end

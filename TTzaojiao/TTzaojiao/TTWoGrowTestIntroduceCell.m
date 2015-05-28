@@ -65,4 +65,8 @@
     return 30.f+contentbound.size.height+30.f;
 }
 
+-(void)dealloc{
+    _titleContent = nil;
+}
+
 @end

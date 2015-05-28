@@ -149,5 +149,9 @@
     }
 }
 
+-(void)dealloc{
+    _titlePicList = nil;
+    _videoPathList = nil;
+}
 
 @end

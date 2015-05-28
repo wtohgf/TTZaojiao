@@ -13,9 +13,9 @@
 #import "TTUserDongtaiViewController.h"
 
 @interface TTWoPersonalInfoViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *accountTextFeild;
-@property (strong, nonatomic) IBOutlet UITextField *nameTextFeild;
-@property (strong, nonatomic) IBOutlet UIButton *commitButton;
+@property (weak, nonatomic) IBOutlet UITextField *accountTextFeild;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextFeild;
+@property (weak, nonatomic) IBOutlet UIButton *commitButton;
 
 @end
 
@@ -92,6 +92,10 @@
 }
 - (IBAction)endEdit:(UITextField *)sender {
     [sender resignFirstResponder];
+}
+
+-(void)dealloc{
+    
 }
 
 @end

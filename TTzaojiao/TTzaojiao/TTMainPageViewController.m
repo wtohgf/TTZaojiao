@@ -11,13 +11,13 @@
 #import "TTTabBarController.h"
 
 @interface TTMainPageViewController ()
+@property (strong, nonatomic) CustomDatePicker* datePicker;
 @property (weak, nonatomic) IBOutlet UIButton *logregButton;
 @property (weak, nonatomic) IBOutlet UILabel *year;
 @property (weak, nonatomic) IBOutlet UILabel *mouth;
 @property (weak, nonatomic) IBOutlet UILabel *day;
 
-
-@property (strong, nonatomic) UIViewController *mainViewController;
+//@property (strong, nonatomic) UIViewController *mainViewController;
 
 - (IBAction)startTryTeach:(UIButton *)sender;
 - (IBAction)dateChoice:(UIButton *)sender;
@@ -29,7 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    CustomDatePicker* cdate = [CustomDatePicker sharedDatePicker:@"给宝宝选择生日" delegate:self];
     
+    //[[CustomDatePicker alloc]initWithTitle:@"给宝宝选择生日" delegate:self];
+    _datePicker = cdate;
 }
 
 
@@ -68,39 +71,32 @@
     //装载tabbar
     TTTabBarController *tabBarController = [[TTTabBarController alloc] init];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_bg"] forBarMetrics:UIBarMetricsDefault];
-//
-//    [UINavigationBar appearance].hidden = NO;
-//    
-    self.mainViewController = tabBarController;
-    
-    [self.navigationController pushViewController:_mainViewController animated:YES];
+ 
+    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarController;
     
 }
 
 #pragma mark 生日选择
 - (IBAction)dateChoice:(UIButton *)sender {
     _logregButton.hidden = YES;
-    CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
 //    cdate.frame = CGRectMake(0, self.view.frame.size.height*2/3, self.view.frame.size.width, self.view.frame.size.height*1/3);
-    cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
    
     NSDateFormatter* formater = [[NSDateFormatter alloc]init];
     [formater setDateFormat:@"yyyy-MM-dd"];
-    cdate.datePicker.minimumDate = [formater dateFromString:@"1970-01-01"];
-    cdate.datePicker.maximumDate = [NSDate date];
-    
-    [cdate showInView:self.view];
+    _datePicker.datePicker.minimumDate = [formater dateFromString:@"1970-01-01"];
+    _datePicker.datePicker.maximumDate = [NSDate date];
+
+    [_datePicker showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if([actionSheet isKindOfClass:[CustomDatePicker class]]){
-        CustomDatePicker *datePickerView = (CustomDatePicker *)actionSheet;
         _logregButton.hidden = NO;
         if(buttonIndex == 0) {
             return;
         }else {
-            NSDate* date = datePickerView.datePicker.date;
+            NSDate* date = _datePicker.datePicker.date;
             NSDateFormatter* formater = [[NSDateFormatter alloc]init];
             [formater setDateFormat:@"yyyy-MM-dd"];
             NSString* dateString = [formater stringFromDate:date];
@@ -115,32 +111,8 @@
     }
 }
 
-#pragma mark 设置背景图片
-- (void) setBackGroundImages{
-    NSString* babyPicName;
-    int line = 0, row = 0;
-    const int linecount = 4;
-    CGFloat babyPicWidth = self.view.frame.size.width/linecount;
-    CGFloat babyPicHegiht = babyPicWidth;
-    int realnum = 0;
-    
-    for(int i=0; i<100; i++) {
-        line = i/linecount;
-        row = i%linecount;
-        realnum = i%25;
-        babyPicName = [NSString stringWithFormat:@"baby_icon%d",realnum+1];
-        UIImageView* baby = [[UIImageView alloc]init];
-        [baby setImage:[UIImage imageNamed:babyPicName]];
-        CGFloat x = row*babyPicWidth;
-        CGFloat y = line*babyPicHegiht;
-        
-        if (y >= self.view.frame.size.height) {
-            break;
-        }
-        baby.frame = CGRectMake(x, y, babyPicWidth, babyPicHegiht);
-        
-        [self.view insertSubview:baby belowSubview:_logregButton];
-    }
+-(void)dealloc{
+    [_datePicker removeFromSuperview];
+    _datePicker = nil;
 }
-
 @end

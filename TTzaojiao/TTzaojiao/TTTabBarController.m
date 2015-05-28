@@ -155,12 +155,16 @@
             break;
         case 1:
         {
-            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self.navigationController];
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self];
         }
             break;
         default:
             break;
     }
+}
+- (void)dealloc
+{
+    
 }
 
 @end

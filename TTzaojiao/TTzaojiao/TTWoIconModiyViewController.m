@@ -13,10 +13,10 @@
 #import "TTPhotoChoiceAlerTool.h"
 
 @interface TTWoIconModiyViewController () <TTPhotoChoiceAlerToolDelegate>
-@property (strong, nonatomic) IBOutlet UIButton *myIconButton;
-@property (strong, nonatomic) IBOutlet UIButton *modIconButton;
+@property (weak, nonatomic) IBOutlet UIButton *myIconButton;
+@property (weak, nonatomic) IBOutlet UIButton *modIconButton;
 @property (copy, nonatomic) NSString* iconPath;
-@property (strong, nonatomic) IBOutlet UIImageView* iconImageView;
+@property (weak, nonatomic) IBOutlet UIImageView* iconImageView;
 @end
 
 @implementation TTWoIconModiyViewController
@@ -127,6 +127,10 @@
             } Progress:^(CGFloat progress) {
             }];
     }
+}
+
+-(void)dealloc{
+    
 }
 
 @end

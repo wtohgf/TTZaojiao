@@ -39,19 +39,19 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    __weak TTZaojiaoViewController* weakself = self;
     _leftView.logonUser = [TTUserModelTool sharedUserModelTool].logonUser;
     
     if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
-        _rightView.vip.hidden = YES;
+        weakself.rightView.vip.hidden = YES;
     }else{
         [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
             
             NSComparisonResult result = [NSString compareDateNow:user.vip_time];
             if (NSOrderedDescending == result) {
-                _rightView.vip.hidden = NO;
+                weakself.rightView.vip.hidden = NO;
             }else{
-                _rightView.vip.hidden = YES;
+                weakself.rightView.vip.hidden = YES;
             }
             
         }];
@@ -76,7 +76,7 @@
 -(void)vipPay:(TTZaojiaoHeaderRightItem*)sender{
     
     if ( [[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
-       [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self];
+        [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self];
     }else{
         UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"WoStoryboard" bundle:nil];
         TTWoVipViewController *vipPayController = (TTWoVipViewController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"VIPPAY"];
@@ -201,42 +201,43 @@
 }
 
 -(void)getLessionID{
+    __weak TTZaojiaoViewController* weakself = self;
     [TTLessionMngTool getLessionID:^(id lessionID) {
         if ([lessionID isEqualToString:@"error"]) {
-            [MBProgressHUD TTDelayHudWithMassage:@"账号信息不正确\n请重新登录" View:self.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"账号信息不正确\n请重新登录" View:weakself.view];
             return;
         }
         
         if ([lessionID isEqualToString:@"neterror"]) {
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:weakself.view];
             return;
         }
         
-        _lessionID = lessionID;
+        weakself.lessionID = lessionID;
         //上周课程
-        if (_sortSeg.selectedSegmentIndex == 0) {
-            NSInteger tmdID = [_lessionID integerValue];
+        if (weakself.sortSeg.selectedSegmentIndex == 0) {
+            NSInteger tmdID = [weakself.lessionID integerValue];
             tmdID = tmdID-1;
             if (tmdID < 0) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:self.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:weakself.view];
                 return;
             }else{
-                _lessionID = [NSString stringWithFormat:@"%ld", tmdID];
+                weakself.lessionID = [NSString stringWithFormat:@"%ld", tmdID];
             }
         //下周课程
-        }else if(_sortSeg.selectedSegmentIndex == 2)
+        }else if(weakself.sortSeg.selectedSegmentIndex == 2)
         {
-            NSInteger tmdID = [_lessionID integerValue];
+            NSInteger tmdID = [weakself.lessionID integerValue];
             tmdID = tmdID + 1;
             if (tmdID > 100) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.view];
+                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:weakself.view];
                 return;
             }
-            _lessionID = [NSString stringWithFormat:@"%ld", tmdID];
+            weakself.lessionID = [NSString stringWithFormat:@"%ld", tmdID];
         }
         
         if (lessionID != nil) {
-            [self getWeekLession:(_lessionID)];
+            [weakself getWeekLession:(weakself.lessionID)];
         }
     }];
 }
@@ -257,23 +258,29 @@
 }
 
 -(void)getWeekLession:(NSString*)lessionID{
-
+    __weak TTZaojiaoViewController* weakself = self;
     [MBProgressHUD showHUDAddedTo:self.view  animated:YES];
 
     [TTLessionMngTool getWeekLessions:lessionID Result:^(id lessions) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:weakself.view animated:YES];
         if ([lessions isKindOfClass:[NSMutableArray class]]) {
-            _lessList = lessions;
-            [_zaoJiaoTableView reloadData];
+            weakself.lessList = lessions;
+            [weakself.zaoJiaoTableView reloadData];
         }else{
-            if (_sortSeg.selectedSegmentIndex == 0) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:self.view];
-            }else            if (_sortSeg.selectedSegmentIndex == 2) {
-                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:self.view];
+            if (weakself.sortSeg.selectedSegmentIndex == 0) {
+                [MBProgressHUD TTDelayHudWithMassage:@"没有上周课程了" View:weakself.view];
+            }else
+                if (weakself.sortSeg.selectedSegmentIndex == 2) {
+                [MBProgressHUD TTDelayHudWithMassage:@"没有下周课程了" View:weakself.view];
             }
         }
     }];
 
+}
+-(void)dealloc{
+    _lessList = nil;
+    [_customHeaderView removeFromSuperview];
+    _customHeaderView = nil;
 }
 
 

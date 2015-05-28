@@ -13,19 +13,17 @@
 #import "TTUserDongtaiViewController.h"
 #import "NearByBabyModel.h"
 
-@interface TTDongTaiViewController (){
-    NSUInteger _pageIndexInt;
-    NSString* _i_sort;
-    NSString* _group;
-    UIView* _customHeaderView;
-    UISegmentedControl* _sortSeg;
-    BOOL _isGetMoreBlog;
-}
-@property (weak, nonatomic) UITableView *dongtaiTable;
+@interface TTDongTaiViewController ()
 
+@property (assign, nonatomic) NSUInteger pageIndexInt;
+@property (copy, nonatomic) NSString* i_sort;
+@property (copy, nonatomic) NSString* group;
+@property (assign, nonatomic) BOOL isGetMoreBlog;
+@property (weak, nonatomic) UITableView *dongtaiTable;
+@property (strong, nonatomic) UIView* customHeaderView;
 @property (strong, nonatomic) NSMutableArray* blogs;
 @property (strong, nonatomic) NSMutableArray* nearByBabys;
-
+@property (weak, nonatomic) UISegmentedControl* sortSeg;
 @property (strong, nonatomic) TTDynamicSidebarViewController *siderbar;
 @property (strong, nonatomic) NSIndexPath* needupDateIndexPath;
 
@@ -70,13 +68,14 @@
         UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
         [panGesture delaysTouchesBegan];
         [self.tabBarController.view addGestureRecognizer:panGesture];
-        
-        self.siderbar = [[TTDynamicSidebarViewController alloc] init];
-        self.siderbar.delegate = self;
-        [self.siderbar setBgRGB:0xF09EB1];
-        [self.rdv_tabBarController.view addSubview:self.siderbar.view];
-        self.siderbar.view.frame  = self.view.bounds;
+        TTDynamicSidebarViewController* siderbar = [[TTDynamicSidebarViewController alloc] init];
+        _siderbar = siderbar;
+        siderbar.delegate = self;
+        [siderbar setBgRGB:0xF09EB1];
+        [self.rdv_tabBarController.view addSubview:siderbar.view];
+        siderbar.view.frame  = self.view.bounds;
         // 左侧边栏结束
+        
     }else{
         self.title = _lession.active_name;
     }
@@ -101,40 +100,60 @@
         [self performSegueWithIdentifier:@"toRelease" sender:item];
     }else{
         UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以发布自己的动态" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
+        alertView.delegate = self;
         [alertView show];
     }
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            break;
+        case 1:
+        {
+            if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
 
 -(void)selAgeRange:(UIBarButtonItem*)item{
     [_siderbar showHideSidebar];
 }
 
--(void)didselAgeGroup:(NSString *)group{
+-(void)slider:(TTDynamicSidebarViewController *)slider didselAgeGroup:(NSString *)group{
     _pageIndexInt = 1;
     _group = group;
     [self updateBlog];
 }
 
 -(void)setupRefresh{
+    __weak TTDongTaiViewController* weakself = self;
     [_dongtaiTable addLegendHeaderWithRefreshingBlock:^{
-        [_dongtaiTable.header beginRefreshing];
-        _pageIndexInt = 1;
-        _isGetMoreBlog = NO;
-        if (_sortSeg.selectedSegmentIndex == 3) {
-            [self showNearByBaby];
+        [weakself.dongtaiTable.header beginRefreshing];
+        weakself.pageIndexInt = 1;
+        weakself.isGetMoreBlog = NO;
+        if (weakself.sortSeg.selectedSegmentIndex == 3) {
+            [weakself showNearByBaby];
         }else{
-            [self updateBlog];
+            [weakself updateBlog];
         }
     }];
 
     [_dongtaiTable addLegendFooterWithRefreshingBlock:^{
-        [_dongtaiTable.footer beginRefreshing];
-        _pageIndexInt++;
-        _isGetMoreBlog = YES;
-        if (_sortSeg.selectedSegmentIndex == 3) {
-            [self showNearByBaby];
+        [weakself.dongtaiTable.footer beginRefreshing];
+        weakself.pageIndexInt++;
+        weakself.isGetMoreBlog = YES;
+        if (weakself.sortSeg.selectedSegmentIndex == 3) {
+            [weakself showNearByBaby];
         }else{
-            [self updateBlog];
+            [weakself updateBlog];
         }
     }];
     
@@ -227,7 +246,7 @@
 
 - (void)panDetected:(UIPanGestureRecognizer*)recoginzer
 {
-    [self.siderbar panDetected:recoginzer];
+    [_siderbar panDetected:recoginzer];
 }
 
 -(void)updateBlog{
@@ -407,20 +426,6 @@
     }
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            break;
-        case 1:
-        {
-            [self.rdv_tabBarController.navigationController popViewControllerAnimated:YES];
-        }
-            break;
-        default:
-            break;
-    }
-}
-
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (_sortSeg.selectedSegmentIndex == 3) {
@@ -448,16 +453,17 @@
     _pageIndexInt = 1;
     
     _i_sort = [NSString stringWithFormat:@"%ld", sender.selectedSegmentIndex + 1];
+    __weak TTDongTaiViewController* weakself = self;
     if ([_i_sort isEqualToString:@"4"]) {
         [[TTCityMngTool sharedCityMngTool]startLocation:^(CLLocation *location,  id error) {
             if (location == nil) {
-                [MBProgressHUD TTDelayHudWithMassage:error View:self.view];
+                [MBProgressHUD TTDelayHudWithMassage:error View:weakself.view];
             }
-            _location = location;
-            [self showNearByBaby];
+            weakself.location = location;
+            [weakself showNearByBaby];
         }];
     }else{
-        [self updateBlog];
+        [weakself updateBlog];
     }
 
 }
@@ -518,24 +524,24 @@
                                  @"i_x": lat,
                                  @"i_y": lon
                                  };
-    
+    __weak TTDongTaiViewController* weakself = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:NEARBY_BABY Parameters:parameters Result:^(id result_data, ApiStatus result_status, NSString *api) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        [_dongtaiTable.footer endRefreshing];
-        [_dongtaiTable.header endRefreshing];
+        [MBProgressHUD hideAllHUDsForView:weakself.view animated:YES];
+        [weakself.dongtaiTable.footer endRefreshing];
+        [weakself.dongtaiTable.header endRefreshing];
         if (result_status == ApiStatusSuccess) {
 
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                     NSMutableArray* list = result_data;
                     if (list != nil && list.count>0) {
                         [list removeObjectAtIndex:0];
-                        if (_isGetMoreBlog) {
-                            [_nearByBabys addObjectsFromArray:list];
-                            _isGetMoreBlog = NO;
+                        if (weakself.isGetMoreBlog) {
+                            [weakself.nearByBabys addObjectsFromArray:list];
+                            weakself.isGetMoreBlog = NO;
                         }else{
-                            [_nearByBabys removeAllObjects];
-                            [_dongtaiTable reloadData];
+                            [weakself.nearByBabys removeAllObjects];
+                            [weakself.dongtaiTable reloadData];
                             [list enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                                 NearByBabyModel* baby = obj;
                                 NearByBabyModel* tmpbaby = nil;
@@ -546,25 +552,25 @@
                                     [list removeObject:tmpbaby];
                                 }
                             }];
-                            _nearByBabys =  list;
+                            weakself.nearByBabys =  list;
                         }
-                        [_dongtaiTable reloadData];
+                        [weakself.dongtaiTable reloadData];
                     }else{
                         [MBProgressHUD TTDelayHudWithMassage:@"未能获取附近宝宝信息" View:self.view];
-                        if (_sortSeg.selectedSegmentIndex == 3) {
-                            [_nearByBabys removeAllObjects];
-                            [_dongtaiTable reloadData];
+                        if (weakself.sortSeg.selectedSegmentIndex == 3) {
+                            [weakself.nearByBabys removeAllObjects];
+                            [weakself.dongtaiTable reloadData];
                         }
                     }
 
                 }
             
         }else{
-            if (_isGetMoreBlog) {
-                _isGetMoreBlog = NO;
+            if (weakself.isGetMoreBlog) {
+                weakself.isGetMoreBlog = NO;
             }else{
             }
-            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:self.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"网络连接错误 请检查网络" View:weakself.view];
         };
     }];
 }
@@ -576,6 +582,15 @@
             [self performSegueWithIdentifier:@"toUserDynamic" sender:baby.uid];
         }
     }
+}
+
+-(void)dealloc{
+    _blogs = nil;
+    _nearByBabys = nil;
+    _needupDateIndexPath = nil;
+    [_customHeaderView removeFromSuperview];
+    _customHeaderView = nil;
+    _siderbar = nil;
 }
 
 @end

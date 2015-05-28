@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TTWoLableTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *countLable;
+@property (weak, nonatomic) IBOutlet UILabel *countLable;
 
 @end

@@ -16,8 +16,10 @@
     NSArray	*cities;
 }
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UIPickerView *locatePicker;
+
++(instancetype)sharedcityPicker:(NSString *)title delegate:(id)delegate;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIPickerView *locatePicker;
 @property (strong, nonatomic) TSLocation *locate;
 
 @property (weak, nonatomic) UIView* backMaskView;

@@ -19,9 +19,9 @@
 #define LogoutAlertTag 19001
 
 @interface TTWoViewController () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
-@property (strong, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
-@property (strong, nonatomic) UIImageView *myIconView;
+@property (weak, nonatomic) UIImageView *myIconView;
 @property (strong, nonatomic) DynamicUserModel* Wo;
 @end
 
@@ -30,23 +30,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    __weak TTWoViewController* weakself = self;
     actionSginBlock = ^(id result, id baby_jifen) {
         if ([result isEqualToString:@"isSigned"]) {
-            [MBProgressHUD TTDelayHudWithMassage:@"您今天已经签过到了" View:self.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"您今天已经签过到了" View:weakself.view];
         }else if([result isEqualToString:@"neterror"])
         {
-            [MBProgressHUD TTDelayHudWithMassage:@"签到未成功" View:self.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"签到未成功" View:weakself.view];
         }else if([result isEqualToString:@"SingedOK"]){
             //更新我的积分信息
-            [MBProgressHUD TTDelayHudWithMassage:@"签到成功" View:self.view];
-            _Wo.baby_jifen = baby_jifen;
-            [self.tableview reloadData];
+            [MBProgressHUD TTDelayHudWithMassage:@"签到成功" View:weakself.view];
+            weakself.Wo.baby_jifen = baby_jifen;
+            [weakself.tableview reloadData];
         }
 
     };
     
     actionBackBlock = ^() {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要退出么？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要退出么？" delegate:weakself cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
         alert.tag = LogoutAlertTag;
         [alert show];
     };
@@ -66,11 +67,12 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    __weak TTWoViewController* weakself = self;
     //获取我的最新信息
     [TTUserModelTool getUserInfo:[TTUserModelTool sharedUserModelTool].logonUser.ttid Result:^(DynamicUserModel *user) {
-        _Wo = user;
+        weakself.Wo = user;
         [TTUserModelTool sharedUserModelTool].logonUser.icon = _Wo.icon;
-        [self.tableview reloadData];
+        [weakself.tableview reloadData];
     }];
 }
 
@@ -343,6 +345,10 @@
         TTWoScoreLessionViewController* slvc = (TTWoScoreLessionViewController*)segue.destinationViewController;
         slvc.Wo = _Wo;
     }
+}
+
+-(void)dealloc{
+    _Wo = nil;
 }
 
 @end

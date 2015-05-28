@@ -39,9 +39,18 @@
     
     _chengZhangSubmintTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     NSString* path = [[NSBundle mainBundle]pathForResource:@"GrowTestTitleContent.plist" ofType:nil];
     _growTestIntroList = [NSArray arrayWithContentsOfFile:path];
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    _growTestIntroList = nil;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -58,8 +67,9 @@
     }else if(indexPath.row == 2){
         static NSString* ID = @"STARTTESTCELL";
         TTWoGrowTestStartCell* cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        __weak id weakSelf = self;
         cell.block = ^(){
-            [self startGrowTest];
+            [weakSelf startGrowTest];
         };
         return cell;
     }else{
@@ -84,7 +94,7 @@
     }else if(indexPath.row == 2){
         return 66.f;
     }else{
-        return [TTWoGrowTestIntroduceCell cellHeightWith:_growTestIntroList[indexPath.row - 3]];
+        return [TTWoGrowTestIntroduceCell cellHeightWith:_growTestIntroList[indexPath.row-3]];
     }
 }
 
@@ -144,4 +154,7 @@
     }
 }
 
+-(void)dealloc{
+    
+}
 @end

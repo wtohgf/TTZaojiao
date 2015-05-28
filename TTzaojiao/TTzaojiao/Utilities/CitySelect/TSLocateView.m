@@ -15,8 +15,33 @@
 @synthesize titleLabel;
 @synthesize locatePicker;
 @synthesize locate;
+static TSLocateView* cityPicker;
 
--(void)awakeFromNib {
++(instancetype)sharedcityPicker:(NSString *)title delegate:(id)delegate{
+    
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        if (cityPicker == nil) {
+            cityPicker = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];;
+        }
+    });
+    [cityPicker initWithTitle:title delegate:delegate];
+    return cityPicker;
+}
+
++(instancetype)allocWithZone:(struct _NSZone *)zone{
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        cityPicker = [super allocWithZone:zone];
+    });
+    return cityPicker;
+}
+
+- (void)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate
+{
+    self.delegate = delegate;
+    self.titleLabel.text = title;
+    
     self.locatePicker.dataSource = self;
     self.locatePicker.delegate = self;
     
@@ -30,31 +55,9 @@
     self.locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
     self.locate.latitude = [[[cities objectAtIndex:0] objectForKey:@"lat"] doubleValue];
     self.locate.longitude = [[[cities objectAtIndex:0] objectForKey:@"lon"] doubleValue];
+    
+    self.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
 }
-
-//- (id)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate
-//{
-//    
-//    self = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
-//    if (self) {
-//        self.delegate = delegate;
-//        self.titleLabel.text = title;
-//        self.locatePicker.dataSource = self;
-//        self.locatePicker.delegate = self;
-//        
-//        //加载数据
-//        provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ProvincesAndCities.plist" ofType:nil]];
-//        cities = [[provinces objectAtIndex:0] objectForKey:@"Cities"];
-//        
-//        //初始化默认数据
-//        self.locate = [[TSLocation alloc] init];
-//        self.locate.state = [[provinces objectAtIndex:0] objectForKey:@"State"];
-//        self.locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
-//        self.locate.latitude = [[[cities objectAtIndex:0] objectForKey:@"lat"] doubleValue];
-//        self.locate.longitude = [[[cities objectAtIndex:0] objectForKey:@"lon"] doubleValue];
-//    }
-//    return self;
-//}
 
 - (void)showInView:(UIView *) view
 {
@@ -73,7 +76,7 @@
     [self.layer addAnimation:animation forKey:@"DDLocateView"];
     self.backgroundColor = [UIColor whiteColor];
     self.alpha = 0.9;
-    self.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
+
     [view addSubview:backMaskView];
     [view addSubview:self];
 }

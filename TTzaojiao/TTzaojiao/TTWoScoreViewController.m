@@ -10,9 +10,8 @@
 #import <RDVTabBarController.h>
 #import "TTWoScoreIntroduceCell.h"
 
-@interface TTWoScoreViewController (){
-    NSArray* _scoreIntroList;
-}
+@interface TTWoScoreViewController ()
+@property (strong, nonatomic)  NSArray* scoreIntroList;
 @property (weak, nonatomic) IBOutlet UITableView *scoreIntroTableView;
 
 @end
@@ -89,4 +88,7 @@
     return 30.f;
 }
 
+-(void)dealloc{
+    _scoreIntroList = nil;
+}
 @end

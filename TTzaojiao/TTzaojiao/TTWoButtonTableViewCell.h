@@ -12,6 +12,6 @@
 void(^actionSginBlock)(id result, id baby_jifen);
 
 @interface TTWoButtonTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIButton *signButton;
+@property (weak, nonatomic) IBOutlet UIButton *signButton;
 
 @end

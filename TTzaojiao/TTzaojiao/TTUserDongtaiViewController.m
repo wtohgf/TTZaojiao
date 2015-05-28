@@ -13,13 +13,13 @@
 
 @interface TTUserDongtaiViewController ()
 {
-    NSString* _pageIndex;
-    BOOL _isGetMoreList;
     BOOL _isMyFriend;
     NSString* _iconPath;
     BOOL _isChangCover;
     BOOL _isChangIcon;
 }
+@property (copy, nonatomic) NSString* pageIndex;
+@property (assign, nonatomic) BOOL isGetMoreList;
 @property (weak, nonatomic) IBOutlet UIButton *addCancelFriend;
 @property (strong, nonatomic) NSMutableArray* blogList;
 @property (strong, nonatomic) DynamicUserModel* curUser;
@@ -109,20 +109,20 @@
 
 
 -(void)setupRefresh{
-
+    __weak TTUserDongtaiViewController* weakself = self;
     [_userDynamicTableView addLegendHeaderWithRefreshingBlock:^{
-        [_userDynamicTableView.header beginRefreshing];
-        _isGetMoreList = NO;
-        _pageIndex = @"1";
-        [self updateDynamicBlog];
+        [weakself.userDynamicTableView.header beginRefreshing];
+        weakself.isGetMoreList = NO;
+        weakself.pageIndex = @"1";
+        [weakself updateDynamicBlog];
     }];
     
     [_userDynamicTableView addLegendFooterWithRefreshingBlock:^{
-        [_userDynamicTableView.footer beginRefreshing];
-        _isGetMoreList = YES;
-        NSUInteger idx = [_pageIndex integerValue]+1;
-        _pageIndex = [NSString stringWithFormat:@"%ld", idx];
-        [self updateDynamicBlog];
+        [weakself.userDynamicTableView.footer beginRefreshing];
+        weakself.isGetMoreList = YES;
+        NSUInteger idx = [weakself.pageIndex integerValue]+1;
+        weakself.pageIndex = [NSString stringWithFormat:@"%ld", idx];
+        [weakself updateDynamicBlog];
     }];
 }
 
@@ -533,7 +533,7 @@
             break;
         case 1:
         {
-            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self.navigationController];
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self];
         }
             break;
         default:
@@ -569,6 +569,11 @@
         };
         
     }];
+}
+
+-(void)dealloc{
+    _blogList = nil;
+    _curUser = nil;
 }
 
 @end

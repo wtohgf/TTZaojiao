@@ -12,10 +12,10 @@
 #import "TTUserDongtaiViewController.h"
 
 @interface TTWoPasswordModifyViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *oldTextField;
-@property (strong, nonatomic) IBOutlet UITextField *nnewTextField;
-@property (strong, nonatomic) IBOutlet UITextField *confirmTextField;
-@property (strong, nonatomic) IBOutlet UIButton *confirmButton;
+@property (weak, nonatomic) IBOutlet UITextField *oldTextField;
+@property (weak, nonatomic) IBOutlet UITextField *nnewTextField;
+@property (weak, nonatomic) IBOutlet UITextField *confirmTextField;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end
 
@@ -102,6 +102,10 @@
 }
 - (IBAction)endEdit:(UITextField *)sender {
     [sender resignFirstResponder];
+}
+
+-(void)dealloc{
+    
 }
 
 @end

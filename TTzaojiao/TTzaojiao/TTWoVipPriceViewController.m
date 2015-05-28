@@ -104,4 +104,8 @@
     });
 }
 
+-(void)dealloc{
+    _list = nil;
+}
+
 @end

@@ -15,15 +15,15 @@
 @property (copy, nonatomic) NSString * p_1;
 @property (copy, nonatomic) NSString * p_2;
 
-@property (nonatomic,strong) NSString *Weight;
-@property (nonatomic,strong) NSString *Height;
-@property (nonatomic,strong) NSString *tige_sort;
-@property (nonatomic,strong) NSString *pid;
-@property (nonatomic,strong) NSString *yueling;
-@property (nonatomic,strong) NSString *tige_sort_content;
-@property (nonatomic,strong) NSString *tige_sort_content_2;
-@property (nonatomic,strong) NSString *TestDate;
-@property (nonatomic,strong) NSString *tige_shengao_content;
-@property (nonatomic,strong) NSString *tige_tizhong_content;
+@property (nonatomic,copy) NSString *Weight;
+@property (nonatomic,copy) NSString *Height;
+@property (nonatomic,copy) NSString *tige_sort;
+@property (nonatomic,copy) NSString *pid;
+@property (nonatomic,copy) NSString *yueling;
+@property (nonatomic,copy) NSString *tige_sort_content;
+@property (nonatomic,copy) NSString *tige_sort_content_2;
+@property (nonatomic,copy) NSString *TestDate;
+@property (nonatomic,copy) NSString *tige_shengao_content;
+@property (nonatomic,copy) NSString *tige_tizhong_content;
 +(instancetype)WoGrowTestReportModelWithDict:(NSDictionary *)dict;
 @end

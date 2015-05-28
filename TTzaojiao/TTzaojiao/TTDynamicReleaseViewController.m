@@ -18,7 +18,13 @@
     NSString* _picsPath;
 }
 @property (strong, nonatomic) NSMutableArray* images;
-@property (strong, nonatomic) CXAlertView* publicTypeSelectView;
+@property (strong, nonatomic) CLLocation* location;
+
+@property (weak, nonatomic) CXAlertView* publicTypeSelectView;
+@property (weak, nonatomic) TTPublichView *bottomBar;
+@property (weak, nonatomic) UITextView *textView;
+@property (weak, nonatomic) TTPublichPicsView* publichPicsView;
+
 @end
 @implementation TTDynamicReleaseViewController
 -(void)viewDidLoad{
@@ -80,17 +86,17 @@
         [MBProgressHUD TTDelayHudWithMassage:@"评论内容不能为空" View:self.view];
         return;
     }
-    
+    __weak TTDynamicReleaseViewController* weakself = self;
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
         if (location != nil) {
-            _location = location;
+            weakself.location = location;
         }else{
-            _location = nil;
+            weakself.location = nil;
         }
-        if(_images.count != 0){
-            [self uploadPics];
+        if(weakself.images.count != 0){
+            [weakself uploadPics];
         }else{
-            [self publichState];
+            [weakself publichState];
         }
     }];
 
@@ -376,4 +382,8 @@
     }
 }
 
+-(void)dealloc{
+    _images = nil;
+    _location = nil;
+}
 @end

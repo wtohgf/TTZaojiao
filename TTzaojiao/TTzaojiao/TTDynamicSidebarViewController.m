@@ -10,7 +10,7 @@
 #import "TTUserModelTool.h"
 
 @interface TTDynamicSidebarViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) UITableView* menuTableView;
+@property (weak, nonatomic) UITableView* menuTableView;
 
 @end
 
@@ -24,7 +24,8 @@
                               self.contentView.bounds.origin.y+[UIApplication sharedApplication].statusBarFrame.size.height,
                               self.contentView.bounds.size.width,
                               self.contentView.bounds.size.height);
-    self.menuTableView = [[UITableView alloc] initWithFrame:frame];
+    UITableView* tableView = [[UITableView alloc] initWithFrame:frame];
+    _menuTableView = tableView;
     [self.menuTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     self.menuTableView.backgroundColor = [UIColor clearColor];
     self.menuTableView.delegate = self;
@@ -133,10 +134,14 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString * group = [NSString stringWithFormat:@"%ld", indexPath.row];
-    if ([_delegate respondsToSelector:@selector(didselAgeGroup:)]) {
-        [_delegate didselAgeGroup:group];
+    if ([_delegate respondsToSelector:@selector(slider:didselAgeGroup:)]) {
+        [_delegate slider:self didselAgeGroup:group];
     }
     [self showHideSidebar];
+    
+}
+
+-(void)dealloc{
     
 }
 

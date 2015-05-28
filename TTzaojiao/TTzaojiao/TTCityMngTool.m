@@ -52,7 +52,6 @@ static TTCityMngTool* tool;
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 NSMutableArray* array = (NSMutableArray*)result_data;
                 if (array != nil && array.count!=0) {
-                    NSLog(@"%@ %ld",array, array.count);
                     [array writeToFile:filepath atomically:YES];
                 }
                 _cityCodeList = array;

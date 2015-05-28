@@ -170,12 +170,9 @@
 - (IBAction)changLocation:(UIButton *)sender {
     [_babyName resignFirstResponder];
     _bottomBar.hidden = YES;
-    TSLocateView *locateView = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
-    locateView.titleLabel.text = @"定位城市";
-    locateView.delegate = self;
-    //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
+    TSLocateView *locateView = [TSLocateView sharedcityPicker:@"请选择城市" delegate:self];
     [locateView showInView:self.view];
-    locateView.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
+
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -374,8 +371,7 @@
         case 0:
         {
             _type = @"0";
-            CustomDatePicker* cdate = [[CustomDatePicker alloc]init];
-            cdate = [cdate initWithTitle:@"给宝宝选择生日" delegate:self];
+            CustomDatePicker* cdate = [CustomDatePicker sharedDatePicker:@"给宝宝选择生日" delegate:self];
             [cdate showInView:self.view];
             cdate.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
             NSDateFormatter* formater = [[NSDateFormatter alloc]init];
@@ -455,5 +451,8 @@
     }
 }
 
+-(void)dealloc{
+    
+}
 
 @end

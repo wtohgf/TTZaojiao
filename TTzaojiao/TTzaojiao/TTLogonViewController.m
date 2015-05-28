@@ -16,7 +16,7 @@
     CGFloat _backBottonBarY;
 }
 
-@property (strong, nonatomic) UIViewController *mainViewController;
+//@property (strong, nonatomic) UIViewController *mainViewController;
 @property (weak, nonatomic) IBOutlet UIButton *savePassworkCheckButton;
 @property (weak, nonatomic) UIView *siganBottomBar;
 //@property (weak, nonatomic) IBOutlet UIView *bottomBar;
@@ -78,13 +78,13 @@
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat y = [UIScreen mainScreen].bounds.size.height -  h;
     CGFloat x = 0;
-    
+    __weak TTLogonViewController* weakself = self;
     CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
         if ([title isEqualToString:@"返回"]) {
-            [self backLogRegPage];
+            [weakself backLogRegPage];
         }else{
             if ([title isEqualToString:@"登录"]) {
-                [self Logon];
+                [weakself Logon];
             }
         }
         
@@ -204,10 +204,10 @@
     //                    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
   //  [UINavigationBar appearance].hidden = NO;
     
-    self.mainViewController = tabBarController;
-    
+//    self.mainViewController = tabBarController;
+//    
 //    [self.navigationController pushViewController:_mainViewController animated:YES];
-    [UIApplication sharedApplication].keyWindow.rootViewController = _mainViewController;
+    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarController;
     
     //保存用户名和密码
     if(_savePassworkCheckButton.selected == YES)
@@ -246,5 +246,7 @@
     [_account resignFirstResponder];
 }
 
-
+-(void)dealloc{
+    
+}
 @end

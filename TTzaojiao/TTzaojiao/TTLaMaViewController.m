@@ -22,17 +22,16 @@
 #import <MJRefresh.h>
 
 @interface TTLaMaViewController () <CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>
-{
-    NSUInteger _pageIndexInt;
-    BOOL _isGetMore;
-}
+
+@property (assign, nonatomic)  NSUInteger pageIndexInt;
+@property (assign, nonatomic)  BOOL isGetMore;
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *locationCity;
 @property (weak, nonatomic) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *models;
 @property (copy, nonatomic) NSString* cityCode; //110000
-@property (weak, nonatomic) IBOutlet UILabel *location;
+@property (strong, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) UIButton* rightbtn;
 
 @end
@@ -92,38 +91,39 @@
 
 -(void)updateLamaList{
     //定位获得城市码
+    __weak TTLaMaViewController* weakself = self;
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
         if (location == nil) {
-            [_tableView.header endRefreshing];
-            [_tableView.footer endRefreshing];
+            [weakself.tableView.header endRefreshing];
+            [weakself.tableView.footer endRefreshing];
         }
-       
         //NSLog(@"latitude is %f",location.coordinate.latitude);
         if(location!=nil){
             [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
-                _cityCode = cityCode;
+                weakself.cityCode = cityCode;
                 //加载异步网络数据
-                [self loadData];
+                [weakself loadData];
             }];
         }else{
-            [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:self.view];
+            [MBProgressHUD TTDelayHudWithMassage:@"定位失败了" View:weakself.view];
         }
     }];
 }
 
 -(void)setupRefresh{
+    __weak TTLaMaViewController* weakself = self;
     [_tableView addLegendHeaderWithRefreshingBlock:^{
-        [_tableView.header beginRefreshing];
-        _isGetMore = NO;
-        _pageIndexInt = 1;
-        [self updateLamaList];
+        [weakself.tableView.header beginRefreshing];
+        weakself.isGetMore = NO;
+        weakself.pageIndexInt = 1;
+        [weakself updateLamaList];
     }];
     
     [_tableView  addLegendFooterWithRefreshingBlock:^{
-        [_tableView.footer beginRefreshing];
-        _isGetMore = YES;
-        _pageIndexInt++;
-        [self updateLamaList];
+        [weakself.tableView.footer beginRefreshing];
+        weakself.isGetMore = YES;
+        weakself.pageIndexInt++;
+        [weakself updateLamaList];
     }];
 }
 
@@ -301,12 +301,8 @@
 - (IBAction)changLocation:(UIButton *)sender {
     //[_babyName resignFirstResponder];
     [[self rdv_tabBarController]setTabBarHidden:YES];
-    TSLocateView *locateView = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
-    locateView.titleLabel.text = @"定位城市";
-    locateView.delegate = self;
-    //[[TSLocateView alloc] initWithTitle:@"定位城市" delegate:self];
+    TSLocateView *locateView = [TSLocateView sharedcityPicker:@"请选择城市" delegate:self];
     [locateView showInView:self.view];
-    locateView.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
     
 }
 
@@ -317,7 +313,6 @@
         TSLocation *location = locateView.locate;
 
         //You can uses location to your application.
-        
         if(buttonIndex == 0) {
             _cityCode = @"210200";
         }else {
@@ -335,5 +330,13 @@
     }
 }
 
+-(void)dealloc{
+    _locationManager = nil;
+    [_headerView removeFromSuperview];
+    [_location removeFromSuperview];
+    _headerView = nil;
+    [_locationCity removeFromSuperview];
+    _locationCity = nil;
+}
 
 @end

@@ -14,12 +14,11 @@
 #import "TTWoTempTestReportViewController.h"
 #import "NSString+Extension.h"
 
-@interface TTWoTempTestSubmitController (){
-    NSString* _timuContent;
-    NSString* _timuCheck;
-    NSArray* _sortArray;
-    NSString* _timu_sort;
-}
+@interface TTWoTempTestSubmitController ()
+@property (copy, nonatomic) NSString* timuContent;
+@property (copy, nonatomic)  NSString* timuCheck;
+@property (strong, nonatomic) NSArray* sortArray;
+@property (copy, nonatomic)  NSString* timu_sort;
 @property (weak, nonatomic) IBOutlet UITableView *tempTestTableView;
 @property (weak, nonatomic) UIButton* headerButton;
 @end
@@ -117,9 +116,10 @@
     if (indexPath.row == 2) {
         TTWoTempTestAnswerCell* cell = [tableView dequeueReusableCellWithIdentifier:@"anwserCell"];
         TempTestAnswerBlock block;
+        __weak TTWoTempTestSubmitController* weakself = self;
         block = ^(NSString* timuCheck){
-            _timuCheck = timuCheck;
-            [self nextTempTestStart];
+            weakself.timuCheck = timuCheck;
+            [weakself nextTempTestStart];
         };
         cell.block = block;
         tmpcell = cell;
@@ -197,4 +197,9 @@
         tv.resultID = sender;
     }
 }
+
+-(void)dealloc{
+    _sortArray = nil;
+}
+
 @end

@@ -616,7 +616,9 @@
     imageView.image=UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
-    
+}
+
+-(void)dealloc{
+    _modelArray = nil;
 }
 @end

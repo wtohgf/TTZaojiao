@@ -81,14 +81,15 @@
 }
 
 -(void)setupRefresh{
+    __weak TTWoFriendViewController* weakself = self;
     [_wofriendTableView addLegendHeaderWithRefreshingBlock:^{
-        [_wofriendTableView.header beginRefreshing];
-        [self updateFriend];
+        [weakself.wofriendTableView.header beginRefreshing];
+        [weakself updateFriend];
     }];
     
     [_wofriendTableView  addLegendFooterWithRefreshingBlock:^{
-        [_wofriendTableView.footer beginRefreshing];
-        [self updateFriend];
+        [weakself.wofriendTableView.footer beginRefreshing];
+        [weakself updateFriend];
     }];
 }
 
@@ -132,6 +133,10 @@
         [userViewController setI_uid:baby.uid];
         [self.navigationController pushViewController:userViewController animated:YES];
     }
+}
+
+-(void)dealloc{
+    _friendList = nil;
 }
 
 @end

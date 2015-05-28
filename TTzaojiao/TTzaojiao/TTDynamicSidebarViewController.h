@@ -8,8 +8,9 @@
 
 #import "LLBlurSidebar.h"
 
+@class TTDynamicSidebarViewController;
 @protocol TTDynamicSidebarViewControllerDelegate<NSObject>
--(void)didselAgeGroup:(NSString*)group;
+-(void)slider:(TTDynamicSidebarViewController*)slider didselAgeGroup:(NSString*)group;
 @end
 @interface TTDynamicSidebarViewController : LLBlurSidebar
 @property (weak, nonatomic) id<TTDynamicSidebarViewControllerDelegate> delegate;

@@ -10,12 +10,15 @@
 #import "BlogReplayModel.h"
 @interface TTCommentListViewController()
 {
-    NSString* _pageIndex;
-    BOOL _isGetMoreList;
     CGFloat _backBottonBarY;
 }
 @property (strong, nonatomic) NSMutableArray* blogReplayList;
+@property (strong, nonatomic) CLLocation* location;
 
+@property (weak, nonatomic) UITableView *commentListTableView;
+@property (weak, nonatomic) TTCommentRelaseView* replayView;
+@property (copy, nonatomic) NSString* pageIndex;
+@property (assign, nonatomic) BOOL isGetMoreList;
 @end
 @implementation TTCommentListViewController
 
@@ -66,19 +69,21 @@
 }
 
 -(void)setupRefresh{
+    
+    __weak TTCommentListViewController* weakself = self;
     [_commentListTableView addLegendHeaderWithRefreshingBlock:^{
-        [_commentListTableView.header beginRefreshing];
-        _isGetMoreList = NO;
-        _pageIndex = @"1";
-        [self updateCommentlist];
+        [weakself.commentListTableView.header beginRefreshing];
+        weakself.isGetMoreList = NO;
+        weakself.pageIndex = @"1";
+        [weakself updateCommentlist];
     }];
     
     [_commentListTableView  addLegendFooterWithRefreshingBlock:^{
-        [_commentListTableView.footer beginRefreshing];
-        _isGetMoreList = YES;
-        NSUInteger idx = [_pageIndex integerValue]+1;
-        _pageIndex = [NSString stringWithFormat:@"%ld", idx];
-        [self updateCommentlist];
+        [weakself.commentListTableView.footer beginRefreshing];
+        weakself.isGetMoreList = YES;
+        NSUInteger idx = [weakself.pageIndex integerValue]+1;
+        weakself.pageIndex = [NSString stringWithFormat:@"%ld", idx];
+        [weakself updateCommentlist];
     }];
 }
 
@@ -221,11 +226,12 @@
 }
 
 -(void)didReplayButtonClick{
+    __weak TTCommentListViewController* weakself = self;
     if (![[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
         if (_replayView.commentTextField.text.length != 0) {
             [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
-                _location = location;
-                [self replayComment];
+                weakself.location = location;
+                [weakself replayComment];
             }];
             
         }else{
@@ -283,7 +289,7 @@
             break;
         case 1:
         {
-            [self.rdv_tabBarController.navigationController popViewControllerAnimated:YES];
+            [[TTUIChangeTool sharedTTUIChangeTool]backToLogReg:self];
         }
             break;
         default:
@@ -291,5 +297,8 @@
     }
 }
 
-
+-(void)dealloc{
+    _blogReplayList = nil;
+    _location = nil;
+}
 @end

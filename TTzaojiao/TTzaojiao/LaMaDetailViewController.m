@@ -215,4 +215,8 @@
     
 }
 
+-(void)dealloc{
+    _modelFrame = nil;
+}
+
 @end

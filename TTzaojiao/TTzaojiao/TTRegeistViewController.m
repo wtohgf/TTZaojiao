@@ -60,12 +60,14 @@
     CGFloat y = self.view.height - h  -64.f;
     CGFloat x = 0;
     
+    __weak TTRegeistViewController* weakself = self;
+    
     CustomBottomBar* bottomBar = [CustomBottomBar customBottomBarWithClickedBlock:^(NSString *title) {
         if ([title isEqualToString:@"返回"]) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [weakself.navigationController popViewControllerAnimated:YES];
         }else{
             if ([title isEqualToString:@"下一步"]) {
-                [self nextStep];
+                [weakself nextStep];
             }
         }
         
@@ -195,6 +197,10 @@
             realReg.password = _firstPassword.text;
         }
     }
+}
+
+-(void)dealloc{
+    
 }
 
 @end

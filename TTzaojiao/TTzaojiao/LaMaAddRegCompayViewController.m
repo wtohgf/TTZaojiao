@@ -184,6 +184,8 @@
     return  nameTextField;
 }
 
-
+-(void)dealloc{
+    
+}
 
 @end

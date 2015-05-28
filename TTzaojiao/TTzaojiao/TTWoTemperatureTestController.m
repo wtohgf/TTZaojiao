@@ -13,10 +13,8 @@
 #import "TTWoTempTestReportViewController.h"
 
 
-@interface TTWoTemperatureTestController (){
-    NSString* _pageIndex;
-    
-}
+@interface TTWoTemperatureTestController ()
+@property (copy, nonatomic)  NSString* pageIndex;
 @property (strong, nonatomic) NSMutableArray* testHistoryList;
 @property (weak, nonatomic) IBOutlet UITableView *tempTestTableView;
 
@@ -42,17 +40,18 @@
 }
 
 -(void)setupRefresh{
+    __weak TTWoTemperatureTestController* weakself = self;
     [_tempTestTableView addLegendHeaderWithRefreshingBlock:^{
-        [_tempTestTableView.header beginRefreshing];
-        _pageIndex = @"1";
-        [self updateTestList];
+        [weakself.tempTestTableView.header beginRefreshing];
+        weakself.pageIndex = @"1";
+        [weakself updateTestList];
     }];
     
     [_tempTestTableView  addLegendFooterWithRefreshingBlock:^{
-        [_tempTestTableView.footer beginRefreshing];
-        NSUInteger index = [_pageIndex integerValue]+1;
-        _pageIndex = [NSString stringWithFormat:@"%ld", index];
-        [self updateTestList];
+        [weakself.tempTestTableView.footer beginRefreshing];
+        NSUInteger index = [weakself.pageIndex integerValue]+1;
+        weakself.pageIndex = [NSString stringWithFormat:@"%ld", index];
+        [weakself updateTestList];
     }];
 }
 
@@ -164,6 +163,10 @@
         TTWoTempTestReportViewController* vc = segue.destinationViewController;
         vc.resultID = sender;
     }
+}
+
+-(void)dealloc{
+    _testHistoryList = nil;
 }
 
 @end

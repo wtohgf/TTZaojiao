@@ -12,9 +12,9 @@
 #import <MJRefresh.h>
 #import "TTWoGrowTestReportViewController.h"
 
-@interface TTWoChengZhangViewController (){
-    NSString* _pageIndex;
-}
+@interface TTWoChengZhangViewController()
+
+@property (copy, nonatomic) NSString* pageIndex;;
 @property (strong, nonatomic) NSMutableArray* testHistoryList;
 @property (weak, nonatomic) IBOutlet UITableView *chengzhangTableView;
 
@@ -40,21 +40,24 @@
 }
 
 -(void)setupRefresh{
+    __weak TTWoChengZhangViewController* weakself = self;
+    
     [_chengzhangTableView addLegendHeaderWithRefreshingBlock:^{
-        [_chengzhangTableView.header beginRefreshing];
-        _pageIndex = @"1";
-        [self updateTestList];
+        [weakself.chengzhangTableView.header beginRefreshing];
+        weakself.pageIndex = @"1";
+        [weakself updateTestList];
     }];
     
     [_chengzhangTableView  addLegendFooterWithRefreshingBlock:^{
-        [_chengzhangTableView.footer beginRefreshing];
-        NSUInteger index = [_pageIndex integerValue]+1;
-        _pageIndex = [NSString stringWithFormat:@"%ld", index];
-        [self updateTestList];
+        [weakself.chengzhangTableView.footer beginRefreshing];
+        NSUInteger index = [weakself.pageIndex integerValue]+1;
+        weakself.pageIndex = [NSString stringWithFormat:@"%ld", index];
+        [weakself updateTestList];
     }];
 }
 
 -(void)updateTestList{
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [TTGrowTemperTestTool getTestListWithPageindex:_pageIndex Result:^(id testlist) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -162,6 +165,10 @@
         TTWoGrowTestReportViewController* vc = segue.destinationViewController;
         vc.resultID = sender;
     }
+}
+
+-(void)dealloc{
+    _testHistoryList = nil;
 }
 
 @end

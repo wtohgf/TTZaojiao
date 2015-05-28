@@ -10,6 +10,6 @@
 void(^actionBackBlock)();
 
 @interface TTWoBackTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
