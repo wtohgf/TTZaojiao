@@ -37,6 +37,9 @@
     _chengzhangTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
     [self setupRefresh];
+    
+    _pageIndex = @"1";
+    [self updateTestList];
 }
 
 -(void)setupRefresh{
@@ -59,8 +62,10 @@
 -(void)updateTestList{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
     [TTGrowTemperTestTool getTestListWithPageindex:_pageIndex Result:^(id testlist) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
         [_chengzhangTableView.header endRefreshing];
         [_chengzhangTableView.footer endRefreshing];
         if ([testlist isKindOfClass:[NSMutableArray class]]) {
@@ -84,8 +89,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _pageIndex = @"1";
-    [self updateTestList];
+    if ([TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI == YES) {
+        [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = NO;
+        _pageIndex = @"1";
+        [self updateTestList];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

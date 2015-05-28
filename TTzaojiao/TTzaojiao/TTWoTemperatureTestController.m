@@ -37,6 +37,9 @@
     _tempTestTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
     [self setupRefresh];
+    
+    _pageIndex = @"1";
+    [self updateTestList];
 }
 
 -(void)setupRefresh{
@@ -82,8 +85,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    _pageIndex = @"1";
-    [self updateTestList];
+    if ([TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI == YES) {
+        [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = NO;
+        _pageIndex = @"1";
+        [self updateTestList];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

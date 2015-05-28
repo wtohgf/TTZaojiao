@@ -49,6 +49,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [super viewWillDisappear:animated];
     _growTestIntroList = nil;
 }
@@ -131,6 +132,7 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if ([testlist isKindOfClass:[NSDictionary class]]) {
             NSString* resultID = [testlist objectForKey:@"msg_word"];
+            [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
             [self performSegueWithIdentifier:@"SUBMITTOGROWREPORT" sender:resultID];
         }else{
             if ([testlist isKindOfClass:[NSString class]]) {

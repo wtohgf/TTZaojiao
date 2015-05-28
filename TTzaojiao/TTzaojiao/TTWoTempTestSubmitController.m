@@ -169,7 +169,7 @@
             if ([[testlist objectForKey:@"msg"] isEqualToString:@"Get_Test_Qizhi_Ok"]) {
                 [MBProgressHUD TTDelayHudWithMassage:@"宝宝的气质测评已完成" View:self.view];
                 NSString* resultID = [testlist objectForKey:@"msg_word"];
-                
+                [TTUIChangeTool sharedTTUIChangeTool].isneedUpdateUI = YES;
                 [self performSegueWithIdentifier:@"SUBMITTOTEMPREPORT" sender:resultID];
                 
             }else{
