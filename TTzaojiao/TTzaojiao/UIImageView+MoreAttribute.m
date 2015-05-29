@@ -8,11 +8,11 @@
 
 #import "UIImageView+MoreAttribute.h"
 #import "TTWebServerAPI.h"
-#import <UIImageView+AFNetworking.h>
+#import <UIImageView+WebCache.h>
 
 @implementation UIImageView (MoreAttribute)
 -(void)setImageIcon:(NSString *)icon{
     NSString* str = [NSString stringWithFormat:@"%@%@", TTBASE_URL, icon];
-    [self setImageWithURL:[NSURL URLWithString:str]];
+    [self sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"default_pic.png"]];
 }
 @end

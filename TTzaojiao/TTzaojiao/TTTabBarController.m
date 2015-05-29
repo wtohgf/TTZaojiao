@@ -29,6 +29,9 @@
     UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"DongTaiStoryboard" bundle:nil];
     UIViewController *dongtaiNavigationController = [storyBoardDongTai instantiateViewControllerWithIdentifier:@"DongTaiNav"];
     
+    UIStoryboard *storyBoardYuying=[UIStoryboard storyboardWithName:@"Yuying" bundle:nil];
+    UIViewController *yuyingNavigationController = [storyBoardYuying instantiateViewControllerWithIdentifier:@"TTBaseNavgationController"];
+    
     UIStoryboard *storyBoardLaMaJie=[UIStoryboard storyboardWithName:@"LaMaJieStoryboard" bundle:nil];
     UIViewController *lamajieNavigationController = [storyBoardLaMaJie instantiateViewControllerWithIdentifier:@"LaMaJieNav"];
     
@@ -39,7 +42,8 @@
     
     [self setViewControllers:@[zaojiaoNavigationController,
                                            dongtaiNavigationController,
-                                           lamajieNavigationController,
+                                            yuyingNavigationController,
+                                            lamajieNavigationController,
                                            woNavigationController]];
    
     
@@ -49,7 +53,7 @@
 - (void)customizeTabBarForController:(TTTabBarController *)tabBarController {
     UIImage *finishedImage = [UIImage imageWithName:@"tabbar_selected_background.png"];
     UIImage *unfinishedImage = [UIImage imageWithName:@"tabbar_normal_background.png"];
-    NSArray *tabBarItemImages = @[@"bottom_btn1", @"bottom_btn2", @"bottom_btn4", @"bottom_btn5"];
+    NSArray *tabBarItemImages = @[@"bottom_btn1", @"bottom_btn2", @"bottom_btn3", @"bottom_btn4", @"bottom_btn5"];
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
         
@@ -85,10 +89,15 @@
                 break;
             case 2:
             {
-                [item setTitle:@"辣妈街"];
+                [item setTitle:@"育婴跟踪"];
             }
                 break;
             case 3:
+            {
+                [item setTitle:@"辣妈街"];
+            }
+                break;
+            case 4:
             {
                 [item setTitle:@"我"];
             }

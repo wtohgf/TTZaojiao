@@ -111,7 +111,14 @@
             }
         }
             break;
-            
+        case ApiEnumGet_List_Teacher_Index:{
+            id tmpModel = [YuyingModel yuyingModelWithDict:(NSDictionary *)modelObj];
+            if (tmpModel != nil) {
+                modelObj = tmpModel;
+            }
+        }
+            break;
+
         default:
         {
             

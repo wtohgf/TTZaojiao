@@ -453,6 +453,10 @@
                         if ([function rangeOfString:@"Get_Me_ClassPart_Info"].length) {
                             api = ApiEnumGet_Me_ClassPart_Info;
                         }
+                        if ([function rangeOfString:@"Get_List_Teacher_Index"].length) {
+                            api = ApiEnumGet_List_Teacher_Index;
+                        }
+
                         [Data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                             NSDictionary *modelDic = (NSDictionary *)obj;
                             

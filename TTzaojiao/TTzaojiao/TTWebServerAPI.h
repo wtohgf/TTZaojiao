@@ -135,5 +135,8 @@
 // &i_id=1
 #define GET_LIST_ACTIVE_SHOW  @"http://www.ttzaojiao.com/appcode/?Act=Get_List_Active_Show" 
 
+//&i_uid=1977&i_psd=3e9fe397381d3e595979a716ebf32c21&p_1=1&p_2=10&i_city=210200
+#define GET_LIST_Teacher_Index @"http://www.ttzaojiao.com/appcode/?Act=Get_List_Teacher_Index"
+
 #define TTBASE_URL @"http://www.ttzaojiao.com"
 #endif
