@@ -360,6 +360,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[TTPlayLessionHeaderCell setLession:]"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTPlayLessionHeaderCell.m"
                   timestampString = "453810518.660626"
                   startingColumnNumber = "9223372036854775807"
@@ -374,6 +375,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__38-[TTPlayLessionHeaderCell setLession:]_block_invoke78"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTPlayLessionHeaderCell.m"
                   timestampString = "453810518.661058"
                   startingColumnNumber = "9223372036854775807"
@@ -758,6 +760,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__37-[TTPhotoChoiceAlerTool photoChoice:]_block_invoke69"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTPhotoChoiceAlerTool.m"
                   timestampString = "453884838.296171"
                   startingColumnNumber = "9223372036854775807"
@@ -772,6 +775,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__37-[TTPhotoChoiceAlerTool photoChoice:]_block_invoke_273"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTPhotoChoiceAlerTool.m"
                   timestampString = "453884838.296409"
                   startingColumnNumber = "9223372036854775807"
@@ -1124,6 +1128,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "+[TTUserModelTool ScorePayLessionWithMouth:UserAccount:Result:]"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTUserModelTool.m"
                   timestampString = "454027976.754792"
                   startingColumnNumber = "9223372036854775807"
@@ -1138,6 +1143,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__63+[TTUserModelTool ScorePayLessionWithMouth:UserAccount:Result:]_block_invoke"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTUserModelTool.m"
                   timestampString = "454027976.755059"
                   startingColumnNumber = "9223372036854775807"
@@ -1170,6 +1176,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "+[TTUserModelTool ScorePayLessionWithMouth:UserAccount:Result:]"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTUserModelTool.m"
                   timestampString = "454028326.878459"
                   startingColumnNumber = "9223372036854775807"
@@ -1184,6 +1191,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__63+[TTUserModelTool ScorePayLessionWithMouth:UserAccount:Result:]_block_invoke"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTUserModelTool.m"
                   timestampString = "454028326.878814"
                   startingColumnNumber = "9223372036854775807"
@@ -1936,6 +1944,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__41-[TTDongTaiViewController showNearByBaby]_block_invoke"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTDongTaiViewController.m"
                   timestampString = "454319718.996166"
                   startingColumnNumber = "9223372036854775807"
@@ -1950,6 +1959,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__41-[TTDongTaiViewController showNearByBaby]_block_invoke_2"
                   moduleName = "TTzaojiao"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hegf/Documents/TTZaojiao/TTzaojiao/TTzaojiao/TTDongTaiViewController.m"
                   timestampString = "454319718.996475"
                   startingColumnNumber = "9223372036854775807"
@@ -2758,6 +2768,38 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "-layoutSubviews"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/TTYuyingViewController.m"
+            timestampString = "454631585.400016"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "-dealloc"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTzaojiao/TTZaojiaoPlayLessionController.m"
+            timestampString = "454632140.598395"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-dealloc"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

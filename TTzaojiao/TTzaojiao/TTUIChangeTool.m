@@ -46,8 +46,10 @@ static TTUIChangeTool* tool;
 -(void)backToLogReg:(UIViewController*)vc{
     UIStoryboard *storyBoardDongTai=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *nav = (UINavigationController *)[storyBoardDongTai instantiateViewControllerWithIdentifier:@"MAINNAV"];
-    [vc presentViewController:nav animated:NO completion:nil];
-//    [UIApplication sharedApplication].keyWindow.rootViewController = nav;
+    //[vc presentViewController:nav animated:NO completion:nil];
+        [UIApplication sharedApplication].delegate.window.rootViewController = nav;
+        [[UIApplication sharedApplication].delegate.window reloadInputViews];
+        [UIApplication sharedApplication].keyWindow.rootViewController = nav;
 }
 
 -(void)pushToLongon:(UINavigationController *)nav{
