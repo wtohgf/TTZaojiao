@@ -22,7 +22,7 @@ static TSLocateView* cityPicker;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         if (cityPicker == nil) {
-            cityPicker = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];;
+            cityPicker = [[[NSBundle mainBundle] loadNibNamed:@"TSLocateView" owner:self options:nil] objectAtIndex:0];
         }
     });
     [cityPicker initWithTitle:title delegate:delegate];
@@ -37,17 +37,20 @@ static TSLocateView* cityPicker;
     return cityPicker;
 }
 
-- (void)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate
-{
-    self.delegate = delegate;
-    self.titleLabel.text = title;
-    
-    self.locatePicker.dataSource = self;
-    self.locatePicker.delegate = self;
-    
+-(void)awakeFromNib{
     //加载数据
     provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ProvincesAndCities.plist" ofType:nil]];
     cities = [[provinces objectAtIndex:0] objectForKey:@"Cities"];
+    
+}
+
+- (void)initWithTitle:(NSString *)title delegate:(id /*<UIActionSheetDelegate>*/)delegate
+{
+    
+    self.delegate = delegate;
+    self.titleLabel.text = title;
+    self.locatePicker.dataSource = self;
+    self.locatePicker.delegate = self;
     
     //初始化默认数据
     self.locate = [[TSLocation alloc] init];
@@ -57,6 +60,7 @@ static TSLocateView* cityPicker;
     self.locate.longitude = [[[cities objectAtIndex:0] objectForKey:@"lon"] doubleValue];
     
     self.frame =  CGRectMake(0, [UIScreen mainScreen].bounds.size.height*0.6-64.f, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height*0.4);
+    
 }
 
 - (void)showInView:(UIView *) view
