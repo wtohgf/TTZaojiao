@@ -407,7 +407,6 @@
 		1D5A90131B0DA85300980209 /* TTPhotoChoiceAlerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5A90121B0DA85300980209 /* TTPhotoChoiceAlerTool.m */; };
 		1D60E5E71ADDB392003A632B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E61ADDB392003A632B /* main.m */; };
 		1D60E5EA1ADDB392003A632B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5E91ADDB392003A632B /* AppDelegate.m */; };
-		1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */; };
 		1D60E5F01ADDB392003A632B /* TTMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D60E5EF1ADDB392003A632B /* TTMainPageViewController.m */; };
 		1D60E5F31ADDB392003A632B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F11ADDB392003A632B /* Main.storyboard */; };
 		1D60E5F51ADDB392003A632B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D60E5F41ADDB392003A632B /* Images.xcassets */; };
@@ -1084,7 +1083,6 @@
 		1D60E5E61ADDB392003A632B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D60E5E81ADDB392003A632B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D60E5E91ADDB392003A632B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1D60E5EC1ADDB392003A632B /* TTzaojiao.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TTzaojiao.xcdatamodel; sourceTree = "<group>"; };
 		1D60E5EE1ADDB392003A632B /* TTMainPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMainPageViewController.h; sourceTree = "<group>"; };
 		1D60E5EF1ADDB392003A632B /* TTMainPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMainPageViewController.m; sourceTree = "<group>"; };
 		1D60E5F21ADDB392003A632B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -2294,7 +2292,6 @@
 				1D60E5E91ADDB392003A632B /* AppDelegate.m */,
 				1D60E5F11ADDB392003A632B /* Main.storyboard */,
 				1D60E5F41ADDB392003A632B /* Images.xcassets */,
-				1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */,
 				1D60E5E41ADDB392003A632B /* Supporting Files */,
 			);
 			path = TTzaojiao;
@@ -2828,7 +2825,6 @@
 				1D4253B11B007BAA00BBCB4A /* TTPlayLessionIntroducePicsView.m in Sources */,
 				02BFC5601ADF7A3700D0DF30 /* base64.m in Sources */,
 				1D3B04911B0851E400E2E41D /* TTWoNavigtaionViewController.m in Sources */,
-				1D60E5ED1ADDB392003A632B /* TTzaojiao.xcdatamodeld in Sources */,
 				02BFC5671ADF7A3700D0DF30 /* RSADataVerifier.m in Sources */,
 				1DB7246B1B05E62C005C2584 /* TTWoyiziCaoViewController.m in Sources */,
 				02FBF1211AFA38AE0009425A /* TTWoVipPriceViewController.m in Sources */,
@@ -3136,7 +3132,7 @@
 					"$(SRCROOT)/IntegratedAlipay/AlipayFiles",
 				);
 				INFOPLIST_FILE = TTzaojiao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3168,7 +3164,7 @@
 					"$(SRCROOT)/IntegratedAlipay/AlipayFiles",
 				);
 				INFOPLIST_FILE = TTzaojiao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3245,19 +3241,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		1D60E5EB1ADDB392003A632B /* TTzaojiao.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				1D60E5EC1ADDB392003A632B /* TTzaojiao.xcdatamodel */,
-			);
-			currentVersion = 1D60E5EC1ADDB392003A632B /* TTzaojiao.xcdatamodel */;
-			path = TTzaojiao.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 1D60E5D91ADDB392003A632B /* Project object */;
 }

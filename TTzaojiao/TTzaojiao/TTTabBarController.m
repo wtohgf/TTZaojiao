@@ -146,7 +146,7 @@
 
 
 -(BOOL)tabBar:(RDVTabBar *)tabBar shouldSelectItemAtIndex:(NSInteger)index{
-    if (index == 3) {
+    if (index == 4) {
         if ([[TTUserModelTool sharedUserModelTool].logonUser.ttid isEqualToString:@"1977"]) {
             UIAlertView* alertView =  [[UIAlertView alloc]initWithTitle:@"提示" message:@"注册登录后可以查看我的信息\n还有宝宝的成长测评等等" delegate:self cancelButtonTitle:@"以后吧" otherButtonTitles:@"登录注册",nil];
             [alertView show];

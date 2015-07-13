@@ -67,36 +67,22 @@
     
     _tableView.rowHeight = 120.f;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    _pageIndexInt = 1;
-    
-//    if(([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-//        self.edgesForExtendedLayout = UIRectEdgeNone;
-//        self.extendedLayoutIncludesOpaqueBars
-//        = NO;
-//        self.modalPresentationCapturesStatusBarAppearance
-//        = NO;
-//    }
-//    
+
     _models = [NSMutableArray array];
     
     [self setting];
     
-    _isGetMore = NO;
+    [self setupRefresh];
+    
     _pageIndexInt = 1;
     [self updateLamaList];
     
-    [self setupRefresh];
 }
 
 -(void)updateLamaList{
     //定位获得城市码
     __weak TTLaMaViewController* weakself = self;
     [[TTCityMngTool sharedCityMngTool] startLocation:^(CLLocation *location, NSError *error) {
-        if (location == nil) {
-            [weakself.tableView.header endRefreshing];
-            [weakself.tableView.footer endRefreshing];
-        }
         //NSLog(@"latitude is %f",location.coordinate.latitude);
         if(location!=nil){
             [[TTCityMngTool sharedCityMngTool] getReverseGeocode:location Result:^(NSString *cityCode, NSError *error) {
@@ -115,14 +101,12 @@
     __weak TTLaMaViewController* weakself = self;
     [_tableView addLegendHeaderWithRefreshingBlock:^{
         [weakself.tableView.header beginRefreshing];
-        weakself.isGetMore = NO;
         weakself.pageIndexInt = 1;
         [weakself updateLamaList];
     }];
     
     [_tableView  addLegendFooterWithRefreshingBlock:^{
         [weakself.tableView.footer beginRefreshing];
-        weakself.isGetMore = YES;
         weakself.pageIndexInt++;
         [weakself updateLamaList];
     }];
@@ -147,18 +131,19 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[AFAppDotNetAPIClient sharedClient]apiGet:GET_LIST_ACTIVE Parameters:parameters  Result:^(id result_data, ApiStatus result_status, NSString *api) {
         [MBProgressHUD hideAllHUDsForView: self.view animated:YES];
+        
         [_tableView.header endRefreshing];
         [_tableView.footer endRefreshing];
+        
         if (result_status == ApiStatusSuccess) {
 
             if ([result_data isKindOfClass:[NSMutableArray class]]) {
                 
                 NSMutableArray *tempArray = result_data;
-                if (tempArray != nil && tempArray.count>0) {
+                if (tempArray != nil && tempArray.count>1) {
                     [tempArray removeObjectAtIndex:0];
-                    if (_isGetMore) {
+                    if ([_pageIndex integerValue] > 1) {
                         [_models addObjectsFromArray:tempArray];
-                        _isGetMore = NO;
                     }else{
                         _models = tempArray;
                     }
@@ -324,8 +309,6 @@
             [_location setText:cityString];
         }
         [[self rdv_tabBarController]setTabBarHidden:NO];
-        //重新加载网络数据
-        _isGetMore = NO;
         _pageIndexInt = 1;
         [self loadData];
     }
